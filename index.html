@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced CBT Simulator</title>
+    <style>
+        * { box-sizing: border-box; font-family: Arial, sans-serif; }
+        body { margin: 0; background-color: #f4f6f8; display: flex; flex-direction: column; height: 100vh; }
+        
+        /* Header */
+        .header { background-color: #1a73e8; color: white; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 4px rgba(0,0,0,0.1); z-index: 10; }
+        .header h1 { margin: 0; font-size: 1.2rem; }
+        .timer-box { font-size: 1.2rem; font-weight: bold; background: #fff; color: #d32f2f; padding: 5px 15px; border-radius: 4px; border: 2px solid #d32f2f; display: none; }
+        
+        /* Screens */
+        #dashboard-screen, #test-app, #result-screen, #review-screen { display: none; padding: 20px; height: 100%; overflow-y: auto; }
+        #dashboard-screen { display: block; max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 8px; margin-top: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        #test-app { padding: 0; display: none; flex-direction: column; }
+        
+        /* Main Test Layout */
+        .container { display: flex; flex: 1; overflow: hidden; }
+        .left-panel { flex: 1; display: flex; flex-direction: column; background: white; margin: 10px; border-radius: 6px; box-shadow: 0 0 10px rgba(0,0,0,0.05); }
+        .right-panel { width: 320px; background: white; margin: 10px 10px 10px 0; display: flex; flex-direction: column; border-radius: 6px; box-shadow: 0 0 10px rgba(0,0,0,0.05); }
+        
+        /* Question Area */
+        .q-header { padding: 15px; background: #eef2f6; border-bottom: 1px solid #ddd; font-weight: bold; font-size: 1.1rem; }
+        .q-body { padding: 25px; flex: 1; overflow-y: auto; font-size: 1.1rem; line-height: 1.6; }
+        .options-container { margin-top: 20px; }
+        .option-lbl { display: block; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px; cursor: pointer; transition: 0.2s; }
+        .option-lbl:hover { background: #f0f7ff; }
+        .option-lbl input { margin-right: 10px; transform: scale(1.2); }
+        .numerical-input { margin-top: 20px; padding: 10px; font-size: 1.1rem; width: 100%; max-width: 300px; border: 2px solid #aaa; border-radius: 4px; }
+        
+        /* Buttons */
+        .btn-bar { display: flex; padding: 15px; background: #f8f9fa; border-top: 1px solid #ddd; gap: 10px; flex-wrap: wrap; }
+        .btn { padding: 10px 15px; border: none; border-radius: 4px; font-weight: bold; cursor: pointer; color: white; font-size: 0.9rem; flex: 1; text-align: center; }
+        .btn-review { background-color: #e67e22; }
+        .btn-clear { background-color: #95a5a6; }
+        .btn-next { background-color: #27ae60; }
+        .btn-primary { background-color: #1a73e8; color: white; padding: 12px 25px; font-size: 1rem; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; }
+        .btn-secondary { background-color: #6c757d; color: white; padding: 12px 25px; font-size: 1rem; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; margin-left: 10px; }
+        
+        /* Palette */
+        .summary-grid { display: flex; flex-wrap: wrap; padding: 10px; background: #fdfdfd; border-bottom: 1px solid #eee; gap: 5px; font-size: 0.8rem; }
+        .summary-item { width: 48%; display: flex; align-items: center; margin-bottom: 5px; }
+        .badge { width: 20px; height: 20px; border-radius: 50%; margin-right: 8px; display: inline-block; text-align: center; color: white; line-height: 20px; font-size: 0.7rem; border: 1px solid #ccc; }
+        .s-not-visited { background: #e0e0e0; color: #333; }
+        .s-not-answered { background: #eb5353; color: white; border-color: #eb5353; }
+        .s-answered { background: #2ecc71; color: white; border-color: #2ecc71; }
+        .s-review { background: #9b59b6; color: white; border-color: #9b59b6; }
+        .s-review-ans { background: #9b59b6; color: white; border-color: #9b59b6; position: relative; }
+        .s-review-ans::after { content: ''; position: absolute; bottom: 2px; right: 2px; width: 6px; height: 6px; background: #2ecc71; border-radius: 50%; }
+        .palette-container { padding: 15px; flex: 1; overflow-y: auto; }
+        .palette { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+        .p-btn { width: 100%; aspect-ratio: 1; border-radius: 5px; border: 1px solid #ccc; font-weight: bold; font-size: 1.1rem; cursor: pointer; display: flex; justify-content: center; align-items: center; }
+        .p-btn.active { box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.5); }
+        .submit-bar { padding: 15px; text-align: center; background: #eee; border-top: 1px solid #ddd; }
+        
+        /* Tables */
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: center; }
+        th { background-color: #f4f6f8; }
+        .correct { color: #27ae60; font-weight: bold; }
+        .incorrect { color: #d32f2f; font-weight: bold; }
+
+        /* Review Screen */
+        #review-screen { background: white; max-width: 900px; margin: 20px auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); padding: 30px; }
+        .review-card { border: 1px solid #e0e0e0; border-radius: 6px; padding: 20px; margin-bottom: 20px; background: #fafafa; }
+        .review-card h4 { margin-top: 0; color: #333; border-bottom: 2px solid #1a73e8; padding-bottom: 10px; display: inline-block; }
+        .review-opt { padding: 10px; border: 1px solid #ddd; border-radius: 4px; margin-bottom: 8px; background: white; }
+        .review-opt.is-correct { border-color: #27ae60; background-color: #eafaf1; font-weight: bold; }
+        .review-opt.is-wrong { border-color: #d32f2f; background-color: #fce8e8; }
+        .status-badge { display: inline-block; padding: 5px 10px; border-radius: 4px; font-size: 0.85rem; font-weight: bold; margin-bottom: 15px; color: white; }
+
+        /* Responsive */
+        @media (max-width: 850px) {
+            #test-app { height: auto; }
+            .container { flex-direction: column; overflow: visible; }
+            .left-panel { flex: none; overflow: visible; margin-bottom: 0; }
+            .right-panel { width: auto; margin: 10px; flex: none; overflow: visible; }
+            .q-body { overflow-y: visible; padding-bottom: 20px; }
+            .palette-container { overflow-y: visible; }
+        }
+
+        /* Print Styles for PDF Generation */
+        @media print {
+            body { background: white; height: auto; display: block; }
+            .header, #dashboard-screen, #test-app, .no-print { display: none !important; }
+            #result-screen, #review-screen { display: block !important; box-shadow: none; margin: 0; padding: 0; max-width: 100%; page-break-after: always; }
+            .review-card { page-break-inside: avoid; border: 1px solid #ccc; background: transparent; }
+            .review-opt.is-correct { border: 2px solid #27ae60; background: transparent !important; color: black; }
+            .review-opt.is-wrong { border: 2px solid #d32f2f; background: transparent !important; color: black; }
+            .status-badge { border: 1px solid #000; color: #000; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>JEE CBT Simulator</h1>
+    <div class="timer-box" id="timer-display">30:00</div>
+</div>
+
+<!-- Dashboard Screen -->
+<div id="dashboard-screen">
+    <h2>Student Dashboard</h2>
+    <p>Welcome! Track your progress and start new attempts below.</p>
+    
+    <div style="margin-top: 30px;">
+        <button class="btn-primary" onclick="startTest()">Start New Mock Test</button>
+        <button class="btn-secondary no-print" onclick="clearHistory()">Clear History</button>
+    </div>
+
+    <h3 style="margin-top: 40px; border-bottom: 2px solid #eee; padding-bottom: 10px;">Past Attempts</h3>
+    <div id="history-table-container">
+        <p style="color: #666;">No past attempts found. Take a test to see your analytics here.</p>
+    </div>
+</div>
+
+<!-- Test Application Screen -->
+<div id="test-app">
+    <div class="container">
+        <div class="left-panel">
+            <div class="q-header" id="q-header">Question 1</div>
+            <div class="q-body">
+                <div id="q-text"></div>
+                <div id="q-input-area" class="options-container"></div>
+            </div>
+            <div class="btn-bar">
+                <button class="btn btn-review" onclick="markReviewAndNext()">Mark for Review & Next</button>
+                <button class="btn btn-clear" onclick="clearResponse()">Clear Response</button>
+                <button class="btn btn-next" onclick="saveAndNext()">Save & Next</button>
+            </div>
+        </div>
+
+        <div class="right-panel">
+            <div class="summary-grid">
+                <div class="summary-item"><span class="badge s-answered" id="cnt-ans">0</span> Answered</div>
+                <div class="summary-item"><span class="badge s-not-answered" id="cnt-not-ans">0</span> Not Answered</div>
+                <div class="summary-item"><span class="badge s-not-visited" id="cnt-not-vis">10</span> Not Visited</div>
+                <div class="summary-item"><span class="badge s-review" id="cnt-rev">0</span> Marked Review</div>
+                <div class="summary-item" style="width: 100%;"><span class="badge s-review-ans" id="cnt-rev-ans">0</span> Answered & Review</div>
+            </div>
+            
+            <div class="palette-container">
+                <h3 style="margin-top:0; font-size:1rem; text-align:center;">Question Palette</h3>
+                <div class="palette" id="palette-grid"></div>
+            </div>
+
+            <div class="submit-bar">
+                <button class="btn-primary" style="width: 100%;" onclick="manualSubmit()">Submit Test</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Result Screen (Page 1 of PDF) -->
+<div id="result-screen">
+    <h2 style="text-align: center;">Test Analysis Report</h2>
+    <h3 style="text-align: center; color: #1a73e8; font-size: 1.5rem;">Score: <span id="final-score">0</span> / 40</h3>
+    
+    <div class="no-print" style="text-align: center; margin: 20px 0;">
+        <button class="btn-primary" onclick="showReviewScreen()">Review Detailed Answers</button>
+        <button class="btn-secondary" onclick="generatePDF()">Download Report as PDF</button>
+        <button class="btn-secondary" onclick="location.reload()">Return to Dashboard</button>
+    </div>
+
+    <div id="analysis-table"></div>
+</div>
+
+<!-- Detailed Review Screen (Page 2+ of PDF) -->
+<div id="review-screen">
+    <h2 style="text-align: center; margin-bottom: 30px;">Detailed Question Review</h2>
+    <div id="review-content"></div>
+    <div class="no-print" style="text-align: center; margin-top: 30px;">
+        <button class="btn-primary" onclick="generatePDF()">Download Full PDF Report</button>
+        <button class="btn-secondary" onclick="location.reload()">Return to Dashboard</button>
+    </div>
+</div>
+
+<script>
+    // Question Database
+    const questions = [
+        { type: "mcq", text: "Let A and B be the points (A has positive ordinate) common to the ellipse E: x<sup>2</sup> + 4y<sup>2</sup> = 20, hyperbola H: 4y<sup>2</sup> - x<sup>2</sup> = 20. Four lines two from each focus of the hyperbola are drawn that touch the ellipse at P, Q R and S in quadrants I, IV, III and II respectively. Then, the area of the hexagon APQBRS is:", options: ["4(&radic;5 + 1)", "8(&radic;5 + 1)", "8(&radic;5 + 2)", "4(&radic;5 + 2)"], correctAnswer: 1 },
+        { type: "numerical", text: "Let the hyperbola H: x<sup>2</sup>/a<sup>2</sup> - y<sup>2</sup> = 1 and the ellipse E: 3x<sup>2</sup> + 4y<sup>2</sup> = 12 be such that the length of latus rectum of H is equal to the length of latus rectum of E. If e<sub>H</sub> and e<sub>E</sub> are the eccentricities of H and E, respectively, then the value of 12(e<sub>H</sub><sup>2</sup> + e<sub>E</sub><sup>2</sup>) is equal to:", correctAnswer: "42" },
+        { type: "numerical", text: "Let C be the largest circle centered at (2, 0) and inscribed in the ellipse x<sup>2</sup>/36 + y<sup>2</sup>/16 = 1. If (1, &alpha;) lies on C, then 10&alpha;<sup>2</sup> is equal to:", correctAnswer: "118" },
+        { type: "numerical", text: "The locus of the point of intersection of the lines (&radic;3)kx + ky - 4&radic;3 = 0 and &radic;3x - y - 4(&radic;3)k = 0 is a conic, whose eccentricity is:", correctAnswer: "2" },
+        { type: "numerical", text: "Consider ellipses E<sub>k</sub>: kx<sup>2</sup> + k<sup>2</sup>y<sup>2</sup> = 1, k=1, 2, ..., 20. Let C<sub>k</sub> be the circle which touches the four chords joining the end points (one on minor axis and another on major axis) of the ellipse E<sub>k</sub>. If r<sub>k</sub> is the radius of the circle C<sub>k</sub> then the value of &sum;<sub>k=1</sub><sup>20</sup> 1/r<sub>k</sub><sup>2</sup> is:", correctAnswer: "3080" },
+        { type: "numerical", text: "The area (in sq. units) of the quadrilateral formed by the tangents at the end points of the latus rectum to the ellipse x<sup>2</sup>/9 + y<sup>2</sup>/5 = 1 is:", correctAnswer: "27" },
+        { type: "numerical", text: "Let a and b, respectively, be the semi-transverse and semi-conjugate axes of a hyperbola whose eccentricity satisfies the equation 9e<sup>2</sup> - 18e + 5 = 0. If S(5,0) is a focus and 5x = 9 is the corresponding directrix of this hyperbola, then |a<sup>2</sup> - b<sup>2</sup>| = ", correctAnswer: "7" },
+        { type: "numerical", text: "The locus of the foot of perpendicular drawn from the centre of the ellipse x<sup>2</sup> + 3y<sup>2</sup> = 6 on any tangent to it is (x<sup>2</sup> + y<sup>2</sup>)<sup>2</sup> = ax<sup>2</sup> + by<sup>2</sup> where a, b &isin; N then a<sup>2</sup> + b<sup>2</sup> = ", correctAnswer: "40" },
+        { type: "numerical", text: "Let A and B be two distinct points on the parabola y<sup>2</sup> = 4x. If the axis of the parabola touches a circle of radius of one unit having AB as its diameter. Then the slope of the joining A and B can be:", correctAnswer: "2" },
+        { type: "mcq", text: "If two distinct chords of a parabola y<sup>2</sup> = 4kx drawn from the point (k, 2k) are bisected by the line x + y - 1 = 0 then the length of the latus rectum can be:", options: ["4", "3", "5", "6"], correctAnswer: 1 }
+    ];
+
+    let testState = [];
+    let currentIndex = 0;
+    let timeRemaining = 30 * 60; 
+    let questionEnterTime = Date.now();
+    let timerInterval;
+
+    // --- Dashboard & Initialization ---
+    function initApp() {
+        loadDashboard();
+    }
+
+    function loadDashboard() {
+        const historyData = JSON.parse(localStorage.getItem('jee_simulator_history')) || [];
+        const container = document.getElementById('history-table-container');
+        
+        if (historyData.length > 0) {
+            let html = '<table><tr><th>Date & Time</th><th>Score</th><th>Accuracy</th><th>Action</th></tr>';
+            // Copy and reverse for chronological display
+            historyData.slice().reverse().forEach((entry, idx) => {
+                const originalIndex = historyData.length - 1 - idx;
+                html += `<tr>
+                    <td>${entry.date}</td>
+                    <td style="font-weight:bold; color:#1a73e8;">${entry.score} / ${entry.total}</td>
+                    <td>${entry.accuracy}%</td>
+                    <td><button class="btn-primary" style="padding: 6px 12px; font-size: 0.85rem;" onclick="loadPastReview(${originalIndex})">Review Answers</button></td>
+                </tr>`;
+            });
+            html += '</table>';
+            container.innerHTML = html;
+        } else {
+            container.innerHTML = '<p style="color: #666;">No past attempts found. Take a test to see your analytics here.</p>';
+        }
+    }
+
+    function clearHistory() {
+        if(confirm("Are you sure you want to delete all past test records?")) {
+            localStorage.removeItem('jee_simulator_history');
+            loadDashboard();
+        }
+    }
+
+    // Load a specific past attempt directly into the review screen
+    function loadPastReview(historyIndex) {
+        let history = JSON.parse(localStorage.getItem('jee_simulator_history')) || [];
+        if(history[historyIndex] && history[historyIndex].savedState) {
+            testState = history[historyIndex].savedState;
+            generateReviewContent();
+            
+            document.getElementById('dashboard-screen').style.display = 'none';
+            document.getElementById('review-screen').style.display = 'block';
+            window.scrollTo(0, 0); // Scroll to top for reading
+        } else {
+            alert("Sorry, detailed data for this past attempt is unavailable.");
+        }
+    }
+
+    function startTest() {
+        document.getElementById('dashboard-screen').style.display = 'none';
+        document.getElementById('test-app').style.display = 'flex';
+        document.getElementById('timer-display').style.display = 'block';
+        
+        testState = Array(questions.length).fill().map(() => ({ status: 0, answer: null, timeSpent: 0 }));
+        currentIndex = 0;
+        timeRemaining = 30 * 60;
+        
+        renderPalette();
+        jumpToQuestion(0);
+        timerInterval = setInterval(updateTimer, 1000);
+    }
+
+    // --- Test Logic ---
+    function updateTimer() {
+        if (timeRemaining <= 0) {
+            clearInterval(timerInterval);
+            document.getElementById('timer-display').innerText = "00:00";
+            alert("Time is up! Submitting automatically.");
+            autoSubmit();
+            return;
+        }
+        timeRemaining--;
+        let m = Math.floor(timeRemaining / 60).toString().padStart(2, '0');
+        let s = (timeRemaining % 60).toString().padStart(2, '0');
+        document.getElementById('timer-display').innerText = `${m}:${s}`;
+    }
+
+    function renderPalette() {
+        const paletteGrid = document.getElementById('palette-grid');
+        paletteGrid.innerHTML = '';
+        let counts = [0, 0, 0, 0, 0];
+        
+        testState.forEach((state, i) => {
+            counts[state.status]++;
+            const btn = document.createElement('div');
+            btn.className = `p-btn ${['s-not-visited','s-not-answered','s-answered','s-review','s-review-ans'][state.status]}`;
+            if (i === currentIndex) btn.classList.add('active');
+            btn.innerText = i + 1;
+            btn.onclick = () => jumpToQuestion(i);
+            paletteGrid.appendChild(btn);
+        });
+
+        document.getElementById('cnt-not-vis').innerText = counts[0];
+        document.getElementById('cnt-not-ans').innerText = counts[1];
+        document.getElementById('cnt-ans').innerText = counts[2];
+        document.getElementById('cnt-rev').innerText = counts[3];
+        document.getElementById('cnt-rev-ans').innerText = counts[4];
+    }
+
+    function captureCurrentAnswer() {
+        const q = questions[currentIndex];
+        let val = null;
+        if (q.type === 'mcq') {
+            const selected = document.querySelector('input[name="opt"]:checked');
+            if (selected) val = parseInt(selected.value);
+        } else {
+            const txt = document.getElementById('num-input').value.trim();
+            if (txt !== '') val = txt;
+        }
+        testState[currentIndex].answer = val;
+        return val !== null;
+    }
+
+    function trackTime() {
+        let now = Date.now();
+        testState[currentIndex].timeSpent += Math.floor((now - questionEnterTime) / 1000);
+        questionEnterTime = now;
+    }
+
+    function jumpToQuestion(index) {
+        if (testState[currentIndex].status === 0) testState[currentIndex].status = 1; 
+        trackTime();
+        currentIndex = index;
+        loadCurrentQuestion();
+    }
+
+    function saveAndNext() {
+        testState[currentIndex].status = captureCurrentAnswer() ? 2 : 1;
+        trackTime();
+        if (currentIndex < questions.length - 1) currentIndex++;
+        loadCurrentQuestion();
+    }
+
+    function markReviewAndNext() {
+        testState[currentIndex].status = captureCurrentAnswer() ? 4 : 3;
+        trackTime();
+        if (currentIndex < questions.length - 1) currentIndex++;
+        loadCurrentQuestion();
+    }
+
+    function clearResponse() {
+        testState[currentIndex].answer = null;
+        testState[currentIndex].status = 1;
+        loadCurrentQuestion(); 
+    }
+
+    function loadCurrentQuestion() {
+        const q = questions[currentIndex];
+        const state = testState[currentIndex];
+        
+        document.getElementById('q-header').innerText = `Question ${currentIndex + 1} (${q.type === 'mcq' ? 'MCQ' : 'Numerical'})`;
+        document.getElementById('q-text').innerHTML = q.text;
+        
+        const qInputArea = document.getElementById('q-input-area');
+        qInputArea.innerHTML = '';
+
+        if (q.type === 'mcq') {
+            q.options.forEach((opt, i) => {
+                const lbl = document.createElement('label');
+                lbl.className = 'option-lbl';
+                const rad = document.createElement('input');
+                rad.type = 'radio';
+                rad.name = 'opt';
+                rad.value = i;
+                if (state.answer === i) rad.checked = true;
+                lbl.appendChild(rad);
+                lbl.innerHTML += opt;
+                qInputArea.appendChild(lbl);
+            });
+        } else {
+            const inp = document.createElement('input');
+            inp.type = 'text';
+            inp.id = 'num-input';
+            inp.className = 'numerical-input';
+            inp.placeholder = 'Enter numeric answer...';
+            if (state.answer !== null) inp.value = state.answer;
+            qInputArea.appendChild(inp);
+        }
+
+        questionEnterTime = Date.now();
+        renderPalette();
+    }
+
+    function manualSubmit() {
+        if(confirm("Submit the test? No further changes allowed.")) autoSubmit();
+    }
+
+    // --- Submission & Analysis ---
+    function autoSubmit() {
+        clearInterval(timerInterval);
+        document.getElementById('timer-display').style.display = 'none';
+        trackTime(); 
+        captureCurrentAnswer();
+
+        document.getElementById('test-app').style.display = 'none';
+        document.getElementById('result-screen').style.display = 'block';
+
+        let score = 0;
+        let correctCount = 0;
+        let attemptCount = 0;
+        let html = '<table><tr><th>Q.No</th><th>Status</th><th>Time (s)</th><th>Your Answer</th><th>Correct Answer</th><th>Points</th></tr>';
+
+        questions.forEach((q, i) => {
+            const state = testState[i];
+            const isAns = (state.answer !== null);
+            let isCorrect = false;
+            let displayAns = "-";
+            let correctAnsDisplay = q.type === 'mcq' ? q.options[q.correctAnswer] : q.correctAnswer;
+
+            if (isAns) {
+                attemptCount++;
+                if (q.type === 'mcq') {
+                    isCorrect = (state.answer === q.correctAnswer);
+                    displayAns = q.options[state.answer];
+                } else {
+                    isCorrect = (state.answer.toString() === q.correctAnswer.toString());
+                    displayAns = state.answer;
+                }
+            }
+
+            let pts = 0; let statusText = "Unattempted"; let rowClass = "";
+            if (isAns && isCorrect) { pts = 4; statusText = "Correct"; rowClass = "correct"; correctCount++; } 
+            else if (isAns && !isCorrect) { pts = -1; statusText = "Incorrect"; rowClass = "incorrect"; }
+
+            score += pts;
+            
+            html += `<tr>
+                <td>${i + 1}</td>
+                <td class="${rowClass}">${statusText}</td>
+                <td>${state.timeSpent}s</td>
+                <td>${displayAns}</td>
+                <td>${correctAnsDisplay}</td>
+                <td>${pts > 0 ? '+'+pts : pts}</td>
+            </tr>`;
+        });
+
+        html += '</table>';
+        document.getElementById('final-score').innerText = score;
+        document.getElementById('analysis-table').innerHTML = html;
+
+        // Save to Dashboard (Deep copying the testState so it locks the data for this specific attempt)
+        let history = JSON.parse(localStorage.getItem('jee_simulator_history')) || [];
+        history.push({
+            date: new Date().toLocaleString(),
+            score: score,
+            total: questions.length * 4,
+            accuracy: attemptCount > 0 ? Math.round((correctCount / attemptCount) * 100) : 0,
+            savedState: JSON.parse(JSON.stringify(testState)) 
+        });
+        localStorage.setItem('jee_simulator_history', JSON.stringify(history));
+        
+        generateReviewContent();
+    }
+
+    // --- Review & Print Logic ---
+    function generateReviewContent() {
+        const reviewContainer = document.getElementById('review-content');
+        let html = '';
+
+        questions.forEach((q, i) => {
+            const state = testState[i];
+            const isAns = state.answer !== null;
+            let isCorrect = false;
+
+            if (isAns) {
+                isCorrect = q.type === 'mcq' ? (state.answer === q.correctAnswer) : (state.answer.toString() === q.correctAnswer.toString());
+            }
+
+            let badgeHtml = '';
+            if (!isAns) badgeHtml = `<div class="status-badge" style="background:#95a5a6;">Not Attempted</div>`;
+            else if (isCorrect) badgeHtml = `<div class="status-badge" style="background:#27ae60;">Correct (+4)</div>`;
+            else badgeHtml = `<div class="status-badge" style="background:#d32f2f;">Incorrect (-1)</div>`;
+
+            html += `<div class="review-card">
+                <h4>Question ${i + 1}</h4>
+                ${badgeHtml}
+                <div style="margin-bottom: 15px; font-size: 1.1rem; line-height: 1.5;">${q.text}</div>`;
+
+            if (q.type === 'mcq') {
+                q.options.forEach((opt, optIdx) => {
+                    let optClass = 'review-opt';
+                    let marker = '';
+                    
+                    if (optIdx === q.correctAnswer) {
+                        optClass += ' is-correct';
+                        marker = ' &#10004; (Correct Answer)';
+                    } else if (isAns && state.answer === optIdx) {
+                        optClass += ' is-wrong';
+                        marker = ' &#10008; (Your Answer)';
+                    }
+                    html += `<div class="${optClass}">${opt}${marker}</div>`;
+                });
+            } else {
+                let userAnsHtml = isAns ? state.answer : 'None';
+                html += `
+                    <div class="review-opt ${isCorrect && isAns ? 'is-correct' : 'is-wrong'}">Your Answer: <b>${userAnsHtml}</b></div>
+                    <div class="review-opt is-correct">Correct Answer: <b>${q.correctAnswer}</b></div>
+                `;
+            }
+
+            html += `</div>`;
+        });
+
+        reviewContainer.innerHTML = html;
+    }
+
+    function showReviewScreen() {
+        document.getElementById('result-screen').style.display = 'none';
+        document.getElementById('review-screen').style.display = 'block';
+        window.scrollTo(0, 0);
+    }
+
+    function generatePDF() {
+        // Native browser print acts as our PDF generator
+        document.getElementById('result-screen').style.display = 'block';
+        document.getElementById('review-screen').style.display = 'block';
+        window.print();
+        
+        // Return to previous view after print dialog closes
+        if(document.getElementById('result-screen').style.display === 'block') {
+            document.getElementById('review-screen').style.display = 'none';
+        }
+    }
+
+    window.onload = initApp;
+</script>
+
+</body>
+</html>
