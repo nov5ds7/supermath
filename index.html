@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Advanced CBT Simulator</title>
+    <title>JEE CBT Simulator - Master Engine</title>
     <style>
         * { box-sizing: border-box; font-family: Arial, sans-serif; }
         body { margin: 0; background-color: #f4f6f8; display: flex; flex-direction: column; height: 100vh; }
@@ -15,8 +15,14 @@
         
         /* Screens */
         #dashboard-screen, #test-app, #result-screen, #review-screen { display: none; padding: 20px; height: 100%; overflow-y: auto; }
-        #dashboard-screen { display: block; max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 8px; margin-top: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        #dashboard-screen { display: block; max-width: 900px; margin: 0 auto; background: white; padding: 30px; border-radius: 8px; margin-top: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
         #test-app { padding: 0; display: none; flex-direction: column; }
+        
+        /* Dashboard Layout */
+        .dash-grid { display: flex; gap: 30px; margin-top: 20px; }
+        .dash-col { flex: 1; }
+        .test-list-card { border: 1px solid #e0e0e0; border-radius: 6px; padding: 15px; margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center; background: #fafafa; }
+        .test-list-card h4 { margin: 0 0 5px 0; color: #333; }
         
         /* Main Test Layout */
         .container { display: flex; flex: 1; overflow: hidden; }
@@ -38,8 +44,8 @@
         .btn-review { background-color: #e67e22; }
         .btn-clear { background-color: #95a5a6; }
         .btn-next { background-color: #27ae60; }
-        .btn-primary { background-color: #1a73e8; color: white; padding: 12px 25px; font-size: 1rem; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; }
-        .btn-secondary { background-color: #6c757d; color: white; padding: 12px 25px; font-size: 1rem; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; margin-left: 10px; }
+        .btn-primary { background-color: #1a73e8; color: white; padding: 10px 20px; font-size: 0.95rem; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; }
+        .btn-secondary { background-color: #6c757d; color: white; padding: 10px 20px; font-size: 0.95rem; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; }
         
         /* Palette */
         .summary-grid { display: flex; flex-wrap: wrap; padding: 10px; background: #fdfdfd; border-bottom: 1px solid #eee; gap: 5px; font-size: 0.8rem; }
@@ -58,23 +64,33 @@
         .submit-bar { padding: 15px; text-align: center; background: #eee; border-top: 1px solid #ddd; }
         
         /* Tables */
-        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-        th, td { border: 1px solid #ddd; padding: 12px; text-align: center; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 0.9rem; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: center; }
         th { background-color: #f4f6f8; }
         .correct { color: #27ae60; font-weight: bold; }
         .incorrect { color: #d32f2f; font-weight: bold; }
 
         /* Review Screen */
         #review-screen { background: white; max-width: 900px; margin: 20px auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); padding: 30px; }
-        .review-card { border: 1px solid #e0e0e0; border-radius: 6px; padding: 20px; margin-bottom: 20px; background: #fafafa; }
+        .review-card { border: 1px solid #e0e0e0; border-radius: 6px; padding: 20px; margin-bottom: 25px; background: #fafafa; }
         .review-card h4 { margin-top: 0; color: #333; border-bottom: 2px solid #1a73e8; padding-bottom: 10px; display: inline-block; }
         .review-opt { padding: 10px; border: 1px solid #ddd; border-radius: 4px; margin-bottom: 8px; background: white; }
         .review-opt.is-correct { border-color: #27ae60; background-color: #eafaf1; font-weight: bold; }
         .review-opt.is-wrong { border-color: #d32f2f; background-color: #fce8e8; }
         .status-badge { display: inline-block; padding: 5px 10px; border-radius: 4px; font-size: 0.85rem; font-weight: bold; margin-bottom: 15px; color: white; }
+        
+        /* Solution Box */
+        .solution-box { margin-top: 15px; padding: 15px; background-color: #eef5ff; border-left: 4px solid #1a73e8; border-radius: 4px; font-size: 1rem; color: #222; display: none; }
+        .solution-box.active { display: block; }
+
+        /* Pre-Test Modal */
+        #start-modal { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:100; justify-content:center; align-items:center; }
+        .modal-content { background:white; padding:30px; border-radius:8px; width:90%; max-width:400px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+        .modal-input { width:100%; padding:10px; margin-bottom:20px; border:1px solid #ccc; border-radius:4px; font-size: 1rem; }
 
         /* Responsive */
         @media (max-width: 850px) {
+            .dash-grid { flex-direction: column; }
             #test-app { height: auto; }
             .container { flex-direction: column; overflow: visible; }
             .left-panel { flex: none; overflow: visible; margin-bottom: 0; }
@@ -83,17 +99,22 @@
             .palette-container { overflow-y: visible; }
         }
 
-        /* Print Styles for PDF Generation */
+        /* Print Styles */
         @media print {
             body { background: white; height: auto; display: block; }
             .header, #dashboard-screen, #test-app, .no-print { display: none !important; }
             #result-screen, #review-screen { display: block !important; box-shadow: none; margin: 0; padding: 0; max-width: 100%; page-break-after: always; }
             .review-card { page-break-inside: avoid; border: 1px solid #ccc; background: transparent; }
-            .review-opt.is-correct { border: 2px solid #27ae60; background: transparent !important; color: black; }
-            .review-opt.is-wrong { border: 2px solid #d32f2f; background: transparent !important; color: black; }
-            .status-badge { border: 1px solid #000; color: #000; }
+            .solution-box { background-color: #f9f9f9; border-left: 4px solid #000; }
         }
     </style>
+
+    <!-- ========================================== -->
+    <!-- TEST LIBRARY: ADD NEW FUEL FILES HERE      -->
+    <!-- ========================================== -->
+    <script src="test_01.js"></script>
+    <!-- ========================================== -->
+
 </head>
 <body>
 
@@ -102,19 +123,42 @@
     <div class="timer-box" id="timer-display">30:00</div>
 </div>
 
+<!-- Start Test Modal (Student Details) -->
+<div id="start-modal">
+    <div class="modal-content">
+        <h3 style="margin-top:0; color:#1a73e8; border-bottom:2px solid #eee; padding-bottom:10px;">Enter Details to Begin</h3>
+        
+        <label style="display:block; margin-bottom:5px; font-weight:bold;">Student's Name:</label>
+        <input type="text" id="student-name" class="modal-input" placeholder="e.g. Dinesh Sharma" required>
+        
+        <label style="display:block; margin-bottom:5px; font-weight:bold;">Batch:</label>
+        <input type="text" id="student-batch" class="modal-input" placeholder="e.g. JP1" required>
+        
+        <div style="display:flex; justify-content:flex-end; gap:10px;">
+            <button class="btn-secondary" onclick="document.getElementById('start-modal').style.display='none'">Cancel</button>
+            <button class="btn-primary" onclick="confirmStartTest()">Begin Test</button>
+        </div>
+    </div>
+</div>
+
 <!-- Dashboard Screen -->
 <div id="dashboard-screen">
     <h2>Student Dashboard</h2>
-    <p>Welcome! Track your progress and start new attempts below.</p>
+    <p>Welcome! Select a test from the library to begin.</p>
     
-    <div style="margin-top: 30px;">
-        <button class="btn-primary" onclick="startTest()">Start New Mock Test</button>
-        <button class="btn-secondary no-print" onclick="clearHistory()">Clear History</button>
-    </div>
+    <div class="dash-grid">
+        <div class="dash-col">
+            <h3 style="border-bottom: 2px solid #eee; padding-bottom: 10px;">Test Library</h3>
+            <div id="library-container"></div>
+        </div>
 
-    <h3 style="margin-top: 40px; border-bottom: 2px solid #eee; padding-bottom: 10px;">Past Attempts</h3>
-    <div id="history-table-container">
-        <p style="color: #666;">No past attempts found. Take a test to see your analytics here.</p>
+        <div class="dash-col">
+            <h3 style="border-bottom: 2px solid #eee; padding-bottom: 10px;">Past Attempts</h3>
+            <div id="history-table-container">
+                <p style="color: #666;">No past attempts found. Take a test to see your analytics here.</p>
+            </div>
+            <button class="btn-secondary no-print" style="margin-top: 15px; width: 100%;" onclick="clearHistory()">Clear History</button>
+        </div>
     </div>
 </div>
 
@@ -155,13 +199,13 @@
     </div>
 </div>
 
-<!-- Result Screen (Page 1 of PDF) -->
+<!-- Result Screen -->
 <div id="result-screen">
     <h2 style="text-align: center;">Test Analysis Report</h2>
-    <h3 style="text-align: center; color: #1a73e8; font-size: 1.5rem;">Score: <span id="final-score">0</span> / 40</h3>
+    <h3 style="text-align: center; color: #1a73e8; font-size: 1.5rem;">Score: <span id="final-score">0</span> / <span id="max-score">0</span></h3>
     
     <div class="no-print" style="text-align: center; margin: 20px 0;">
-        <button class="btn-primary" onclick="showReviewScreen()">Review Detailed Answers</button>
+        <button class="btn-primary" onclick="showReviewScreen()">Review Detailed Answers & Solutions</button>
         <button class="btn-secondary" onclick="generatePDF()">Download Report as PDF</button>
         <button class="btn-secondary" onclick="location.reload()">Return to Dashboard</button>
     </div>
@@ -169,7 +213,7 @@
     <div id="analysis-table"></div>
 </div>
 
-<!-- Detailed Review Screen (Page 2+ of PDF) -->
+<!-- Review Screen -->
 <div id="review-screen">
     <h2 style="text-align: center; margin-bottom: 30px;">Detailed Question Review</h2>
     <div id="review-content"></div>
@@ -180,45 +224,56 @@
 </div>
 
 <script>
-    // Question Database
-    const questions = [
-        { type: "mcq", text: "Let A and B be the points (A has positive ordinate) common to the ellipse E: x<sup>2</sup> + 4y<sup>2</sup> = 20, hyperbola H: 4y<sup>2</sup> - x<sup>2</sup> = 20. Four lines two from each focus of the hyperbola are drawn that touch the ellipse at P, Q R and S in quadrants I, IV, III and II respectively. Then, the area of the hexagon APQBRS is:", options: ["4(&radic;5 + 1)", "8(&radic;5 + 1)", "8(&radic;5 + 2)", "4(&radic;5 + 2)"], correctAnswer: 1 },
-        { type: "numerical", text: "Let the hyperbola H: x<sup>2</sup>/a<sup>2</sup> - y<sup>2</sup> = 1 and the ellipse E: 3x<sup>2</sup> + 4y<sup>2</sup> = 12 be such that the length of latus rectum of H is equal to the length of latus rectum of E. If e<sub>H</sub> and e<sub>E</sub> are the eccentricities of H and E, respectively, then the value of 12(e<sub>H</sub><sup>2</sup> + e<sub>E</sub><sup>2</sup>) is equal to:", correctAnswer: "42" },
-        { type: "numerical", text: "Let C be the largest circle centered at (2, 0) and inscribed in the ellipse x<sup>2</sup>/36 + y<sup>2</sup>/16 = 1. If (1, &alpha;) lies on C, then 10&alpha;<sup>2</sup> is equal to:", correctAnswer: "118" },
-        { type: "numerical", text: "The locus of the point of intersection of the lines (&radic;3)kx + ky - 4&radic;3 = 0 and &radic;3x - y - 4(&radic;3)k = 0 is a conic, whose eccentricity is:", correctAnswer: "2" },
-        { type: "numerical", text: "Consider ellipses E<sub>k</sub>: kx<sup>2</sup> + k<sup>2</sup>y<sup>2</sup> = 1, k=1, 2, ..., 20. Let C<sub>k</sub> be the circle which touches the four chords joining the end points (one on minor axis and another on major axis) of the ellipse E<sub>k</sub>. If r<sub>k</sub> is the radius of the circle C<sub>k</sub> then the value of &sum;<sub>k=1</sub><sup>20</sup> 1/r<sub>k</sub><sup>2</sup> is:", correctAnswer: "3080" },
-        { type: "numerical", text: "The area (in sq. units) of the quadrilateral formed by the tangents at the end points of the latus rectum to the ellipse x<sup>2</sup>/9 + y<sup>2</sup>/5 = 1 is:", correctAnswer: "27" },
-        { type: "numerical", text: "Let a and b, respectively, be the semi-transverse and semi-conjugate axes of a hyperbola whose eccentricity satisfies the equation 9e<sup>2</sup> - 18e + 5 = 0. If S(5,0) is a focus and 5x = 9 is the corresponding directrix of this hyperbola, then |a<sup>2</sup> - b<sup>2</sup>| = ", correctAnswer: "7" },
-        { type: "numerical", text: "The locus of the foot of perpendicular drawn from the centre of the ellipse x<sup>2</sup> + 3y<sup>2</sup> = 6 on any tangent to it is (x<sup>2</sup> + y<sup>2</sup>)<sup>2</sup> = ax<sup>2</sup> + by<sup>2</sup> where a, b &isin; N then a<sup>2</sup> + b<sup>2</sup> = ", correctAnswer: "40" },
-        { type: "numerical", text: "Let A and B be two distinct points on the parabola y<sup>2</sup> = 4x. If the axis of the parabola touches a circle of radius of one unit having AB as its diameter. Then the slope of the joining A and B can be:", correctAnswer: "2" },
-        { type: "mcq", text: "If two distinct chords of a parabola y<sup>2</sup> = 4kx drawn from the point (k, 2k) are bisected by the line x + y - 1 = 0 then the length of the latus rectum can be:", options: ["4", "3", "5", "6"], correctAnswer: 1 }
+    const availableTests = [
+        { id: 'test_01', name: 'Mock Test 1 (JN20)' }
     ];
 
+    let currentTestId = null;
+    let studentName = "";
+    let studentBatch = "";
+    
+    let questions = [];
     let testState = [];
     let currentIndex = 0;
     let timeRemaining = 30 * 60; 
     let questionEnterTime = Date.now();
     let timerInterval;
 
-    // --- Dashboard & Initialization ---
-    function initApp() {
-        loadDashboard();
+    window.onload = function() {
+        renderLibrary();
+        renderHistory();
     }
 
-    function loadDashboard() {
+    function renderLibrary() {
+        const container = document.getElementById('library-container');
+        let html = '';
+        availableTests.forEach(test => {
+            const isLoaded = window.testBank && window.testBank[test.id];
+            const btnState = isLoaded 
+                ? `<button class="btn-primary" onclick="openStartModal('${test.id}')">Start Test</button>`
+                : `<button class="btn-secondary" disabled>File Missing</button>`;
+            
+            html += `<div class="test-list-card">
+                        <div><h4>${test.name}</h4><span style="font-size:0.8rem; color:#666;">ID: ${test.id}</span></div>
+                        ${btnState}
+                     </div>`;
+        });
+        container.innerHTML = html;
+    }
+
+    function renderHistory() {
         const historyData = JSON.parse(localStorage.getItem('jee_simulator_history')) || [];
         const container = document.getElementById('history-table-container');
         
         if (historyData.length > 0) {
-            let html = '<table><tr><th>Date & Time</th><th>Score</th><th>Accuracy</th><th>Action</th></tr>';
-            // Copy and reverse for chronological display
+            let html = '<table><tr><th>Test</th><th>Date</th><th>Score</th><th>Action</th></tr>';
             historyData.slice().reverse().forEach((entry, idx) => {
                 const originalIndex = historyData.length - 1 - idx;
                 html += `<tr>
-                    <td>${entry.date}</td>
-                    <td style="font-weight:bold; color:#1a73e8;">${entry.score} / ${entry.total}</td>
-                    <td>${entry.accuracy}%</td>
-                    <td><button class="btn-primary" style="padding: 6px 12px; font-size: 0.85rem;" onclick="loadPastReview(${originalIndex})">Review Answers</button></td>
+                    <td>${entry.testName}</td>
+                    <td style="font-size:0.8rem;">${entry.date}</td>
+                    <td style="font-weight:bold; color:#1a73e8;">${entry.score}/${entry.total}</td>
+                    <td><button class="btn-primary" style="padding: 4px 8px; font-size: 0.8rem;" onclick="loadPastReview(${originalIndex})">Review</button></td>
                 </tr>`;
             });
             html += '</table>';
@@ -229,42 +284,47 @@
     }
 
     function clearHistory() {
-        if(confirm("Are you sure you want to delete all past test records?")) {
+        if(confirm("Delete all past test records?")) {
             localStorage.removeItem('jee_simulator_history');
-            loadDashboard();
+            renderHistory();
         }
     }
 
-    // Load a specific past attempt directly into the review screen
-    function loadPastReview(historyIndex) {
-        let history = JSON.parse(localStorage.getItem('jee_simulator_history')) || [];
-        if(history[historyIndex] && history[historyIndex].savedState) {
-            testState = history[historyIndex].savedState;
-            generateReviewContent();
-            
-            document.getElementById('dashboard-screen').style.display = 'none';
-            document.getElementById('review-screen').style.display = 'block';
-            window.scrollTo(0, 0); // Scroll to top for reading
-        } else {
-            alert("Sorry, detailed data for this past attempt is unavailable.");
-        }
+    // --- Modal & Test Startup ---
+    function openStartModal(testId) {
+        currentTestId = testId;
+        document.getElementById('student-name').value = '';
+        document.getElementById('student-batch').value = '';
+        document.getElementById('start-modal').style.display = 'flex';
     }
 
-    function startTest() {
+    function confirmStartTest() {
+        studentName = document.getElementById('student-name').value.trim();
+        studentBatch = document.getElementById('student-batch').value.trim();
+        
+        if(!studentName || !studentBatch) {
+            alert("Please enter both your name and batch.");
+            return;
+        }
+        
+        document.getElementById('start-modal').style.display = 'none';
+        
+        const testData = window.testBank[currentTestId];
+        questions = testData.questions;
+        
         document.getElementById('dashboard-screen').style.display = 'none';
         document.getElementById('test-app').style.display = 'flex';
         document.getElementById('timer-display').style.display = 'block';
         
         testState = Array(questions.length).fill().map(() => ({ status: 0, answer: null, timeSpent: 0 }));
         currentIndex = 0;
-        timeRemaining = 30 * 60;
+        timeRemaining = (testData.timeLimitMins || 30) * 60;
         
         renderPalette();
         jumpToQuestion(0);
         timerInterval = setInterval(updateTimer, 1000);
     }
 
-    // --- Test Logic ---
     function updateTimer() {
         if (timeRemaining <= 0) {
             clearInterval(timerInterval);
@@ -399,17 +459,13 @@
         document.getElementById('test-app').style.display = 'none';
         document.getElementById('result-screen').style.display = 'block';
 
-        let score = 0;
-        let correctCount = 0;
-        let attemptCount = 0;
+        let score = 0; let correctCount = 0; let attemptCount = 0;
         let html = '<table><tr><th>Q.No</th><th>Status</th><th>Time (s)</th><th>Your Answer</th><th>Correct Answer</th><th>Points</th></tr>';
 
         questions.forEach((q, i) => {
             const state = testState[i];
             const isAns = (state.answer !== null);
-            let isCorrect = false;
-            let displayAns = "-";
-            let correctAnsDisplay = q.type === 'mcq' ? q.options[q.correctAnswer] : q.correctAnswer;
+            let isCorrect = false; let displayAns = "-"; let correctAnsDisplay = q.type === 'mcq' ? q.options[q.correctAnswer] : q.correctAnswer;
 
             if (isAns) {
                 attemptCount++;
@@ -440,11 +496,17 @@
 
         html += '</table>';
         document.getElementById('final-score').innerText = score;
+        document.getElementById('max-score').innerText = questions.length * 4;
         document.getElementById('analysis-table').innerHTML = html;
 
-        // Save to Dashboard (Deep copying the testState so it locks the data for this specific attempt)
+        let testObj = availableTests.find(t => t.id === currentTestId);
+        let finalTestName = testObj ? testObj.name : 'Unknown Test';
+
+        // --- Save to Local Dashboard ---
         let history = JSON.parse(localStorage.getItem('jee_simulator_history')) || [];
         history.push({
+            testId: currentTestId,
+            testName: finalTestName,
             date: new Date().toLocaleString(),
             score: score,
             total: questions.length * 4,
@@ -452,11 +514,60 @@
             savedState: JSON.parse(JSON.stringify(testState)) 
         });
         localStorage.setItem('jee_simulator_history', JSON.stringify(history));
-        
+
+        // --- Google Sheets Silent Integration ---
+        const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSeAVg0DY_6PA5vfZYnyiCzOOGbZcZmmkVXC_YZ5o9Cj_EWaFA/formResponse";
+        const formData = new FormData();
+        formData.append("entry.1036771923", studentName);
+        formData.append("entry.623544967", studentBatch);
+        formData.append("entry.617484123", finalTestName);
+        formData.append("entry.365254995", score);
+        formData.append("entry.2079580785", attemptCount);
+        formData.append("entry.1269654501", correctCount);
+
+        // We use mode: 'no-cors' to prevent the browser from blocking the cross-origin request
+        fetch(formUrl, {
+            method: "POST",
+            mode: "no-cors",
+            body: formData
+        }).then(() => {
+            console.log("Score automatically logged to teacher's Google Sheet.");
+        }).catch(err => {
+            console.error("Failed to log score remotely.", err);
+        });
+
         generateReviewContent();
     }
 
-    // --- Review & Print Logic ---
+    // --- Review Logic ---
+    function loadPastReview(historyIndex) {
+        let history = JSON.parse(localStorage.getItem('jee_simulator_history')) || [];
+        if(history[historyIndex] && history[historyIndex].savedState) {
+            
+            currentTestId = history[historyIndex].testId;
+            if(!window.testBank[currentTestId]) {
+                alert("The fuel file for this test is missing. Cannot load review.");
+                return;
+            }
+            
+            questions = window.testBank[currentTestId].questions;
+            testState = history[historyIndex].savedState;
+            
+            generateReviewContent();
+            
+            document.getElementById('dashboard-screen').style.display = 'none';
+            document.getElementById('review-screen').style.display = 'block';
+            window.scrollTo(0, 0); 
+        } else {
+            alert("Sorry, detailed data for this past attempt is unavailable.");
+        }
+    }
+
+    function toggleSolution(index) {
+        const box = document.getElementById(`sol-${index}`);
+        box.classList.toggle('active');
+    }
+
     function generateReviewContent() {
         const reviewContainer = document.getElementById('review-content');
         let html = '';
@@ -482,30 +593,38 @@
 
             if (q.type === 'mcq') {
                 q.options.forEach((opt, optIdx) => {
-                    let optClass = 'review-opt';
-                    let marker = '';
-                    
-                    if (optIdx === q.correctAnswer) {
-                        optClass += ' is-correct';
-                        marker = ' &#10004; (Correct Answer)';
-                    } else if (isAns && state.answer === optIdx) {
-                        optClass += ' is-wrong';
-                        marker = ' &#10008; (Your Answer)';
-                    }
+                    let optClass = 'review-opt'; let marker = '';
+                    if (optIdx === q.correctAnswer) { optClass += ' is-correct'; marker = ' &#10004; (Correct Answer)'; } 
+                    else if (isAns && state.answer === optIdx) { optClass += ' is-wrong'; marker = ' &#10008; (Your Answer)'; }
                     html += `<div class="${optClass}">${opt}${marker}</div>`;
                 });
             } else {
                 let userAnsHtml = isAns ? state.answer : 'None';
-                html += `
-                    <div class="review-opt ${isCorrect && isAns ? 'is-correct' : 'is-wrong'}">Your Answer: <b>${userAnsHtml}</b></div>
-                    <div class="review-opt is-correct">Correct Answer: <b>${q.correctAnswer}</b></div>
-                `;
+                html += `<div class="review-opt ${isCorrect && isAns ? 'is-correct' : 'is-wrong'}">Your Answer: <b>${userAnsHtml}</b></div>
+                         <div class="review-opt is-correct">Correct Answer: <b>${q.correctAnswer}</b></div>`;
+            }
+
+            if(q.solution) {
+                html += `<button class="btn-secondary no-print" style="margin-top: 10px; font-size: 0.85rem;" onclick="toggleSolution(${i})">Show/Hide Solution</button>
+                         <div id="sol-${i}" class="solution-box">
+                            <strong>Step-by-Step Solution:</strong><br><br>
+                            ${q.solution}
+                         </div>`;
             }
 
             html += `</div>`;
         });
 
         reviewContainer.innerHTML = html;
+        
+        window.onbeforeprint = function() {
+            let boxes = document.querySelectorAll('.solution-box');
+            boxes.forEach(b => b.style.display = 'block');
+        };
+        window.onafterprint = function() {
+            let boxes = document.querySelectorAll('.solution-box');
+            boxes.forEach(b => b.style.display = ''); 
+        };
     }
 
     function showReviewScreen() {
@@ -515,18 +634,13 @@
     }
 
     function generatePDF() {
-        // Native browser print acts as our PDF generator
         document.getElementById('result-screen').style.display = 'block';
         document.getElementById('review-screen').style.display = 'block';
         window.print();
-        
-        // Return to previous view after print dialog closes
         if(document.getElementById('result-screen').style.display === 'block') {
             document.getElementById('review-screen').style.display = 'none';
         }
     }
-
-    window.onload = initApp;
 </script>
 
 </body>
