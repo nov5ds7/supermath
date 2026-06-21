@@ -23,6 +23,7 @@
         .dash-col { flex: 1; }
         .test-list-card { border: 1px solid #e0e0e0; border-radius: 6px; padding: 15px; margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center; background: #fafafa; }
         .test-list-card h4 { margin: 0 0 5px 0; color: #333; }
+        .loading-text { color: #666; font-style: italic; }
         
         /* Main Test Layout */
         .container { display: flex; flex: 1; overflow: hidden; }
@@ -108,13 +109,6 @@
             .solution-box { background-color: #f9f9f9; border-left: 4px solid #000; }
         }
     </style>
-
-    <!-- ========================================== -->
-    <!-- TEST LIBRARY: ADD NEW FUEL FILES HERE      -->
-    <!-- ========================================== -->
-    <script src="test_01.js"></script>
-    <!-- ========================================== -->
-
 </head>
 <body>
 
@@ -149,7 +143,9 @@
     <div class="dash-grid">
         <div class="dash-col">
             <h3 style="border-bottom: 2px solid #eee; padding-bottom: 10px;">Test Library</h3>
-            <div id="library-container"></div>
+            <div id="library-container">
+                <p class="loading-text">Scanning for available tests...</p>
+            </div>
         </div>
 
         <div class="dash-col">
@@ -224,14 +220,14 @@
 </div>
 
 <script>
-    const availableTests = [
-        { id: 'test_01', name: 'Mock Test 1 (JN20)' }
-    ];
+    // --- AUTO-DISCOVERY ENGINE ---
+    const MAX_TESTS_TO_SCAN = 30; 
+    let loadedTests = [];
+    window.testBank = window.testBank || {};
 
     let currentTestId = null;
     let studentName = "";
     let studentBatch = "";
-    
     let questions = [];
     let testState = [];
     let currentIndex = 0;
@@ -240,22 +236,57 @@
     let timerInterval;
 
     window.onload = function() {
-        renderLibrary();
         renderHistory();
+        autoDiscoverTests();
+    }
+
+    function autoDiscoverTests() {
+        let testsChecked = 0;
+        
+        for (let i = 1; i <= MAX_TESTS_TO_SCAN; i++) {
+            let id = 'test_' + String(i).padStart(2, '0');
+            let script = document.createElement('script');
+            script.src = id + '.js';
+            
+            script.onload = () => {
+                if (window.testBank && window.testBank[id]) {
+                    loadedTests.push({
+                        id: id,
+                        name: window.testBank[id].title || 'Unnamed Test ' + i
+                    });
+                }
+                checkIfScanComplete();
+            };
+            
+            script.onerror = () => {
+                checkIfScanComplete();
+            };
+            
+            document.head.appendChild(script);
+        }
+
+        function checkIfScanComplete() {
+            testsChecked++;
+            if (testsChecked === MAX_TESTS_TO_SCAN) {
+                // Sort by ID so test_01 appears before test_02
+                loadedTests.sort((a, b) => a.id.localeCompare(b.id));
+                renderLibrary();
+            }
+        }
     }
 
     function renderLibrary() {
         const container = document.getElementById('library-container');
+        if (loadedTests.length === 0) {
+            container.innerHTML = '<p style="color: #d32f2f;">No test files found. Please ensure files like test_01.js are uploaded to the server.</p>';
+            return;
+        }
+
         let html = '';
-        availableTests.forEach(test => {
-            const isLoaded = window.testBank && window.testBank[test.id];
-            const btnState = isLoaded 
-                ? `<button class="btn-primary" onclick="openStartModal('${test.id}')">Start Test</button>`
-                : `<button class="btn-secondary" disabled>File Missing</button>`;
-            
+        loadedTests.forEach(test => {
             html += `<div class="test-list-card">
-                        <div><h4>${test.name}</h4><span style="font-size:0.8rem; color:#666;">ID: ${test.id}</span></div>
-                        ${btnState}
+                        <div><h4>${test.name}</h4><span style="font-size:0.8rem; color:#666;">File: ${test.id}.js</span></div>
+                        <button class="btn-primary" onclick="openStartModal('${test.id}')">Start Test</button>
                      </div>`;
         });
         container.innerHTML = html;
@@ -294,7 +325,6 @@
     function openStartModal(testId) {
         currentTestId = testId;
         
-        // Auto-fill from local memory if available
         let savedName = localStorage.getItem('jee_student_name') || '';
         let savedBatch = localStorage.getItem('jee_student_batch') || '';
         
@@ -313,7 +343,6 @@
             return;
         }
         
-        // Save the entered details to local memory for next time
         localStorage.setItem('jee_student_name', studentName);
         localStorage.setItem('jee_student_batch', studentBatch);
         
@@ -509,7 +538,7 @@
         document.getElementById('max-score').innerText = questions.length * 4;
         document.getElementById('analysis-table').innerHTML = html;
 
-        let testObj = availableTests.find(t => t.id === currentTestId);
+        let testObj = loadedTests.find(t => t.id === currentTestId);
         let finalTestName = testObj ? testObj.name : 'Unknown Test';
 
         // --- Save to Local Dashboard ---
@@ -525,10 +554,8 @@
         });
         localStorage.setItem('jee_simulator_history', JSON.stringify(history));
 
-        // --- Google Sheets Silent Integration (FIXED FOR URL-ENCODED) ---
+        // --- Google Sheets Silent Integration ---
         const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSeAVg0DY_6PA5vfZYnyiCzOOGbZcZmmkVXC_YZ5o9Cj_EWaFA/formResponse";
-        
-        // URLSearchParams works much better with Google Forms than FormData
         const formData = new URLSearchParams();
         formData.append("entry.1036771923", studentName);
         formData.append("entry.623544967", studentBatch);
@@ -560,7 +587,7 @@
             
             currentTestId = history[historyIndex].testId;
             if(!window.testBank[currentTestId]) {
-                alert("The fuel file for this test is missing. Cannot load review.");
+                alert("The fuel file for this test is missing. Ensure the file is still on the server.");
                 return;
             }
             
