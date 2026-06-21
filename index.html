@@ -293,8 +293,14 @@
     // --- Modal & Test Startup ---
     function openStartModal(testId) {
         currentTestId = testId;
-        document.getElementById('student-name').value = '';
-        document.getElementById('student-batch').value = '';
+        
+        // Auto-fill from local memory if available
+        let savedName = localStorage.getItem('jee_student_name') || '';
+        let savedBatch = localStorage.getItem('jee_student_batch') || '';
+        
+        document.getElementById('student-name').value = savedName;
+        document.getElementById('student-batch').value = savedBatch;
+        
         document.getElementById('start-modal').style.display = 'flex';
     }
 
@@ -306,6 +312,10 @@
             alert("Please enter both your name and batch.");
             return;
         }
+        
+        // Save the entered details to local memory for next time
+        localStorage.setItem('jee_student_name', studentName);
+        localStorage.setItem('jee_student_batch', studentBatch);
         
         document.getElementById('start-modal').style.display = 'none';
         
@@ -515,9 +525,11 @@
         });
         localStorage.setItem('jee_simulator_history', JSON.stringify(history));
 
-        // --- Google Sheets Silent Integration ---
+        // --- Google Sheets Silent Integration (FIXED FOR URL-ENCODED) ---
         const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSeAVg0DY_6PA5vfZYnyiCzOOGbZcZmmkVXC_YZ5o9Cj_EWaFA/formResponse";
-        const formData = new FormData();
+        
+        // URLSearchParams works much better with Google Forms than FormData
+        const formData = new URLSearchParams();
         formData.append("entry.1036771923", studentName);
         formData.append("entry.623544967", studentBatch);
         formData.append("entry.617484123", finalTestName);
@@ -525,10 +537,12 @@
         formData.append("entry.2079580785", attemptCount);
         formData.append("entry.1269654501", correctCount);
 
-        // We use mode: 'no-cors' to prevent the browser from blocking the cross-origin request
         fetch(formUrl, {
             method: "POST",
             mode: "no-cors",
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
             body: formData
         }).then(() => {
             console.log("Score automatically logged to teacher's Google Sheet.");
