@@ -4,10 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JEE CBT Simulator - Master Engine</title>
+    
+    <!-- KaTeX Math Engine Integration -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
+
     <style>
         * { box-sizing: border-box; font-family: Arial, sans-serif; }
         body { margin: 0; background-color: #f4f6f8; display: flex; flex-direction: column; height: 100vh; }
         
+        /* Top Navigation */
+        .top-nav { background: #fdfdfd; padding: 10px 20px; border-bottom: 1px solid #ddd; display: flex; gap: 15px; }
+        .nav-btn { cursor: pointer; color: #1a73e8; font-weight: bold; background: none; border: none; font-size: 1rem; display: flex; align-items: center; padding: 5px 10px; border-radius: 4px; transition: 0.2s; }
+        .nav-btn:hover { background: #eef2f6; }
+
         /* Header */
         .header { background-color: #1a73e8; color: white; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 4px rgba(0,0,0,0.1); z-index: 10; }
         .header h1 { margin: 0; font-size: 1.2rem; }
@@ -18,7 +29,7 @@
         #dashboard-screen { display: block; max-width: 1000px; margin: 0 auto; background: transparent; padding: 10px; margin-top: 10px; }
         #test-app { padding: 0; display: none; flex-direction: column; }
         
-        /* New Dashboard Layout */
+        /* Dashboard Layout */
         .dashboard-header-container { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); margin-bottom: 20px; }
         .dashboard-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #eee; padding-bottom: 15px; margin-bottom: 15px; }
         .search-bar { width: 300px; padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 1rem; transition: 0.2s; }
@@ -27,11 +38,11 @@
         .left-content { flex: 2; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
         .right-sidebar { flex: 1; min-width: 280px; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
         
-        /* Folder Grid */
-        .folder-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px; }
-        .folder-card { background: #fafafa; border: 1px solid #ddd; border-radius: 8px; padding: 20px 15px; text-align: center; cursor: pointer; transition: all 0.2s ease; }
-        .folder-card:hover { transform: translateY(-3px); box-shadow: 0 6px 12px rgba(26, 115, 232, 0.15); border-color: #1a73e8; background: white; }
-        .folder-icon { font-size: 3rem; margin-bottom: 10px; }
+        /* Folder Grid (Clean Boxless Design) */
+        .folder-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 15px; }
+        .folder-card { background: transparent; border: none; padding: 15px; text-align: center; cursor: pointer; transition: all 0.2s ease; border-radius: 8px; }
+        .folder-card:hover { background: #f0f4f8; transform: translateY(-3px); }
+        .folder-icon { margin-bottom: 10px; display: flex; justify-content: center; }
         .folder-name { font-weight: bold; color: #333; font-size: 1.05rem; }
         .folder-count { color: #777; font-size: 0.85rem; margin-top: 5px; }
         
@@ -122,7 +133,7 @@
         /* Print Styles */
         @media print {
             body { background: white; height: auto; display: block; }
-            .header, #dashboard-screen, #test-app, .no-print { display: none !important; }
+            .top-nav, .header, #dashboard-screen, #test-app, .no-print { display: none !important; }
             #result-screen, #review-screen { display: block !important; box-shadow: none; margin: 0; padding: 0; max-width: 100%; page-break-after: always; }
             .review-card { page-break-inside: avoid; border: 1px solid #ccc; background: transparent; }
             .solution-box { background-color: #f9f9f9; border-left: 4px solid #000; }
@@ -131,11 +142,17 @@
 </head>
 <body>
 
+<div class="top-nav no-print">
+    <button class="nav-btn" onclick="goBack()">&#8592; Back</button>
+    <button class="nav-btn" onclick="goHome()">&#8962; Home</button>
+</div>
+
 <div class="header">
     <h1>JEE CBT Simulator</h1>
     <div class="timer-box" id="timer-display">30:00</div>
 </div>
 
+<!-- Start Test Modal -->
 <div id="start-modal">
     <div class="modal-content">
         <h3 style="margin-top:0; color:#1a73e8; border-bottom:2px solid #eee; padding-bottom:10px;">Enter Details to Begin</h3>
@@ -153,26 +170,26 @@
     </div>
 </div>
 
+<!-- Dashboard Screen -->
 <div id="dashboard-screen">
-    
     <div class="dashboard-header-container">
         <h2 style="margin: 0 0 5px 0; color: #333;">Student Dashboard</h2>
         <p style="margin: 0; color: #666;">Welcome! Select a category or search for a test to begin.</p>
     </div>
     
     <div class="main-layout">
-        
+        <!-- Left: Test Library / Folders -->
         <div class="left-content">
             <div class="dashboard-header">
-                <h3 id="dash-title" style="margin:0; color: #1a73e8;">Test Categories</h3>
+                <h3 id="dash-title" style="margin:0; color: #1a73e8;">Categories</h3>
                 <input type="text" id="global-search" class="search-bar" placeholder="Search tests..." oninput="handleSearch()">
             </div>
-            
             <div id="library-container">
                 <p style="color: #666; font-style: italic;">Scanning for available tests...</p>
             </div>
         </div>
 
+        <!-- Right: Past Attempts Sidebar -->
         <div class="right-sidebar">
             <h3 style="border-bottom: 2px solid #eee; padding-bottom: 10px; margin-top: 0; color: #333;">Past Attempts</h3>
             <div id="history-table-container">
@@ -180,10 +197,10 @@
             </div>
             <button class="btn-secondary no-print" style="margin-top: 15px; width: 100%;" onclick="clearHistory()">Clear History</button>
         </div>
-        
     </div>
 </div>
 
+<!-- Test Application Screen -->
 <div id="test-app">
     <div class="container">
         <div class="left-panel">
@@ -220,33 +237,34 @@
     </div>
 </div>
 
+<!-- Result Screen -->
 <div id="result-screen">
     <h2 style="text-align: center;">Test Analysis Report</h2>
     <h3 style="text-align: center; color: #1a73e8; font-size: 1.5rem; margin-bottom: 10px;">Score: <span id="final-score">0</span> / <span id="max-score">0</span></h3>
     
     <div id="result-summary-stats" style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-bottom: 25px; font-size: 1.05rem;">
-        </div>
+        <!-- Populated via JS -->
+    </div>
 
     <div class="no-print" style="text-align: center; margin: 20px 0;">
         <button class="btn-primary" onclick="showReviewScreen()">Review Detailed Answers & Solutions</button>
         <button class="btn-secondary" onclick="generatePDF()">Download Report as PDF</button>
-        <button class="btn-secondary" onclick="location.reload()">Return to Dashboard</button>
     </div>
 
     <div id="analysis-table"></div>
 </div>
 
+<!-- Review Screen -->
 <div id="review-screen">
     <h2 style="text-align: center; margin-bottom: 30px;">Detailed Question Review</h2>
     <div id="review-content"></div>
     <div class="no-print" style="text-align: center; margin-top: 30px;">
         <button class="btn-primary" onclick="generatePDF()">Download Full PDF Report</button>
-        <button class="btn-secondary" onclick="location.reload()">Return to Dashboard</button>
     </div>
 </div>
 
 <script>
-    // --- AUTO-DISCOVERY & DASHBOARD ENGINE ---
+    // --- GLOBAL VARIABLES ---
     const MAX_TESTS_TO_SCAN = 30; 
     let loadedTests = [];
     window.testBank = window.testBank || {};
@@ -265,19 +283,63 @@
     let questionEnterTime = Date.now();
     let timerInterval;
 
+    // Trigger KaTeX Math Rendering
+    function applyMath() {
+        if (window.renderMathInElement) {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    {left: "$$", right: "$$", display: true},
+                    {left: "\\[", right: "\\]", display: true},
+                    {left: "$", right: "$", display: false},
+                    {left: "\\(", right: "\\)", display: false}
+                ],
+                throwOnError: false
+            });
+        }
+    }
+
+    // --- NAVIGATION LOGIC ---
+    function goBack() {
+        if (document.getElementById('test-app').style.display === 'flex') {
+            if(confirm("Are you sure you want to exit the test? Progress will be lost.")) {
+                clearInterval(timerInterval);
+                goHome();
+            }
+        } else if (document.getElementById('review-screen').style.display === 'block') {
+            document.getElementById('review-screen').style.display = 'none';
+            document.getElementById('result-screen').style.display = 'block';
+        } else if (document.getElementById('result-screen').style.display === 'block') {
+            goHome();
+        } else if (document.getElementById('dashboard-screen').style.display === 'block') {
+            if (currentFolder !== null) {
+                goHome(); // Navigates back from inside a folder to the main folder grid
+            }
+        }
+    }
+
+    function goHome() {
+        document.getElementById('test-app').style.display = 'none';
+        document.getElementById('review-screen').style.display = 'none';
+        document.getElementById('result-screen').style.display = 'none';
+        document.getElementById('dashboard-screen').style.display = 'block';
+        
+        currentFolder = null;
+        document.getElementById('global-search').value = '';
+        renderFolders();
+    }
+
     window.onload = function() {
         renderHistory();
         autoDiscoverTests();
     }
 
+    // --- AUTO-DISCOVERY & DASHBOARD ENGINE ---
     function autoDiscoverTests() {
         let testsChecked = 0;
-        
         for (let i = 1; i <= MAX_TESTS_TO_SCAN; i++) {
             let id = 'test_' + String(i).padStart(2, '0');
             let script = document.createElement('script');
             script.src = id + '.js';
-            
             script.onload = () => {
                 if (window.testBank && window.testBank[id]) {
                     loadedTests.push({
@@ -287,11 +349,7 @@
                 }
                 checkIfScanComplete();
             };
-            
-            script.onerror = () => {
-                checkIfScanComplete();
-            };
-            
+            script.onerror = () => { checkIfScanComplete(); };
             document.head.appendChild(script);
         }
 
@@ -305,7 +363,6 @@
         }
     }
 
-    // Prepare tests, assign categories, and fetch scores
     function processTestData() {
         const historyData = JSON.parse(localStorage.getItem('jee_simulator_history')) || [];
         categoriesMap = {};
@@ -315,7 +372,6 @@
             let testData = window.testBank[test.id];
             if (!testData) return;
 
-            // Auto-categorization
             let cat = testData.category;
             if (!cat) {
                 let titleLower = test.name.toLowerCase();
@@ -326,22 +382,13 @@
                 else cat = 'Assignments';
             }
 
-            // History & Score
             let tHist = historyData.filter(h => h.testId === test.id);
             let attempted = tHist.length > 0;
             let bestScore = attempted ? Math.max(...tHist.map(h => h.score)) : 0;
-            
             let qCount = testData.randomizePoolSize ? Math.min(testData.randomizePoolSize, testData.questions.length) : testData.questions.length;
             let maxScore = qCount * 4;
 
-            let enriched = {
-                ...test,
-                category: cat,
-                attempted: attempted,
-                bestScore: bestScore,
-                maxScore: maxScore
-            };
-
+            let enriched = { ...test, category: cat, attempted: attempted, bestScore: bestScore, maxScore: maxScore };
             enrichedTests.push(enriched);
 
             if (!categoriesMap[cat]) categoriesMap[cat] = [];
@@ -353,36 +400,25 @@
         const query = document.getElementById('global-search').value.toLowerCase().trim();
         
         if (query === '') {
-            if (currentFolder) {
-                renderFolderView(currentFolder);
-            } else {
-                renderFolders();
-            }
+            if (currentFolder) renderFolderView(currentFolder);
+            else renderFolders();
             return;
         }
 
         let filtered = [];
         if (currentFolder) {
-            // Search inside the current folder
-            document.getElementById('dash-title').innerHTML = `<a href="#" onclick="goHome()" style="color:#1a73e8; text-decoration:none;">Folders</a> > ${currentFolder} > Search`;
+            document.getElementById('dash-title').innerHTML = `<a href="#" onclick="goHome()" style="color:#1a73e8; text-decoration:none;">Categories</a> > ${currentFolder} > Search`;
             filtered = categoriesMap[currentFolder].filter(t => t.name.toLowerCase().includes(query));
         } else {
-            // Search globally
-            document.getElementById('dash-title').innerHTML = `<a href="#" onclick="goHome()" style="color:#1a73e8; text-decoration:none;">Folders</a> > Global Search`;
+            document.getElementById('dash-title').innerHTML = `<a href="#" onclick="goHome()" style="color:#1a73e8; text-decoration:none;">Categories</a> > Global Search`;
             filtered = enrichedTests.filter(t => t.name.toLowerCase().includes(query) || t.category.toLowerCase().includes(query));
         }
         renderTestCards(filtered);
     }
 
-    function goHome() {
-        currentFolder = null;
-        document.getElementById('global-search').value = '';
-        renderFolders();
-    }
-
     function renderFolders() {
         currentFolder = null;
-        document.getElementById('dash-title').innerText = 'Test Categories';
+        document.getElementById('dash-title').innerText = 'Categories';
         const container = document.getElementById('library-container');
         
         if (Object.keys(categoriesMap).length === 0) {
@@ -390,11 +426,21 @@
             return;
         }
 
+        const folderColors = {
+            'Assignments': '#1a73e8', // Blue
+            'Theory and Formulae Tests': '#f39c12', // Orange
+            'Full Tests': '#27ae60', // Green
+            'Speed Tests': '#9b59b6', // Purple
+            'Chocolate Problems': '#e74c3c' // Red
+        };
+
         let html = '<div class="folder-grid">';
         for (let cat in categoriesMap) {
             if (categoriesMap[cat].length > 0) {
+                let color = folderColors[cat] || '#16a085';
+                let folderSvg = `<svg viewBox="0 0 24 24" width="70" height="70" fill="${color}"><path d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"/></svg>`;
                 html += `<div class="folder-card" onclick="openFolder('${cat}')">
-                            <div class="folder-icon">📁</div>
+                            <div class="folder-icon">${folderSvg}</div>
                             <div class="folder-name">${cat}</div>
                             <div class="folder-count">${categoriesMap[cat].length} Test(s)</div>
                          </div>`;
@@ -411,7 +457,7 @@
     }
 
     function renderFolderView(cat) {
-        document.getElementById('dash-title').innerHTML = `<a href="#" onclick="goHome()" style="color:#1a73e8; text-decoration:none; transition:0.2s;">📁 Folders</a> > ${cat}`;
+        document.getElementById('dash-title').innerHTML = `<a href="#" onclick="goHome()" style="color:#1a73e8; text-decoration:none; transition:0.2s;">Categories</a> > ${cat}`;
         renderTestCards(categoriesMap[cat]);
     }
 
@@ -440,7 +486,6 @@
         container.innerHTML = html;
     }
 
-    // --- HISTORY SIDEBAR ---
     function renderHistory() {
         const historyData = JSON.parse(localStorage.getItem('jee_simulator_history')) || [];
         const container = document.getElementById('history-table-container');
@@ -484,28 +529,20 @@
     // --- TEST EXECUTION LOGIC ---
     function openStartModal(testId) {
         currentTestId = testId;
-        
         let savedName = localStorage.getItem('jee_student_name') || '';
         let savedBatch = localStorage.getItem('jee_student_batch') || '';
-        
         document.getElementById('student-name').value = savedName;
         document.getElementById('student-batch').value = savedBatch;
-        
         document.getElementById('start-modal').style.display = 'flex';
     }
 
     function confirmStartTest() {
         studentName = document.getElementById('student-name').value.trim();
         studentBatch = document.getElementById('student-batch').value.trim();
-        
-        if(!studentName || !studentBatch) {
-            alert("Please enter both your name and batch.");
-            return;
-        }
+        if(!studentName || !studentBatch) return alert("Please enter both your name and batch.");
         
         localStorage.setItem('jee_student_name', studentName);
         localStorage.setItem('jee_student_batch', studentBatch);
-        
         document.getElementById('start-modal').style.display = 'none';
         
         const testData = window.testBank[currentTestId];
@@ -644,6 +681,7 @@
 
         questionEnterTime = Date.now();
         renderPalette();
+        applyMath();
     }
 
     function manualSubmit() {
@@ -860,6 +898,7 @@
         });
 
         reviewContainer.innerHTML = html;
+        applyMath();
         
         window.onbeforeprint = function() {
             let boxes = document.querySelectorAll('.solution-box');
@@ -869,21 +908,6 @@
             let boxes = document.querySelectorAll('.solution-box');
             boxes.forEach(b => b.style.display = ''); 
         };
-    }
-
-    function showReviewScreen() {
-        document.getElementById('result-screen').style.display = 'none';
-        document.getElementById('review-screen').style.display = 'block';
-        window.scrollTo(0, 0);
-    }
-
-    function generatePDF() {
-        document.getElementById('result-screen').style.display = 'block';
-        document.getElementById('review-screen').style.display = 'block';
-        window.print();
-        if(document.getElementById('result-screen').style.display === 'block') {
-            document.getElementById('review-screen').style.display = 'none';
-        }
     }
 </script>
 
