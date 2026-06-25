@@ -265,7 +265,7 @@
 
 <script>
     // --- GLOBAL VARIABLES ---
-    const MAX_TESTS_TO_SCAN = 30; 
+    const MAX_TESTS_TO_SCAN = 999; 
     let loadedTests = [];
     window.testBank = window.testBank || {};
 
@@ -340,7 +340,7 @@
     function autoDiscoverTests() {
         let testsChecked = 0;
         for (let i = 1; i <= MAX_TESTS_TO_SCAN; i++) {
-            let id = 'test_' + String(i).padStart(2, '0');
+            let id = 'test_' + String(i).padStart(3, '0');
             let script = document.createElement('script');
             script.src = id + '.js';
             script.onload = () => {
