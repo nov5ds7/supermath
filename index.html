@@ -15,15 +15,31 @@
         
         /* Screens */
         #dashboard-screen, #test-app, #result-screen, #review-screen { display: none; padding: 20px; height: 100%; overflow-y: auto; }
-        #dashboard-screen { display: block; max-width: 900px; margin: 0 auto; background: white; padding: 30px; border-radius: 8px; margin-top: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        #dashboard-screen { display: block; max-width: 1000px; margin: 0 auto; background: transparent; padding: 10px; margin-top: 10px; }
         #test-app { padding: 0; display: none; flex-direction: column; }
         
-        /* Dashboard Layout */
-        .dash-grid { display: flex; gap: 30px; margin-top: 20px; }
-        .dash-col { flex: 1; }
-        .test-list-card { border: 1px solid #e0e0e0; border-radius: 6px; padding: 15px; margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center; background: #fafafa; }
-        .test-list-card h4 { margin: 0 0 5px 0; color: #333; }
-        .loading-text { color: #666; font-style: italic; }
+        /* New Dashboard Layout */
+        .dashboard-header-container { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); margin-bottom: 20px; }
+        .dashboard-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #eee; padding-bottom: 15px; margin-bottom: 15px; }
+        .search-bar { width: 300px; padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 1rem; transition: 0.2s; }
+        .search-bar:focus { outline: none; border-color: #1a73e8; box-shadow: 0 0 0 2px rgba(26,115,232,0.2); }
+        .main-layout { display: flex; gap: 20px; }
+        .left-content { flex: 2; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        .right-sidebar { flex: 1; min-width: 280px; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        
+        /* Folder Grid */
+        .folder-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px; }
+        .folder-card { background: #fafafa; border: 1px solid #ddd; border-radius: 8px; padding: 20px 15px; text-align: center; cursor: pointer; transition: all 0.2s ease; }
+        .folder-card:hover { transform: translateY(-3px); box-shadow: 0 6px 12px rgba(26, 115, 232, 0.15); border-color: #1a73e8; background: white; }
+        .folder-icon { font-size: 3rem; margin-bottom: 10px; }
+        .folder-name { font-weight: bold; color: #333; font-size: 1.05rem; }
+        .folder-count { color: #777; font-size: 0.85rem; margin-top: 5px; }
+        
+        /* Test Cards */
+        .test-list-card { border: 1px solid #e0e0e0; border-radius: 6px; padding: 15px; margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center; transition: 0.2s; }
+        .test-unattempted { background-color: #f0fdf4 !important; border-left: 6px solid #2ecc71 !important; }
+        .test-attempted { background-color: #f8f9fa !important; border-left: 6px solid #95a5a6 !important; }
+        .score-badge { display: inline-block; background: white; color: #1a73e8; padding: 4px 10px; border-radius: 12px; font-size: 0.85rem; font-weight: bold; margin-top: 8px; border: 1px solid #c3d9fa; }
         
         /* Main Test Layout */
         .container { display: flex; flex: 1; overflow: hidden; }
@@ -45,7 +61,8 @@
         .btn-review { background-color: #e67e22; }
         .btn-clear { background-color: #95a5a6; }
         .btn-next { background-color: #27ae60; }
-        .btn-primary { background-color: #1a73e8; color: white; padding: 10px 20px; font-size: 0.95rem; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; }
+        .btn-primary { background-color: #1a73e8; color: white; padding: 10px 20px; font-size: 0.95rem; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; transition: 0.2s; }
+        .btn-primary:hover { background-color: #1557b0; }
         .btn-secondary { background-color: #6c757d; color: white; padding: 10px 20px; font-size: 0.95rem; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; }
         
         /* Palette */
@@ -91,7 +108,9 @@
 
         /* Responsive */
         @media (max-width: 850px) {
-            .dash-grid { flex-direction: column; }
+            .main-layout { flex-direction: column; }
+            .dashboard-header { flex-direction: column; align-items: flex-start; gap: 10px; }
+            .search-bar { width: 100%; }
             #test-app { height: auto; }
             .container { flex-direction: column; overflow: visible; }
             .left-panel { flex: none; overflow: visible; margin-bottom: 0; }
@@ -117,7 +136,6 @@
     <div class="timer-box" id="timer-display">30:00</div>
 </div>
 
-<!-- Start Test Modal (Student Details) -->
 <div id="start-modal">
     <div class="modal-content">
         <h3 style="margin-top:0; color:#1a73e8; border-bottom:2px solid #eee; padding-bottom:10px;">Enter Details to Begin</h3>
@@ -135,30 +153,37 @@
     </div>
 </div>
 
-<!-- Dashboard Screen -->
 <div id="dashboard-screen">
-    <h2>Student Dashboard</h2>
-    <p>Welcome! Select a test from the library to begin.</p>
     
-    <div class="dash-grid">
-        <div class="dash-col">
-            <h3 style="border-bottom: 2px solid #eee; padding-bottom: 10px;">Test Library</h3>
+    <div class="dashboard-header-container">
+        <h2 style="margin: 0 0 5px 0; color: #333;">Student Dashboard</h2>
+        <p style="margin: 0; color: #666;">Welcome! Select a category or search for a test to begin.</p>
+    </div>
+    
+    <div class="main-layout">
+        
+        <div class="left-content">
+            <div class="dashboard-header">
+                <h3 id="dash-title" style="margin:0; color: #1a73e8;">Test Categories</h3>
+                <input type="text" id="global-search" class="search-bar" placeholder="Search tests..." oninput="handleSearch()">
+            </div>
+            
             <div id="library-container">
-                <p class="loading-text">Scanning for available tests...</p>
+                <p style="color: #666; font-style: italic;">Scanning for available tests...</p>
             </div>
         </div>
 
-        <div class="dash-col">
-            <h3 style="border-bottom: 2px solid #eee; padding-bottom: 10px;">Past Attempts</h3>
+        <div class="right-sidebar">
+            <h3 style="border-bottom: 2px solid #eee; padding-bottom: 10px; margin-top: 0; color: #333;">Past Attempts</h3>
             <div id="history-table-container">
                 <p style="color: #666;">No past attempts found. Take a test to see your analytics here.</p>
             </div>
             <button class="btn-secondary no-print" style="margin-top: 15px; width: 100%;" onclick="clearHistory()">Clear History</button>
         </div>
+        
     </div>
 </div>
 
-<!-- Test Application Screen -->
 <div id="test-app">
     <div class="container">
         <div class="left-panel">
@@ -195,14 +220,12 @@
     </div>
 </div>
 
-<!-- Result Screen -->
 <div id="result-screen">
     <h2 style="text-align: center;">Test Analysis Report</h2>
     <h3 style="text-align: center; color: #1a73e8; font-size: 1.5rem; margin-bottom: 10px;">Score: <span id="final-score">0</span> / <span id="max-score">0</span></h3>
     
     <div id="result-summary-stats" style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-bottom: 25px; font-size: 1.05rem;">
-        <!-- Populated via JS -->
-    </div>
+        </div>
 
     <div class="no-print" style="text-align: center; margin: 20px 0;">
         <button class="btn-primary" onclick="showReviewScreen()">Review Detailed Answers & Solutions</button>
@@ -213,7 +236,6 @@
     <div id="analysis-table"></div>
 </div>
 
-<!-- Review Screen -->
 <div id="review-screen">
     <h2 style="text-align: center; margin-bottom: 30px;">Detailed Question Review</h2>
     <div id="review-content"></div>
@@ -224,10 +246,14 @@
 </div>
 
 <script>
-    // --- AUTO-DISCOVERY ENGINE ---
+    // --- AUTO-DISCOVERY & DASHBOARD ENGINE ---
     const MAX_TESTS_TO_SCAN = 30; 
     let loadedTests = [];
     window.testBank = window.testBank || {};
+
+    let categoriesMap = {};
+    let enrichedTests = [];
+    let currentFolder = null;
 
     let currentTestId = null;
     let studentName = "";
@@ -272,60 +298,190 @@
         function checkIfScanComplete() {
             testsChecked++;
             if (testsChecked === MAX_TESTS_TO_SCAN) {
-                // Sort by ID so test_01 appears before test_02
                 loadedTests.sort((a, b) => a.id.localeCompare(b.id));
-                renderLibrary();
+                processTestData();
+                renderFolders();
             }
         }
     }
 
-    function renderLibrary() {
-        const container = document.getElementById('library-container');
-        if (loadedTests.length === 0) {
-            container.innerHTML = '<p style="color: #d32f2f;">No test files found. Please ensure files like test_01.js are uploaded to the server.</p>';
+    // Prepare tests, assign categories, and fetch scores
+    function processTestData() {
+        const historyData = JSON.parse(localStorage.getItem('jee_simulator_history')) || [];
+        categoriesMap = {};
+        enrichedTests = [];
+
+        loadedTests.forEach(test => {
+            let testData = window.testBank[test.id];
+            if (!testData) return;
+
+            // Auto-categorization
+            let cat = testData.category;
+            if (!cat) {
+                let titleLower = test.name.toLowerCase();
+                if (titleLower.includes('theory') || titleLower.includes('formula')) cat = 'Theory and Formulae Tests';
+                else if (titleLower.includes('mpt') || titleLower.includes('full')) cat = 'Full Tests';
+                else if (titleLower.includes('speed')) cat = 'Speed Tests';
+                else if (titleLower.includes('chocolate')) cat = 'Chocolate Problems';
+                else cat = 'Assignments';
+            }
+
+            // History & Score
+            let tHist = historyData.filter(h => h.testId === test.id);
+            let attempted = tHist.length > 0;
+            let bestScore = attempted ? Math.max(...tHist.map(h => h.score)) : 0;
+            
+            let qCount = testData.randomizePoolSize ? Math.min(testData.randomizePoolSize, testData.questions.length) : testData.questions.length;
+            let maxScore = qCount * 4;
+
+            let enriched = {
+                ...test,
+                category: cat,
+                attempted: attempted,
+                bestScore: bestScore,
+                maxScore: maxScore
+            };
+
+            enrichedTests.push(enriched);
+
+            if (!categoriesMap[cat]) categoriesMap[cat] = [];
+            categoriesMap[cat].push(enriched);
+        });
+    }
+
+    function handleSearch() {
+        const query = document.getElementById('global-search').value.toLowerCase().trim();
+        
+        if (query === '') {
+            if (currentFolder) {
+                renderFolderView(currentFolder);
+            } else {
+                renderFolders();
+            }
             return;
         }
 
-        let html = '';
-        loadedTests.forEach(test => {
-            html += `<div class="test-list-card">
-                        <div><h4>${test.name}</h4><span style="font-size:0.8rem; color:#666;">File: ${test.id}.js</span></div>
-                        <button class="btn-primary" onclick="openStartModal('${test.id}')">Start Test</button>
-                     </div>`;
-        });
+        let filtered = [];
+        if (currentFolder) {
+            // Search inside the current folder
+            document.getElementById('dash-title').innerHTML = `<a href="#" onclick="goHome()" style="color:#1a73e8; text-decoration:none;">Folders</a> > ${currentFolder} > Search`;
+            filtered = categoriesMap[currentFolder].filter(t => t.name.toLowerCase().includes(query));
+        } else {
+            // Search globally
+            document.getElementById('dash-title').innerHTML = `<a href="#" onclick="goHome()" style="color:#1a73e8; text-decoration:none;">Folders</a> > Global Search`;
+            filtered = enrichedTests.filter(t => t.name.toLowerCase().includes(query) || t.category.toLowerCase().includes(query));
+        }
+        renderTestCards(filtered);
+    }
+
+    function goHome() {
+        currentFolder = null;
+        document.getElementById('global-search').value = '';
+        renderFolders();
+    }
+
+    function renderFolders() {
+        currentFolder = null;
+        document.getElementById('dash-title').innerText = 'Test Categories';
+        const container = document.getElementById('library-container');
+        
+        if (Object.keys(categoriesMap).length === 0) {
+            container.innerHTML = '<p style="color: #d32f2f;">No test files found. Please ensure test files are uploaded.</p>';
+            return;
+        }
+
+        let html = '<div class="folder-grid">';
+        for (let cat in categoriesMap) {
+            if (categoriesMap[cat].length > 0) {
+                html += `<div class="folder-card" onclick="openFolder('${cat}')">
+                            <div class="folder-icon">📁</div>
+                            <div class="folder-name">${cat}</div>
+                            <div class="folder-count">${categoriesMap[cat].length} Test(s)</div>
+                         </div>`;
+            }
+        }
+        html += '</div>';
         container.innerHTML = html;
     }
 
+    function openFolder(cat) {
+        currentFolder = cat;
+        document.getElementById('global-search').value = '';
+        renderFolderView(cat);
+    }
+
+    function renderFolderView(cat) {
+        document.getElementById('dash-title').innerHTML = `<a href="#" onclick="goHome()" style="color:#1a73e8; text-decoration:none; transition:0.2s;">📁 Folders</a> > ${cat}`;
+        renderTestCards(categoriesMap[cat]);
+    }
+
+    function renderTestCards(tests) {
+        const container = document.getElementById('library-container');
+        if (tests.length === 0) {
+            container.innerHTML = '<p style="color:#666; margin-top:20px;">No matching tests found.</p>';
+            return;
+        }
+
+        let html = '<div style="margin-top:20px;">';
+        tests.forEach(test => {
+            let bgClass = test.attempted ? 'test-attempted' : 'test-unattempted';
+            let btnText = test.attempted ? 'Reattempt Test' : 'Start Test';
+            let scoreText = test.attempted ? `<div class="score-badge">Highest Score: ${test.bestScore} / ${test.maxScore}</div>` : '';
+            
+            html += `<div class="test-list-card ${bgClass}">
+                        <div>
+                            <h4 style="margin: 0; color: #222; font-size: 1.15rem;">${test.name}</h4>
+                            ${scoreText}
+                        </div>
+                        <button class="btn-primary" onclick="openStartModal('${test.id}')">${btnText}</button>
+                     </div>`;
+        });
+        html += '</div>';
+        container.innerHTML = html;
+    }
+
+    // --- HISTORY SIDEBAR ---
     function renderHistory() {
         const historyData = JSON.parse(localStorage.getItem('jee_simulator_history')) || [];
         const container = document.getElementById('history-table-container');
         
         if (historyData.length > 0) {
-            let html = '<table><tr><th>Test</th><th>Date</th><th>Score</th><th>Action</th></tr>';
+            let html = '<table><tr><th>Test</th><th>Date</th><th>Score</th><th></th></tr>';
             historyData.slice().reverse().forEach((entry, idx) => {
                 const originalIndex = historyData.length - 1 - idx;
                 html += `<tr>
-                    <td>${entry.testName}</td>
-                    <td style="font-size:0.8rem;">${entry.date}</td>
+                    <td style="text-align:left; font-weight:bold;">${entry.testName}</td>
+                    <td style="font-size:0.75rem; color:#666;">${entry.date.split(',')[0]}</td>
                     <td style="font-weight:bold; color:#1a73e8;">${entry.score}/${entry.total}</td>
-                    <td><button class="btn-primary" style="padding: 4px 8px; font-size: 0.8rem;" onclick="loadPastReview(${originalIndex})">Review</button></td>
+                    <td><button class="btn-primary" style="padding: 4px 8px; font-size: 0.75rem;" onclick="loadPastReview(${originalIndex})">Review</button></td>
                 </tr>`;
             });
             html += '</table>';
             container.innerHTML = html;
         } else {
-            container.innerHTML = '<p style="color: #666;">No past attempts found. Take a test to see your analytics here.</p>';
+            container.innerHTML = '<p style="color: #666; font-style:italic;">No past attempts found. Take a test to see your analytics here.</p>';
         }
     }
 
     function clearHistory() {
-        if(confirm("Delete all past test records?")) {
+        if(confirm("Delete all past test records? This will clear your scores and attempt status.")) {
             localStorage.removeItem('jee_simulator_history');
-            renderHistory();
+            location.reload();
         }
     }
 
-    // --- Modal & Test Startup ---
+    // --- SHUFFLE LOGIC ---
+    function shuffleArray(array) {
+        let currentIndex = array.length, randomIndex;
+        while (currentIndex !== 0) {
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex--;
+            [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+        }
+        return array;
+    }
+
+    // --- TEST EXECUTION LOGIC ---
     function openStartModal(testId) {
         currentTestId = testId;
         
@@ -354,17 +510,12 @@
         
         const testData = window.testBank[currentTestId];
         
-        // --- NEW: DYNAMIC QUESTION POOL LOGIC ---
         if (testData.randomizePoolSize && testData.questions.length > testData.randomizePoolSize) {
-            // Create a shuffled copy of the question bank
-            let shuffledPool = [...testData.questions].sort(() => 0.5 - Math.random());
-            // Slice it down to the requested size
+            let shuffledPool = shuffleArray([...testData.questions]);
             questions = shuffledPool.slice(0, testData.randomizePoolSize);
         } else {
-            // Standard static test logic
             questions = testData.questions;
         }
-        // ----------------------------------------
         
         document.getElementById('dashboard-screen').style.display = 'none';
         document.getElementById('test-app').style.display = 'flex';
@@ -499,7 +650,6 @@
         if(confirm("Submit the test? No further changes allowed.")) autoSubmit();
     }
 
-    // --- Submission & Analysis ---
     function autoSubmit() {
         clearInterval(timerInterval);
         document.getElementById('timer-display').style.display = 'none';
@@ -576,7 +726,8 @@
             score: score,
             total: questions.length * 4,
             accuracy: attemptCount > 0 ? Math.round((correctCount / attemptCount) * 100) : 0,
-            savedState: JSON.parse(JSON.stringify(testState)) 
+            savedState: JSON.parse(JSON.stringify(testState)),
+            savedQuestions: JSON.parse(JSON.stringify(questions))
         });
         localStorage.setItem('jee_simulator_history', JSON.stringify(history));
 
@@ -610,13 +761,18 @@
         if(history[historyIndex] && history[historyIndex].savedState) {
             
             currentTestId = history[historyIndex].testId;
-            if(!window.testBank[currentTestId]) {
+            
+            if(!history[historyIndex].savedQuestions && !window.testBank[currentTestId]) {
                 alert("The fuel file for this test is missing. Ensure the file is still on the server.");
                 return;
             }
             
-            questions = window.testBank[currentTestId].questions;
+            questions = history[historyIndex].savedQuestions || window.testBank[currentTestId].questions;
             testState = history[historyIndex].savedState;
+
+            if (questions.length > testState.length) {
+                questions = questions.slice(0, testState.length);
+            }
             
             let correctCount = 0;
             let attemptCount = 0;
