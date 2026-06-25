@@ -29,7 +29,7 @@
         #dashboard-screen { display: block; max-width: 1000px; margin: 0 auto; background: transparent; padding: 10px; margin-top: 10px; }
         #test-app { padding: 0; display: none; flex-direction: column; }
         
-        /* Dashboard Layout */
+        /* New Dashboard Layout */
         .dashboard-header-container { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); margin-bottom: 20px; }
         .dashboard-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #eee; padding-bottom: 15px; margin-bottom: 15px; }
         .search-bar { width: 300px; padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 1rem; transition: 0.2s; }
@@ -152,7 +152,7 @@
     <div class="timer-box" id="timer-display">30:00</div>
 </div>
 
-<!-- Start Test Modal -->
+<!-- Start Test Modal (Student Details) -->
 <div id="start-modal">
     <div class="modal-content">
         <h3 style="margin-top:0; color:#1a73e8; border-bottom:2px solid #eee; padding-bottom:10px;">Enter Details to Begin</h3>
@@ -302,7 +302,7 @@
     function goBack() {
         if (document.getElementById('test-app').style.display === 'flex') {
             if(confirm("Are you sure you want to exit the test? Progress will be lost.")) {
-                clearInterval(timerInterval);
+                if (timerInterval) clearInterval(timerInterval);
                 goHome();
             }
         } else if (document.getElementById('review-screen').style.display === 'block') {
@@ -321,7 +321,10 @@
         document.getElementById('test-app').style.display = 'none';
         document.getElementById('review-screen').style.display = 'none';
         document.getElementById('result-screen').style.display = 'none';
+        document.getElementById('timer-display').style.display = 'none'; // BUG FIX: Always hide timer on home screen
         document.getElementById('dashboard-screen').style.display = 'block';
+        
+        if (timerInterval) clearInterval(timerInterval); // BUG FIX: Ensure interval is completely cleared
         
         currentFolder = null;
         document.getElementById('global-search').value = '';
@@ -564,6 +567,9 @@
         
         renderPalette();
         jumpToQuestion(0);
+        
+        // BUG FIX: Strictly clear interval before initiating to prevent fast-ticking ghosts
+        if (timerInterval) clearInterval(timerInterval);
         timerInterval = setInterval(updateTimer, 1000);
     }
 
