@@ -184,9 +184,7 @@
                 <input type="text" id="global-search" class="search-bar" placeholder="Search tests or topics..." oninput="handleSearch()">
             </div>
             <div id="library-container">
-                <div style="padding: 20px; text-align: center;">
-                    <p style="color: #666; font-style: italic;" id="loading-txt">Scanning master library for test files...</p>
-                </div>
+                <p style="color: #666; font-style: italic;">Connecting to master library...</p>
             </div>
         </div>
 
@@ -264,8 +262,13 @@
 </div>
 
 <script>
-    // --- GLOBAL ENGINE CONFIGURATION ---
-    const MAX_TESTS_TO_SCAN = 999; 
+    // === CONFIGURATION ===
+    const MAX_TESTS_TO_SCAN = 500;          // Now supports up to 500 test files (test_001.js ... test_500.js)
+    const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSeAVg0DY_6PA5vfZYnyiCzOOGbZcZmmkVXC_YZ5o9Cj_EWaFA/formResponse"; // Replace with your own form URL
+    const NUMERICAL_TOLERANCE = 0.001;       // Default tolerance for numerical answers
+
+    // ==============================================
+
     let loadedTests = [];
     window.testBank = window.testBank || {};
 
@@ -281,7 +284,7 @@
     let currentIndex = 0;
     let timeRemaining = 30 * 60; 
     let questionEnterTime = Date.now();
-    let timerInterval = null; 
+    let timerInterval;
 
     function applyMath() {
         if (window.renderMathInElement) {
@@ -300,7 +303,7 @@
     function goBack() {
         if (document.getElementById('test-app').style.display === 'flex') {
             if(confirm("Are you sure you want to exit the test? Progress will be lost.")) {
-                killTimer();
+                if (timerInterval) clearInterval(timerInterval);
                 goHome();
             }
         } else if (document.getElementById('review-screen').style.display === 'block') {
@@ -309,32 +312,25 @@
         } else if (document.getElementById('result-screen').style.display === 'block') {
             goHome();
         } else if (document.getElementById('dashboard-screen').style.display === 'block') {
+            // If inside a folder, go back to root; otherwise do nothing
             if (currentFolder !== null) {
-                goHome(); 
+                goHome();
             }
         }
     }
 
     function goHome() {
-        killTimer();
-        
         document.getElementById('test-app').style.display = 'none';
         document.getElementById('review-screen').style.display = 'none';
         document.getElementById('result-screen').style.display = 'none';
-        
         document.getElementById('timer-display').style.display = 'none'; 
         document.getElementById('dashboard-screen').style.display = 'block';
+        
+        if (timerInterval) clearInterval(timerInterval);
         
         currentFolder = null;
         document.getElementById('global-search').value = '';
         renderFolders();
-    }
-
-    function killTimer() {
-        if (timerInterval) {
-            clearInterval(timerInterval);
-            timerInterval = null;
-        }
     }
 
     window.onload = function() {
@@ -342,58 +338,45 @@
         autoDiscoverTests();
     }
 
-    // --- ROBUST ASYNC BATched SCANNER (SCALES TO 1000 FILES) ---
-    async function autoDiscoverTests() {
-        const BATCH_SIZE = 50; // Prevents freezing the browser
-        const MAX_CONSECUTIVE_MISSES = 20; // Stops scanning if we hit 20 empty slots in a row
-        
-        let consecutiveMisses = 0;
-        
-        for (let i = 1; i <= MAX_TESTS_TO_SCAN; i += BATCH_SIZE) {
-            let batchPromises = [];
-            
-            for (let j = i; j < i + BATCH_SIZE && j <= MAX_TESTS_TO_SCAN; j++) {
-                batchPromises.push(new Promise((resolve) => {
-                    let id = 'test_' + String(j).padStart(3, '0'); // IMPORTANT: 3 Digits!
-                    let script = document.createElement('script');
-                    script.src = id + '.js';
-                    
-                    script.onload = () => {
-                        if (window.testBank && window.testBank[id]) {
-                            loadedTests.push({
-                                id: id,
-                                name: window.testBank[id].title || 'Unnamed Test ' + j
-                            });
-                        }
-                        resolve(true); 
-                    };
-                    script.onerror = () => {
-                        resolve(false); 
-                    };
-                    document.head.appendChild(script);
-                }));
-            }
-            
-            let results = await Promise.all(batchPromises);
-            
-            // Check how many successfully loaded in this batch
-            let hits = results.filter(r => r === true).length;
-            
-            if (hits === 0) {
-                consecutiveMisses += BATCH_SIZE;
-            } else {
-                consecutiveMisses = 0; // Reset counter if we found something
-            }
-            
-            // If we found a large gap with absolutely no files, assume we reached the end of the library
-            if (consecutiveMisses >= MAX_CONSECUTIVE_MISSES) {
-                break; 
+    function autoDiscoverTests() {
+        let testsChecked = 0;
+        let successfulLoads = 0;
+        let timeoutTriggered = false;
+
+        const fallbackTimer = setTimeout(() => {
+            timeoutTriggered = true;
+            processTestData();
+            renderFolders();
+        }, 4000); // slightly longer for many files
+
+        for (let i = 1; i <= MAX_TESTS_TO_SCAN; i++) {
+            // Using 3-digit padding (001, 002, ..., 100, 101, ... 500)
+            let id = 'test_' + String(i).padStart(3, '0');
+            let script = document.createElement('script');
+            script.src = id + '.js';
+            script.onload = () => {
+                if (window.testBank && window.testBank[id]) {
+                    loadedTests.push({
+                        id: id,
+                        name: window.testBank[id].title || 'Unnamed Test ' + i
+                    });
+                    successfulLoads++;
+                }
+                checkIfScanComplete();
+            };
+            script.onerror = () => { checkIfScanComplete(); };
+            document.head.appendChild(script);
+        }
+
+        function checkIfScanComplete() {
+            testsChecked++;
+            if (testsChecked === MAX_TESTS_TO_SCAN && !timeoutTriggered) {
+                clearTimeout(fallbackTimer);
+                loadedTests.sort((a, b) => a.id.localeCompare(b.id));
+                processTestData();
+                renderFolders();
             }
         }
-        
-        loadedTests.sort((a, b) => a.id.localeCompare(b.id));
-        processTestData();
-        renderFolders();
     }
 
     function processTestData() {
@@ -405,10 +388,7 @@
             let testData = window.testBank[test.id];
             if (!testData) return;
 
-            let cat = testData.category;
-            if (!cat || cat.trim() === '') {
-                cat = 'Uncategorized Tests';
-            }
+            let cat = testData.category || 'Uncategorized Tests';
 
             let tHist = historyData.filter(h => h.testId === test.id);
             let attempted = tHist.length > 0;
@@ -454,22 +434,22 @@
         const container = document.getElementById('library-container');
         
         if (Object.keys(categoriesMap).length === 0) {
-            container.innerHTML = '<p style="color: #d32f2f;">No test files found. Please ensure your test files (e.g., test_001.js) are uploaded.</p>';
+            container.innerHTML = '<p style="color: #d32f2f;">No test files found. Please ensure test_XXX.js files are uploaded to the root directory.</p>';
             return;
         }
 
         const folderColors = {
-            'Assignments': '#1a73e8', // Blue
-            'Theory and Formulae Tests': '#f39c12', // Orange
-            'Full Tests': '#27ae60', // Green
-            'Speed Tests': '#9b59b6', // Purple
-            'Chocolate Problems': '#e74c3c' // Red
+            'Assignments': '#1a73e8',
+            'Theory and Formulae Tests': '#f39c12',
+            'Full Tests': '#27ae60',
+            'Speed Tests': '#9b59b6',
+            'Chocolate Problems': '#e74c3c'
         };
 
         let html = '<div class="folder-grid">';
         for (let cat in categoriesMap) {
             if (categoriesMap[cat].length > 0) {
-                let color = folderColors[cat] || '#34495e'; 
+                let color = folderColors[cat] || '#16a085';
                 let folderSvg = `<svg viewBox="0 0 24 24" width="70" height="70" fill="${color}"><path d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"/></svg>`;
                 html += `<div class="folder-card" onclick="openFolder('${cat}')">
                             <div class="folder-icon">${folderSvg}</div>
@@ -547,7 +527,7 @@
         }
     }
 
-    // --- TRUE RANDOM SHUFFLE (FISHER-YATES) ---
+    // --- SHUFFLE LOGIC ---
     function shuffleArray(array) {
         let currentIndex = array.length, randomIndex;
         while (currentIndex !== 0) {
@@ -578,15 +558,18 @@
         document.getElementById('start-modal').style.display = 'none';
         
         const testData = window.testBank[currentTestId];
-        let pool = testData.questions || [];
+        if (!testData || !testData.questions) {
+            alert("Test data not found! Please check the test file.");
+            goHome();
+            return;
+        }
         
         if (testData.randomizePoolSize && testData.randomizePoolSize > 0) {
-            let shuffledPool = shuffleArray([...pool]);
-            // SAFETY VALVE: Ensure we never try to pick more questions than actually exist in the file
-            let pickCount = Math.min(testData.randomizePoolSize, shuffledPool.length);
-            questions = shuffledPool.slice(0, pickCount);
+            let shuffledPool = shuffleArray([...testData.questions]);
+            let sizeToExtract = Math.min(testData.randomizePoolSize, shuffledPool.length);
+            questions = shuffledPool.slice(0, sizeToExtract);
         } else {
-            questions = [...pool];
+            questions = testData.questions;
         }
         
         document.getElementById('dashboard-screen').style.display = 'none';
@@ -600,13 +583,13 @@
         renderPalette();
         jumpToQuestion(0);
         
-        killTimer();
+        if (timerInterval) clearInterval(timerInterval);
         timerInterval = setInterval(updateTimer, 1000);
     }
 
     function updateTimer() {
         if (timeRemaining <= 0) {
-            killTimer();
+            clearInterval(timerInterval);
             document.getElementById('timer-display').innerText = "00:00";
             alert("Time is up! Submitting automatically.");
             autoSubmit();
@@ -726,7 +709,7 @@
     }
 
     function autoSubmit() {
-        killTimer();
+        clearInterval(timerInterval);
         document.getElementById('timer-display').style.display = 'none';
         trackTime(); 
         captureCurrentAnswer();
@@ -754,7 +737,15 @@
                     isCorrect = (state.answer === q.correctAnswer);
                     displayAns = `<strong>${labels[state.answer] || (state.answer+1)})</strong> ` + q.options[state.answer];
                 } else {
-                    isCorrect = (state.answer.toString() === q.correctAnswer.toString());
+                    // Numeric comparison with tolerance
+                    let tolerance = q.tolerance !== undefined ? q.tolerance : NUMERICAL_TOLERANCE;
+                    let userNum = parseFloat(state.answer);
+                    let corrNum = parseFloat(q.correctAnswer);
+                    if (!isNaN(userNum) && !isNaN(corrNum)) {
+                        isCorrect = Math.abs(userNum - corrNum) <= tolerance;
+                    } else {
+                        isCorrect = (state.answer.toString() === q.correctAnswer.toString());
+                    }
                     displayAns = state.answer;
                 }
             }
@@ -791,7 +782,7 @@
         `;
 
         let testObj = loadedTests.find(t => t.id === currentTestId);
-        let finalTestName = testObj ? testObj.name : 'Unknown Test';
+        let finalTestName = testObj ? testObj.name : (window.testBank[currentTestId]?.title || 'Unknown Test');
 
         let history = JSON.parse(localStorage.getItem('jee_simulator_history')) || [];
         history.push({
@@ -806,8 +797,7 @@
         });
         localStorage.setItem('jee_simulator_history', JSON.stringify(history));
 
-        // Background Google Sheet Sync
-        const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSeAVg0DY_6PA5vfZYnyiCzOOGbZcZmmkVXC_YZ5o9Cj_EWaFA/formResponse";
+        // Background sync to Google Sheets (no-cors, silent failure)
         const formData = new URLSearchParams();
         formData.append("entry.1036771923", studentName);
         formData.append("entry.623544967", studentBatch);
@@ -816,17 +806,18 @@
         formData.append("entry.2079580785", attemptCount);
         formData.append("entry.1269654501", correctCount);
 
-        fetch(formUrl, { method: "POST", mode: "no-cors", body: formData }).catch(err => console.error(err));
+        fetch(GOOGLE_FORM_URL, { method: "POST", mode: "no-cors", body: formData }).catch(() => {});
 
         generateReviewContent();
     }
 
     function loadPastReview(historyIndex) {
         let history = JSON.parse(localStorage.getItem('jee_simulator_history')) || [];
-        if(history[historyIndex] && history[historyIndex].savedState) {
+        if (history[historyIndex] && history[historyIndex].savedState) {
             
             currentTestId = history[historyIndex].testId;
-            questions = history[historyIndex].savedQuestions || window.testBank[currentTestId].questions;
+            // Fallback: use savedQuestions, else try the live bank, else empty array
+            questions = history[historyIndex].savedQuestions || (window.testBank[currentTestId]?.questions || []);
             testState = history[historyIndex].savedState;
 
             if (questions.length > testState.length) {
@@ -836,12 +827,22 @@
             let correctCount = 0;
             let attemptCount = 0;
             questions.forEach((q, i) => {
-                if(testState[i].answer !== null) {
+                if (testState[i] && testState[i].answer !== null) {
                     attemptCount++;
-                    let isCorrect = q.type === 'mcq' 
-                        ? (testState[i].answer === q.correctAnswer) 
-                        : (testState[i].answer.toString() === q.correctAnswer.toString());
-                    if(isCorrect) correctCount++;
+                    let isCorrect = false;
+                    if (q.type === 'mcq') {
+                        isCorrect = (testState[i].answer === q.correctAnswer);
+                    } else {
+                        let tolerance = q.tolerance !== undefined ? q.tolerance : NUMERICAL_TOLERANCE;
+                        let userNum = parseFloat(testState[i].answer);
+                        let corrNum = parseFloat(q.correctAnswer);
+                        if (!isNaN(userNum) && !isNaN(corrNum)) {
+                            isCorrect = Math.abs(userNum - corrNum) <= tolerance;
+                        } else {
+                            isCorrect = (testState[i].answer.toString() === q.correctAnswer.toString());
+                        }
+                    }
+                    if (isCorrect) correctCount++;
                 }
             });
             const unattemptedCount = questions.length - attemptCount;
@@ -865,6 +866,12 @@
         }
     }
 
+    function showReviewScreen() {
+        document.getElementById('result-screen').style.display = 'none';
+        document.getElementById('review-screen').style.display = 'block';
+        window.scrollTo(0, 0);
+    }
+
     function toggleSolution(index) {
         const box = document.getElementById(`sol-${index}`);
         box.classList.toggle('active');
@@ -877,11 +884,22 @@
 
         questions.forEach((q, i) => {
             const state = testState[i];
-            const isAns = state.answer !== null;
+            const isAns = state && state.answer !== null;
             let isCorrect = false;
 
             if (isAns) {
-                isCorrect = q.type === 'mcq' ? (state.answer === q.correctAnswer) : (state.answer.toString() === q.correctAnswer.toString());
+                if (q.type === 'mcq') {
+                    isCorrect = (state.answer === q.correctAnswer);
+                } else {
+                    let tolerance = q.tolerance !== undefined ? q.tolerance : NUMERICAL_TOLERANCE;
+                    let userNum = parseFloat(state.answer);
+                    let corrNum = parseFloat(q.correctAnswer);
+                    if (!isNaN(userNum) && !isNaN(corrNum)) {
+                        isCorrect = Math.abs(userNum - corrNum) <= tolerance;
+                    } else {
+                        isCorrect = (state.answer.toString() === q.correctAnswer.toString());
+                    }
+                }
             }
 
             let badgeHtml = '';
@@ -920,6 +938,11 @@
 
         reviewContainer.innerHTML = html;
         applyMath();
+    }
+
+    // === PDF GENERATION (using browser's print) ===
+    function generatePDF() {
+        window.print();  // Uses the @media print CSS defined above
     }
 </script>
 
