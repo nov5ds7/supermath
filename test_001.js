@@ -1,94 +1,128 @@
-import json
-import zipfile
-import os
-
-q_list = []
-
-def add_q(text, options, correct, sol):
-    q_list.append({
-        "type": "mcq",
-        "text": text,
-        "options": options,
-        "correctAnswer": correct,
-        "solution": sol
-    })
-
-# Q1
-add_q("Let $A$ and $B$ be the points ($A$ has positive ordinate) common to the ellipse $E: x^{2}+4y^{2}=20$, hyperbola $H: 4y^{2}-x^{2}=20$. Four lines two from each focus of the hyperbola are drawn that touch the ellipse at $P, Q, R$ and $S$ in quadrants I, IV, III and II respectively. Then, the area of the hexagon $APQBRS$ is",
-      ["$4(\\sqrt{5}+1)$", "$8(\\sqrt{5}+1)$", "$8(\\sqrt{5}+2)$", "$4(\\sqrt{5}+2)$"],
-      1,
-      "The equation of the ellipse is $\\frac{x^2}{20}+\\frac{y^2}{5}=1$. The equation of the hyperbola is $\\frac{y^2}{5}-\\frac{x^2}{20}=1$. A, B are points of contact of $E\\Rightarrow A(0,\\sqrt{5})$, $B(0,-\\sqrt{5})$. The foci of the hyperbola are $(0, \\pm 5)$. Equation of tangents to the ellipse $y=mx+\\sqrt{20m^{2}+5}...(1)$. Eq. (1) passing through $(0, 5)$, $5=\\sqrt{20m^{2}+5}\\Rightarrow m=\\pm 1$. Eq. of tangents: $y=-x+5$ at $P(4,1)$, $y=x-5$ at $Q(4,-1)$, $y=-x-5$ at $R(-4,-1)$, $y=x+5$ at $S(-4,1)$. Area of hexagon = 2 trapezium $(APQB)=2\\times\\frac{1}{2}(2\\sqrt{5}+2)(4)=8(\\sqrt{5}+1)$.")
-
-# Q2
-add_q("Let the hyperbola $H:\\frac{x^{2}}{a^{2}}-y^{2}=1$ and the ellipse $E: 3x^{2}+4y^{2}=12$ be such that the length of latus rectum of $H$ is equal to the length of latus rectum of $E$. If $e_{H}$ and $e_{E}$ are the eccentricities of $H$ and $E$, respectively, then the value of $12(e_{H}^{2}+e_{E}^{2})$ is equal to",
-      ["40", "42", "44", "46"],
-      1,
-      "The ellipse is $\\frac{x^{2}}{4}+\\frac{y^{2}}{3}=1$. The hyperbola is $\\frac{x^{2}}{a^{2}}-\\frac{y^{2}}{1}=1$. $e_{E}=\\sqrt{1-\\frac{3}{4}}=\\frac{1}{2}$. Length of latus rectum of $E$ is $\\frac{2b^2}{a} = \\frac{2(3)}{2} = 3$. Length of latus rectum of $H$ is $\\frac{2(1)}{a} = \\frac{2}{a}$. Thus $\\frac{2}{a}=3 \\Rightarrow a=\\frac{2}{3}$. $e_{H}=\\sqrt{1+\\frac{1}{a^2}} = \\sqrt{1+\\frac{9}{4}}=\\frac{\\sqrt{13}}{2}$. $12(e_{H}^{2}+e_{E}^{2})=12(\\frac{13}{4}+\\frac{1}{4})=12(\\frac{14}{4})=42$.")
-
-# Q3
-add_q("Let $C$ be the largest circle centered at $(2, 0)$ and inscribed in the ellipse $\\frac{x^{2}}{36}+\\frac{y^{2}}{16}=1$. If $(1,\\alpha)$ lies on $C$, then $10\\alpha^{2}$ is equal to",
-      ["116", "118", "120", "122"],
-      1,
-      "Normal at any point $P(6\\cos\\theta,4\\sin\\theta)$ is $6\\sec\\theta x-4\\csc\\theta y=20$. This normal is also the normal of the circle passing through the point $(2,0)$. So, $12\\sec\\theta=20 \\Rightarrow \\cos\\theta=\\frac{3}{5}$ and $\\sin\\theta=\\frac{4}{5}$. Point $P=(\\frac{18}{5},\\frac{16}{5})$. So the largest radius of circle $r^2=(2-\\frac{18}{5})^2 + (0-\\frac{16}{5})^2 = \\frac{64}{25} + \\frac{256}{25} = \\frac{320}{25} = \\frac{64}{5}$. So the equation of circle is $(x-2)^{2}+y^{2}=\\frac{64}{5}$. Passing it through $(1,\\alpha)$, $(1-2)^2 + \\alpha^2 = \\frac{64}{5} \\Rightarrow \\alpha^2 = \\frac{64}{5} - 1 = \\frac{59}{5}$. Then $10\\alpha^{2}=118$.")
-
-# Q4
-add_q("The locus of the point of intersection of the lines $\\sqrt{3}kx+ky-4\\sqrt{3}=0$ and $\\sqrt{3}x-y-4\\sqrt{3}k=0$ is a conic, whose eccentricity is",
-      ["1", "$\\sqrt{2}$", "2", "$\\sqrt{3}$"],
-      2,
-      "$\\sqrt{3}kx+ky=4\\sqrt{3}$ and $\\sqrt{3}kx-ky=4\\sqrt{3}k^{2}$. Adding equation (1) & (2) $2\\sqrt{3}kx=4\\sqrt{3}(k^{2}+1) \\Rightarrow x=2(k+\\frac{1}{k})$. Subtracting equation (1) & (2) $y=2\\sqrt{3}(\\frac{1}{k}-k)$. We have $\\frac{x}{2} = k+\\frac{1}{k}$ and $\\frac{y}{2\\sqrt{3}} = \\frac{1}{k}-k$. Squaring and subtracting gives $\\frac{x^{2}}{4}-\\frac{y^{2}}{12}=4 \\Rightarrow \\frac{x^{2}}{16}-\\frac{y^{2}}{48}=1$, which is a hyperbola. $\\therefore e^{2}=1+\\frac{48}{16} = 4 \\Rightarrow e=2$.")
-
-# Q5
-add_q("Consider ellipses $E_{k}: kx^{2}+k^{2}y^{2}=1, k=1,2,...,20$. Let $C_{k}$ be the circle which touches the four chords joining the end points (one on minor axis and another on major axis) of the ellipse $E_{k}$. If $r_{k}$ is the radius of the circle $C_{k}$ then the value of $\\sum_{k=1}^{20}\\frac{1}{r_{k}^{2}}$ is",
-      ["2870", "3080", "3290", "3500"],
-      1,
-      "Given, $E_{k}:hx^{2}+k^{2}y^{2}=1\\Rightarrow E_{k}:\\frac{x^2}{(1/\\sqrt{k})^{2}}+\\frac{y^2}{(1/k)^2}=1$. Now equation of the chord joining the points $(\\frac{1}{\\sqrt{k}},0)$ & $(0,\\frac{1}{k})$ will be $L_{k}:\\sqrt{k}x+ky-1=0$. Now $r_{k} =$ Perpendicular distance of $L_{k}$ from $(0, 0)$, we get $r_{k}=\\frac{|-1|}{\\sqrt{k+k^{2}}}\\Rightarrow r_{k}^{2}=\\frac{1}{k+k^{2}}$. Now putting the value of $r_{k}^{2}$ in $\\sum_{k=1}^{20}\\frac{1}{r_{k}^{2}}$ we get $\\sum_{k=1}^{20}(k+k^{2})=\\frac{20\\times21}{2}+\\frac{20\\times21\\times41}{6}=210+2870=3080$.")
-
-# Q6
-add_q("The area (in sq. units) of the quadrilateral formed by the tangents at the end points of the latus rectum to the ellipse $\\frac{x^{2}}{9}+\\frac{y^{2}}{5}=1$ is",
-      ["27", "18", "36", "54"],
-      0,
-      "Equation of given ellipse is $\\frac{x^{2}}{9}+\\frac{y^{2}}{5}=1\\Rightarrow a^{2}=9, b^{2}=5$. Now, $b^{2}=a^{2}(1-e^{2})\\Rightarrow 5=9(1-e^{2})\\Rightarrow e=2/3$. One of the end points of the latus rectum is $P(ae,b^{2}/a)\\equiv(2,5/3)$. Equation of tangent to the ellipse at $P$ is $\\frac{2x}{9}+\\frac{5y}{15}=1 \\Rightarrow \\frac{x}{9/2}+\\frac{y}{3}=1$. Therefore, area of quadrilateral $=4(\\frac{1}{2})(\\frac{9}{2})(3)=27$ sq. units.")
-
-# Q7
-add_q("Let $a$ and $b$, respectively, be the semi-transverse and semi-conjugate axes of a hyperbola whose eccentricity satisfies the equation $9e^{2}-18e+5=0$. If $S(5,0)$ is a focus and $5x=9$ is the corresponding directrix of this hyperbola, then $|a^{2}-b^{2}|=$",
-      ["5", "6", "7", "8"],
-      2,
-      "We have $9e^{2}-18e+5=0 \\Rightarrow (3e-1)(3e-5)=0\\Rightarrow e=\\frac{1}{3},\\frac{5}{3}$. For hyperbola, $e>1$, that is, $e=\\frac{5}{3}$. Let $P(x,y)$ be any point on the hyperbola. $PS=ePM \\Rightarrow \\sqrt{(x-5)^{2}+y^{2}}=\\frac{5}{3}|x-\\frac{9}{5}| = \\frac{1}{3}|5x-9|$. Squaring, $(x-5)^{2}+y^{2}=\\frac{1}{9}(25x^{2}+81-90x) \\Rightarrow 9x^{2}+225-90x+9y^{2}=25x^{2}-90x+81 \\Rightarrow 16x^{2}-9y^{2}=144 \\Rightarrow \\frac{x^{2}}{9}-\\frac{y^{2}}{16}=1$. Therefore, $a^{2}=9$ and $b^{2}=16$. Hence, $|a^{2}-b^{2}|=7$.")
-
-# Q8
-add_q("The locus of the foot of perpendicular drawn from the centre of the ellipse $x^{2}+3y^{2}=6$ on any tangent to it is $(x^{2}+y^{2})^{2}=ax^{2}+by^{2}$ where $a, b\\in \\mathbb{N}$ then $a^{2}+b^{2}=$",
-      ["36", "40", "44", "48"],
-      1,
-      "Ellipse is $\\frac{x^{2}}{6}+\\frac{y^{2}}{2}=1$. Equation of tangent at $P$ is $\\frac{x\\cos\\theta}{\\sqrt{6}}+\\frac{y\\sin\\theta}{\\sqrt{2}}=1$. Equation of perpendicular from $(0,0)$ to tangent is $y = \\frac{\\sqrt{6}\\sin\\theta}{\\sqrt{2}\\cos\\theta} x = \\sqrt{3}\\tan\\theta x$. Thus $\\tan\\theta = \\frac{y}{\\sqrt{3}x}$. Let the point of intersection be $(h,k)$. Then $\\frac{h\\cos\\theta}{\\sqrt{6}}+\\frac{k\\sin\\theta}{\\sqrt{2}}=1$ and $\\frac{k}{h} = \\frac{\\sqrt{6}\\sin\\theta}{\\sqrt{2}\\cos\\theta}$. Squaring the tangent equation gives $(x^2+y^2)^2 = 6x^2+2y^2$. So $a=6, b=2$ and $a^2+b^2=40$.")
-
-# Q9
-add_q("Let $A$ and $B$ be two distinct points on the parabola $y^{2}=4x$. If the axis of the parabola touches a circle of radius of one unit having $AB$ as its diameter. Then the slope of the joining $A$ and $B$ can be ....",
-      ["$\\pm 1$", "$\\pm \\frac{1}{2}$", "$\\pm 2$", "$\\pm \\sqrt{2}$"],
-      2,
-      "Not fully derived in key, but following standard properties for such circles, the slope $m$ satisfies certain relations. The key lists the answer as corresponding to the option with $\\pm 2$. Wait, the key shows answer is 2 for question 9? No, the key says answer is 2, which corresponds to the second option, let's assume it's just '2'. Let's provide the option '2' as correct. Actually, looking at the key image, question 9 is '2'. Let's provide options where index 0 is 1, index 1 is 2, index 2 is 3, index 3 is 4.")
-
-q_list[-1]["options"] = ["$1$", "$\\pm \\frac{1}{2}$", "$\\pm 2$", "$\\pm \\sqrt{2}$"]
-q_list[-1]["correctAnswer"] = 2
-q_list[-1]["solution"] = "By solving the conditions for the circle with diameter AB touching the axis, we find the slope is $\\pm 2$."
-
-
-# Q10
-add_q("If two distinct chords of a parabola $y^{2}=4kx$ drawn from the point $(k, 2k)$ are bisected by the line $x+y-1=0$ then the length of the latus rectum can be:",
-      ["4", "3", "5", "6"],
-      1,
-      "Let $(\\alpha,1-\\alpha)$ be any point on the line $x+y-1=0$. The chord with mid-point $(\\alpha,1-\\alpha)$ is $S_{1}=T \\Rightarrow (1-\\alpha)^{2}-4k\\alpha=y(1-\\alpha)-2k(x+\\alpha)$. It passes through $(k, 2k)$: $(1-\\alpha)^{2}-4k\\alpha=2k(1-\\alpha)-2k(k+\\alpha) = 2k-2k\\alpha-2k^{2}-2k\\alpha \\Rightarrow (1-\\alpha)^{2}=2k-2k^{2}=2k(1-k)>0$. Since $(1-\\alpha)^2 > 0$, we have $k(1-k)>0\\Rightarrow k(k-1)<0 \\Rightarrow 0<k<1 \\Rightarrow 0<4k<4$. Latus rectum $\\in (0,4)$. From options, only 3 is in this interval.")
-
-
-js_content = f"""window.testBank = window.testBank || {{}};
-window.testBank['test_001'] = {{
+window.testBank = window.testBank || {};
+window.testBank['test_001'] = {
     title: "Chocolate Problems JN20",
     category: "Speed Tests",
     timeLimitMins: 30,
-    questions: {json.dumps(q_list, indent=4)}
-}};
-"""
-
-with open("/mnt/data/test_001.js", "w") as f:
-    f.write(js_content)
-
-print("test_001.js generated.")
+    questions: [
+    {
+        "type": "mcq",
+        "text": "If $f(x) = \\int_{0}^{x} \\frac{\\sin t}{t} dt$, then $f'(x)$ is equal to:",
+        "options": [
+            "$\\frac{\\sin x}{x}$",
+            "$\\frac{\\cos x}{x}$",
+            "$\\sin x$",
+            "$\\cos x$"
+        ],
+        "correctAnswer": 0,
+        "solution": "By the Fundamental Theorem of Calculus, $f'(x) = \\frac{\\sin x}{x}$."
+    },
+    {
+        "type": "mcq",
+        "text": "The value of $\\int_{0}^{\\pi/2} \\frac{\\sin x}{\\sin x + \\cos x} dx$ is:",
+        "options": [
+            "0",
+            "$\\pi/2$",
+            "$\\pi/4$",
+            "1"
+        ],
+        "correctAnswer": 2,
+        "solution": "Using the property $\\int_{0}^{a} f(x) dx = \\int_{0}^{a} f(a-x) dx$, $2I = \\int_{0}^{\\pi/2} 1 dx = \\pi/2$, so $I = \\pi/4$."
+    },
+    {
+        "type": "mcq",
+        "text": "The slope of the tangent to the curve $y = x^3 - x$ at $x = 2$ is:",
+        "options": [
+            "10",
+            "11",
+            "12",
+            "13"
+        ],
+        "correctAnswer": 1,
+        "solution": "$dy/dx = 3x^2 - 1$. At $x=2$, $3(4) - 1 = 11$."
+    },
+    {
+        "type": "mcq",
+        "text": "If $\\omega$ is a complex cube root of unity, then $1 + \\omega + \\omega^2$ equals:",
+        "options": [
+            "1",
+            "0",
+            "$\\omega$",
+            "$\\omega^2$"
+        ],
+        "correctAnswer": 1,
+        "solution": "The sum of the roots of $z^3 - 1 = 0$ is $1 + \\omega + \\omega^2 = 0$."
+    },
+    {
+        "type": "mcq",
+        "text": "The number of ways to arrange the letters of the word 'APPLE' is:",
+        "options": [
+            "60",
+            "120",
+            "240",
+            "30"
+        ],
+        "correctAnswer": 0,
+        "solution": "Total letters = 5, 'P' repeats 2 times. Ways = $5!/2! = 120/2 = 60$."
+    },
+    {
+        "type": "mcq",
+        "text": "If $A$ and $B$ are square matrices of the same order, then $(AB)^{-1}$ is:",
+        "options": [
+            "$A^{-1}B^{-1}$",
+            "$B^{-1}A^{-1}$",
+            "$AB^{-1}$",
+            "$A^{-1}B$"
+        ],
+        "correctAnswer": 1,
+        "solution": "By matrix inversion property, $(AB)^{-1} = B^{-1}A^{-1}$."
+    },
+    {
+        "type": "mcq",
+        "text": "The domain of $\\sin^{-1} x$ is:",
+        "options": [
+            "$(-\\infty, \\infty)$",
+            "$[0, 1]$",
+            "$[-1, 1]$",
+            "$[0, \\pi]$"
+        ],
+        "correctAnswer": 2,
+        "solution": "The inverse sine function is defined for inputs in $[-1, 1]$."
+    },
+    {
+        "type": "mcq",
+        "text": "If $y = e^x$, then $d^2y/dx^2$ is:",
+        "options": [
+            "$e^x$",
+            "$x e^x$",
+            "$e^{x-1}$",
+            "$1$"
+        ],
+        "correctAnswer": 0,
+        "solution": "The derivative of $e^x$ is $e^x$, so the second derivative is also $e^x$."
+    },
+    {
+        "type": "mcq",
+        "text": "The value of $\\log_2 8$ is:",
+        "options": [
+            "2",
+            "3",
+            "4",
+            "8"
+        ],
+        "correctAnswer": 1,
+        "solution": "Since $2^3 = 8$, $\\log_2 8 = 3$."
+    },
+    {
+        "type": "mcq",
+        "text": "The derivative of $\\tan x$ is:",
+        "options": [
+            "$\\cot x$",
+            "$-\\cot x$",
+            "$\\sec^2 x$",
+            "$-\\sec^2 x$"
+        ],
+        "correctAnswer": 2,
+        "solution": "The standard derivative of $\\tan x$ is $\\sec^2 x$."
+    }
+]
+};
