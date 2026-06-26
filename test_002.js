@@ -1,5 +1,5 @@
 window.testBank = window.testBank || {};
-window.testBank['test_001'] = {
+window.testBank['test_002'] = {
     title: "Chocolate Problems - JN20",
     category: "Speed Tests",
     timeLimitMins: 30,
