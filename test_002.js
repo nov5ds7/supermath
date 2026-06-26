@@ -54,7 +54,7 @@ window.testBank['test_001'] = {
     },
     {
         "type": "mcq",
-        "text": "Consider ellipses $E_{k}: kx^{2}+k^{2}y^{2}=1, k=1,2,...,20$. Let $C_{k}$ be the circle which touches the four chords joining the end points (one on minor axis and another on major axis) of the ellipse $E_{k}$. If $r_{k}$ is the radius of the circle $C_{k}$ then the value of $\\sum_{k=1}^{20}\\frac{1}{r_{k}^{2}}$ is",
+        "text": "Consider ellipses $E_{k}: kx^{2}+k^{2}y^{2}=1, k=1,2,...,20$. Let $C_{k}$ be the circle which touches the four chords joining the end points $($one on minor axis and another on major axis$)$ of the ellipse $E_{k}$. If $r_{k}$ is the radius of the circle $C_{k}$ then the value of $\\sum_{k=1}^{20}\\frac{1}{r_{k}^{2}}$ is",
         "options": [
             "2870",
             "3080",
@@ -66,7 +66,7 @@ window.testBank['test_001'] = {
     },
     {
         "type": "mcq",
-        "text": "The area (in sq. units) of the quadrilateral formed by the tangents at the end points of the latus rectum to the ellipse $\\frac{x^{2}}{9}+\\frac{y^{2}}{5}=1$ is",
+        "text": "The area $($in sq. units$)$ of the quadrilateral formed by the tangents at the end points of the latus rectum to the ellipse $\\frac{x^{2}}{9}+\\frac{y^{2}}{5}=1$ is",
         "options": [
             "27", "18", "36", "54"
         ],
