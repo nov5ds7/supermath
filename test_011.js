@@ -1,5 +1,5 @@
 window.testBank = window.testBank || {};
-window.testBank['test_001'] = {
+window.testBank['test_011'] = {
     title: "Demo Speed Test",
     category: "Speed Tests",
     timeLimitMins: 30,
