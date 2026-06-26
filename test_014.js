@@ -8,7 +8,7 @@ window.testBank['test_014'] = {
         // ========== MATHEMATICS - SECTION A (MCQs Q1-Q20) ==========
         {
             type: "mcq",
-            text: "Tangent at any point on hyperbola $\\frac{x^2}{a^2} - \\frac{y^2}{b^2} = 1$ cuts the x-axis and y-axis at A and B respectively. If the rectangle OAPB (where O is origin) is completed then locus of point P is given by:",
+            text: "Tangent at any point on hyperbola $\\frac{x^2}{a^2} - \\frac{y^2}{b^2} = 1$ cuts the x-axis and y-axis at A and B respectively. If the rectangle OAPB $($where O is origin$)$ is completed then locus of point P is given by:",
             options: [
                 "$\\frac{a^2}{x^2} - \\frac{b^2}{y^2} = 1$",
                 "$\\frac{a^2}{x^2} + \\frac{b^2}{y^2} = 1$",
@@ -106,7 +106,7 @@ window.testBank['test_014'] = {
         },
         {
             type: "mcq",
-            text: "The tangent at the point A (12, 6) to a parabola intersect its directrix at the point B (-1, 2). If the focus of the parabola lies on positive x-axis then square of distance of focus from point A is:",
+            text: "The tangent at the point A $($12, 6$)$ to a parabola intersect its directrix at the point B $($-1, 2$)$. If the focus of the parabola lies on positive x-axis then square of distance of focus from point A is:",
             options: ["180", "37", "89", "270"],
             correctAnswer: 1,
             solution: "Let focus be S(a,0) (a > 0). Since AS and BS are perpendicular, $\\frac{6}{12-a} \\cdot \\frac{2}{-1-a} = -1 \\Rightarrow a = 0, 11$. For a > 0, a = 11. Focus is (11,0). Thus $AS^2 = (12-11)^2 + (6-0)^2 = 1 + 36 = 37$."
@@ -137,7 +137,7 @@ window.testBank['test_014'] = {
         },
         {
             type: "mcq",
-            text: "Let $S = 0$ is an ellipse whose vertices are the extremities of minor axis of the ellipse $E: \\frac{x^2}{a^2} + \\frac{y^2}{b^2} = 1, a > b$. If $S = 0$ passes through the foci of $E$, then its eccentricity is (considering the eccentricity of $E$ as e):",
+            text: "Let $S = 0$ is an ellipse whose vertices are the extremities of minor axis of the ellipse $E: \\frac{x^2}{a^2} + \\frac{y^2}{b^2} = 1, a > b$. If $S = 0$ passes through the foci of $E$, then its eccentricity is $($considering the eccentricity of E as e$)$:",
             options: [
                 "$\\sqrt{\\frac{1 - 2e^2}{1 - e^2}}$",
                 "$\\frac{1}{\\sqrt{1 + e^2}}$",
@@ -230,7 +230,7 @@ window.testBank['test_014'] = {
         // ========== MATHEMATICS - SECTION B (Numericals Q21-Q25) ==========
         {
             type: "numerical",
-            text: "If line $y = x + 2$ does not intersect any member of family of parabola $y^2 = ax$ ($a \\in \\mathbb{R}$) at two distinct points, then maximum value of latus rectum of parabola is _____.",
+            text: "If line $y = x + 2$ does not intersect any member of family of parabola $y^2 = ax$ at two distinct points, then maximum value of latus rectum of parabola is _____.",
             correctAnswer: 8,
             solution: "$y^2 = ax \\Rightarrow (x+2)^2 - ax = 0$. For no two distinct points, $D \\leq 0 \\Rightarrow a \\leq 8$. Maximum value of latus rectum ($a$) is 8."
         },
@@ -248,7 +248,7 @@ window.testBank['test_014'] = {
         },
         {
             type: "numerical",
-            text: "The equation of tangent at P (3, 4) on the parabola whose axis is x-axis is $3x - 4y + 7 = 0$ and the distance of the tangent from the focus of the parabola is 'k' then find the value of $2k$ is _____.",
+            text: "The equation of tangent at P $($3, 4$)$ on the parabola whose axis is x-axis is $3x - 4y + 7 = 0$ and the distance of the tangent from the focus of the parabola is 'k' then find the value of $2k$ is _____.",
             correctAnswer: 5,
             solution: "Let parabola be $Y^2 = 4A(X - h)$. $Y' = 2A/Y \\Rightarrow 3/4 = 2A/4 \\Rightarrow A = 3/2$. P(3,4) lies on it: $16 = 4(3/2)(3 - h) \\Rightarrow h = 1/3$. Focus is $(\\frac{11}{6}, 0)$, distance from tangent $3x - 4y + 7 = 0$ is $5/2 \\Rightarrow 2k = 5$."
         },
