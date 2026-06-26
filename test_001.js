@@ -1,6 +1,6 @@
 window.testBank = window.testBank || {};
 window.testBank['test_001'] = {
-    title: "Chocolate Problems JN20",
+    title: "Chocolate Problems : JN20",
     category: "Speed Tests",
     timeLimitMins: 30,
     questions: [
