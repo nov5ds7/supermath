@@ -6,7 +6,7 @@ window.testBank['test_001'] = {
     questions: [
     {
         "type": "mcq",
-        "text": "Let $A$ and $B$ be the points ($A$ has positive ordinate) common to the ellipse $E: x^{2}+4y^{2}=20$, hyperbola $H: 4y^{2}-x^{2}=20$. Four lines two from each focus of the hyperbola are drawn that touch the ellipse at $P, Q, R$ and $S$ in quadrants I, IV, III and II respectively. Then, the area of the hexagon $APQBRS$ is",
+        "text": "Let $A$ and $B$ be the points $(A has positive ordinate)$ common to the ellipse $E: x^{2}+4y^{2}=20$, hyperbola $H: 4y^{2}-x^{2}=20$. Four lines two from each focus of the hyperbola are drawn that touch the ellipse at $P, Q, R$ and $S$ in quadrants I, IV, III and II respectively. Then, the area of the hexagon $APQBRS$ is",
         "options": [
             "$4(\\sqrt{5}+1)$",
             "$8(\\sqrt{5}+1)$",
