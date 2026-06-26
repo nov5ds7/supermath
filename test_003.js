@@ -2,7 +2,6 @@ window.testBank = window.testBank || {};
 window.testBank['test_03'] = {
     title: "Conic Sections", 
     category: "Theory and Formulae Tests", 
-    randomizePoolSize: 30, 
     timeLimitMins: 10, 
     questions: [
     {
