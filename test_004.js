@@ -3,7 +3,6 @@ window.testBank['test_004'] = {
     title: "UP MPT-05 22-06-2026(PCM)",
     category: "Full Tests",
     timeLimitMins: 180,
-    randomizePoolSize: 0,
     questions: [
         // ========== MATHEMATICS - SECTION A (MCQs Q1-Q20) ==========
         {
