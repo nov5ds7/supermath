@@ -1,7 +1,7 @@
 window.testBank = window.testBank || {};
 window.testBank['test_498'] = {
-    title: "Quadratic Equations - Theory & Formulae",
-    category: "Theory and Formulae Tests",
+    title: "Quadratic Equations",
+    category: "Theory and Formulae Tests - Maths",
     timeLimitMins: 10,
     randomizePoolSize: 35,
     questions: [
@@ -93,7 +93,7 @@ window.testBank['test_498'] = {
         },
         {
             "type": "mcq",
-            "text": "If $\\alpha$ and $\\beta$ are the roots of $ax^2 + bx + c = 0$, what is the product of the roots ($\\alpha\\beta$)?",
+            "text": "If $\\alpha$ and $\\beta$ are the roots of $ax^2 + bx + c = 0$, what is the product of the roots ($\\alpha \\beta$)?",
             "options": ["$\\frac{c}{a}$", "$\\frac{-c}{a}$", "$\\frac{b}{a}$", "$\\frac{-b}{a}$"],
             "correctAnswer": 0,
             "solution": "By Vieta's formulas, the product of the roots is $\\frac{c}{a}$."
@@ -154,13 +154,13 @@ window.testBank['test_498'] = {
             "type": "mcq",
             "text": "According to Newton's formula for a quadratic, the power sum $S_n = \\alpha^n + \\beta^n$ satisfies the recurrence relation:",
             "options": [
-                "$S_n = (\\alpha+\\beta)S_{n-1} - \\alpha\\beta S_{n-2}$",
+                "$S_n = (\\alpha + \\beta)S_{n-1} - \\alpha \\beta S_{n-2}$",
                 "$S_n = \\alpha\\beta S_{n-1} - (\\alpha+\\beta) S_{n-2}$",
                 "$S_n = S_{n-1} - S_{n-2}$",
                 "$S_n = S_{n-1} \\times S_{n-2}$"
             ],
             "correctAnswer": 0,
-            "solution": "Newton's formula states $S_n = (\\alpha+\\beta)S_{n-1} - \\alpha\\beta S_{n-2}$ for $n \\geq 2$."
+            "solution": "Newton's formula states $S_n = (\\alpha + \\beta)S_{n-1} - \\alpha \\beta S_{n-2}$ for $n \\geq 2$."
         },
         {
             "type": "mcq",
@@ -281,7 +281,7 @@ window.testBank['test_498'] = {
         {
             "type": "mcq",
             "text": "If $D > 0$ but $D$ is not a perfect square of a rational number, the roots are of the form:",
-            "options": ["$p \\pm q\\sqrt{d}$", "$p \\pm qi$", "$p/q$", "$\\pm \\sqrt{p}$"],
+            "options": ["$p \\pm q \\sqrt{d}$", "$p \\pm qi$", "$p/q$", "$\\pm \\sqrt{p}$"],
             "correctAnswer": 0,
             "solution": "The roots are irrational conjugates: $p + q\\sqrt{d}$ and $p - q\\sqrt{d}$."
         },
