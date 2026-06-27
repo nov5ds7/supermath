@@ -480,7 +480,7 @@ window.testBank['test_497'] = {
                 "$\\sinh^{-1} x + C$",
                 "$\\cosh^{-1} x + C$",
                 "$\\tan^{-1} x + C$",
-                "$\\ln(x + \\sqrt{x^2+1}) + C$"
+                "$\\frac{1}{2} \\ln(x^2+1) + C$"
             ],
             "correctAnswer": 0,
             "solution": "$\\int \\frac{1}{\\sqrt{x^2+1}} \\, dx = \\sinh^{-1} x + C = \\ln(x + \\sqrt{x^2+1}) + C$."
@@ -491,7 +491,7 @@ window.testBank['test_497'] = {
             "options": [
                 "$\\cosh^{-1} x + C$",
                 "$\\sinh^{-1} x + C$",
-                "$\\ln(x + \\sqrt{x^2-1}) + C$",
+                "$\\frac{1}{2} \\ln(x^2-1) + C$",
                 "$\\sec^{-1} x + C$"
             ],
             "correctAnswer": 0,
@@ -499,15 +499,27 @@ window.testBank['test_497'] = {
         },
         {
             "type": "mcq",
-            "text": "What is the integral of $\\frac{1}{x \\sqrt{x^2 + 1}}$?",
+            "text": "What is the integral of $\\frac{1}{\\sqrt{x^2+a^2}}$ for $a > 0$?",
             "options": [
-                "$-\\csch^{-1} |x| + C$",
-                "$\\sech^{-1} x + C$",
-                "$\\tan^{-1} x + C$",
-                "$\\ln |\\frac{\\sqrt{x^2+1} - 1}{x}| + C$"
+                "$\\sinh^{-1} \\left(\\frac{x}{a}\\right) + C$",
+                "$\\frac{1}{a} \\tan^{-1} \\left(\\frac{x}{a}\\right) + C$",
+                "$\\frac{1}{a} \\cosh^{-1} \\left(\\frac{x}{a}\\right) + C$",
+                "$\\frac{1}{2a} \\ln |x^2+a^2| + C$"
             ],
             "correctAnswer": 0,
-            "solution": "$\\int \\frac{1}{x \\sqrt{x^2 + 1}} \\, dx = -\\csch^{-1} |x| + C = -\\ln \\left| \\frac{\\sqrt{x^2+1}+1}{x} \\right| + C$."
+            "solution": "$\\int \\frac{1}{\\sqrt{x^2+a^2}} \\, dx = \\sinh^{-1} \\left(\\frac{x}{a}\\right) + C = \\ln \\left| x + \\sqrt{x^2+a^2} \\right| + C$."
+        },
+        {
+            "type": "mcq",
+            "text": "What is the integral of $\\frac{1}{x \\sqrt{x^2 + 1}}$?",
+            "options": [
+                "$\\frac{1}{\\sqrt{x^2+1}} + C$",
+                "$-\\frac{1}{\\sqrt{x^2+1}} + C$",
+                "$\\tan^{-1} x + C$",
+                "$\\ln \\left| \\frac{\\sqrt{x^2+1}-1}{x} \\right| + C$"
+            ],
+            "correctAnswer": 3,
+            "solution": "$\\int \\frac{1}{x \\sqrt{x^2 + 1}} \\, dx = \\ln \\left| \\frac{\\sqrt{x^2+1}-1}{x} \\right| + C$."
         },
         {
             "type": "mcq",
@@ -669,13 +681,25 @@ window.testBank['test_497'] = {
             "type": "mcq",
             "text": "What is the integral of $\\frac{1}{x \\sqrt{x^2 + 1}}$?",
             "options": [
-                "$-\\csch^{-1} |x| + C$",
-                "$\\sech^{-1} x + C$",
+                "$\\frac{1}{\\sqrt{x^2+1}} + C$",
+                "$-\\frac{1}{\\sqrt{x^2+1}} + C$",
                 "$\\tan^{-1} x + C$",
-                "$\\ln\\left| \\frac{\\sqrt{x^2+1} - 1}{x} \\right| + C$"
+                "$\\ln \\left| \\frac{\\sqrt{x^2+1}-1}{x} \\right| + C$"
+            ],
+            "correctAnswer": 3,
+            "solution": "$\\int \\frac{1}{x \\sqrt{x^2 + 1}} \\, dx = \\ln \\left| \\frac{\\sqrt{x^2+1}-1}{x} \\right| + C$."
+        },
+        {
+            "type": "mcq",
+            "text": "What is the integral of $\\frac{1}{x \\sqrt{x^2+a^2}}$ for $a > 0$?",
+            "options": [
+                "$\\frac{1}{a} \\ln \\left| \\frac{\\sqrt{x^2+a^2}-a}{x} \\right| + C$",
+                "$\\frac{1}{a} \\ln \\left| \\frac{\\sqrt{x^2+a^2}+a}{x} \\right| + C$",
+                "$\\frac{1}{2a} \\tan^{-1} \\left(\\frac{x}{a}\\right) + C$",
+                "$\\frac{1}{a} \\sin^{-1} \\left(\\frac{x}{a}\\right) + C$"
             ],
             "correctAnswer": 0,
-            "solution": "$\\int \\frac{1}{x \\sqrt{x^2 + 1}} \\, dx = -\\csch^{-1} |x| + C = -\\ln \\left| \\frac{\\sqrt{x^2+1}+1}{x} \\right| + C$."
+            "solution": "Substitute $x = a \\tan \\theta$, $dx = a \\sec^2 \\theta d\\theta$. $\\int \\frac{1}{x \\sqrt{x^2+a^2}} \\, dx = \\frac{1}{a} \\ln \\left| \\frac{\\sqrt{x^2+a^2}-a}{x} \\right| + C$."
         },
         {
             "type": "mcq",
