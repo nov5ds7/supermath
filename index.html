@@ -446,11 +446,36 @@
             'Chocolate Problems': '#e74c3c'
         };
 
-        let html = '<div class="folder-grid">';
-        for (let cat in categoriesMap) {
-            if (categoriesMap[cat].length > 0) {
-                let color = folderColors[cat] || '#16a085';
-                let folderSvg = `<svg viewBox="0 0 24 24" width="70" height="70" fill="${color}"><path d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"/></svg>`;
+let html = '<div class="folder-grid">';
+
+const fallbackColors = [
+    '#3498db', // Bright Blue
+    '#e67e22', // Dark Orange
+    '#1abc9c', // Turquoise
+    '#9b59b6', // Bright Purple
+    '#e74c3c', // Red
+    '#f39c12', // Yellow/Orange
+    '#2ecc71', // Green
+    '#34495e', // Dark Blue/Grey
+    '#d35400', // Pumpkin
+    '#8e44ad'  // Deep Purple
+];
+
+for (let cat in categoriesMap) {
+    if (categoriesMap[cat].length > 0) {
+        // Check if color is explicitly defined, otherwise generate one based on the category name
+        let color = folderColors[cat];
+        if (!color) {
+            // Create a simple hash from the category name to pick a consistent fallback color
+            let hash = 0;
+            for (let i = 0; i < cat.length; i++) {
+                hash = cat.charCodeAt(i) + ((hash << 5) - hash);
+            }
+            const index = Math.abs(hash) % fallbackColors.length;
+            color = fallbackColors[index];
+        }
+        
+        let folderSvg = `<svg viewBox="0 0 24 24" width="70" height="70" fill="${color}"><path d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"/></svg>`;
                 html += `<div class="folder-card" onclick="openFolder('${cat}')">
                             <div class="folder-icon">${folderSvg}</div>
                             <div class="folder-name">${cat}</div>
