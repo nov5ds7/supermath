@@ -1,7 +1,7 @@
 window.testBank = window.testBank || {};
 window.testBank['test_499'] = {
-    title: "Straight Lines & Circles - Pure Theory & Formulae",
-    category: "Theory and Formulae Tests",
+    title: "Straight Lines & Circles",
+    category: "Theory and Formulae Tests - Maths",
     timeLimitMins: 10,
     randomizePoolSize: 30,
     questions: [
@@ -22,22 +22,22 @@ window.testBank['test_499'] = {
             "type": "mcq",
             "text": "The formula for the coordinates of a point dividing the line segment joining $(x_1, y_1)$ and $(x_2, y_2)$ internally in the ratio $m:n$ is:",
             "options": [
-                "$\\left(\\frac{m x_2 + n x_1}{m+n}, \\frac{m y_2 + n y_1}{m+n}\\right)$",
-                "$\\left(\\frac{m x_1 + n x_2}{m+n}, \\frac{m y_1 + n y_2}{m+n}\\right)$",
-                "$\\left(\\frac{m x_1 - n x_2}{m-n}, \\frac{m y_1 - n y_2}{m-n}\\right)$",
-                "$\\left(\\frac{m x_1 x_2}{m+n}, \\frac{m y_1 y_2}{m+n}\\right)$"
+                "$\\left(\\frac{m x_2 + n x_1}{m + n}, \\frac{m y_2 + n y_1}{m + n}\\right)$",
+                "$\\left(\\frac{m x_1 + n x_2}{m + n}, \\frac{m y_1 + n y_2}{m + n}\\right)$",
+                "$\\left(\\frac{m x_1 - n x_2}{m - n}, \\frac{m y_1 - n y_2}{m - n}\\right)$",
+                "$\\left(\\frac{m x_1 x_2}{m + n}, \\frac{m y_1 y_2}{m + n}\\right)$"
             ],
             "correctAnswer": 0,
-            "solution": "The internal section formula is $\\left(\\frac{m x_2 + n x_1}{m+n}, \\frac{m y_2 + n y_1}{m+n}\\right)$."
+            "solution": "The internal section formula is $\\left(\\frac{m x_2 + n x_1}{m + n}, \\frac{m y_2 + n y_1}{m + n}\\right)$."
         },
         {
             "type": "mcq",
             "text": "The coordinates of the centroid of a triangle with vertices $(x_1, y_1)$, $(x_2, y_2)$, $(x_3, y_3)$ are given by:",
             "options": [
-                "$\\left(\\frac{x_1+x_2+x_3}{3}, \\frac{y_1+y_2+y_3}{3}\\right)$",
-                "$\\left(\\frac{x_1+x_2}{2}, \\frac{y_1+y_2}{2}\\right)$",
-                "$\\left(\\frac{x_1+x_2+x_3}{2}, \\frac{y_1+y_2+y_3}{2}\\right)$",
-                "$\\left(\\frac{x_1-x_2+x_3}{3}, \\frac{y_1-y_2+y_3}{3}\\right)$"
+                "$\\left(\\frac{x_1 + x_2 + x_3}{3}, \\frac{y_1 + y_2 + y_3}{3}\\right)$",
+                "$\\left(\\frac{x_1 + x_2}{2}, \\frac{y_1 + y_2}{2}\\right)$",
+                "$\\left(\\frac{x_1 + x_2 + x_3}{2}, \\frac{y_1 + y_2 + y_3}{2}\\right)$",
+                "$\\left(\\frac{x_1 - x_2 + x_3}{3}, \\frac{y_1 - y_2 + y_3}{3}\\right)$"
             ],
             "correctAnswer": 0,
             "solution": "The centroid is the arithmetic mean of the coordinates of the vertices."
@@ -46,10 +46,10 @@ window.testBank['test_499'] = {
             "type": "mcq",
             "text": "The area of a triangle with vertices $(x_1, y_1)$, $(x_2, y_2)$, $(x_3, y_3)$ is given by the formula:",
             "options": [
-                "$\\frac{1}{2} |x_1(y_2-y_3) + x_2(y_3-y_1) + x_3(y_1-y_2)|$",
-                "$|x_1(y_2-y_3) + x_2(y_3-y_1) + x_3(y_1-y_2)|$",
-                "$\\frac{1}{3} |x_1(y_2-y_3) + x_2(y_3-y_1) + x_3(y_1-y_2)|$",
-                "$\\frac{1}{2} |x_1(y_2+y_3) + x_2(y_3+y_1) + x_3(y_1+y_2)|$"
+                "$\\frac{1}{2} |x_1(y_2 - y_3) + x_2(y_3 - y_1) + x_3(y_1 - y_2)|$",
+                "$|x_1(y_2 - y_3) + x_2(y_3 - y_1) + x_3(y_1 - y_2)|$",
+                "$\\frac{1}{3} |x_1(y_2 - y_3) + x_2(y_3 - y_1) + x_3(y_1 - y_2)|$",
+                "$\\frac{1}{2} |x_1(y_2 + y_3) + x_2(y_3 + y_1) + x_3(y_1 + y_2)|$"
             ],
             "correctAnswer": 0,
             "solution": "The area formula uses the determinant of the vertices divided by 2."
@@ -58,8 +58,8 @@ window.testBank['test_499'] = {
             "type": "mcq",
             "text": "Three points $(x_1, y_1)$, $(x_2, y_2)$, $(x_3, y_3)$ are collinear if:",
             "options": [
-                "$x_1(y_2-y_3) + x_2(y_3-y_1) + x_3(y_1-y_2) = 0$",
-                "$x_1(y_2+y_3) + x_2(y_3+y_1) + x_3(y_1+y_2) = 0$",
+                "$x_1(y_2 - y_3) + x_2(y_3 - y_1) + x_3(y_1 - y_2) = 0$",
+                "$x_1(y_2 + y_3) + x_2(y_3 + y_1) + x_3(y_1 + y_2) = 0$",
                 "$x_1 x_2 x_3 + y_1 y_2 y_3 = 0$",
                 "$x_1^2 + y_1^2 = x_2^2 + y_2^2 = x_3^2 + y_3^2$"
             ],
@@ -217,7 +217,7 @@ window.testBank['test_499'] = {
         },
         {
             "type": "mcq",
-            "text": "The condition for three lines $a_1x+b_1y+c_1=0$, $a_2x+b_2y+c_2=0$, $a_3x+b_3y+c_3=0$ to be concurrent is:",
+            "text": "The condition for three lines $a_1x + b_1y + c_1 = 0$, $a_2x + b_2y + c_2 = 0$, $a_3x + b_3y + c_3 = 0$ to be concurrent is:",
             "options": [
                 "$\\begin{vmatrix} a_1 & b_1 & c_1 \\\\ a_2 & b_2 & c_2 \\\\ a_3 & b_3 & c_3 \\end{vmatrix} = 0$",
                 "$a_1 b_2 c_3 = a_3 b_2 c_1$",
