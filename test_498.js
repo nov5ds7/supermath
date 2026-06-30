@@ -29,13 +29,13 @@ window.testBank['test_498'] = {
             "type": "mcq",
             "text": "The general form of a quadratic polynomial is:",
             "options": [
-                "$ax^2 + bx + c$, where $a \\neq 0$",
-                "$ax + b$, where $a \\neq 0$",
-                "$ax^3 + bx^2 + cx + d$, where $a \\neq 0$",
-                "$ax^4 + bx^3 + cx^2 + dx + e$, where $a \\neq 0$"
+                "$ax^2 + bx + c$, where a  &ne;  0",
+                "$ax + b$, where a  &ne;  0",
+                "$ax^3 + bx^2 + cx + d$, where a  &ne;  0",
+                "$ax^4 + bx^3 + cx^2 + dx + e$, where a  &ne;  0"
             ],
             "correctAnswer": 0,
-            "solution": "A polynomial of degree 2 is a quadratic polynomial, with general form $ax^2 + bx + c$ ($a \\neq 0$)."
+            "solution": "A polynomial of degree 2 is a quadratic polynomial, with general form $ax^2 + bx + c$ (a  &ne;  0)."
         },
         {
             "type": "mcq",
@@ -54,7 +54,7 @@ window.testBank['test_498'] = {
             "text": "If $ax^2 + bx + c = 0$ is satisfied by more than two distinct values of $x$, then which of the following is true?",
             "options": [
                 "$a = b = c = 0$",
-                "$a \\neq 0$",
+                "a  &ne;  0",
                 "$b = 0$",
                 "$c = 0$"
             ],
@@ -70,7 +70,7 @@ window.testBank['test_498'] = {
         },
         {
             "type": "mcq",
-            "text": "The graph of a cubic polynomial $ax^3 + bx^2 + cx + d$ ($a \\neq 0$) is a curve that intersects the x-axis at a maximum of:",
+            "text": "The graph of a cubic polynomial $ax^3 + bx^2 + cx + d$ (a  &ne;  0) is a curve that intersects the x-axis at a maximum of:",
             "options": ["3 points", "2 points", "1 point", "0 points"],
             "correctAnswer": 0,
             "solution": "By the Fundamental Theorem of Algebra, a cubic polynomial has at most 3 real roots, thus intersecting the x-axis at a maximum of 3 points."
@@ -511,7 +511,7 @@ window.testBank['test_498'] = {
         },
         {
             "type": "mcq",
-            "text": "If the equations $x^2 + ax + b = 0$ and $x^2 + bx + a = 0$ ($a \\neq b$) have a common root, then the value of the common root is:",
+            "text": "If the equations $x^2 + ax + b = 0$ and $x^2 + bx + a = 0$ (a  &ne;  b) have a common root, then the value of the common root is:",
             "options": ["1", "0", "-1", "a"],
             "correctAnswer": 0,
             "solution": "Subtracting the equations gives $(a-b)x + (b-a) = 0 \\Rightarrow x = 1$."

@@ -7,7 +7,7 @@ window.testBank['test_497'] = {
     "questions": [
         {
             "type": "mcq",
-            "text": "What is the general form of the indefinite integral of $x^n$ for $n \\neq -1$?",
+            "text": "What is the general form of the indefinite integral of $x^n$ for n &ne; -1?",
             "options": [
                 "$\\frac{x^{n+1}}{n+1} + C$",
                 "$\\frac{x^{n-1}}{n-1} + C$",
@@ -15,7 +15,7 @@ window.testBank['test_497'] = {
                 "$\\frac{x^{n}}{n} + C$"
             ],
             "correctAnswer": 0,
-            "solution": "For $n \\neq -1$, $\\int x^n \\, dx = \\frac{x^{n+1}}{n+1} + C$."
+            "solution": "For n &ne; -1, $\\int x^n \\, dx = \\frac{x^{n+1}}{n+1} + C$."
         },
         {
             "type": "mcq",
@@ -43,7 +43,7 @@ window.testBank['test_497'] = {
         },
         {
             "type": "mcq",
-            "text": "What is the integral of $a^x$ where $a > 0, a \\neq 1$?",
+            "text": "What is the integral of $a^x$ where a > 0, a &ne; 1?",
             "options": [
                 "$\\frac{a^x}{\\ln a} + C$",
                 "$a^x \\ln a + C$",
@@ -607,7 +607,7 @@ window.testBank['test_497'] = {
         },
         {
             "type": "mcq",
-            "text": "What is the integral of $\\frac{1}{x^2 + a^2}$ for $a \\neq 0$?",
+            "text": "What is the integral of $\\frac{1}{x^2 + a^2}$ for a &ne; 0?",
             "options": [
                 "$\\frac{1}{a} \\tan^{-1} \\left(\\frac{x}{a}\\right) + C$",
                 "$\\frac{1}{a} \\cot^{-1} \\left(\\frac{x}{a}\\right) + C$",
@@ -799,7 +799,7 @@ window.testBank['test_497'] = {
         },
         {
             "type": "mcq",
-            "text": "What is the integral of $e^{ax}$ for $a \\neq 0$?",
+            "text": "What is the integral of $e^{ax}$ for a &ne; 0?",
             "options": [
                 "$\\frac{e^{ax}}{a} + C$",
                 "$a e^{ax} + C$",
@@ -811,7 +811,7 @@ window.testBank['test_497'] = {
         },
         {
             "type": "mcq",
-            "text": "What is the integral of $a^{bx}$ for $a > 0, a \\neq 1$ and $b \\neq 0$?",
+            "text": "What is the integral of $a^{bx}$ for a > 0, a &ne; 1 and b &ne; 0?",
             "options": [
                 "$\\frac{a^{bx}}{b \\ln a} + C$",
                 "$\\frac{a^{bx}}{\\ln a} + C$",
