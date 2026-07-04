@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JEE CBT Simulator - Hybrid Engine</title>
+    <title>JEE CBT Simulator - Ultimate Engine</title>
     
     <!-- KaTeX Math Engine Integration -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
@@ -112,6 +112,38 @@
         .modal-content { background:white; padding:30px; border-radius:8px; width:90%; max-width:400px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
         .modal-input { width:100%; padding:10px; margin-bottom:20px; border:1px solid #ccc; border-radius:4px; font-size: 1rem; }
 
+        /* Section Instruction Header */
+        .section-instruction { background: #f0f7ff; border: 2px solid #1a73e8; border-radius: 8px; padding: 20px; margin-bottom: 25px; font-size: 1rem; color: #222; }
+        .section-instruction h3 { color: #1a73e8; margin-top: 0; border-bottom: 2px solid #c3d9fa; padding-bottom: 10px; }
+        .section-instruction ul { list-style-type: disc; padding-left: 20px; line-height: 1.6; }
+        .section-instruction .marking-box { background: #fcfcfc; padding: 10px; border: 1px solid #eee; border-radius: 4px; margin-top: 10px; font-family: monospace; }
+
+        /* Recently Added Container */
+        #recent-tests-container { background: #fff; padding: 10px; border: 1px solid #eee; border-radius: 6px; margin-bottom: 20px; }
+        #recent-tests-container h3 {
+            padding-bottom: 10px;
+            margin-top: 0;
+            border-bottom: 2px solid #eee;
+            /* ONLY H3 blinks */
+            animation: blink-red-black 1s infinite;
+            border-radius: 4px;
+            padding: 10px;
+            text-align: center;
+        }
+        @keyframes blink-red-black {
+            0%   { background-color: #d32f2f; color: #ffffff; }
+            50%  { background-color: #000000; color: #ffffff; }
+            100% { background-color: #d32f2f; color: #ffffff; }
+        }
+        #recent-tests-list a { color: #1a73e8 !important; text-decoration: none; display: block; padding: 5px; }
+        #recent-tests-list a:hover { text-decoration: underline; }
+        #recent-tests-list ul { list-style: none; padding: 0; margin: 0; }
+        #recent-tests-list li { margin-bottom: 4px; background: #f8f9fa; border-radius: 4px; }
+
+        /* History Block in Left Side */
+        .history-block { margin-top: 30px; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        .history-block h3 { border-bottom: 2px solid #eee; padding-bottom: 10px; margin-top: 0; color: #333; }
+
         @media (max-width: 850px) {
             .main-layout { flex-direction: column; }
             .dashboard-header { flex-direction: column; align-items: flex-start; gap: 10px; }
@@ -142,7 +174,7 @@
 </div>
 
 <div class="header">
-    <h1>JEE CBT Simulator - Hybrid</h1>
+    <h1>JEE CBT Simulator - Ultimate</h1>
     <div class="timer-box" id="timer-display">30:00</div>
 </div>
 
@@ -172,6 +204,7 @@
     </div>
     
     <div class="main-layout">
+        <!-- LEFT SIDE: Categories and History -->
         <div class="left-content">
             <div class="dashboard-header">
                 <h3 id="dash-title" style="margin:0; color: #1a73e8;">Categories</h3>
@@ -180,14 +213,25 @@
             <div id="library-container">
                 <p style="color: #666; font-style: italic;">Connecting to master library...</p>
             </div>
+
+            <!-- Recent Activity / History (LEFT SIDE) -->
+            <div class="history-block">
+                <h3>Recent Activity</h3>
+                <div id="history-table-container">
+                    <p style="color: #666; font-style:italic;">No past attempts found. Take a test to see your analytics here.</p>
+                </div>
+                <button class="btn-secondary no-print" style="margin-top: 15px; width: 100%;" onclick="clearHistory()">Clear History</button>
+            </div>
         </div>
 
+        <!-- RIGHT SIDE: Recently Added Tests -->
         <div class="right-sidebar">
-            <h3 style="border-bottom: 2px solid #eee; padding-bottom: 10px; margin-top: 0; color: #333;">Recent Activity</h3>
-            <div id="history-table-container">
-                <p style="color: #666;">No past attempts found. Take a test to see your analytics here.</p>
+            <div id="recent-tests-container">
+                <h3>Recently Added</h3>
+                <div id="recent-tests-list">
+                    <p style="color: #666; font-style:italic;">Loading recent tests...</p>
+                </div>
             </div>
-            <button class="btn-secondary no-print" style="margin-top: 15px; width: 100%;" onclick="clearHistory()">Clear History</button>
         </div>
     </div>
 </div>
@@ -319,10 +363,13 @@
         currentFolder = null;
         document.getElementById('global-search').value = '';
         renderFolders();
+        renderHistory();
+        renderRecentTests();
     }
 
     window.onload = function() {
         renderHistory();
+        renderRecentTests();
         autoDiscoverTests();
     }
 
@@ -335,6 +382,7 @@
             timeoutTriggered = true;
             processTestData();
             renderFolders();
+            renderRecentTests();
         }, 4000);
 
         for (let i = 1; i <= MAX_TESTS_TO_SCAN; i++) {
@@ -359,6 +407,7 @@
                 loadedTests.sort((a, b) => a.id.localeCompare(b.id));
                 processTestData();
                 renderFolders();
+                renderRecentTests();
             }
         }
     }
@@ -390,6 +439,25 @@
             if (!categoriesMap[cat]) categoriesMap[cat] = [];
             categoriesMap[cat].push(enriched);
         });
+
+        // --- Store Recently Added Tests ---
+        let recentTests = JSON.parse(localStorage.getItem('jee_simulator_recent_tests')) || [];
+        loadedTests.forEach(test => {
+            if (!recentTests.some(t => t.id === test.id)) {
+                let testData = window.testBank[test.id];
+                if (testData) {
+                    recentTests.push({
+                        id: test.id,
+                        name: testData.title || 'Unnamed Test',
+                        timestamp: Date.now()
+                    });
+                }
+            }
+        });
+        recentTests.sort((a, b) => b.timestamp - a.timestamp);
+        if (recentTests.length > 10) recentTests = recentTests.slice(0, 10);
+        localStorage.setItem('jee_simulator_recent_tests', JSON.stringify(recentTests));
+        // --- End Recently Added Logic ---
     }
 
     function handleSearch() {
@@ -487,7 +555,7 @@
             
             html += `<div class="test-list-card ${bgClass}">
                         <div>
-                            <h4 style="margin: 0; color: #222; font-size: 1.15rem;">${test.name}</h4>
+                            <h4 style="margin: 0; color: #1a73e8; font-size: 1.15rem; cursor: pointer;" onclick="confirmStartFromCard('${test.name}', '${test.id}')">${test.name}</h4>
                             ${scoreText}
                         </div>
                         <button class="btn-primary" onclick="openStartModal('${test.id}')">${btnText}</button>
@@ -519,6 +587,30 @@
         }
     }
 
+    function renderRecentTests() {
+        const recentTests = JSON.parse(localStorage.getItem('jee_simulator_recent_tests')) || [];
+        const container = document.getElementById('recent-tests-list');
+        
+        if (recentTests.length > 0) {
+            let html = '<ul>';
+            recentTests.forEach(test => {
+                const testData = window.testBank[test.id];
+                const title = testData ? testData.title : test.name;
+                const category = testData ? testData.category : 'Unknown';
+                
+                html += `<li>
+                            <a href="#" onclick="confirmStartTestFromRecent('${title}', '${test.id}')">
+                                ${title} <span style="font-size: 0.8rem; opacity: 0.7;">(${category})</span>
+                            </a>
+                         </li>`;
+            });
+            html += '</ul>';
+            container.innerHTML = html;
+        } else {
+            container.innerHTML = '<p style="color: #666; font-style:italic;">No new tests added recently.</p>';
+        }
+    }
+
     function clearHistory() {
         if(confirm("Delete all past test records? This will clear your scores and attempt status.")) {
             localStorage.removeItem('jee_simulator_history');
@@ -545,6 +637,18 @@
         document.getElementById('start-modal').style.display = 'flex';
     }
 
+    function confirmStartTestFromRecent(title, id) {
+        if (confirm(`Are you sure you want to start the test:\n\n"${title}"?`)) {
+            openStartModal(id);
+        }
+    }
+    
+    function confirmStartFromCard(title, id) {
+        if (confirm(`Are you sure you want to start the test:\n\n"${title}"?`)) {
+            openStartModal(id);
+        }
+    }
+
     function confirmStartTest() {
         studentName = document.getElementById('student-name').value.trim();
         studentBatch = document.getElementById('student-batch').value.trim();
@@ -563,45 +667,38 @@
 
         currentExamPattern = testData.examPattern || 'main';
         
-        let rawQuestions = [...testData.questions];
+        let finalQuestions = [];
         
-        // --- SMART GROUP SHUFFLE (Keep Passages Together) ---
-        let groups = [];
-        let currentGroup = [];
-        let currentPassageId = null;
-
-        rawQuestions.forEach(q => {
-            // If this question belongs to a passage
-            if (q.passage_id) {
-                // If it's a new passage, start a new group
-                if (q.passage_id !== currentPassageId) {
+        // --- SMART GROUP SHUFFLE (Respects shuffleQuestions flag) ---
+        if (testData.shuffleQuestions === false) {
+            finalQuestions = [...testData.questions];
+        } else {
+            let groups = [];
+            let currentGroup = [];
+            let currentPassageId = null;
+            testData.questions.forEach(q => {
+                if (q.passage_id) {
+                    if (q.passage_id !== currentPassageId) {
+                        if (currentGroup.length > 0) groups.push(currentGroup);
+                        currentGroup = [q];
+                        currentPassageId = q.passage_id;
+                    } else {
+                        currentGroup.push(q);
+                    }
+                } else {
                     if (currentGroup.length > 0) groups.push(currentGroup);
                     currentGroup = [q];
-                    currentPassageId = q.passage_id;
-                } else {
-                    // Add to the current passage group
-                    currentGroup.push(q);
+                    currentPassageId = null;
                 }
-            } else {
-                // Non-passage questions finish previous group and start standalone group
-                if (currentGroup.length > 0) groups.push(currentGroup);
-                currentGroup = [q];
-                currentPassageId = null;
-            }
-        });
-        // Push the last remaining group
-        if (currentGroup.length > 0) groups.push(currentGroup);
+            });
+            if (currentGroup.length > 0) groups.push(currentGroup);
 
-        // Shuffle the groups (but keep the sequence INSIDE each group intact)
-        let shuffledGroups = shuffleArray(groups);
-
-        // Flatten the groups back into a single questions array
-        let finalQuestions = [];
-        shuffledGroups.forEach(g => {
-            g.forEach(q => finalQuestions.push(q));
-        });
-
-        // Apply randomizePoolSize on the shuffled groups
+            let shuffledGroups = shuffleArray(groups);
+            shuffledGroups.forEach(g => {
+                g.forEach(q => finalQuestions.push(q));
+            });
+        }
+        
         if (testData.randomizePoolSize && testData.randomizePoolSize > 0) {
             let sizeToExtract = Math.min(testData.randomizePoolSize, finalQuestions.length);
             questions = finalQuestions.slice(0, sizeToExtract);
@@ -732,8 +829,9 @@
         
         let displayHtml = '';
 
-        // --- Render Passage Text (Only if it exists for this question) ---
-        if (q.passage_text) {
+        if (q.type === 'mcq' || q.type === 'multi_mcq' || q.type === 'matrix_match' || q.type === 'numerical') {
+            displayHtml = q.text;
+        } else if (q.passage_text) {
             displayHtml = `<div class="passage-box">${q.passage_text}</div>`;
             displayHtml += `<br><br><b>Based on the passage above, answer the following:</b><br><br><i>${q.text}</i>`;
         } else {
@@ -743,7 +841,6 @@
         document.getElementById('q-text').innerHTML = displayHtml;
         document.getElementById('q-header').innerText = `Question ${currentIndex + 1}`;
 
-        // --- Render Inputs ---
         if (q.type === 'mcq') {
             q.options.forEach((opt, i) => {
                 const lbl = document.createElement('label');
@@ -763,12 +860,9 @@
         } else if (q.type === 'matrix_match') {
             const list1 = q.list1 || [];
             const list2 = q.list2 || [];
-
-            // Build the 3-column Matrix Layout
             const container = document.createElement('div');
             container.className = 'matrix-container';
 
-            // Column 1: List 1
             const col1 = document.createElement('div');
             col1.className = 'matrix-column';
             list1.forEach((item) => {
@@ -779,7 +873,6 @@
             });
             container.appendChild(col1);
 
-            // Column 2: Dropdowns (numbers only)
             const col2 = document.createElement('div');
             col2.className = 'matrix-column';
             list1.forEach((item, idx) => {
@@ -789,7 +882,6 @@
                 selHtml += `<option value="-1">---</option>`;
                 list2.forEach((opt, optIdx) => {
                     const sel = (state.answer && state.answer[idx] === optIdx) ? 'selected' : '';
-                    // Only put 1, 2, 3 in the dropdown
                     selHtml += `<option value="${optIdx}" ${sel}>${optIdx + 1}</option>`;
                 });
                 selHtml += `</select>`;
@@ -798,7 +890,6 @@
             });
             container.appendChild(col2);
 
-            // Column 3: List 2 (Show the actual math content here)
             const col3 = document.createElement('div');
             col3.className = 'matrix-column';
             list2.forEach((item, idx) => {
@@ -822,7 +913,7 @@
 
         questionEnterTime = Date.now();
         renderPalette();
-        applyMath(); // Forces KaTeX on options and dropdowns
+        applyMath();
     }
 
     function manualSubmit() {
@@ -912,7 +1003,6 @@
                             statusText = `Partial (+${pts})`; rowClass = "correct";
                         } else { pts = 0; isCorrect = false; statusText = "Unattempted"; rowClass = ""; }
                     } else { 
-                        // MCQs and Numericals in Advance mode (fallback to standard logic)
                         if (q.type === 'mcq') {
                             isCorrect = (state.answer === q.correctAnswer);
                             displayAns = `<strong>${labels[state.answer] || (state.answer+1)})</strong> ` + q.options[state.answer];
@@ -932,7 +1022,6 @@
                         else { statusText = "Incorrect (-1)"; rowClass = "incorrect"; }
                     }
                 } else {
-                    // Standard Main Logic (+4/-1)
                     if (q.type === 'mcq') {
                         isCorrect = (state.answer === q.correctAnswer);
                         displayAns = `<strong>${labels[state.answer] || (state.answer+1)})</strong> ` + q.options[state.answer];
