@@ -2,9 +2,11 @@ window.testBank = window.testBank || {};
 window.testBank['test_497'] = {
     "title": "Indefinite Integration",
     "category": "Theory and Formulae Tests - Maths",
+    uploadedAt: "2026-07-04T12:00:03Z",
     "timeLimitMins": 10,
     "randomizePoolSize": 30,
     "questions": [
+        // 1
         {
             "type": "mcq",
             "text": "What is the general form of the indefinite integral of $x^n$ for n &ne; -1?",
@@ -17,6 +19,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "For n &ne; -1, $\\int x^n \\, dx = \\frac{x^{n+1}}{n+1} + C$."
         },
+        // 2
         {
             "type": "mcq",
             "text": "What is the integral of $\\frac{1}{x}$?",
@@ -29,6 +32,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "$\\int \\frac{1}{x} \\, dx = \\ln |x| + C$."
         },
+        // 3
         {
             "type": "mcq",
             "text": "What is the integral of $e^x$?",
@@ -41,6 +45,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "$\\int e^x \\, dx = e^x + C$."
         },
+        // 4
         {
             "type": "mcq",
             "text": "What is the integral of $a^x$ where a > 0, a &ne; 1?",
@@ -53,6 +58,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "$\\int a^x \\, dx = \\frac{a^x}{\\ln a} + C$."
         },
+        // 5
         {
             "type": "mcq",
             "text": "What is the integral of $\\sin x$?",
@@ -65,6 +71,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "$\\int \\sin x \\, dx = -\\cos x + C$."
         },
+        // 6
         {
             "type": "mcq",
             "text": "What is the integral of $\\cos x$?",
@@ -77,6 +84,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "$\\int \\cos x \\, dx = \\sin x + C$."
         },
+        // 7
         {
             "type": "mcq",
             "text": "What is the integral of $\\sec^2 x$?",
@@ -89,6 +97,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "$\\int \\sec^2 x \\, dx = \\tan x + C$."
         },
+        // 8
         {
             "type": "mcq",
             "text": "What is the integral of $\\csc^2 x$?",
@@ -101,6 +110,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "$\\int \\csc^2 x \\, dx = -\\cot x + C$."
         },
+        // 9
         {
             "type": "mcq",
             "text": "What is the integral of $\\sec x \\tan x$?",
@@ -113,6 +123,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "$\\int \\sec x \\tan x \\, dx = \\sec x + C$."
         },
+        // 10
         {
             "type": "mcq",
             "text": "What is the integral of $\\csc x \\cot x$?",
@@ -125,6 +136,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "$\\int \\csc x \\cot x \\, dx = -\\csc x + C$."
         },
+        // 11
         {
             "type": "mcq",
             "text": "What is the integral of $\\frac{1}{1+x^2}$?",
@@ -137,6 +149,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "$\\int \\frac{1}{1+x^2} \\, dx = \\tan^{-1} x + C$."
         },
+        // 12
         {
             "type": "mcq",
             "text": "What is the integral of $\\frac{1}{\\sqrt{1-x^2}}$?",
@@ -149,6 +162,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "$\\int \\frac{1}{\\sqrt{1-x^2}} \\, dx = \\sin^{-1} x + C$."
         },
+        // 13
         {
             "type": "mcq",
             "text": "What is the integral of $\\frac{1}{x \\sqrt{x^2 - 1}}$?",
@@ -161,6 +175,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "$\\int \\frac{1}{x \\sqrt{x^2 - 1}} \\, dx = \\sec^{-1} x + C$."
         },
+        // 14
         {
             "type": "mcq",
             "text": "What is the integral of $\\frac{1}{a^2 + x^2}$?",
@@ -173,6 +188,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "$\\int \\frac{1}{a^2 + x^2} \\, dx = \\frac{1}{a} \\tan^{-1} \\left(\\frac{x}{a}\\right) + C$."
         },
+        // 15
         {
             "type": "mcq",
             "text": "What is the integral of $\\frac{1}{\\sqrt{a^2 - x^2}}$?",
@@ -185,6 +201,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "$\\int \\frac{1}{\\sqrt{a^2 - x^2}} \\, dx = \\sin^{-1} \\left(\\frac{x}{a}\\right) + C$."
         },
+        // 16
         {
             "type": "mcq",
             "text": "What is the integral of $\\frac{1}{x^2 - a^2}$?",
@@ -197,6 +214,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "$\\int \\frac{1}{x^2 - a^2} \\, dx = \\frac{1}{2a} \\ln \\left| \\frac{x-a}{x+a} \\right| + C$."
         },
+        // 17
         {
             "type": "mcq",
             "text": "What is the integral of $\\frac{1}{\\sqrt{x^2 - a^2}}$?",
@@ -209,6 +227,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "$\\int \\frac{1}{\\sqrt{x^2 - a^2}} \\, dx = \\ln \\left| x + \\sqrt{x^2 - a^2} \\right| + C$."
         },
+        // 18
         {
             "type": "mcq",
             "text": "What is the integral of $\\frac{1}{\\sqrt{x^2 + a^2}}$?",
@@ -221,6 +240,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "$\\int \\frac{1}{\\sqrt{x^2 + a^2}} \\, dx = \\ln \\left| x + \\sqrt{x^2 + a^2} \\right| + C$."
         },
+        // 19
         {
             "type": "mcq",
             "text": "What is the integral of $\\tan x$?",
@@ -233,6 +253,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "$\\int \\tan x \\, dx = \\ln |\\sec x| + C$ (or $-\\ln |\\cos x| + C$)."
         },
+        // 20
         {
             "type": "mcq",
             "text": "What is the integral of $\\cot x$?",
@@ -245,6 +266,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "$\\int \\cot x \\, dx = \\ln |\\sin x| + C$."
         },
+        // 21
         {
             "type": "mcq",
             "text": "What is the integral of $\\sec x$?",
@@ -257,6 +279,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "$\\int \\sec x \\, dx = \\ln |\\sec x + \\tan x| + C$."
         },
+        // 22
         {
             "type": "mcq",
             "text": "What is the integral of $\\csc x$?",
@@ -269,6 +292,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "$\\int \\csc x \\, dx = \\ln |\\csc x - \\cot x| + C$."
         },
+        // 23
         {
             "type": "mcq",
             "text": "What is the integral of $\\sin^2 x$?",
@@ -281,6 +305,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "$\\int \\sin^2 x \\, dx = \\frac{x}{2} - \\frac{\\sin 2x}{4} + C$."
         },
+        // 24
         {
             "type": "mcq",
             "text": "What is the integral of $\\cos^2 x$?",
@@ -293,6 +318,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "$\\int \\cos^2 x \\, dx = \\frac{x}{2} + \\frac{\\sin 2x}{4} + C$."
         },
+        // 25
         {
             "type": "mcq",
             "text": "What is the integral of $\\tan^2 x$?",
@@ -305,6 +331,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "Since $\\tan^2 x = \\sec^2 x - 1$, $\\int \\tan^2 x \\, dx = \\tan x - x + C$."
         },
+        // 26
         {
             "type": "mcq",
             "text": "What is the integral of $\\frac{1}{a^2 - x^2}$?",
@@ -317,6 +344,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "$\\int \\frac{1}{a^2 - x^2} \\, dx = \\frac{1}{2a} \\ln \\left| \\frac{a+x}{a-x} \\right| + C$."
         },
+        // 27
         {
             "type": "mcq",
             "text": "What is the integral of $\\frac{1}{x^2 + x + 1}$?",
@@ -329,6 +357,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "Complete square: $x^2+x+1 = (x+1/2)^2 + 3/4$. Then $\\int \\frac{1}{(x+1/2)^2 + (\\sqrt{3}/2)^2} \\, dx = \\frac{1}{\\sqrt{3}/2} \\tan^{-1} \\left(\\frac{x+1/2}{\\sqrt{3}/2}\\right) + C = \\frac{2}{\\sqrt{3}} \\tan^{-1} \\left(\\frac{2x+1}{\\sqrt{3}}\\right) + C$."
         },
+        // 28
         {
             "type": "mcq",
             "text": "What does the constant $C$ represent in an indefinite integral?",
@@ -341,6 +370,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "$C$ is the arbitrary constant of integration because differentiation of a constant is zero, so any constant can be added to an antiderivative."
         },
+        // 29
         {
             "type": "mcq",
             "text": "Which of the following is the integration by parts formula?",
@@ -353,6 +383,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "The integration by parts formula is $\\int u \\, dv = uv - \\int v \\, du$."
         },
+        // 30
         {
             "type": "mcq",
             "text": "According to the ILATE rule, which function is chosen as $u$ first?",
@@ -365,6 +396,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "The ILATE order: Inverse trigonometric, Logarithmic, Algebraic, Trigonometric, Exponential. So Inverse functions are chosen first as $u$."
         },
+        // 31
         {
             "type": "mcq",
             "text": "What is the integral of $\\ln x$?",
@@ -377,6 +409,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "Using integration by parts with $u = \\ln x, dv = dx$, we get $\\int \\ln x \\, dx = x \\ln x - x + C$."
         },
+        // 32
         {
             "type": "mcq",
             "text": "What is the integral of $x e^x$?",
@@ -389,6 +422,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "By parts: $u=x, dv=e^x dx$ gives $\\int x e^x \\, dx = x e^x - e^x + C = (x-1)e^x + C$."
         },
+        // 33
         {
             "type": "mcq",
             "text": "What is the integral of $x \\sin x$?",
@@ -401,6 +435,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "By parts: $u=x, dv=\\sin x dx$ gives $\\int x \\sin x \\, dx = -x \\cos x + \\int \\cos x \\, dx = -x \\cos x + \\sin x + C$."
         },
+        // 34
         {
             "type": "mcq",
             "text": "What is the integral of $x \\cos x$?",
@@ -413,6 +448,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "By parts: $u=x, dv=\\cos x dx$ gives $\\int x \\cos x \\, dx = x \\sin x - \\int \\sin x \\, dx = x \\sin x + \\cos x + C$."
         },
+        // 35
         {
             "type": "mcq",
             "text": "What is the integral of $e^x \\sin x$?",
@@ -425,6 +461,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "Using integration by parts twice: $\\int e^x \\sin x \\, dx = \\frac{e^x}{2}(\\sin x - \\cos x) + C$."
         },
+        // 36
         {
             "type": "mcq",
             "text": "What is the integral of $e^x \\cos x$?",
@@ -437,6 +474,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "Using integration by parts twice: $\\int e^x \\cos x \\, dx = \\frac{e^x}{2}(\\sin x + \\cos x) + C$."
         },
+        // 37
         {
             "type": "mcq",
             "text": "What is the integral of $\\sec^3 x$?",
@@ -449,6 +487,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "By reduction formula, $\\int \\sec^3 x \\, dx = \\frac{1}{2} \\sec x \\tan x + \\frac{1}{2} \\ln |\\sec x + \\tan x| + C$."
         },
+        // 38
         {
             "type": "mcq",
             "text": "What is the integral of $\\sinh x$?",
@@ -461,6 +500,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "$\\int \\sinh x \\, dx = \\cosh x + C$."
         },
+        // 39
         {
             "type": "mcq",
             "text": "What is the integral of $\\cosh x$?",
@@ -473,6 +513,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "$\\int \\cosh x \\, dx = \\sinh x + C$."
         },
+        // 40
         {
             "type": "mcq",
             "text": "What is the integral of $\\frac{1}{\\sqrt{x^2+1}}$?",
@@ -485,6 +526,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "$\\int \\frac{1}{\\sqrt{x^2+1}} \\, dx = \\sinh^{-1} x + C = \\ln(x + \\sqrt{x^2+1}) + C$."
         },
+        // 41
         {
             "type": "mcq",
             "text": "What is the integral of $\\frac{1}{\\sqrt{x^2-1}}$?",
@@ -497,6 +539,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "$\\int \\frac{1}{\\sqrt{x^2-1}} \\, dx = \\cosh^{-1} x + C = \\ln(x + \\sqrt{x^2-1}) + C$."
         },
+        // 42
         {
             "type": "mcq",
             "text": "What is the integral of $\\frac{1}{\\sqrt{x^2+a^2}}$ for $a > 0$?",
@@ -509,6 +552,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "$\\int \\frac{1}{\\sqrt{x^2+a^2}} \\, dx = \\sinh^{-1} \\left(\\frac{x}{a}\\right) + C = \\ln \\left| x + \\sqrt{x^2+a^2} \\right| + C$."
         },
+        // 43
         {
             "type": "mcq",
             "text": "What is the integral of $\\frac{1}{x \\sqrt{x^2 + 1}}$?",
@@ -521,6 +565,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 3,
             "solution": "$\\int \\frac{1}{x \\sqrt{x^2 + 1}} \\, dx = \\ln \\left| \\frac{\\sqrt{x^2+1}-1}{x} \\right| + C$."
         },
+        // 44
         {
             "type": "mcq",
             "text": "What is the integral of $\\frac{1}{x \\sqrt{x^2 - 1}}$ for $x > 1$?",
@@ -533,6 +578,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "$\\int \\frac{1}{x \\sqrt{x^2 - 1}} \\, dx = \\sec^{-1} x + C$."
         },
+        // 45
         {
             "type": "mcq",
             "text": "What is the integral of $\\frac{1}{x^2 + a^2}$ for $a > 0$?",
@@ -545,6 +591,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "$\\int \\frac{1}{x^2 + a^2} \\, dx = \\frac{1}{a} \\tan^{-1} \\left(\\frac{x}{a}\\right) + C$."
         },
+        // 46
         {
             "type": "mcq",
             "text": "What is the integral of $\\frac{1}{x^2 - a^2}$ for $a > 0$?",
@@ -557,6 +604,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "$\\int \\frac{1}{x^2 - a^2} \\, dx = \\frac{1}{2a} \\ln \\left| \\frac{x-a}{x+a} \\right| + C$."
         },
+        // 47
         {
             "type": "mcq",
             "text": "What is the integral of $\\frac{1}{\\sqrt{a^2 - x^2}}$ for $a > 0$?",
@@ -569,6 +617,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "$\\int \\frac{1}{\\sqrt{a^2 - x^2}} \\, dx = \\sin^{-1} \\left(\\frac{x}{a}\\right) + C$."
         },
+        // 48
         {
             "type": "mcq",
             "text": "What is the integral of $\\frac{1}{\\sqrt{x^2 - a^2}}$ for $x > a > 0$?",
@@ -581,6 +630,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "$\\int \\frac{1}{\\sqrt{x^2 - a^2}} \\, dx = \\cosh^{-1} \\left(\\frac{x}{a}\\right) + C = \\ln \\left| x + \\sqrt{x^2 - a^2} \\right| + C$."
         },
+        // 49
         {
             "type": "mcq",
             "text": "What is the integral of $\\frac{1}{\\sqrt{x^2 + a^2}}$ for $a > 0$?",
@@ -593,6 +643,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "$\\int \\frac{1}{\\sqrt{x^2 + a^2}} \\, dx = \\sinh^{-1} \\left(\\frac{x}{a}\\right) + C = \\ln \\left| x + \\sqrt{x^2 + a^2} \\right| + C$."
         },
+        // 50
         {
             "type": "mcq",
             "text": "What is the integral of $\\frac{1}{a^2 - x^2}$ for $|x| < a$?",
@@ -605,6 +656,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "$\\int \\frac{1}{a^2 - x^2} \\, dx = \\frac{1}{2a} \\ln \\left| \\frac{a+x}{a-x} \\right| + C$."
         },
+        // 51
         {
             "type": "mcq",
             "text": "What is the integral of $\\frac{1}{x^2 + a^2}$ for a &ne; 0?",
@@ -617,6 +669,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "The standard integral is $\\frac{1}{a} \\tan^{-1} \\left(\\frac{x}{a}\\right) + C$."
         },
+        // 52
         {
             "type": "mcq",
             "text": "What is the integral of $\\frac{1}{x^2 + a^2}$ when $a = 1$?",
@@ -629,6 +682,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "When $a=1$, $\\int \\frac{1}{1+x^2} \\, dx = \\tan^{-1} x + C$."
         },
+        // 53
         {
             "type": "mcq",
             "text": "What is the integral of $\\frac{1}{\\sqrt{1-x^2}}$ for $|x| < 1$?",
@@ -641,6 +695,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "The standard integral is $\\sin^{-1} x + C$."
         },
+        // 54
         {
             "type": "mcq",
             "text": "What is the integral of $\\frac{1}{\\sqrt{x^2 - 1}}$ for $x > 1$?",
@@ -653,6 +708,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "$\\int \\frac{1}{\\sqrt{x^2-1}} \\, dx = \\cosh^{-1} x + C = \\ln(x + \\sqrt{x^2-1}) + C$."
         },
+        // 55
         {
             "type": "mcq",
             "text": "What is the integral of $\\frac{1}{\\sqrt{x^2+1}}$?",
@@ -665,6 +721,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "$\\int \\frac{1}{\\sqrt{x^2+1}} \\, dx = \\sinh^{-1} x + C = \\ln(x + \\sqrt{x^2+1}) + C$."
         },
+        // 56
         {
             "type": "mcq",
             "text": "What is the integral of $\\frac{1}{x \\sqrt{x^2 - 1}}$ for $x > 1$?",
@@ -677,6 +734,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "$\\int \\frac{1}{x \\sqrt{x^2 - 1}} \\, dx = \\sec^{-1} x + C$."
         },
+        // 57
         {
             "type": "mcq",
             "text": "What is the integral of $\\frac{1}{x \\sqrt{x^2 + 1}}$?",
@@ -689,6 +747,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 3,
             "solution": "$\\int \\frac{1}{x \\sqrt{x^2 + 1}} \\, dx = \\ln \\left| \\frac{\\sqrt{x^2+1}-1}{x} \\right| + C$."
         },
+        // 58
         {
             "type": "mcq",
             "text": "What is the integral of $\\frac{1}{x \\sqrt{x^2+a^2}}$ for $a > 0$?",
@@ -701,6 +760,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "Substitute $x = a \\tan \\theta$, $dx = a \\sec^2 \\theta d\\theta$. $\\int \\frac{1}{x \\sqrt{x^2+a^2}} \\, dx = \\frac{1}{a} \\ln \\left| \\frac{\\sqrt{x^2+a^2}-a}{x} \\right| + C$."
         },
+        // 59
         {
             "type": "mcq",
             "text": "What is the integral of $\\frac{1}{\\sqrt{x^2 - a^2}}$ for $|x| > a > 0$?",
@@ -713,6 +773,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "$\\int \\frac{1}{\\sqrt{x^2 - a^2}} \\, dx = \\cosh^{-1} \\left(\\frac{x}{a}\\right) + C = \\ln \\left| x + \\sqrt{x^2 - a^2} \\right| + C$."
         },
+        // 60
         {
             "type": "mcq",
             "text": "What is the integral of $\\frac{1}{\\sqrt{x^2 + a^2}}$ for $a > 0$?",
@@ -725,6 +786,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "$\\int \\frac{1}{\\sqrt{x^2 + a^2}} \\, dx = \\sinh^{-1} \\left(\\frac{x}{a}\\right) + C = \\ln \\left| x + \\sqrt{x^2 + a^2} \\right| + C$."
         },
+        // 61
         {
             "type": "mcq",
             "text": "What is the integral of $\\frac{1}{a^2 - x^2}$ for $|x| < a$?",
@@ -737,6 +799,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "$\\int \\frac{1}{a^2 - x^2} \\, dx = \\frac{1}{2a} \\ln \\left| \\frac{a+x}{a-x} \\right| + C$."
         },
+        // 62
         {
             "type": "mcq",
             "text": "What is the integral of $\\frac{1}{x^2 - a^2}$ for $|x| > a$?",
@@ -749,6 +812,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "$\\int \\frac{1}{x^2 - a^2} \\, dx = \\frac{1}{2a} \\ln \\left| \\frac{x-a}{x+a} \\right| + C$."
         },
+        // 63
         {
             "type": "mcq",
             "text": "What is the integral of $\\sec x \\tan x$?",
@@ -761,6 +825,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "$\\int \\sec x \\tan x \\, dx = \\sec x + C$."
         },
+        // 64
         {
             "type": "mcq",
             "text": "What is the integral of $\\csc x \\cot x$?",
@@ -773,6 +838,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "$\\int \\csc x \\cot x \\, dx = -\\csc x + C$."
         },
+        // 65
         {
             "type": "mcq",
             "text": "What is the integral of $\\frac{1}{x \\ln x}$?",
@@ -785,6 +851,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "Substitute $u = \\ln x$, $du = \\frac{dx}{x}$, so $\\int \\frac{1}{x \\ln x} \\, dx = \\int \\frac{du}{u} = \\ln |u| + C = \\ln |\\ln x| + C$."
         },
+        // 66
         {
             "type": "mcq",
             "text": "What is the integral of $\\frac{1}{x \\ln x}$ for $x > 1$?",
@@ -797,6 +864,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "For $x > 1$, $\\ln x > 0$, so $\\int \\frac{1}{x \\ln x} \\, dx = \\ln(\\ln x) + C$."
         },
+        // 67
         {
             "type": "mcq",
             "text": "What is the integral of $e^{ax}$ for a &ne; 0?",
@@ -809,6 +877,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "$\\int e^{ax} \\, dx = \\frac{e^{ax}}{a} + C$."
         },
+        // 68
         {
             "type": "mcq",
             "text": "What is the integral of $a^{bx}$ for a > 0, a &ne; 1 and b &ne; 0?",
@@ -821,6 +890,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "$\\int a^{bx} \\, dx = \\frac{a^{bx}}{b \\ln a} + C$."
         },
+        // 69
         {
             "type": "mcq",
             "text": "What is the integral of $\\sin(ax+b)$?",
@@ -833,6 +903,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "$\\int \\sin(ax+b) \\, dx = -\\frac{1}{a} \\cos(ax+b) + C$."
         },
+        // 70
         {
             "type": "mcq",
             "text": "What is the integral of $\\cos(ax+b)$?",
@@ -845,6 +916,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "$\\int \\cos(ax+b) \\, dx = \\frac{1}{a} \\sin(ax+b) + C$."
         },
+        // 71
         {
             "type": "mcq",
             "text": "What is the integral of $\\sec^2(ax+b)$?",
@@ -857,6 +929,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "$\\int \\sec^2(ax+b) \\, dx = \\frac{1}{a} \\tan(ax+b) + C$."
         },
+        // 72
         {
             "type": "mcq",
             "text": "What is the integral of $\\csc^2(ax+b)$?",
@@ -869,6 +942,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "$\\int \\csc^2(ax+b) \\, dx = -\\frac{1}{a} \\cot(ax+b) + C$."
         },
+        // 73
         {
             "type": "mcq",
             "text": "What is the integral of $\\sec(ax+b) \\tan(ax+b)$?",
@@ -881,6 +955,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "$\\int \\sec(ax+b) \\tan(ax+b) \\, dx = \\frac{1}{a} \\sec(ax+b) + C$."
         },
+        // 74
         {
             "type": "mcq",
             "text": "What is the integral of $\\csc(ax+b) \\cot(ax+b)$?",
@@ -893,6 +968,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "$\\int \\csc(ax+b) \\cot(ax+b) \\, dx = -\\frac{1}{a} \\csc(ax+b) + C$."
         },
+        // 75
         {
             "type": "mcq",
             "text": "What is the integral of $\\tan(ax+b)$?",
@@ -905,6 +981,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "$\\int \\tan(ax+b) \\, dx = \\frac{1}{a} \\ln |\\sec(ax+b)| + C = -\\frac{1}{a} \\ln |\\cos(ax+b)| + C$."
         },
+        // 76
         {
             "type": "mcq",
             "text": "What is the integral of $\\cot(ax+b)$?",
@@ -917,6 +994,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "$\\int \\cot(ax+b) \\, dx = \\frac{1}{a} \\ln |\\sin(ax+b)| + C$."
         },
+        // 77
         {
             "type": "mcq",
             "text": "What is the integral of $\\sec(ax+b)$?",
@@ -929,6 +1007,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "$\\int \\sec(ax+b) \\, dx = \\frac{1}{a} \\ln |\\sec(ax+b) + \\tan(ax+b)| + C$."
         },
+        // 78
         {
             "type": "mcq",
             "text": "What is the integral of $\\csc(ax+b)$?",
@@ -941,6 +1020,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "$\\int \\csc(ax+b) \\, dx = \\frac{1}{a} \\ln |\\csc(ax+b) - \\cot(ax+b)| + C$."
         },
+        // 79
         {
             "type": "mcq",
             "text": "What is the integral of $\\frac{1}{x^2 + a^2}$ when $a = 0$?",
@@ -953,6 +1033,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "When $a=0$, the integrand becomes $1/x^2$, whose integral is $-1/x + C$."
         },
+        // 80
         {
             "type": "mcq",
             "text": "What is the integral of $\\frac{1}{x^2 - 1}$?",
@@ -965,6 +1046,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "With $a=1$, $\\int \\frac{1}{x^2 - 1} \\, dx = \\frac{1}{2} \\ln \\left| \\frac{x-1}{x+1} \\right| + C$."
         },
+        // 81
         {
             "type": "mcq",
             "text": "What is the integral of $\\frac{1}{\\sqrt{x^2 - 1}}$?",
@@ -977,6 +1059,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "$\\int \\frac{1}{\\sqrt{x^2 - 1}} \\, dx = \\ln |x + \\sqrt{x^2 - 1}| + C$."
         },
+        // 82
         {
             "type": "mcq",
             "text": "What is the integral of $\\frac{1}{\\sqrt{x^2 + 1}}$?",
@@ -989,6 +1072,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "$\\int \\frac{1}{\\sqrt{x^2 + 1}} \\, dx = \\ln |x + \\sqrt{x^2 + 1}| + C$."
         },
+        // 83
         {
             "type": "mcq",
             "text": "What is the integral of $\\frac{1}{1 - x^2}$?",
@@ -1001,6 +1085,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "With $a=1$, $\\int \\frac{1}{1 - x^2} \\, dx = \\frac{1}{2} \\ln \\left| \\frac{1+x}{1-x} \\right| + C$."
         },
+        // 84
         {
             "type": "mcq",
             "text": "What is the integral of $\\frac{1}{\\sqrt{1 - x^2}}$?",
@@ -1013,6 +1098,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "$\\int \\frac{1}{\\sqrt{1 - x^2}} \\, dx = \\sin^{-1} x + C$."
         },
+        // 85
         {
             "type": "mcq",
             "text": "What is the integral of $\\frac{1}{x^2 + x + 1}$?",
@@ -1025,6 +1111,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "Complete square: $(x+1/2)^2 + 3/4$, so integral = $\\frac{1}{\\sqrt{3}/2} \\tan^{-1} \\left(\\frac{x+1/2}{\\sqrt{3}/2}\\right) + C = \\frac{2}{\\sqrt{3}} \\tan^{-1} \\left(\\frac{2x+1}{\\sqrt{3}}\\right) + C$."
         },
+        // 86
         {
             "type": "mcq",
             "text": "What is the integral of $\\frac{1}{x^2 - x + 1}$?",
@@ -1037,6 +1124,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "Complete square: $(x-1/2)^2 + 3/4$, so integral = $\\frac{1}{\\sqrt{3}/2} \\tan^{-1} \\left(\\frac{x-1/2}{\\sqrt{3}/2}\\right) + C = \\frac{2}{\\sqrt{3}} \\tan^{-1} \\left(\\frac{2x-1}{\\sqrt{3}}\\right) + C$."
         },
+        // 87
         {
             "type": "mcq",
             "text": "What is the integral of $\\frac{1}{x^2 + 2x + 2}$?",
@@ -1049,6 +1137,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "Complete square: $x^2+2x+2 = (x+1)^2 + 1$, so $\\int \\frac{1}{(x+1)^2+1} \\, dx = \\tan^{-1}(x+1) + C$."
         },
+        // 88
         {
             "type": "mcq",
             "text": "What is the integral of $\\frac{1}{\\sqrt{x^2 + 2x + 2}}$?",
@@ -1061,6 +1150,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "Complete square: $x^2+2x+2 = (x+1)^2 + 1$, so $\\int \\frac{1}{\\sqrt{(x+1)^2+1}} \\, dx = \\ln |x+1 + \\sqrt{(x+1)^2+1}| + C = \\ln |x+1 + \\sqrt{x^2+2x+2}| + C$."
         },
+        // 89
         {
             "type": "mcq",
             "text": "What is the integral of $\\frac{1}{\\sqrt{x^2 - 2x + 2}}$?",
@@ -1073,6 +1163,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "Complete square: $x^2 - 2x + 2 = (x-1)^2 + 1$, so $\\int \\frac{1}{\\sqrt{(x-1)^2+1}} \\, dx = \\ln |x-1 + \\sqrt{(x-1)^2+1}| + C = \\ln |x-1 + \\sqrt{x^2 - 2x + 2}| + C$."
         },
+        // 90
         {
             "type": "mcq",
             "text": "What is the integral of $\\frac{1}{\\sqrt{x^2 - 2x - 3}}$ for $x > 3$?",
@@ -1085,6 +1176,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "Complete square: $x^2 - 2x - 3 = (x-1)^2 - 4$. For $x>3$, $x-1>2$, so $\\int \\frac{1}{\\sqrt{(x-1)^2 - 2^2}} \\, dx = \\cosh^{-1} \\left(\\frac{x-1}{2}\\right) + C = \\ln |x-1 + \\sqrt{x^2 - 2x - 3}| + C$."
         },
+        // 91
         {
             "type": "mcq",
             "text": "What is the integral of $\\frac{1}{\\sqrt{4 - x^2}}$?",
@@ -1097,6 +1189,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "With $a=2$, $\\int \\frac{1}{\\sqrt{4 - x^2}} \\, dx = \\sin^{-1} \\left(\\frac{x}{2}\\right) + C$."
         },
+        // 92
         {
             "type": "mcq",
             "text": "What is the integral of $\\frac{1}{\\sqrt{9 - x^2}}$?",
@@ -1109,6 +1202,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "With $a=3$, $\\int \\frac{1}{\\sqrt{9 - x^2}} \\, dx = \\sin^{-1} \\left(\\frac{x}{3}\\right) + C$."
         },
+        // 93
         {
             "type": "mcq",
             "text": "What is the integral of $\\frac{1}{x^2 + 4}$?",
@@ -1121,6 +1215,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "With $a=2$, $\\int \\frac{1}{x^2 + 4} \\, dx = \\frac{1}{2} \\tan^{-1} \\left(\\frac{x}{2}\\right) + C$."
         },
+        // 94
         {
             "type": "mcq",
             "text": "What is the integral of $\\frac{1}{x^2 - 4}$?",
@@ -1133,6 +1228,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "With $a=2$, $\\int \\frac{1}{x^2 - 4} \\, dx = \\frac{1}{4} \\ln \\left| \\frac{x-2}{x+2} \\right| + C$."
         },
+        // 95
         {
             "type": "mcq",
             "text": "What is the integral of $\\frac{1}{\\sqrt{x^2 + 4}}$?",
@@ -1145,6 +1241,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "With $a=2$, $\\int \\frac{1}{\\sqrt{x^2 + 4}} \\, dx = \\ln \\left| x + \\sqrt{x^2 + 4} \\right| + C = \\sinh^{-1} \\left(\\frac{x}{2}\\right) + C$."
         },
+        // 96
         {
             "type": "mcq",
             "text": "What is the integral of $\\frac{1}{\\sqrt{x^2 - 4}}$ for $x > 2$?",
@@ -1157,6 +1254,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "With $a=2$, $\\int \\frac{1}{\\sqrt{x^2 - 4}} \\, dx = \\ln \\left| x + \\sqrt{x^2 - 4} \\right| + C = \\cosh^{-1} \\left(\\frac{x}{2}\\right) + C$."
         },
+        // 97
         {
             "type": "mcq",
             "text": "What is the integral of $\\frac{1}{x \\sqrt{x^2 - 4}}$ for $x > 2$?",
@@ -1169,6 +1267,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "With $a=2$, $\\int \\frac{1}{x \\sqrt{x^2 - 4}} \\, dx = \\frac{1}{2} \\sec^{-1} \\left(\\frac{x}{2}\\right) + C$."
         },
+        // 98
         {
             "type": "mcq",
             "text": "What is the integral of $\\frac{1}{x \\sqrt{4 - x^2}}$ for $0 < x < 2$?",
@@ -1181,6 +1280,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "Using substitution $x = 2 \\sin \\theta$, the integral simplifies to $-\\frac{1}{2} \\ln \\left| \\frac{2 + \\sqrt{4 - x^2}}{x} \\right| + C$."
         },
+        // 99
         {
             "type": "mcq",
             "text": "What is the integral of $\\frac{1}{x^2 + 2x + 5}$?",
@@ -1193,6 +1293,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "Complete square: $x^2+2x+5 = (x+1)^2 + 4$. So $\\int \\frac{1}{(x+1)^2 + 2^2} \\, dx = \\frac{1}{2} \\tan^{-1} \\left(\\frac{x+1}{2}\\right) + C$."
         },
+        // 100
         {
             "type": "mcq",
             "text": "What is the integral of $\\frac{1}{\\sqrt{x^2 + 2x + 5}}$?",
@@ -1205,6 +1306,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "Complete square: $x^2+2x+5 = (x+1)^2 + 4 = (x+1)^2 + 2^2$. So $\\int \\frac{1}{\\sqrt{(x+1)^2 + 2^2}} \\, dx = \\ln \\left| x+1 + \\sqrt{(x+1)^2 + 4} \\right| + C = \\ln \\left| x+1 + \\sqrt{x^2+2x+5} \\right| + C$."
         },
+        // 101
         {
             "type": "mcq",
             "text": "What is the integral of $\\frac{1}{\\sqrt{x^2 - 2x + 5}}$?",
@@ -1217,6 +1319,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "Complete square: $x^2-2x+5 = (x-1)^2 + 4$. So $\\int \\frac{1}{\\sqrt{(x-1)^2 + 2^2}} \\, dx = \\ln \\left| x-1 + \\sqrt{x^2-2x+5} \\right| + C$."
         },
+        // 102
         {
             "type": "mcq",
             "text": "What is the integral of $\\frac{1}{\\sqrt{4x^2 + 1}}$?",
@@ -1229,6 +1332,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "Rewrite $4x^2+1 = (2x)^2 + 1^2$. So $\\int \\frac{1}{\\sqrt{(2x)^2 + 1}} \\, dx = \\frac{1}{2} \\ln \\left| 2x + \\sqrt{4x^2+1} \\right| + C$."
         },
+        // 103
         {
             "type": "mcq",
             "text": "What is the integral of $\\frac{1}{\\sqrt{1 - 4x^2}}$?",
@@ -1241,6 +1345,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "Rewrite $1-4x^2 = 1 - (2x)^2$. So $\\int \\frac{1}{\\sqrt{1 - (2x)^2}} \\, dx = \\frac{1}{2} \\sin^{-1} (2x) + C$."
         },
+        // 104
         {
             "type": "mcq",
             "text": "What is the integral of $\\frac{1}{x^2 + 2x + 10}$?",
@@ -1253,6 +1358,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "Complete square: $x^2+2x+10 = (x+1)^2 + 9 = (x+1)^2 + 3^2$. So $\\int \\frac{1}{(x+1)^2 + 3^2} \\, dx = \\frac{1}{3} \\tan^{-1} \\left(\\frac{x+1}{3}\\right) + C$."
         },
+        // 105
         {
             "type": "mcq",
             "text": "What is the integral of $\\frac{1}{\\sqrt{x^2+2x+10}}$?",
@@ -1265,6 +1371,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "Complete square: $x^2+2x+10 = (x+1)^2 + 9$. So $\\int \\frac{1}{\\sqrt{(x+1)^2 + 3^2}} \\, dx = \\ln \\left| x+1 + \\sqrt{x^2+2x+10} \\right| + C$."
         },
+        // 106
         {
             "type": "mcq",
             "text": "What is the integral of $\\frac{1}{x^2 - 2x - 3}$?",
@@ -1277,6 +1384,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "Factor: $x^2 - 2x - 3 = (x-3)(x+1)$. So $\\int \\frac{1}{(x-3)(x+1)} \\, dx = \\frac{1}{4} \\ln \\left| \\frac{x-3}{x+1} \\right| + C$."
         },
+        // 107
         {
             "type": "mcq",
             "text": "What is the integral of $\\frac{1}{x^2 + 4x + 5}$?",
@@ -1289,6 +1397,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "Complete square: $x^2+4x+5 = (x+2)^2 + 1$. So $\\int \\frac{1}{(x+2)^2 + 1} \\, dx = \\tan^{-1}(x+2) + C$."
         },
+        // 108
         {
             "type": "mcq",
             "text": "What is the integral of $\\frac{1}{\\sqrt{x^2+4x+5}}$?",
@@ -1301,6 +1410,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "Complete square: $x^2+4x+5 = (x+2)^2 + 1$. So $\\int \\frac{1}{\\sqrt{(x+2)^2 + 1}} \\, dx = \\ln \\left| x+2 + \\sqrt{x^2+4x+5} \\right| + C$."
         },
+        // 109
         {
             "type": "mcq",
             "text": "What is the integral of $\\frac{1}{x^2 - 4x + 5}$?",
@@ -1313,6 +1423,7 @@ window.testBank['test_497'] = {
             "correctAnswer": 0,
             "solution": "Complete square: $x^2-4x+5 = (x-2)^2 + 1$. So $\\int \\frac{1}{(x-2)^2 + 1} \\, dx = \\tan^{-1}(x-2) + C$."
         },
+        // 110
         {
             "type": "mcq",
             "text": "What is the integral of $\\frac{1}{\\sqrt{x^2-4x+5}}$?",

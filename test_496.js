@@ -2,10 +2,12 @@ window.testBank = window.testBank || {};
 window.testBank['test_496'] = {
     title: "Sequence and Series",
     category: "Theory and Formulae Tests - Maths",
+    uploadedAt: "2026-07-04T12:00:04Z",
     timeLimitMins: 10,
     randomizePoolSize: 30,
     questions: [
         // ================= ARITHMETIC PROGRESSION (AP) =================
+        // 1
         {
             "type": "mcq",
             "text": "The $n$th term of an Arithmetic Progression (AP) with first term $a$ and common difference $d$ is given by:",
@@ -18,6 +20,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "The general term formula for an AP is $T_n = a + (n - 1)d$."
         },
+        // 2
         {
             "type": "mcq",
             "text": "The sum of the first $n$ terms of an AP with first term $a$ and common difference $d$ is:",
@@ -30,6 +33,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "The sum to $n$ terms is $S_n = \\frac{n}{2} [2a + (n - 1)d]$."
         },
+        // 3
         {
             "type": "mcq",
             "text": "If the first term of an AP is $a$ and the last term is $l$, the sum of its $n$ terms is:",
@@ -42,6 +46,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "When the last term is known, $S_n = \\frac{n}{2} (a + l)$."
         },
+        // 4
         {
             "type": "mcq",
             "text": "Three non-zero numbers $a, b, c$ are in Arithmetic Progression if and only if:",
@@ -54,6 +59,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "For an AP, the common difference is constant: $b - a = c - b$, which simplifies to $2b = a + c$."
         },
+        // 5
         {
             "type": "mcq",
             "text": "The relationship between the $n$th term $T_n$ and the sum of the first $n$ terms $S_n$ of a sequence is:",
@@ -66,6 +72,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "The $n$th term is the difference between the sum to $n$ terms and the sum to $(n-1)$ terms: $T_n = S_n - S_{n-1}$."
         },
+        // 6
         {
             "type": "mcq",
             "text": "If a constant $k$ is added to each term of an AP, the resulting sequence is:",
@@ -78,6 +85,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "Adding a constant to all terms shifts the sequence but does not change the difference between consecutive terms."
         },
+        // 7
         {
             "type": "mcq",
             "text": "If each term of an AP with common difference $d$ is multiplied by a non-zero constant $k$, the resulting sequence is:",
@@ -90,6 +98,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "Multiplying each term by $k$ scales the common difference by $k$, forming an AP with common difference $kd$."
         },
+        // 8
         {
             "type": "mcq",
             "text": "To select three terms in an AP such that their sum is easily calculated, the standard assumption is:",
@@ -102,6 +111,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "Assuming the terms as $a - d, a, a + d$ cancels out the common difference $d$ when summing."
         },
+        // 9
         {
             "type": "mcq",
             "text": "To select four terms in an AP for symmetric calculations, the standard assumption is:",
@@ -114,6 +124,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "The standard symmetric four terms are $a - 3d, a - d, a + d, a + 3d$, which has a common difference of $2d$."
         },
+        // 10
         {
             "type": "mcq",
             "text": "What is the common difference of the standard four symmetric terms in AP $a - 3d, a - d, a + d, a + 3d$?",
@@ -126,6 +137,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "The difference between consecutive terms $(a - d) - (a - 3d)$ is $2d$."
         },
+        // 11
         {
             "type": "mcq",
             "text": "If the sum of $n$ terms of a sequence is a quadratic expression $S_n = An^2 + Bn$, the sequence is:",
@@ -138,6 +150,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "For $S_n = An^2 + Bn$, $T_n = S_n - S_{n-1} = 2An + (B - A)$. This is linear, making it an AP with common difference $2A$."
         },
+        // 12
         {
             "type": "mcq",
             "text": "If the $n$th term of a sequence is a linear expression $T_n = An + B$, the sequence is:",
@@ -150,6 +163,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "A linear general term defines an AP. The common difference is $T_n - T_{n-1} = A$."
         },
+        // 13
         {
             "type": "mcq",
             "text": "In a finite AP, the sum of terms equidistant from the beginning and the end is:",
@@ -162,6 +176,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "For any AP, $T_k + T_{n-k+1} = a + l$, which is constant."
         },
+        // 14
         {
             "type": "mcq",
             "text": "If the $p$th term of an AP is $q$ and the $q$th term is $p$ (where $p \\ne q$), then its $(p+q)$th term is:",
@@ -174,6 +189,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "Given $a + (p-1)d = q$ and $a + (q-1)d = p$. Subtracting gives $d = -1$. Substituting back yields $T_{p+q} = 0$."
         },
+        // 15
         {
             "type": "mcq",
             "text": "If the sum of the first $p$ terms of an AP is $q$ and the sum of the first $q$ terms is $p$, then the sum of the first $(p+q)$ terms is:",
@@ -186,6 +202,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "This is a standard property of APs: $S_p = q, S_q = p \\implies S_{p+q} = -(p + q)$."
         },
+        // 16
         {
             "type": "mcq",
             "text": "If $m$ times the $m$th term of an AP is equal to $n$ times the $n$th term (where $m \\ne n$), then the $(m+n)$th term is:",
@@ -198,6 +215,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "Solving $m(a + (m-1)d) = n(a + (n-1)d)$ simplifies to $a + (m+n-1)d = 0$, thus $T_{m+n} = 0$."
         },
+        // 17
         {
             "type": "mcq",
             "text": "If the ratio of the sums of $n$ terms of two APs is given as a function of $n$, the ratio of their $n$th terms is found by replacing $n$ with:",
@@ -210,6 +228,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "To transition from ratio of sums to ratio of terms, we substitute $n \\to 2n - 1$."
         },
+        // 18
         {
             "type": "mcq",
             "text": "If the ratio of the $n$th terms of two APs is given as a function of $n$, the ratio of their sums of $n$ terms is found by replacing $n$ with:",
@@ -222,6 +241,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "To transition from ratio of terms to ratio of sums, we substitute $n \\to \\frac{n+1}{2}$."
         },
+        // 19
         {
             "type": "mcq",
             "text": "If the sum of $n$ terms of an AP is $S_n$, then $S_3 = 3(S_2 - S_1)$ is a valid identity. This is known as:",
@@ -234,6 +254,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "For any AP, $S_n = \\frac{n}{2}(2a+(n-1)d)$. Substituting $n=1,2,3$ verifies $S_3 = 3(S_2 - S_1)$."
         },
+        // 20
         {
             "type": "mcq",
             "text": "If $S_m = S_n$ for an AP (where $m \\ne n$), then the sum of its first $(m+n)$ terms is:",
@@ -248,6 +269,7 @@ window.testBank['test_496'] = {
         },
 
         // ================= GEOMETRIC PROGRESSION (GP) =================
+        // 21
         {
             "type": "mcq",
             "text": "The $n$th term of a Geometric Progression (GP) with first term $a$ and common ratio $r$ is:",
@@ -260,6 +282,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "The general term formula for a GP is $T_n = a r^{n-1}$."
         },
+        // 22
         {
             "type": "mcq",
             "text": "The sum of the first $n$ terms of a GP with first term $a$ and common ratio $r$ (where $r \\ne 1$) is:",
@@ -272,6 +295,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "The sum to $n$ terms of a GP is $S_n = a \\frac{r^n - 1}{r - 1}$."
         },
+        // 23
         {
             "type": "mcq",
             "text": "The sum of an infinite GP with first term $a$ and common ratio $r$ exists if and only if:",
@@ -284,6 +308,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "An infinite GP converges to a finite sum only when the common ratio satisfies $-1 < r < 1$."
         },
+        // 24
         {
             "type": "mcq",
             "text": "The sum of an infinite GP with first term $a$ and common ratio $r$ (where $|r| < 1$) is given by:",
@@ -296,6 +321,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "As $n \\to \\infty$, $r^n \\to 0$, reducing the sum formula to $S_\\infty = \\frac{a}{1 - r}$."
         },
+        // 25
         {
             "type": "mcq",
             "text": "Three non-zero numbers $a, b, c$ are in Geometric Progression if and only if:",
@@ -308,6 +334,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "For a GP, the ratio is constant: $\\frac{b}{a} = \\frac{c}{b}$, which cross-multiplies to $b^2 = ac$."
         },
+        // 26
         {
             "type": "mcq",
             "text": "If each term of a GP is multiplied by a non-zero constant $k$, the resulting sequence is:",
@@ -320,6 +347,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "Multiplying each term by $k$ scales the terms but preserves the ratio between adjacent terms."
         },
+        // 27
         {
             "type": "mcq",
             "text": "If each term of a GP with common ratio $r$ is raised to the power $k$, the resulting sequence is:",
@@ -332,6 +360,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "Raising $(a r^{n-1})^k$ yields $a^k (r^k)^{n-1}$, which is a GP with common ratio $r^k$."
         },
+        // 28
         {
             "type": "mcq",
             "text": "If the terms of a GP with positive elements are replaced by their logarithms, the resulting sequence is:",
@@ -344,6 +373,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "If $T_n = a r^{n-1}$, then $\\log(T_n) = \\log(a) + (n-1)\\log(r)$, which is an AP with common difference $\\log(r)$."
         },
+        // 29
         {
             "type": "mcq",
             "text": "The reciprocals of the terms of a GP with common ratio $r$ form:",
@@ -356,6 +386,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "The reciprocal of $a r^{n-1}$ is $\\frac{1}{a} \\left(\\frac{1}{r}\\right)^{n-1}$, which is a GP with ratio $1/r$."
         },
+        // 30
         {
             "type": "mcq",
             "text": "To select three terms in a GP for symmetric product calculations, the standard assumption is:",
@@ -368,6 +399,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "Using $\\frac{a}{r}, a, ar$ makes the product $a^3$, completely eliminating the common ratio $r$."
         },
+        // 31
         {
             "type": "mcq",
             "text": "To select four terms in a GP for symmetric product calculations, the standard assumption is:",
@@ -380,6 +412,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "The symmetric four terms are $\\frac{a}{r^3}, \\frac{a}{r}, ar, ar^3$. Their product is $a^4$."
         },
+        // 32
         {
             "type": "mcq",
             "text": "What is the common ratio of the standard four symmetric terms in GP $\\frac{a}{r^3}, \\frac{a}{r}, ar, ar^3$?",
@@ -392,6 +425,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "The ratio between consecutive terms, for instance $\\frac{a/r}{a/r^3}$, is $r^2$."
         },
+        // 33
         {
             "type": "mcq",
             "text": "In a finite GP, the product of terms equidistant from the beginning and the end is:",
@@ -404,6 +438,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "For any GP, $T_k \\cdot T_{n-k+1} = a \\cdot l$, which is constant."
         },
+        // 34
         {
             "type": "mcq",
             "text": "If two GPs are multiplied term by term, the resulting sequence is:",
@@ -416,6 +451,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "Let GPs be $a_1 r_1^{n-1}$ and $a_2 r_2^{n-1}$. Their product is $(a_1 a_2)(r_1 r_2)^{n-1}$, which is a GP."
         },
+        // 35
         {
             "type": "mcq",
             "text": "If two GPs are added term by term, the resulting sequence is:",
@@ -428,6 +464,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "The sum of two GPs with different common ratios cannot be factored into a single GP format."
         },
+        // 36
         {
             "type": "mcq",
             "text": "If $x, y, z$ are in GP, then $x^2 + y^2, xy + yz, y^2 + z^2$ are in:",
@@ -440,6 +477,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "Substituting $y = xr$ and $z = xr^2$, we find the terms form a GP with common ratio $r$."
         },
+        // 37
         {
             "type": "mcq",
             "text": "If $a, b, c$ are in GP, then the roots of the quadratic equation $ax^2 + 2bx + c = 0$ are:",
@@ -454,6 +492,7 @@ window.testBank['test_496'] = {
         },
 
         // ================= HARMONIC PROGRESSION (HP) =================
+        // 38
         {
             "type": "mcq",
             "text": "A sequence is said to be in Harmonic Progression (HP) if:",
@@ -466,6 +505,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "By definition, an HP is formed by the reciprocals of the terms of an AP."
         },
+        // 39
         {
             "type": "mcq",
             "text": "The $n$th term of a Harmonic Progression formed from an AP with first term $a$ and common difference $d$ is:",
@@ -478,6 +518,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "Since the reciprocals form an AP, the $n$th term of the HP is the reciprocal of the $n$th term of the AP."
         },
+        // 40
         {
             "type": "mcq",
             "text": "Three non-zero numbers $a, b, c$ are in Harmonic Progression if and only if:",
@@ -490,6 +531,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "Since $1/a, 1/b, 1/c$ are in AP, $\\frac{2}{b} = \\frac{1}{a} + \\frac{1}{c}$. Solving for $b$ gives $b = \\frac{2ac}{a + c}$."
         },
+        // 41
         {
             "type": "mcq",
             "text": "Can a term of a Harmonic Progression be equal to zero?",
@@ -502,6 +544,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "If a term in HP were 0, the corresponding term in AP would be $1/0$, which is undefined. Hence, no term can be zero."
         },
+        // 42
         {
             "type": "mcq",
             "text": "If $a, b, c$ are in HP, then which of the following proportions holds true?",
@@ -514,6 +557,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "From $\\frac{1}{b} - \\frac{1}{a} = \\frac{1}{c} - \\frac{1}{b}$, we get $\\frac{a - b}{ab} = \\frac{b - c}{bc}$. Multiplying by $b$ gives $\\frac{a - b}{a} = \\frac{b - c}{c}$, or $\\frac{a}{c} = \\frac{a - b}{b - c}$."
         },
+        // 43
         {
             "type": "mcq",
             "text": "If $a, b, c$ are in HP, then $\\frac{a}{b+c}, \\frac{b}{c+a}, \\frac{c}{a+b}$ are in:",
@@ -528,6 +572,7 @@ window.testBank['test_496'] = {
         },
 
         // ================= MEANS AND INEQUALITIES (AM, GM, HM) =================
+        // 44
         {
             "type": "mcq",
             "text": "The single Arithmetic Mean (AM) between two numbers $a$ and $b$ is:",
@@ -540,6 +585,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "The arithmetic mean is defined as $A = \\frac{a + b}{2}$."
         },
+        // 45
         {
             "type": "mcq",
             "text": "The single Geometric Mean (GM) between two positive numbers $a$ and $b$ is:",
@@ -552,6 +598,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "The geometric mean is defined as $G = \\sqrt{ab}$."
         },
+        // 46
         {
             "type": "mcq",
             "text": "The single Harmonic Mean (HM) between two numbers $a$ and $b$ is:",
@@ -564,6 +611,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "The harmonic mean is defined as $H = \\frac{2ab}{a + b}$."
         },
+        // 47
         {
             "type": "mcq",
             "text": "The relationship between the AM ($A$), GM ($G$), and HM ($H$) of two positive unequal numbers is:",
@@ -576,6 +624,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "Calculating $AH = (\\frac{a+b}{2})(\\frac{2ab}{a+b}) = ab = G^2$. Thus, $G^2 = AH$."
         },
+        // 48
         {
             "type": "mcq",
             "text": "For any two distinct positive numbers, the inequality relating their AM ($A$), GM ($G$), and HM ($H$) is:",
@@ -588,6 +637,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "By AM-GM-HM inequality for distinct positive numbers, $A > G > H$."
         },
+        // 49
         {
             "type": "mcq",
             "text": "If the AM, GM, and HM of two positive numbers are equal ($A = G = H$), then the two numbers must be:",
@@ -600,6 +650,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "Equality in the AM-GM-HM inequality holds true if and only if all the numbers are equal."
         },
+        // 50
         {
             "type": "mcq",
             "text": "The quadratic equation whose roots are two positive numbers with Arithmetic Mean $A$ and Geometric Mean $G$ is:",
@@ -612,6 +663,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "Let roots be $a, b$. Sum $a+b = 2A$, product $ab = G^2$. Equation is $x^2 - (a+b)x + ab = 0 \\implies x^2 - 2Ax + G^2 = 0$."
         },
+        // 51
         {
             "type": "mcq",
             "text": "If $n$ Arithmetic Means are inserted between two numbers $a$ and $b$, the common difference of the resulting AP is:",
@@ -624,6 +676,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "The sequence has $n+2$ terms. $b = a + (n+2-1)d \\implies d = \\frac{b - a}{n + 1}$."
         },
+        // 52
         {
             "type": "mcq",
             "text": "The sum of $n$ Arithmetic Means inserted between two numbers $a$ and $b$ is equal to:",
@@ -636,6 +689,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "Sum $= \\frac{n}{2}(A_1 + A_n) = \\frac{n}{2}(a + b) = n \\left(\\frac{a+b}{2}\\right)$, which is $n$ times the single AM."
         },
+        // 53
         {
             "type": "mcq",
             "text": "If $n$ Geometric Means are inserted between two positive numbers $a$ and $b$, the common ratio of the resulting GP is:",
@@ -648,6 +702,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "The sequence has $n+2$ terms. $b = a r^{n+1} \\implies r = \\left(\\frac{b}{a}\\right)^{\\frac{1}{n+1}}$."
         },
+        // 54
         {
             "type": "mcq",
             "text": "The product of $n$ Geometric Means inserted between two positive numbers $a$ and $b$ is equal to:",
@@ -660,6 +715,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "Product $= (G_1 G_2 \\dots G_n) = (ab)^{n/2} = (\\sqrt{ab})^n = G^n$."
         },
+        // 55
         {
             "type": "mcq",
             "text": "If $n$ Harmonic Means are inserted between two numbers $a$ and $b$, the common difference $d$ of the corresponding AP is:",
@@ -672,6 +728,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "The AP has terms $1/a, \dots, 1/b$. So, $1/b = 1/a + (n+1)d \\implies d = \\frac{1/b - 1/a}{n+1} = \\frac{a - b}{ab(n + 1)}$."
         },
+        // 56
         {
             "type": "mcq",
             "text": "The sum of the reciprocals of $n$ Harmonic Means inserted between $a$ and $b$ is equal to:",
@@ -684,6 +741,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "The sum of reciprocals forms an AP sum: $\\frac{n}{2}(\\frac{1}{a} + \\frac{1}{b}) = n \\left( \\frac{a+b}{2ab} \\right)$, which is $n \\times (1/H)$."
         },
+        // 57
         {
             "type": "mcq",
             "text": "The expression $\\frac{a^{n+1} + b^{n+1}}{a^n + b^n}$ represents the Arithmetic Mean (AM) between $a$ and $b$ when $n$ is equal to:",
@@ -696,6 +754,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "Substituting $n=0$ yields $\\frac{a^1 + b^1}{a^0 + b^0} = \\frac{a+b}{2}$, which is the AM."
         },
+        // 58
         {
             "type": "mcq",
             "text": "The expression $\\frac{a^{n+1} + b^{n+1}}{a^n + b^n}$ represents the Geometric Mean (GM) between $a$ and $b$ when $n$ is equal to:",
@@ -708,6 +767,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "Substituting $n=-1/2$ simplifies the expression to $\\sqrt{ab}$, which is the GM."
         },
+        // 59
         {
             "type": "mcq",
             "text": "The expression $\\frac{a^{n+1} + b^{n+1}}{a^n + b^n}$ represents the Harmonic Mean (HM) between $a$ and $b$ when $n$ is equal to:",
@@ -720,6 +780,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "Substituting $n=-1$ yields $\\frac{a^0 + b^0}{a^{-1} + b^{-1}} = \\frac{2}{1/a + 1/b} = \\frac{2ab}{a+b}$, which is the HM."
         },
+        // 60
         {
             "type": "mcq",
             "text": "For $n$ positive real numbers, the condition for the Weighted AM-GM inequality to hold with equality is:",
@@ -734,6 +795,7 @@ window.testBank['test_496'] = {
         },
 
         // ================= SPECIAL SERIES & AGP =================
+        // 61
         {
             "type": "mcq",
             "text": "The sum of the first $n$ natural numbers $\\sum_{k=1}^n k$ is:",
@@ -746,6 +808,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "The standard formula for the sum of the first $n$ natural numbers is $\\frac{n(n + 1)}{2}$."
         },
+        // 62
         {
             "type": "mcq",
             "text": "The sum of the squares of the first $n$ natural numbers $\\sum_{k=1}^n k^2$ is:",
@@ -758,6 +821,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "The standard formula for the sum of squares is $\\frac{n(n + 1)(2n + 1)}{6}$."
         },
+        // 63
         {
             "type": "mcq",
             "text": "The sum of the cubes of the first $n$ natural numbers $\\sum_{k=1}^n k^3$ is:",
@@ -770,6 +834,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "The standard formula for the sum of cubes is $\\left[\\frac{n(n + 1)}{2}\\right]^2$, which is also $(\\sum k)^2$."
         },
+        // 64
         {
             "type": "mcq",
             "text": "The relationship between the sum of the cubes of the first $n$ natural numbers and the sum of the first $n$ natural numbers is:",
@@ -782,6 +847,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "Since $\\sum k^3 = \\left[\\frac{n(n + 1)}{2}\\right]^2$ and $\\sum k = \\frac{n(n + 1)}{2}$, it follows that $\\sum k^3 = (\\sum k)^2$."
         },
+        // 65
         {
             "type": "mcq",
             "text": "The sum of the first $n$ odd natural numbers $1 + 3 + 5 + \\dots + (2n - 1)$ is:",
@@ -794,6 +860,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "This is an AP with $a=1, d=2$. $S_n = \\frac{n}{2}(2(1) + (n-1)2) = n^2$."
         },
+        // 66
         {
             "type": "mcq",
             "text": "The sum of the first $n$ even natural numbers $2 + 4 + 6 + \\dots + 2n$ is:",
@@ -806,6 +873,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "This is an AP with $a=2, d=2$. $S_n = 2(1 + 2 + \\dots + n) = 2 \\frac{n(n+1)}{2} = n(n + 1)$."
         },
+        // 67
         {
             "type": "mcq",
             "text": "The general term of an Arithmetico-Geometric Progression (AGP) with AP part $(a, d)$ and GP part $(1, r)$ is:",
@@ -818,6 +886,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "The $n$th term of an AGP is the product of the $n$th term of the AP and the $n$th term of the GP: $T_n = [a + (n - 1)d] r^{n-1}$."
         },
+        // 68
         {
             "type": "mcq",
             "text": "The sum to infinity of an Arithmetico-Geometric Progression (AGP) $a + (a+d)r + (a+2d)r^2 + \\dots$ (where $|r| < 1$) is:",
@@ -830,6 +899,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "Using the standard derivation (multiply by $r$ and subtract), the infinite sum evaluates to $\\frac{a}{1 - r} + \\frac{dr}{(1 - r)^2}$."
         },
+        // 69
         {
             "type": "mcq",
             "text": "The standard method to find the sum of $n$ terms of an AGP $S_n$ with common ratio $r$ is to compute:",
@@ -842,6 +912,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "The core technique for AGP is to multiply the series by $r$ and subtract it from the original series, computing $S_n - r S_n$."
         },
+        // 70
         {
             "type": "mcq",
             "text": "In the Method of Differences, if the differences of consecutive terms of a sequence form an AP, the $n$th term of the original sequence is of the form:",
@@ -854,6 +925,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "If the first differences form an AP (linear), then taking the sum (integration analog) makes the general term a quadratic in $n$."
         },
+        // 71
         {
             "type": "mcq",
             "text": "In the Method of Differences, if the differences of consecutive terms of a sequence form a GP with common ratio $r$, the $n$th term of the original sequence is of the form:",
@@ -866,6 +938,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "If first differences are in GP, summing them leaves a GP term plus a linear constant term, yielding $A r^n + B n + C$ (often just $a r^n + b$)."
         },
+        // 72
         {
             "type": "mcq",
             "text": "Using the Method of Differences (telescoping series), the sum $\\sum_{k=1}^n \\frac{1}{k(k+1)}$ evaluates to:",
@@ -878,6 +951,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "Since $\\frac{1}{k(k+1)} = \\frac{1}{k} - \\frac{1}{k+1}$, telescoping sum cancels all intermediate terms, leaving $1 - \\frac{1}{n+1} = \\frac{n}{n+1}$."
         },
+        // 73
         {
             "type": "mcq",
             "text": "The telescoping $V_n$ method relies on expressing the general term $T_r$ in the form:",
@@ -890,6 +964,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "The $V_n$ method splits the term into a difference $T_r = V_r - V_{r-1}$ (or $V_{r-1} - V_r$) so that terms cancel upon summation."
         },
+        // 74
         {
             "type": "mcq",
             "text": "The infinite series $\\frac{1}{1 \\cdot 2} + \\frac{1}{2 \\cdot 3} + \\frac{1}{3 \\cdot 4} + \\dots$ converges to:",
@@ -902,6 +977,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "The sum is $\\lim_{n \\to \\infty} \\left(1 - \\frac{1}{n+1}\\right) = 1$."
         },
+        // 75
         {
             "type": "mcq",
             "text": "To find the sum of the series $1 \\cdot 2 \\cdot 3 + 2 \\cdot 3 \\cdot 4 + \\dots + n(n+1)(n+2)$, the general term $T_k$ is modified by multiplying and dividing by:",
@@ -916,6 +992,7 @@ window.testBank['test_496'] = {
         },
 
         // ================= ADVANCED/MIXED PROPERTIES =================
+        // 76
         {
             "type": "mcq",
             "text": "If $a^2, b^2, c^2$ are in AP, then which of the following sequences is also in AP?",
@@ -928,6 +1005,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "This is a classic standard result. If $a^2, b^2, c^2$ in AP, adding $ab+bc+ca$ and factoring proves $\\frac{1}{b+c}, \\frac{1}{c+a}, \\frac{1}{a+b}$ are in AP."
         },
+        // 77
         {
             "type": "mcq",
             "text": "If $\\frac{1}{b+c}, \\frac{1}{c+a}, \\frac{1}{a+b}$ are in AP, then which of the following is in AP?",
@@ -940,6 +1018,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "This is the converse of the standard result: multiplying by $(a+b)(b+c)(c+a)$ and simplifying proves $a^2, b^2, c^2$ are in AP."
         },
+        // 78
         {
             "type": "mcq",
             "text": "If $a, b, c$ are simultaneously in AP, GP, and HP, then:",
@@ -952,6 +1031,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "Since they are in GP, $b^2 = ac$. In AP, $b = (a+c)/2$. Substituting gives $(a-c)^2 = 0 \\implies a = c$, which implies $a = b = c$."
         },
+        // 79
         {
             "type": "mcq",
             "text": "If $a, b, c$ are in AP; $b, c, d$ are in GP; and $c, d, e$ are in HP, then $a, c, e$ are in:",
@@ -964,6 +1044,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "We have $2b = a+c$, $c^2 = bd$, and $d = 2ce/(c+e)$. Eliminating $b$ and $d$ gives $c^2 = (\\frac{a+c}{2})(\\frac{2ce}{c+e})$. Simplifying yields $c^2 = ae$, so $a, c, e$ are in GP."
         },
+        // 80
         {
             "type": "mcq",
             "text": "The sum of the products of the first $n$ natural numbers taken two at a time is given by:",
@@ -976,6 +1057,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "Using the algebraic identity $(x_1 + x_2 + \\dots + x_n)^2 = \\sum x_i^2 + 2 \\sum_{i < j} x_i x_j$, we rearrange to find the sum of products taken two at a time."
         },
+        // 81
         {
             "type": "mcq",
             "text": "If $x, y, z$ are in GP and $a^x = b^y = c^z$, then $\\log_b a, \\log_c b, \\log_a c$ are in:",
@@ -988,6 +1070,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "Let $a^x = b^y = c^z = k$. Taking logs gives $x = \\log_a k$, etc. Since $x, y, z$ are in GP, substituting shows the resulting log expressions form a GP."
         },
+        // 82
         {
             "type": "mcq",
             "text": "If the roots of the cubic equation $x^3 - px^2 + qx - r = 0$ are in AP, then the relation between $p, q, r$ is:",
@@ -1000,6 +1083,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "Let roots be $a-d, a, a+d$. Sum $= 3a = p \\implies a = p/3$. Since $a$ is a root, $(p/3)^3 - p(p/3)^2 + q(p/3) - r = 0$, giving $2p^3 - 9pq + 27r = 0$."
         },
+        // 83
         {
             "type": "mcq",
             "text": "If the roots of the cubic equation $x^3 - px^2 + qx - r = 0$ are in GP, then the relation between $p, q, r$ is:",
@@ -1012,6 +1096,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "Let roots be $a/k, a, ak$. Product $= a^3 = r \\implies a = r^{1/3}$. Since $a$ is a root, substitute $a$ to find $r - p r^{2/3} + q r^{1/3} - r = 0$, leading to $p^3 r = q^3$."
         },
+        // 84
         {
             "type": "mcq",
             "text": "In an AP, if the sum of the first $n$ terms is maximum, then:",
@@ -1024,6 +1109,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "For the sum to be maximum in an AP (with $a > 0$ and $d < 0$), we sum all non-negative terms. Thus, the $n$th term is the last term $\\ge 0$."
         },
+        // 85
         {
             "type": "mcq",
             "text": "In a GP, if $p$th, $q$th, $r$th terms are $a, b, c$ respectively, then the value of $a^{q-r} b^{r-p} c^{p-q}$ is:",
@@ -1036,6 +1122,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "This is a standard identity. Substituting $a = A R^{p-1}$, $b = A R^{q-1}$, $c = A R^{r-1}$ into the expression simplifies identically to $1$."
         },
+        // 86
         {
             "type": "mcq",
             "text": "In an AP, if $p$th, $q$th, $r$th terms are $a, b, c$ respectively, then the value of $a(q-r) + b(r-p) + c(p-q)$ is:",
@@ -1048,6 +1135,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "Substituting $a = A + (p-1)D$, $b = A + (q-1)D$, $c = A + (r-1)D$ makes all terms cancel out, equating to $0$."
         },
+        // 87
         {
             "type": "mcq",
             "text": "The infinite product $x^{1/2} \\cdot x^{1/4} \\cdot x^{1/8} \\dots$ converges to:",
@@ -1060,6 +1148,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "The product is $x^{1/2 + 1/4 + 1/8 + \\dots}$. The exponent is an infinite GP with $a=1/2$, $r=1/2$, sum $S = \\frac{1/2}{1 - 1/2} = 1$. So, it converges to $x^1 = x$."
         },
+        // 88
         {
             "type": "mcq",
             "text": "If $S_n$ denotes the sum of $n$ terms of a GP, then $S_n, S_{2n} - S_n, S_{3n} - S_{2n}$ are in:",
@@ -1072,6 +1161,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "These represent the sums of consecutive blocks of $n$ terms. Factoring out $r^n$ from each block shows they form a GP with common ratio $r^n$."
         },
+        // 89
         {
             "type": "mcq",
             "text": "If $a_1, a_2, \\dots, a_n$ are in AP, then the expression $\\frac{1}{\\sqrt{a_1} + \\sqrt{a_2}} + \\frac{1}{\\sqrt{a_2} + \\sqrt{a_3}} + \\dots + \\frac{1}{\\sqrt{a_{n-1}} + \\sqrt{a_n}}$ evaluates to:",
@@ -1084,6 +1174,7 @@ window.testBank['test_496'] = {
             "correctAnswer": 0,
             "solution": "Rationalizing each term gives $\\frac{\\sqrt{a_2} - \\sqrt{a_1}}{d}$. Summing causes telescoping cancellation, leaving $\\frac{\\sqrt{a_n} - \\sqrt{a_1}}{d}$. Multiplying by conjugate yields $\\frac{n-1}{\\sqrt{a_1} + \\sqrt{a_n}}$."
         },
+        // 90
         {
             "type": "mcq",
             "text": "If $\\log_x a, \\log_x b, \\log_x c$ are in AP, then $a, b, c$ are in:",

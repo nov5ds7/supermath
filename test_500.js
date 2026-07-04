@@ -2,10 +2,12 @@ window.testBank = window.testBank || {};
 window.testBank['test_500'] = {
     title: "Conic Sections",
     category: "Theory and Formulae Tests - Maths",
+    uploadedAt: "2026-07-04T12:00:00Z",
     timeLimitMins: 10,
     randomizePoolSize: 30,
     questions: [
         // ================= PARABOLA (Definitions & Formulae) =================
+        // 1
         {
             "type": "mcq",
             "text": "What is the definition of a parabola?",
@@ -18,6 +20,7 @@ window.testBank['test_500'] = {
             "correctAnswer": 0,
             "solution": "A parabola is defined as the locus of a point that moves such that its distance from a fixed point (focus) is always equal to its perpendicular distance from a fixed line (directrix)."
         },
+        // 2
         {
             "type": "mcq",
             "text": "The standard equation of a parabola with vertex at the origin and axis along the positive x-axis is:",
@@ -25,6 +28,7 @@ window.testBank['test_500'] = {
             "correctAnswer": 0,
             "solution": "For a parabola opening to the right, the standard equation is $y^2 = 4ax$."
         },
+        // 3
         {
             "type": "mcq",
             "text": "The eccentricity of every parabola is:",
@@ -32,6 +36,7 @@ window.testBank['test_500'] = {
             "correctAnswer": 0,
             "solution": "By definition, the eccentricity of a parabola is exactly 1."
         },
+        // 4
         {
             "type": "mcq",
             "text": "For the standard parabola $y^2 = 4ax$, the coordinates of the focus are:",
@@ -39,6 +44,7 @@ window.testBank['test_500'] = {
             "correctAnswer": 0,
             "solution": "The focus of $y^2 = 4ax$ is at $(a, 0)$."
         },
+        // 5
         {
             "type": "mcq",
             "text": "The equation of the directrix of the standard parabola $y^2 = 4ax$ is:",
@@ -46,6 +52,7 @@ window.testBank['test_500'] = {
             "correctAnswer": 0,
             "solution": "The directrix of $y^2 = 4ax$ is the line $x = -a$."
         },
+        // 6
         {
             "type": "mcq",
             "text": "The length of the latus rectum of the parabola $y^2 = 4ax$ is:",
@@ -53,6 +60,7 @@ window.testBank['test_500'] = {
             "correctAnswer": 0,
             "solution": "The length of the latus rectum is $4a$."
         },
+        // 7
         {
             "type": "mcq",
             "text": "For the parabola $x^2 = -4ay$, the focus is located at:",
@@ -60,6 +68,7 @@ window.testBank['test_500'] = {
             "correctAnswer": 0,
             "solution": "This parabola opens downwards along the y-axis, so the focus is at $(0, -a)$."
         },
+        // 8
         {
             "type": "mcq",
             "text": "The parametric coordinates of a point on the parabola $y^2 = 4ax$ are given by:",
@@ -67,6 +76,7 @@ window.testBank['test_500'] = {
             "correctAnswer": 0,
             "solution": "The standard parametrization for $y^2 = 4ax$ is $(at^2, 2at)$."
         },
+        // 9
         {
             "type": "mcq",
             "text": "The focal distance of a point $(x_1, y_1)$ on the parabola $y^2 = 4ax$ is given by:",
@@ -74,6 +84,7 @@ window.testBank['test_500'] = {
             "correctAnswer": 0,
             "solution": "The focal distance is the distance from the focus $(a,0)$ to the point, which simplifies to $x_1 + a$."
         },
+        // 10
         {
             "type": "mcq",
             "text": "The equation of the tangent to the parabola $y^2 = 4ax$ at the point $(at^2, 2at)$ is:",
@@ -81,6 +92,7 @@ window.testBank['test_500'] = {
             "correctAnswer": 0,
             "solution": "The standard tangent equation at parametric point $t$ is $ty = x + at^2$."
         },
+        // 11
         {
             "type": "mcq",
             "text": "The equation of the normal to the parabola $y^2 = 4ax$ at the point $(at^2, 2at)$ is:",
@@ -88,6 +100,7 @@ window.testBank['test_500'] = {
             "correctAnswer": 0,
             "solution": "The normal equation is $y + tx = 2at + at^3$."
         },
+        // 12
         {
             "type": "mcq",
             "text": "The condition for the line $y = mx + c$ to be a tangent to the parabola $y^2 = 4ax$ is:",
@@ -95,6 +108,7 @@ window.testBank['test_500'] = {
             "correctAnswer": 0,
             "solution": "The tangency condition for $y^2 = 4ax$ is $c = a/m$."
         },
+        // 13
         {
             "type": "mcq",
             "text": "The equation of the chord of contact of tangents drawn from a point $(x_1, y_1)$ to the parabola $y^2 = 4ax$ is:",
@@ -102,6 +116,7 @@ window.testBank['test_500'] = {
             "correctAnswer": 0,
             "solution": "The chord of contact is given by \(T = 0\), which is $yy_1 = 2a(x + x_1)$."
         },
+        // 14
         {
             "type": "mcq",
             "text": "If two tangents are drawn from a point to a parabola, and they are perpendicular to each other, the point lies on which curve?",
@@ -109,6 +124,7 @@ window.testBank['test_500'] = {
             "correctAnswer": 0,
             "solution": "The locus of intersection of perpendicular tangents to a parabola is its directrix."
         },
+        // 15
         {
             "type": "mcq",
             "text": "The length of the focal chord of the parabola $y^2 = 4ax$ making an angle $\\theta$ with the x-axis is:",
@@ -116,6 +132,7 @@ window.testBank['test_500'] = {
             "correctAnswer": 0,
             "solution": "The length of such a focal chord is $4a \\csc^2\\theta$."
         },
+        // 16
         {
             "type": "mcq",
             "text": "The equation of the tangent to the parabola $x^2 = 4ay$ with slope $m$ is:",
@@ -123,6 +140,7 @@ window.testBank['test_500'] = {
             "correctAnswer": 0,
             "solution": "For $x^2 = 4ay$, the tangent is $y = mx - am^2$."
         },
+        // 17
         {
             "type": "mcq",
             "text": "The product of the lengths of the perpendiculars from the focus and the vertex of the parabola $y^2 = 4ax$ to any tangent is equal to:",
@@ -130,6 +148,7 @@ window.testBank['test_500'] = {
             "correctAnswer": 0,
             "solution": "The product is a constant equal to $a^2$."
         },
+        // 18
         {
             "type": "mcq",
             "text": "If a focal chord is drawn to the parabola $y^2 = 4ax$ from the point $(at^2, 2at)$, the coordinates of the other end of the focal chord are:",
@@ -137,6 +156,7 @@ window.testBank['test_500'] = {
             "correctAnswer": 0,
             "solution": "The parametric coordinates of the other end of the focal chord are $(a/t^2, -2a/t)$."
         },
+        // 19
         {
             "type": "mcq",
             "text": "The equation of the chord of the parabola $y^2 = 4ax$ whose midpoint is $(x_1, y_1)$ is given by:",
@@ -144,6 +164,7 @@ window.testBank['test_500'] = {
             "correctAnswer": 0,
             "solution": "The equation of a chord with a given midpoint is represented by \(T = S_1\)."
         },
+        // 20
         {
             "type": "mcq",
             "text": "For a parabola, the vertex lies exactly midway between which two elements?",
@@ -151,6 +172,7 @@ window.testBank['test_500'] = {
             "correctAnswer": 0,
             "solution": "The vertex is the midpoint of the perpendicular segment from the focus to the directrix."
         },
+        // 21
         {
             "type": "mcq",
             "text": "The axis of the parabola $x^2 = 4y$ is the:",
@@ -160,6 +182,7 @@ window.testBank['test_500'] = {
         },
 
         // ================= ELLIPSE (Definitions & Formulae) =================
+        // 22
         {
             "type": "mcq",
             "text": "What is the definition of an ellipse?",
@@ -172,6 +195,7 @@ window.testBank['test_500'] = {
             "correctAnswer": 0,
             "solution": "An ellipse is the locus of a point where the sum of its distances from two fixed foci is a constant ($2a$)."
         },
+        // 23
         {
             "type": "mcq",
             "text": "The standard equation of an ellipse with its major axis along the x-axis is:",
@@ -179,6 +203,7 @@ window.testBank['test_500'] = {
             "correctAnswer": 0,
             "solution": "For a horizontal major axis, the standard equation is $\\frac{x^2}{a^2} + \\frac{y^2}{b^2} = 1$."
         },
+        // 24
         {
             "type": "mcq",
             "text": "The eccentricity of an ellipse is always:",
@@ -186,6 +211,7 @@ window.testBank['test_500'] = {
             "correctAnswer": 0,
             "solution": "For any ellipse, eccentricity \(e\) satisfies $0 < e < 1$."
         },
+        // 25
         {
             "type": "mcq",
             "text": "The length of the major axis of the ellipse $\\frac{x^2}{a^2} + \\frac{y^2}{b^2} = 1$ ($a>b$) is:",
@@ -193,6 +219,7 @@ window.testBank['test_500'] = {
             "correctAnswer": 0,
             "solution": "The major axis length is $2a$."
         },
+        // 26
         {
             "type": "mcq",
             "text": "The foci of the ellipse $\\frac{x^2}{a^2} + \\frac{y^2}{b^2} = 1$ ($a>b$) are located at:",
@@ -200,6 +227,7 @@ window.testBank['test_500'] = {
             "correctAnswer": 0,
             "solution": "The foci are on the major axis, at $(\\pm ae, 0)$."
         },
+        // 27
         {
             "type": "mcq",
             "text": "The relationship between the semi-major axis $a$, semi-minor axis $b$, and eccentricity $e$ of an ellipse is:",
@@ -207,6 +235,7 @@ window.testBank['test_500'] = {
             "correctAnswer": 0,
             "solution": "The standard relationship is \(b^2 = a^2(1 - e^2)\)."
         },
+        // 28
         {
             "type": "mcq",
             "text": "The length of the latus rectum of the ellipse $\\frac{x^2}{a^2} + \\frac{y^2}{b^2} = 1$ ($a>b$) is:",
@@ -214,6 +243,7 @@ window.testBank['test_500'] = {
             "correctAnswer": 0,
             "solution": "The length of the latus rectum is $\\frac{2b^2}{a}$."
         },
+        // 29
         {
             "type": "mcq",
             "text": "For any point on the ellipse $\\frac{x^2}{a^2} + \\frac{y^2}{b^2} = 1$, the sum of its distances from the two foci is equal to:",
@@ -221,6 +251,7 @@ window.testBank['test_500'] = {
             "correctAnswer": 0,
             "solution": "By the fundamental definition of an ellipse, $PS_1 + PS_2 = 2a$."
         },
+        // 30
         {
             "type": "mcq",
             "text": "The auxiliary circle of the ellipse $\\frac{x^2}{a^2} + \\frac{y^2}{b^2} = 1$ is:",
@@ -228,6 +259,7 @@ window.testBank['test_500'] = {
             "correctAnswer": 0,
             "solution": "The auxiliary circle has the major axis as its diameter, so its equation is $x^2 + y^2 = a^2$."
         },
+        // 31
         {
             "type": "mcq",
             "text": "The condition for the line $y = mx + c$ to be a tangent to the ellipse $\\frac{x^2}{a^2} + \\frac{y^2}{b^2} = 1$ is:",
@@ -235,6 +267,7 @@ window.testBank['test_500'] = {
             "correctAnswer": 0,
             "solution": "The tangency condition is \(c^2 = a^2 m^2 + b^2\)."
         },
+        // 32
         {
             "type": "mcq",
             "text": "The director circle of the ellipse $\\frac{x^2}{a^2} + \\frac{y^2}{b^2} = 1$ (locus of intersection of perpendicular tangents) is:",
@@ -242,6 +275,7 @@ window.testBank['test_500'] = {
             "correctAnswer": 0,
             "solution": "The director circle of an ellipse is $x^2 + y^2 = a^2 + b^2$."
         },
+        // 33
         {
             "type": "mcq",
             "text": "The focal distance of a point $(x_1, y_1)$ on the ellipse $\\frac{x^2}{a^2} + \\frac{y^2}{b^2} = 1$ from the right focus $(ae, 0)$ is:",
@@ -249,6 +283,7 @@ window.testBank['test_500'] = {
             "correctAnswer": 0,
             "solution": "The focal distance from the right focus is $a - ex_1$."
         },
+        // 34
         {
             "type": "mcq",
             "text": "The equation of the tangent to the ellipse $\\frac{x^2}{a^2} + \\frac{y^2}{b^2} = 1$ at the point \((x_1, y_1)\) is:",
@@ -256,6 +291,7 @@ window.testBank['test_500'] = {
             "correctAnswer": 0,
             "solution": "The tangent equation is \(T = 0\), i.e., $\\frac{x x_1}{a^2} + \\frac{y y_1}{b^2} = 1$."
         },
+        // 35
         {
             "type": "mcq",
             "text": "If the eccentricity of an ellipse becomes zero, the ellipse degenerates into a:",
@@ -263,6 +299,7 @@ window.testBank['test_500'] = {
             "correctAnswer": 0,
             "solution": "If $e = 0$, then \(a = b\), and the equation represents a circle."
         },
+        // 36
         {
             "type": "mcq",
             "text": "The standard parametric coordinates of a point on the ellipse $\\frac{x^2}{a^2} + \\frac{y^2}{b^2} = 1$ are:",
@@ -270,6 +307,7 @@ window.testBank['test_500'] = {
             "correctAnswer": 0,
             "solution": "The standard parametrization is $(a\\cos\\theta, b\\sin\\theta)$."
         },
+        // 37
         {
             "type": "mcq",
             "text": "The equation of the normal to the ellipse $\\frac{x^2}{a^2} + \\frac{y^2}{b^2} = 1$ at the point \((x_1, y_1)\) is:",
@@ -277,6 +315,7 @@ window.testBank['test_500'] = {
             "correctAnswer": 0,
             "solution": "The normal equation is $\\frac{a^2 x}{x_1} - \\frac{b^2 y}{y_1} = a^2 - b^2$."
         },
+        // 38
         {
             "type": "mcq",
             "text": "The area of the ellipse $\\frac{x^2}{a^2} + \\frac{y^2}{b^2} = 1$ is given by:",
@@ -284,6 +323,7 @@ window.testBank['test_500'] = {
             "correctAnswer": 0,
             "solution": "The area of an ellipse is $\\pi a b$."
         },
+        // 39
         {
             "type": "mcq",
             "text": "For the ellipse $\\frac{x^2}{a^2} + \\frac{y^2}{b^2} = 1$ ($a>b$), the distance between the directrices is:",
@@ -291,6 +331,7 @@ window.testBank['test_500'] = {
             "correctAnswer": 0,
             "solution": "The directrices are at \(x = \\pm a/e\), so the distance between them is $2a/e$."
         },
+        // 40
         {
             "type": "mcq",
             "text": "If the major axis of an ellipse is along the y-axis, the foci will lie on:",
@@ -298,6 +339,7 @@ window.testBank['test_500'] = {
             "correctAnswer": 0,
             "solution": "If the major axis is along the y-axis, the foci will be on the y-axis at $(0, \\pm be)$."
         },
+        // 41
         {
             "type": "mcq",
             "text": "The product of the distances of the foci from any tangent to the ellipse $\\frac{x^2}{a^2} + \\frac{y^2}{b^2} = 1$ is:",
@@ -305,6 +347,7 @@ window.testBank['test_500'] = {
             "correctAnswer": 0,
             "solution": "The product of perpendiculars from the foci to any tangent is equal to $b^2$."
         },
+        // 42
         {
             "type": "mcq",
             "text": "For an ellipse, the equation of the chord of contact of tangents drawn from an external point \((x_1, y_1)\) is:",
@@ -314,6 +357,7 @@ window.testBank['test_500'] = {
         },
 
         // ================= HYPERBOLA (Definitions & Formulae) =================
+        // 43
         {
             "type": "mcq",
             "text": "What is the definition of a hyperbola?",
@@ -326,6 +370,7 @@ window.testBank['test_500'] = {
             "correctAnswer": 0,
             "solution": "A hyperbola is the locus of a point where the absolute difference of its distances from the two foci is a constant ($2a$)."
         },
+        // 44
         {
             "type": "mcq",
             "text": "The standard equation of a hyperbola with its transverse axis along the x-axis is:",
@@ -333,6 +378,7 @@ window.testBank['test_500'] = {
             "correctAnswer": 0,
             "solution": "The standard form for a horizontal hyperbola is $\\frac{x^2}{a^2} - \\frac{y^2}{b^2} = 1$."
         },
+        // 45
         {
             "type": "mcq",
             "text": "The eccentricity of a hyperbola is always:",
@@ -340,6 +386,7 @@ window.testBank['test_500'] = {
             "correctAnswer": 0,
             "solution": "For a hyperbola, the eccentricity \(e\) is always greater than 1."
         },
+        // 46
         {
             "type": "mcq",
             "text": "The relation between the semi-transverse axis $a$, semi-conjugate axis $b$, and eccentricity $e$ of a hyperbola is:",
@@ -347,6 +394,7 @@ window.testBank['test_500'] = {
             "correctAnswer": 0,
             "solution": "For a hyperbola, \(b^2 = a^2(e^2 - 1)\)."
         },
+        // 47
         {
             "type": "mcq",
             "text": "The length of the latus rectum of the hyperbola $\\frac{x^2}{a^2} - \\frac{y^2}{b^2} = 1$ is:",
@@ -354,6 +402,7 @@ window.testBank['test_500'] = {
             "correctAnswer": 0,
             "solution": "The length of the latus rectum is $\\frac{2b^2}{a}$."
         },
+        // 48
         {
             "type": "mcq",
             "text": "The foci of the hyperbola $\\frac{x^2}{a^2} - \\frac{y^2}{b^2} = 1$ are located at:",
@@ -361,6 +410,7 @@ window.testBank['test_500'] = {
             "correctAnswer": 0,
             "solution": "The foci are on the transverse axis at $(\\pm ae, 0)$."
         },
+        // 49
         {
             "type": "mcq",
             "text": "The equations of the asymptotes of the hyperbola $\\frac{x^2}{a^2} - \\frac{y^2}{b^2} = 1$ are:",
@@ -368,6 +418,7 @@ window.testBank['test_500'] = {
             "correctAnswer": 0,
             "solution": "The asymptotes are given by $y = \\pm \\frac{b}{a} x$."
         },
+        // 50
         {
             "type": "mcq",
             "text": "The conjugate hyperbola of $\\frac{x^2}{a^2} - \\frac{y^2}{b^2} = 1$ is:",
@@ -375,6 +426,7 @@ window.testBank['test_500'] = {
             "correctAnswer": 0,
             "solution": "The conjugate hyperbola has the same asymptotes but swapped axes: $\\frac{y^2}{b^2} - \\frac{x^2}{a^2} = 1$."
         },
+        // 51
         {
             "type": "mcq",
             "text": "The condition for the line $y = mx + c$ to be a tangent to the hyperbola $\\frac{x^2}{a^2} - \\frac{y^2}{b^2} = 1$ is:",
@@ -382,6 +434,7 @@ window.testBank['test_500'] = {
             "correctAnswer": 0,
             "solution": "The tangency condition is \(c^2 = a^2 m^2 - b^2\)."
         },
+        // 52
         {
             "type": "mcq",
             "text": "The director circle of the hyperbola $\\frac{x^2}{a^2} - \\frac{y^2}{b^2} = 1$ is:",
@@ -389,6 +442,7 @@ window.testBank['test_500'] = {
             "correctAnswer": 0,
             "solution": "The director circle of a hyperbola is $x^2 + y^2 = a^2 - b^2$."
         },
+        // 53
         {
             "type": "mcq",
             "text": "A hyperbola where the lengths of the transverse and conjugate axes are equal (\(a = b\)) is called:",
@@ -396,6 +450,7 @@ window.testBank['test_500'] = {
             "correctAnswer": 2,
             "solution": "When \(a = b\), the hyperbola is called a rectangular hyperbola or equilateral hyperbola."
         },
+        // 54
         {
             "type": "mcq",
             "text": "What is the eccentricity of a rectangular hyperbola?",
@@ -403,6 +458,7 @@ window.testBank['test_500'] = {
             "correctAnswer": 0,
             "solution": "For a rectangular hyperbola, \(a = b\), so $e = \\sqrt{1 + a^2/a^2} = \\sqrt{2}$."
         },
+        // 55
         {
             "type": "mcq",
             "text": "The standard equation of a rectangular hyperbola with the coordinate axes as its asymptotes is:",
@@ -410,6 +466,7 @@ window.testBank['test_500'] = {
             "correctAnswer": 0,
             "solution": "$xy = c^2$ is the standard form of a rectangular hyperbola whose asymptotes are the x and y axes."
         },
+        // 56
         {
             "type": "mcq",
             "text": "For the hyperbola $\\frac{x^2}{a^2} - \\frac{y^2}{b^2} = 1$, the length of the transverse axis is:",
@@ -417,6 +474,7 @@ window.testBank['test_500'] = {
             "correctAnswer": 0,
             "solution": "The transverse axis connects the two vertices, its length is $2a$."
         },
+        // 57
         {
             "type": "mcq",
             "text": "For the hyperbola $\\frac{x^2}{a^2} - \\frac{y^2}{b^2} = 1$, the length of the conjugate axis is:",
@@ -424,6 +482,7 @@ window.testBank['test_500'] = {
             "correctAnswer": 0,
             "solution": "The conjugate axis lies along the y-axis, its length is $2b$."
         },
+        // 58
         {
             "type": "mcq",
             "text": "The equation of the normal to the hyperbola $\\frac{x^2}{a^2} - \\frac{y^2}{b^2} = 1$ at the point $(a\\sec\\theta, b\\tan\\theta)$ is:",
@@ -431,6 +490,7 @@ window.testBank['test_500'] = {
             "correctAnswer": 0,
             "solution": "The equation of the normal is $\\frac{a x}{\\sec\\theta} + \\frac{b y}{\\tan\\theta} = a^2 + b^2$."
         },
+        // 59
         {
             "type": "mcq",
             "text": "The standard parametric coordinates of a point on the hyperbola $\\frac{x^2}{a^2} - \\frac{y^2}{b^2} = 1$ are:",
@@ -438,6 +498,7 @@ window.testBank['test_500'] = {
             "correctAnswer": 0,
             "solution": "The standard parametric form is $(a\\sec\\theta, b\\tan\\theta)$."
         },
+        // 60
         {
             "type": "mcq",
             "text": "If the distance between the foci of a hyperbola is $2ae$ and the distance between the vertices is $2a$, the eccentricity \(e\) can be defined as:",
@@ -445,6 +506,7 @@ window.testBank['test_500'] = {
             "correctAnswer": 0,
             "solution": "By definition, \(e = \\frac{c}{a}\), which is the ratio of the distance from center to focus over distance from center to vertex."
         },
+        // 61
         {
             "type": "mcq",
             "text": "The chord of contact of tangents drawn from a point \((x_1, y_1)\) to the hyperbola $\\frac{x^2}{a^2} - \\frac{y^2}{b^2} = 1$ is:",
@@ -452,6 +514,7 @@ window.testBank['test_500'] = {
             "correctAnswer": 0,
             "solution": "The chord of contact is \(T = 0\), which is $\\frac{x x_1}{a^2} - \\frac{y y_1}{b^2} = 1$."
         },
+        // 62
         {
             "type": "mcq",
             "text": "The equation of the tangent to the hyperbola $\\frac{x^2}{a^2} - \\frac{y^2}{b^2} = 1$ at the point $(a\\sec\\theta, b\\tan\\theta)$ is:",
@@ -459,6 +522,7 @@ window.testBank['test_500'] = {
             "correctAnswer": 0,
             "solution": "The tangent at the parametric point is $\\frac{x\\sec\\theta}{a} - \\frac{y\\tan\\theta}{b} = 1$."
         },
+        // 63
         {
             "type": "mcq",
             "text": "For the conjugate hyperbola of $\\frac{x^2}{a^2} - \\frac{y^2}{b^2} = 1$, the eccentricity $e'$ satisfies:",
@@ -466,6 +530,7 @@ window.testBank['test_500'] = {
             "correctAnswer": 0,
             "solution": "For a hyperbola and its conjugate, the relation is $\\frac{1}{e^2} + \\frac{1}{e'^2} = 1$."
         },
+        // 64
         {
             "type": "mcq",
             "text": "The directrices of the hyperbola $\\frac{x^2}{a^2} - \\frac{y^2}{b^2} = 1$ are given by:",
@@ -473,6 +538,7 @@ window.testBank['test_500'] = {
             "correctAnswer": 0,
             "solution": "The directrices are \(x = \\pm a/e\)."
         },
+        // 65
         {
             "type": "mcq",
             "text": "If the eccentricity of a rectangular hyperbola is \(e = \\sqrt{2}\), the angle between its asymptotes is:",
@@ -480,6 +546,7 @@ window.testBank['test_500'] = {
             "correctAnswer": 0,
             "solution": "Rectangular hyperbolas have perpendicular asymptotes, so the angle between them is $90^{\\circ}$."
         },
+        // 66
         {
             "type": "mcq",
             "text": "The slope of the asymptotes of the hyperbola $\\frac{x^2}{a^2} - \\frac{y^2}{b^2} = 1$ are:",
@@ -487,6 +554,7 @@ window.testBank['test_500'] = {
             "correctAnswer": 0,
             "solution": "The asymptotes are $y = \\pm \\frac{b}{a}x$, so their slopes are $\\pm \\frac{b}{a}$."
         },
+        // 67
         {
             "type": "mcq",
             "text": "For the hyperbola $\\frac{x^2}{a^2} - \\frac{y^2}{b^2} = 1$, the product of the slopes of the asymptotes is:",
@@ -494,6 +562,7 @@ window.testBank['test_500'] = {
             "correctAnswer": 0,
             "solution": "The slopes are \(b/a\) and \(-b/a\). Their product is $-\\frac{b^2}{a^2}$."
         },
+        // 68
         {
             "type": "mcq",
             "text": "The equation of the chord of the hyperbola $\\frac{x^2}{a^2} - \\frac{y^2}{b^2} = 1$ whose midpoint is \((x_1, y_1)\) is:",
@@ -502,6 +571,7 @@ window.testBank['test_500'] = {
             "solution": "For a hyperbola, the equation of a chord with a given midpoint is \(T = S_1\)."
         },
         // ================= SUPPLEMENTARY - POINT OF CONTACT & FOCAL CHORD THEORY =================
+        // 69
         {
             "type": "mcq",
             "text": "For the parabola $y^2 = 4ax$, if the tangent is $y = mx + \\frac{a}{m}$, the coordinates of the point of contact are:",
@@ -514,6 +584,7 @@ window.testBank['test_500'] = {
             "correctAnswer": 0,
             "solution": "The point of contact for a parabola with slope $m$ is $\\frac{a}{m^2}$ in x-coordinate and $\\frac{2a}{m}$ in y-coordinate."
         },
+        // 70
         {
             "type": "mcq",
             "text": "For the ellipse $\\frac{x^2}{a^2} + \\frac{y^2}{b^2} = 1$, if the slope of the tangent is $m$, the coordinates of the point of contact are:",
@@ -526,6 +597,7 @@ window.testBank['test_500'] = {
             "correctAnswer": 0,
             "solution": "The point of contact formula for ellipse requires matching coefficients of the tangent equation $y=mx+\\sqrt{a^2m^2+b^2}$ with the general point $(a\\cos\\theta, b\\sin\\theta)$."
         },
+        // 71
         {
             "type": "mcq",
             "text": "For the hyperbola $\\frac{x^2}{a^2} - \\frac{y^2}{b^2} = 1$, for a tangent with slope $m$, the point of contact corresponds to the parametric point:",
@@ -538,6 +610,7 @@ window.testBank['test_500'] = {
             "correctAnswer": 0,
             "solution": "The point of contact for a hyperbola is given by $\\left(\\pm \\frac{a^2 m}{\\sqrt{a^2 m^2 - b^2}}, \\pm \\frac{b^2}{\\sqrt{a^2 m^2 - b^2}}\\right)$."
         },
+        // 72
         {
             "type": "mcq",
             "text": "The length of a focal chord of the ellipse $\\frac{x^2}{a^2} + \\frac{y^2}{b^2} = 1$ making an angle $\\theta$ with the major axis is given by:",
@@ -550,6 +623,7 @@ window.testBank['test_500'] = {
             "correctAnswer": 0,
             "solution": "The focal chord length for an ellipse is given by $\\frac{2ab^2}{a^2 \\sin^2\\theta + b^2 \\cos^2\\theta}$. If the chord passes through the focus."
         },
+        // 73
         {
             "type": "mcq",
             "text": "For the hyperbola $\\frac{x^2}{a^2} - \\frac{y^2}{b^2} = 1$, the length of a focal chord passing through the focus and making an angle $\\theta$ with the transverse axis is:",
@@ -562,6 +636,7 @@ window.testBank['test_500'] = {
             "correctAnswer": 0,
             "solution": "The focal chord length for a hyperbola relies on the denominator $a^2 \\sin^2\\theta - b^2 \\cos^2\\theta$."
         },
+        // 74
         {
             "type": "mcq",
             "text": "The locus of the midpoints of parallel chords of an ellipse is a straight line, called the:",
@@ -574,6 +649,7 @@ window.testBank['test_500'] = {
             "correctAnswer": 0,
             "solution": "The locus of midpoints of parallel chords of an ellipse is a diameter (a chord passing through the center)."
         },
+        // 75
         {
             "type": "mcq",
             "text": "If the eccentric angle of a point on an ellipse is $\\phi$, the equation of the tangent at that point in terms of the slope $m$ can be derived from the condition that the point of contact is:",
@@ -586,6 +662,7 @@ window.testBank['test_500'] = {
             "correctAnswer": 0,
             "solution": "The parametric point for an ellipse is $(a\\cos\\phi, b\\sin\\phi)$. Equating the tangent at this point to the slope form yields the point of contact."
         },
+        // 76
         {
             "type": "mcq",
             "text": "The product of the perpendicular distances from the two foci to any tangent to the ellipse $\\frac{x^2}{a^2} + \\frac{y^2}{b^2} = 1$ is equal to:",
@@ -593,6 +670,7 @@ window.testBank['test_500'] = {
             "correctAnswer": 0,
             "solution": "The product of the perpendiculars from the foci to any tangent to an ellipse is equal to $b^2$."
         },
+        // 77
         {
             "type": "mcq",
             "text": "For the hyperbola $\\frac{x^2}{a^2} - \\frac{y^2}{b^2} = 1$, the equation of the normal at the point $P(a\\sec\\theta, b\\tan\\theta)$ is given by:",
@@ -605,6 +683,7 @@ window.testBank['test_500'] = {
             "correctAnswer": 0,
             "solution": "For the parametric point on the hyperbola, the normal equation is $a x \\cos\\theta + b y \\cot\\theta = a^2 + b^2$."
         },
+        // 78
         {
             "type": "mcq",
             "text": "If the line $y = mx + c$ is a tangent to the rectangular hyperbola $xy = c^2$, then the condition for tangency is:",
@@ -617,6 +696,7 @@ window.testBank['test_500'] = {
             "correctAnswer": 0,
             "solution": "Substituting $y = mx + c$ into $xy = c^2$ yields a quadratic. For tangency, its discriminant must be zero, leading to the standard condition $c^2(1+4m) = 0 \\Rightarrow m = -1/4$. This results in the tangency relation correctly identified in the options."
         },
+        // 79
         {
             "type": "mcq",
             "text": "A ray of light parallel to the axis of a parabola, upon striking the parabola, gets reflected and passes through the:",

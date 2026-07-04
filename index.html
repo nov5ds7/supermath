@@ -440,23 +440,32 @@
             categoriesMap[cat].push(enriched);
         });
 
-        // --- Store Recently Added Tests (SORT BY UPLOAD DATE) ---
+        // --- FIXED: Store/Update Recently Added Tests ---
         let recentTests = JSON.parse(localStorage.getItem('jee_simulator_recent_tests')) || [];
-        let existingIds = new Set(recentTests.map(t => t.id));
+        
+        // We create a map to easily check and update existing entries
+        let idMap = new Map();
+        recentTests.forEach(item => idMap.set(item.id, item));
 
         loadedTests.forEach(test => {
-            if (!existingIds.has(test.id)) {
-                let testData = window.testBank[test.id];
-                if (testData) {
-                    let idNum = parseInt(test.id.split('_')[1]);
-                    // Read the timestamp if it exists, otherwise use a default date (1970)
-                    let uploadedAt = testData.uploadedAt || '1970-01-01T00:00:00Z';
-                    
+            let testData = window.testBank[test.id];
+            if (testData) {
+                let idNum = parseInt(test.id.split('_')[1]);
+                let uploadedAt = testData.uploadedAt || '1970-01-01T00:00:00Z';
+                let name = testData.title || 'Unnamed Test';
+
+                if (idMap.has(test.id)) {
+                    // If it exists, update the timestamp (so your manual edits reflect)
+                    let existing = idMap.get(test.id);
+                    existing.name = name;
+                    existing.uploadedAt = uploadedAt;
+                } else {
+                    // If it's new, add it
                     recentTests.push({
                         id: test.id,
                         idNum: idNum,
-                        name: testData.title || 'Unnamed Test',
-                        uploadedAt: uploadedAt // Store the timestamp
+                        name: name,
+                        uploadedAt: uploadedAt
                     });
                 }
             }

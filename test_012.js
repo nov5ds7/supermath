@@ -2,6 +2,7 @@ window.testBank = window.testBank || {};
 window.testBank['test_012'] = {
     title: "Quadratic Equations - JEE Main Pattern",
     category: "Full Tests - Maths",
+    uploadedAt: "2026-07-04T12:00:17Z",
     timeLimitMins: 80,
     randomizePoolSize: 0,
     questions: [

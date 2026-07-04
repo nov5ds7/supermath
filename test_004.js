@@ -2,6 +2,7 @@ window.testBank = window.testBank || {};
 window.testBank['test_004'] = {
     title: "UP MPT-05 22-06-2026(PCM)",
     category: "Full Tests - PCM",
+    uploadedAt: "2026-07-04T12:00:12Z",
     timeLimitMins: 180,
     randomizePoolSize: 0,
     questions: [

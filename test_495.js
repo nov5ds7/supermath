@@ -2,10 +2,12 @@ window.testBank = window.testBank || {};
 window.testBank['test_495'] = {
     title: "Permutations & Combinations",
     category: "Theory and Formulae Tests - Maths",
+    uploadedAt: "2026-07-04T12:00:05Z",
     timeLimitMins: 10,
     randomizePoolSize: 30,
     questions: [
         // ================= FUNDAMENTAL PRINCIPLES & FACTORIALS =================
+        // 1
         {
             "type": "mcq",
             "text": "According to the Fundamental Principle of Multiplication, if an operation can be performed in $m$ different ways, and following which a second operation can be performed in $n$ different ways, then the total number of ways of performing the two operations in succession is:",
@@ -18,6 +20,7 @@ window.testBank['test_495'] = {
             "correctAnswer": 0,
             "solution": "The multiplication principle states that if tasks are dependent/sequential (AND condition), their total ways are multiplied: $m \\times n$."
         },
+        // 2
         {
             "type": "mcq",
             "text": "According to the Fundamental Principle of Addition, if an operation can be performed in $m$ different ways and another independent operation can be performed in $n$ different ways, then the total number of ways of performing exactly one of these operations is:",
@@ -30,6 +33,7 @@ window.testBank['test_495'] = {
             "correctAnswer": 0,
             "solution": "The addition principle states that for mutually exclusive/independent tasks (OR condition), their total ways are added: $m + n$."
         },
+        // 3
         {
             "type": "mcq",
             "text": "The value of $0!$ (zero factorial) is defined as:",
@@ -42,6 +46,7 @@ window.testBank['test_495'] = {
             "correctAnswer": 0,
             "solution": "By standard mathematical definition, $0! = 1$ to ensure consistency in combinatorial formulas."
         },
+        // 4
         {
             "type": "mcq",
             "text": "The recursive definition of factorial for any positive integer $n$ is:",
@@ -54,6 +59,7 @@ window.testBank['test_495'] = {
             "correctAnswer": 0,
             "solution": "The factorial of $n$ is the product of $n$ and the factorial of $(n-1)$: $n! = n(n-1)!$."
         },
+        // 5
         {
             "type": "mcq",
             "text": "Legendre's Formula for finding the highest power of a prime $p$ that divides $n!$ (exponent of $p$ in $n!$) is given by:",
@@ -66,6 +72,7 @@ window.testBank['test_495'] = {
             "correctAnswer": 0,
             "solution": "Legendre's formula sums the greatest integer functions of $n$ divided by successive powers of the prime $p$."
         },
+        // 6
         {
             "type": "mcq",
             "text": "To find the number of trailing zeros at the end of $n!$, we need to find the highest power of which number dividing $n!$?",
@@ -80,6 +87,7 @@ window.testBank['test_495'] = {
         },
 
         // ================= PERMUTATIONS (LINEAR ARRANGEMENTS) =================
+        // 7
         {
             "type": "mcq",
             "text": "The number of permutations (arrangements) of $n$ distinct objects taken $r$ at a time, denoted by $^nP_r$, is given by the formula:",
@@ -92,6 +100,7 @@ window.testBank['test_495'] = {
             "correctAnswer": 0,
             "solution": "The formula for linear arrangements of $r$ objects out of $n$ distinct objects is $^nP_r = \\frac{n!}{(n-r)!}$."
         },
+        // 8
         {
             "type": "mcq",
             "text": "What is the relation between permutations $^nP_r$ and combinations $^nC_r$?",
@@ -104,6 +113,7 @@ window.testBank['test_495'] = {
             "correctAnswer": 0,
             "solution": "Arranging $r$ objects out of $n$ involves selecting them ($^nC_r$) and then arranging the selected $r$ objects ($r!$). Thus, $^nP_r = r! \\times ^nC_r$."
         },
+        // 9
         {
             "type": "mcq",
             "text": "The value of $^nP_n$ (the number of ways to arrange all $n$ distinct objects) is:",
@@ -116,6 +126,7 @@ window.testBank['test_495'] = {
             "correctAnswer": 0,
             "solution": "$^nP_n = \\frac{n!}{(n-n)!} = \\frac{n!}{0!} = n!$."
         },
+        // 10
         {
             "type": "mcq",
             "text": "The value of $^nP_0$ is:",
@@ -128,6 +139,7 @@ window.testBank['test_495'] = {
             "correctAnswer": 0,
             "solution": "$^nP_0 = \\frac{n!}{(n-0)!} = \\frac{n!}{n!} = 1$. There is exactly 1 way to arrange 0 objects (doing nothing)."
         },
+        // 11
         {
             "type": "mcq",
             "text": "The number of permutations of $n$ distinct objects taken $r$ at a time, when repetition of objects is allowed, is:",
@@ -140,6 +152,7 @@ window.testBank['test_495'] = {
             "correctAnswer": 0,
             "solution": "For each of the $r$ positions, there are $n$ choices. By the multiplication principle, the total ways are $n \\times n \\times \\dots$ ($r$ times) $= n^r$."
         },
+        // 12
         {
             "type": "mcq",
             "text": "The number of permutations of $n$ distinct objects taken $r$ at a time, if $k$ particular objects must always be included in the arrangement, is:",
@@ -152,6 +165,7 @@ window.testBank['test_495'] = {
             "correctAnswer": 0,
             "solution": "First, select the remaining $(r-k)$ objects from the remaining $(n-k)$ objects ($^{n-k}C_{r-k}$). Then arrange all $r$ chosen objects ($r!$)."
         },
+        // 13
         {
             "type": "mcq",
             "text": "The number of permutations of $n$ distinct objects taken $r$ at a time, if $k$ particular objects are never included, is:",
@@ -164,6 +178,7 @@ window.testBank['test_495'] = {
             "correctAnswer": 0,
             "solution": "Remove the $k$ specific objects entirely. Now select and arrange $r$ objects from the remaining $(n-k)$ objects, which is $^{n-k}P_r$."
         },
+        // 14
         {
             "type": "mcq",
             "text": "If we want to arrange $n$ objects in a row such that $k$ specific objects are always together (the Tie/String Method), we treat the $k$ objects as a single unit. The total number of arrangements is:",
@@ -176,6 +191,7 @@ window.testBank['test_495'] = {
             "correctAnswer": 0,
             "solution": "Tie the $k$ objects into 1 unit. We now have $(n - k + 1)$ units to arrange, which gives $(n - k + 1)!$ ways. The $k$ objects can internally arrange in $k!$ ways."
         },
+        // 15
         {
             "type": "mcq",
             "text": "If we want to arrange $m$ men and $n$ women in a row such that no two women are together (the Gap Method), the number of ways is:",
@@ -188,6 +204,7 @@ window.testBank['test_495'] = {
             "correctAnswer": 0,
             "solution": "First arrange the $m$ men in $m!$ ways. This creates $(m+1)$ gaps. We then place the $n$ women in these gaps in $^{m+1}P_n$ ways."
         },
+        // 16
         {
             "type": "mcq",
             "text": "The number of permutations of $n$ objects where $p$ objects are identical and of one kind, $q$ objects are identical and of a second kind, and the rest are distinct, is:",
@@ -200,6 +217,7 @@ window.testBank['test_495'] = {
             "correctAnswer": 0,
             "solution": "To account for indistinguishable arrangements of identical objects, we divide the total permutations ($n!$) by the internal permutations of the alike groups ($p!$ and $q!$)."
         },
+        // 17
         {
             "type": "mcq",
             "text": "The number of ways to arrange $n$ identical objects of the same kind in a row is:",
@@ -212,6 +230,7 @@ window.testBank['test_495'] = {
             "correctAnswer": 0,
             "solution": "If all objects are identical, swapping them does not create a new arrangement. Thus, there is exactly 1 way."
         },
+        // 18
         {
             "type": "mcq",
             "text": "The fundamental identity relating consecutive permutations is $^nP_r = n \\times {}^{(n-1)}P_{(r-1)}$. What is the analogous additive identity for permutations?",
@@ -224,6 +243,7 @@ window.testBank['test_495'] = {
             "correctAnswer": 0,
             "solution": "By fixing one specific element, either it is NOT selected (giving $^{n-1}P_r$ ways) or it IS selected and placed in one of the $r$ spots (giving $r \\times ^{n-1}P_{r-1}$ ways)."
         },
+        // 19
         {
             "type": "mcq",
             "text": "The ratio $\\frac{^nP_r}{^nP_{r-1}}$ evaluates to:",
@@ -238,6 +258,7 @@ window.testBank['test_495'] = {
         },
         
         // ================= CIRCULAR PERMUTATIONS =================
+        // 20
         {
             "type": "mcq",
             "text": "The number of circular permutations of $n$ distinct objects is:",
@@ -250,6 +271,7 @@ window.testBank['test_495'] = {
             "correctAnswer": 0,
             "solution": "In a circle, there is no fixed starting point. Fixing one object and arranging the remaining $(n-1)$ objects linearly gives $(n-1)!$."
         },
+        // 21
         {
             "type": "mcq",
             "text": "The number of circular permutations of $n$ distinct objects when clockwise and anticlockwise arrangements are considered indistinguishable (e.g., beads on a necklace or flowers in a garland) is:",
@@ -262,6 +284,7 @@ window.testBank['test_495'] = {
             "correctAnswer": 0,
             "solution": "Because the necklace can be flipped over, clockwise and anticlockwise arrangements are the same. We divide the standard circular permutations by 2."
         },
+        // 22
         {
             "type": "mcq",
             "text": "The number of ways to arrange $n$ men and $n$ women around a circular table such that no two women sit together is:",
@@ -274,6 +297,7 @@ window.testBank['test_495'] = {
             "correctAnswer": 0,
             "solution": "First, seat the $n$ men in a circle in $(n-1)!$ ways. This creates $n$ gaps. Place the $n$ women in these $n$ gaps in $n!$ ways."
         },
+        // 23
         {
             "type": "mcq",
             "text": "The number of circular permutations of $n$ distinct things taken $r$ at a time in a given direction is:",
@@ -288,6 +312,7 @@ window.testBank['test_495'] = {
         },
 
         // ================= COMBINATIONS (SELECTIONS) =================
+        // 24
         {
             "type": "mcq",
             "text": "The number of combinations (selections) of $n$ distinct objects taken $r$ at a time, denoted by $^nC_r$ or $\\binom{n}{r}$, is given by the formula:",
@@ -300,6 +325,7 @@ window.testBank['test_495'] = {
             "correctAnswer": 0,
             "solution": "The standard combination formula divides the linear arrangements by $r!$ to remove the ordering: $^nC_r = \\frac{n!}{r!(n-r)!}$."
         },
+        // 25
         {
             "type": "mcq",
             "text": "The symmetry property of combinations states that $^nC_r$ is always equal to:",
@@ -312,6 +338,7 @@ window.testBank['test_495'] = {
             "correctAnswer": 0,
             "solution": "Selecting $r$ objects to keep is identical to selecting $(n-r)$ objects to reject. Thus, $^nC_r = ^nC_{n-r}$."
         },
+        // 26
         {
             "type": "mcq",
             "text": "Pascal's Rule (or Pascal's Identity) for combinations is:",
@@ -324,6 +351,7 @@ window.testBank['test_495'] = {
             "correctAnswer": 0,
             "solution": "Pascal's identity states that $^nC_r + ^nC_{r-1} = ^{n+1}C_r$. It is the basis for constructing Pascal's Triangle."
         },
+        // 27
         {
             "type": "mcq",
             "text": "The ratio $\\frac{^nC_r}{^nC_{r-1}}$ evaluates to:",
@@ -336,6 +364,7 @@ window.testBank['test_495'] = {
             "correctAnswer": 0,
             "solution": "Expanding the factorials: $\\frac{n!}{r!(n-r)!} \\times \\frac{(r-1)!(n-r+1)!}{n!} = \\frac{n - r + 1}{r}$."
         },
+        // 28
         {
             "type": "mcq",
             "text": "A standard absorption identity for combinations is $^nC_r = \\frac{n}{r} \\times \\dots$",
@@ -348,6 +377,7 @@ window.testBank['test_495'] = {
             "correctAnswer": 0,
             "solution": "$^nC_r = \\frac{n}{r} \\times ^{n-1}C_{r-1}$. This is commonly used in binomial summations to \"absorb\" variables."
         },
+        // 29
         {
             "type": "mcq",
             "text": "If $^nC_x = ^nC_y$ and $x \\ne y$, then the relationship between $n, x,$ and $y$ must be:",
@@ -360,6 +390,7 @@ window.testBank['test_495'] = {
             "correctAnswer": 0,
             "solution": "Due to the symmetry property $^nC_r = ^nC_{n-r}$, if $x \\ne y$, then $x$ must equal $n-y$, meaning $x + y = n$."
         },
+        // 30
         {
             "type": "mcq",
             "text": "The sum of all combinations $^nC_0 + ^nC_1 + ^nC_2 + \\dots + ^nC_n$ is equal to:",
@@ -372,6 +403,7 @@ window.testBank['test_495'] = {
             "correctAnswer": 0,
             "solution": "This represents the total number of subsets of a set with $n$ elements, which is $2^n$ (found by setting $x=1$ in $(1+x)^n$)."
         },
+        // 31
         {
             "type": "mcq",
             "text": "The sum of alternate (odd or even indexed) combinations, e.g., $^nC_0 + ^nC_2 + ^nC_4 + \\dots$ is equal to:",
@@ -384,6 +416,7 @@ window.testBank['test_495'] = {
             "correctAnswer": 0,
             "solution": "Half of the subsets have an even number of elements and half have an odd number. Thus, both sums equal $2^{n-1}$."
         },
+        // 32
         {
             "type": "mcq",
             "text": "If $n$ is an even integer, the maximum value of $^nC_r$ occurs when $r$ is equal to:",
@@ -396,6 +429,7 @@ window.testBank['test_495'] = {
             "correctAnswer": 0,
             "solution": "The binomial coefficients increase towards the middle. For even $n$, the absolute middle is at $r = \\frac{n}{2}$."
         },
+        // 33
         {
             "type": "mcq",
             "text": "If $n$ is an odd integer, the maximum value of $^nC_r$ occurs when $r$ is equal to:",
@@ -408,6 +442,7 @@ window.testBank['test_495'] = {
             "correctAnswer": 0,
             "solution": "For odd $n$, there are two middle terms in the binomial expansion, occurring at $r = \\frac{n-1}{2}$ and $r = \\frac{n+1}{2}$."
         },
+        // 34
         {
             "type": "mcq",
             "text": "The total number of ways to select one or more objects from $n$ distinct objects is:",
@@ -422,6 +457,7 @@ window.testBank['test_495'] = {
         },
 
         // ================= SELECTIONS FROM IDENTICAL OBJECTS =================
+        // 35
         {
             "type": "mcq",
             "text": "The number of ways to select $r$ objects out of $n$ identical objects is:",
@@ -434,6 +470,7 @@ window.testBank['test_495'] = {
             "correctAnswer": 0,
             "solution": "Since all objects are identical, any selection of $r$ objects looks exactly the same. Thus, there is only 1 way."
         },
+        // 36
         {
             "type": "mcq",
             "text": "The total number of ways to select zero or more objects from a group of $n$ identical objects is:",
@@ -446,6 +483,7 @@ window.testBank['test_495'] = {
             "correctAnswer": 0,
             "solution": "You can select 0 objects, 1 object, 2 objects, ..., up to $n$ objects. This gives exactly $n + 1$ total ways."
         },
+        // 37
         {
             "type": "mcq",
             "text": "The total number of ways to select one or more objects from a group of $p$ identical objects of one kind, $q$ identical objects of a second kind, and $r$ identical objects of a third kind is:",
@@ -458,6 +496,7 @@ window.testBank['test_495'] = {
             "correctAnswer": 0,
             "solution": "For each group, we have (count + 1) choices (including taking 0). We multiply these choices and subtract 1 to exclude the case where 0 objects are chosen from all groups."
         },
+        // 38
         {
             "type": "mcq",
             "text": "If there are $p$ alike objects of type 1, $q$ alike objects of type 2, and $k$ distinct objects, the total number of ways to select at least one object is:",
@@ -472,6 +511,7 @@ window.testBank['test_495'] = {
         },
 
         // ================= DIVISORS AND NUMBER THEORY =================
+        // 39
         {
             "type": "mcq",
             "text": "If a composite number $N$ is prime factorized as $N = p_1^{a_1} p_2^{a_2} \\dots p_k^{a_k}$, the total number of divisors of $N$ (including $1$ and $N$) is:",
@@ -484,6 +524,7 @@ window.testBank['test_495'] = {
             "correctAnswer": 0,
             "solution": "Selecting a divisor is equivalent to selecting zero or more of each prime factor. Thus, we have $(a_1+1)$ choices for $p_1$, $(a_2+1)$ choices for $p_2$, etc."
         },
+        // 40
         {
             "type": "mcq",
             "text": "If a composite number $N$ is prime factorized as $N = p_1^{a_1} p_2^{a_2} \\dots p_k^{a_k}$, the total number of proper divisors of $N$ (excluding $1$ and $N$) is:",
@@ -496,6 +537,7 @@ window.testBank['test_495'] = {
             "correctAnswer": 0,
             "solution": "We calculate total divisors and subtract 2 (one for $1$, and one for $N$)."
         },
+        // 41
         {
             "type": "mcq",
             "text": "If $N = p_1^{a_1} p_2^{a_2} \\dots p_k^{a_k}$, the sum of all divisors of $N$ is given by:",
@@ -508,6 +550,7 @@ window.testBank['test_495'] = {
             "correctAnswer": 0,
             "solution": "The sum is the product of geometric progressions formed by the powers of each prime factor: $(1+p_1+\\dots+p_1^{a_1}) \\times \\dots$"
         },
+        // 42
         {
             "type": "mcq",
             "text": "The number of ways in which a natural number $N$ (which is NOT a perfect square) can be resolved as a product of two factors is:",
@@ -520,6 +563,7 @@ window.testBank['test_495'] = {
             "correctAnswer": 0,
             "solution": "Since $N$ is not a square, divisors occur in distinct pairs $(d, N/d)$. The number of such pairs is exactly half the total number of divisors."
         },
+        // 43
         {
             "type": "mcq",
             "text": "The number of ways in which a natural number $N$ (which IS a perfect square) can be resolved as a product of two distinct factors is:",
@@ -532,6 +576,7 @@ window.testBank['test_495'] = {
             "correctAnswer": 0,
             "solution": "For a perfect square, the total divisors is an odd number. One pair is $(\\sqrt{N}, \\sqrt{N})$. Excluding this, there are (Total - 1)/2 distinct factor pairs."
         },
+        // 44
         {
             "type": "mcq",
             "text": "The number of ways to resolve $N = p_1^{a_1} p_2^{a_2} \\dots p_k^{a_k}$ into two factors that are coprime to each other is:",
@@ -546,6 +591,7 @@ window.testBank['test_495'] = {
         },
 
         // ================= DIVISION AND DISTRIBUTION (GROUPING) =================
+        // 45
         {
             "type": "mcq",
             "text": "The number of ways to divide $(m+n)$ distinct objects into two unequal groups containing $m$ and $n$ objects respectively is:",
@@ -558,6 +604,7 @@ window.testBank['test_495'] = {
             "correctAnswer": 0,
             "solution": "Selecting $m$ objects out of $(m+n)$ leaves $n$ objects for the second group. Total ways $= ^{m+n}C_m = \\frac{(m+n)!}{m! n!}$."
         },
+        // 46
         {
             "type": "mcq",
             "text": "The number of ways to divide $2m$ distinct objects into two equal groups of $m$ objects each is:",
@@ -570,6 +617,7 @@ window.testBank['test_495'] = {
             "correctAnswer": 0,
             "solution": "Because the groups are of equal size and unlabelled, swapping the two groups does not create a new division. We must divide by $2!$."
         },
+        // 47
         {
             "type": "mcq",
             "text": "The number of ways to divide $3m$ distinct objects into three equal groups of $m$ objects each is:",
@@ -582,6 +630,7 @@ window.testBank['test_495'] = {
             "correctAnswer": 0,
             "solution": "Similar to two equal groups, for three unlabeled groups of the same size, we must divide by the number of permutations of the groups, which is $3!$."
         },
+        // 48
         {
             "type": "mcq",
             "text": "The number of ways to distribute $(m+n)$ distinct objects to 2 persons such that they get $m$ and $n$ objects respectively is:",
@@ -594,6 +643,7 @@ window.testBank['test_495'] = {
             "correctAnswer": 0,
             "solution": "If the group sizes are unequal, division is $\\frac{(m+n)!}{m! n!}$. Distributing to 2 distinct persons requires multiplying by $2!$."
         },
+        // 49
         {
             "type": "mcq",
             "text": "The number of ways to distribute $2m$ distinct objects equally between 2 persons is:",
@@ -608,6 +658,7 @@ window.testBank['test_495'] = {
         },
 
         // ================= STARS AND BARS (IDENTICAL OBJECT DISTRIBUTION) =================
+        // 50
         {
             "type": "mcq",
             "text": "The total number of non-negative integral solutions (where zero is allowed) to the equation $x_1 + x_2 + \\dots + x_r = n$ is given by:",
@@ -620,6 +671,7 @@ window.testBank['test_495'] = {
             "correctAnswer": 0,
             "solution": "Using the Stars and Bars method for non-negative integer solutions (empty boxes allowed), we place $(r-1)$ partitions among $n$ objects, yielding $^{n+r-1}C_{r-1}$."
         },
+        // 51
         {
             "type": "mcq",
             "text": "The total number of positive integral solutions (where zero is NOT allowed) to the equation $x_1 + x_2 + \\dots + x_r = n$ (where $n \\ge r$) is given by:",
@@ -632,6 +684,7 @@ window.testBank['test_495'] = {
             "correctAnswer": 0,
             "solution": "Using Stars and Bars for positive integer solutions, we can only place the $(r-1)$ partitions in the $(n-1)$ gaps between the objects, yielding $^{n-1}C_{r-1}$."
         },
+        // 52
         {
             "type": "mcq",
             "text": "The number of ways to distribute $n$ identical items into $r$ distinct boxes such that any box can contain any number of items (including zero) is equivalent to:",
@@ -644,6 +697,7 @@ window.testBank['test_495'] = {
             "correctAnswer": 0,
             "solution": "Distributing identical items with empty boxes allowed directly maps to finding non-negative integer solutions to $x_1 + \\dots + x_r = n$."
         },
+        // 53
         {
             "type": "mcq",
             "text": "The number of ways to distribute $n$ identical items into $r$ distinct boxes such that no box remains empty is:",
@@ -656,6 +710,7 @@ window.testBank['test_495'] = {
             "correctAnswer": 0,
             "solution": "This maps to finding positive integer solutions. We give 1 item to each box first, leaving $n-r$ items to distribute into $r$ boxes (empty allowed): $^{(n-r)+r-1}C_{r-1} = ^{n-1}C_{r-1}$."
         },
+        // 54
         {
             "type": "mcq",
             "text": "If we want to find the number of ways to distribute identical objects into distinct boxes with an upper limit restriction (e.g., $x_1 + x_2 = n$ where $x_1 \\le 5$), the most systematic algebraic approach uses:",
@@ -668,6 +723,7 @@ window.testBank['test_495'] = {
             "correctAnswer": 0,
             "solution": "Upper bound restrictions require the multinomial theorem, extracting the coefficient of $x^n$ from expressions like $(x^0 + x^1 + \\dots + x^5)$."
         },
+        // 55
         {
             "type": "mcq",
             "text": "The number of ways to distribute $n$ distinct objects into $r$ distinct boxes with no restrictions on the number of objects per box is:",
@@ -680,6 +736,7 @@ window.testBank['test_495'] = {
             "correctAnswer": 0,
             "solution": "Each of the $n$ distinct objects has $r$ distinct boxes it could be placed in. By the multiplication principle: $r \\times r \\times \\dots$ ($n$ times) $= r^n$."
         },
+        // 56
         {
             "type": "mcq",
             "text": "The number of functions from a set $A$ (with $m$ elements) to a set $B$ (with $n$ elements) is:",
@@ -692,6 +749,7 @@ window.testBank['test_495'] = {
             "correctAnswer": 0,
             "solution": "Each of the $m$ elements in the domain $A$ has $n$ choices for a mapping in the codomain $B$. Total functions $= n^m$."
         },
+        // 57
         {
             "type": "mcq",
             "text": "The number of injective (one-to-one) functions from a set $A$ (with $m$ elements) to a set $B$ (with $n$ elements), where $n \\ge m$, is:",
@@ -706,6 +764,7 @@ window.testBank['test_495'] = {
         },
 
         // ================= DERANGEMENTS =================
+        // 58
         {
             "type": "mcq",
             "text": "A derangement is a permutation of elements such that:",
@@ -718,6 +777,7 @@ window.testBank['test_495'] = {
             "correctAnswer": 0,
             "solution": "By definition, a derangement requires that none of the objects occupy their correctly matched destinations."
         },
+        // 59
         {
             "type": "mcq",
             "text": "The explicit formula for the number of derangements of $n$ distinct objects, $D_n$, is:",
@@ -730,6 +790,7 @@ window.testBank['test_495'] = {
             "correctAnswer": 0,
             "solution": "Using the Principle of Inclusion-Exclusion, the formula evaluates to $n! \\sum_{k=0}^n \\frac{(-1)^k}{k!}$."
         },
+        // 60
         {
             "type": "mcq",
             "text": "The value of $D_1$ (derangement of 1 object) is:",
@@ -742,6 +803,7 @@ window.testBank['test_495'] = {
             "correctAnswer": 0,
             "solution": "If there is only 1 object and 1 spot, it must go in its own spot. It cannot be deranged. Hence, $D_1 = 0$."
         },
+        // 61
         {
             "type": "mcq",
             "text": "The value of $D_2$ (derangement of 2 objects) is:",
@@ -754,6 +816,7 @@ window.testBank['test_495'] = {
             "correctAnswer": 0,
             "solution": "For items A and B, the only derangement is placing B in slot 1 and A in slot 2. So, $D_2 = 1$."
         },
+        // 62
         {
             "type": "mcq",
             "text": "The value of $D_3$ (derangement of 3 objects) is:",
@@ -766,6 +829,7 @@ window.testBank['test_495'] = {
             "correctAnswer": 0,
             "solution": "Using the formula $3! (1/2! - 1/3!) = 6(1/2 - 1/6) = 3 - 1 = 2$. Alternatively, for ABC, the derangements are BCA and CAB."
         },
+        // 63
         {
             "type": "mcq",
             "text": "The value of $D_4$ (derangement of 4 objects) is:",
@@ -778,6 +842,7 @@ window.testBank['test_495'] = {
             "correctAnswer": 0,
             "solution": "Using the formula $4! (1/2! - 1/3! + 1/4!) = 24 (1/2 - 1/6 + 1/24) = 12 - 4 + 1 = 9$."
         },
+        // 64
         {
             "type": "mcq",
             "text": "Which of the following is a valid recurrence relation for derangements $D_n$?",
@@ -790,6 +855,7 @@ window.testBank['test_495'] = {
             "correctAnswer": 0,
             "solution": "The standard first-order recurrence relation for derangements is $D_n = n D_{n-1} + (-1)^n$."
         },
+        // 65
         {
             "type": "mcq",
             "text": "Which of the following is a valid second-order recurrence relation for derangements $D_n$?",
@@ -802,6 +868,7 @@ window.testBank['test_495'] = {
             "correctAnswer": 0,
             "solution": "A common combinatorial proof establishes that $D_n = (n-1)(D_{n-1} + D_{n-2})$."
         },
+        // 66
         {
             "type": "mcq",
             "text": "The number of ways to arrange $n$ objects such that exactly $r$ objects are placed in wrong (deranged) positions and the rest are correctly placed is:",
@@ -816,6 +883,7 @@ window.testBank['test_495'] = {
         },
 
         // ================= GEOMETRIC APPLICATIONS =================
+        // 67
         {
             "type": "mcq",
             "text": "The number of straight lines that can be formed by joining $n$ non-collinear points in a plane is:",
@@ -828,6 +896,7 @@ window.testBank['test_495'] = {
             "correctAnswer": 0,
             "solution": "A unique straight line requires exactly 2 points. Selecting 2 points out of $n$ gives $^nC_2$ lines."
         },
+        // 68
         {
             "type": "mcq",
             "text": "If there are $n$ points in a plane out of which $m$ points are collinear, the total number of straight lines formed is:",
@@ -840,6 +909,7 @@ window.testBank['test_495'] = {
             "correctAnswer": 0,
             "solution": "We subtract the lines formed incorrectly by the collinear points ($^mC_2$) and add 1 back because those $m$ collinear points form exactly 1 straight line."
         },
+        // 69
         {
             "type": "mcq",
             "text": "The number of triangles that can be formed by joining $n$ non-collinear points in a plane is:",
@@ -852,6 +922,7 @@ window.testBank['test_495'] = {
             "correctAnswer": 0,
             "solution": "A unique triangle requires exactly 3 non-collinear points. Selecting 3 points out of $n$ gives $^nC_3$ triangles."
         },
+        // 70
         {
             "type": "mcq",
             "text": "If there are $n$ points in a plane out of which $m$ points are collinear, the total number of triangles formed is:",
@@ -864,6 +935,7 @@ window.testBank['test_495'] = {
             "correctAnswer": 0,
             "solution": "We subtract the invalid triangles that would have been formed by picking 3 points strictly from the collinear set ($^mC_3$). They do not form a single triangle, so we don't add 1."
         },
+        // 71
         {
             "type": "mcq",
             "text": "The number of diagonals in a convex polygon of $n$ sides is given by:",
@@ -876,6 +948,7 @@ window.testBank['test_495'] = {
             "correctAnswer": 0,
             "solution": "Joining any two of the $n$ vertices gives $^nC_2$ total lines. Subtracting the $n$ lines that form the outer boundary (sides) leaves the diagonals: $^nC_2 - n = \\frac{n(n-3)}{2}$."
         },
+        // 72
         {
             "type": "mcq",
             "text": "The maximum number of points of intersection of $n$ distinct straight lines in a plane (no two parallel, no three concurrent) is:",
@@ -888,6 +961,7 @@ window.testBank['test_495'] = {
             "correctAnswer": 0,
             "solution": "Every pair of non-parallel lines intersects at exactly 1 point. Total intersections is the number of pairs: $^nC_2$."
         },
+        // 73
         {
             "type": "mcq",
             "text": "The maximum number of points of intersection of $n$ distinct circles in a plane is:",
@@ -900,6 +974,7 @@ window.testBank['test_495'] = {
             "correctAnswer": 0,
             "solution": "Every pair of intersecting circles produces at most 2 points of intersection. Thus, total points = $2 \\times ^nC_2$."
         },
+        // 74
         {
             "type": "mcq",
             "text": "If there is a set of $m$ parallel lines intersected by another set of $n$ parallel lines, the total number of parallelograms formed is:",
@@ -912,6 +987,7 @@ window.testBank['test_495'] = {
             "correctAnswer": 0,
             "solution": "A parallelogram requires 2 lines from the first set and 2 lines from the second set. The number of ways to select these is $^mC_2 \\times ^nC_2$."
         },
+        // 75
         {
             "type": "mcq",
             "text": "The total number of rectangles (including squares) that can be formed on a standard $8 \\times 8$ chessboard is:",
@@ -924,6 +1000,7 @@ window.testBank['test_495'] = {
             "correctAnswer": 0,
             "solution": "An $8 \\times 8$ board is formed by 9 vertical and 9 horizontal lines. A rectangle is formed by choosing 2 vertical and 2 horizontal lines: $^9C_2 \\times ^9C_2$."
         },
+        // 76
         {
             "type": "mcq",
             "text": "The total number of squares on a standard $n \\times n$ chessboard is given by:",
@@ -936,6 +1013,7 @@ window.testBank['test_495'] = {
             "correctAnswer": 0,
             "solution": "There are $n^2$ squares of size $1\\times1$, $(n-1)^2$ of $2\\times2$, down to $1^2$ of size $n\\times n$. The total is the sum of squares up to $n^2$."
         },
+        // 77
         {
             "type": "mcq",
             "text": "The maximum number of regions into which a plane is divided by $n$ straight lines is:",
@@ -950,6 +1028,7 @@ window.testBank['test_495'] = {
         },
 
         // ================= GRID WALKING AND MULTINOMIAL =================
+        // 78
         {
             "type": "mcq",
             "text": "The total number of shortest paths on a grid to go from the origin $(0, 0)$ to the point $(m, n)$ moving only Right or Up is:",
@@ -962,6 +1041,7 @@ window.testBank['test_495'] = {
             "correctAnswer": 0,
             "solution": "The path must consist of exactly $m$ Right moves and $n$ Up moves. The number of permutations of these $(m+n)$ moves is $\\frac{(m+n)!}{m! n!} = ^{m+n}C_m$."
         },
+        // 79
         {
             "type": "mcq",
             "text": "In the expansion of $(x_1 + x_2 + \\dots + x_k)^n$, the number of distinct terms is given by:",
@@ -976,6 +1056,7 @@ window.testBank['test_495'] = {
         },
         
         // ================= ADVANCED COMBINATORIAL IDENTITIES =================
+        // 80
         {
             "type": "mcq",
             "text": "Vandermonde's Identity states that $\\sum_{k=0}^r {}^mC_k \\times {}^nC_{r-k}$ is equal to:",
@@ -988,6 +1069,7 @@ window.testBank['test_495'] = {
             "correctAnswer": 0,
             "solution": "This identity represents selecting $r$ items from a combined pool of $m+n$ items by summing over all possible ways to take $k$ from the first pool and $(r-k)$ from the second."
         },
+        // 81
         {
             "type": "mcq",
             "text": "The sum $\\sum_{r=1}^n r \\times ^nC_r$ evaluates to:",
@@ -1000,6 +1082,7 @@ window.testBank['test_495'] = {
             "correctAnswer": 0,
             "solution": "Differentiating $(1+x)^n = \\sum ^nC_r x^r$ with respect to $x$ and then setting $x=1$ yields $n(1+1)^{n-1} = n 2^{n-1}$."
         },
+        // 82
         {
             "type": "mcq",
             "text": "The sum $\\sum_{r=0}^n \\frac{^nC_r}{r+1}$ evaluates to:",
@@ -1012,6 +1095,7 @@ window.testBank['test_495'] = {
             "correctAnswer": 0,
             "solution": "Integrating $(1+x)^n$ from 0 to 1 yields $\\left. \\frac{(1+x)^{n+1}}{n+1} \\right|_0^1 = \\frac{2^{n+1} - 1}{n+1}$."
         },
+        // 83
         {
             "type": "mcq",
             "text": "The coefficient of $x^n$ in the expansion of $(1+x)^{2n}$ is:",
@@ -1024,6 +1108,7 @@ window.testBank['test_495'] = {
             "correctAnswer": 0,
             "solution": "By the binomial theorem, the general term is $^{2n}C_r x^r$. For $x^n$, $r=n$, so the coefficient is $^{2n}C_n$."
         },
+        // 84
         {
             "type": "mcq",
             "text": "The total number of relations from a set $A$ containing $m$ elements to a set $B$ containing $n$ elements is:",
@@ -1036,6 +1121,7 @@ window.testBank['test_495'] = {
             "correctAnswer": 0,
             "solution": "A relation is any subset of the Cartesian product $A \\times B$. Since $|A \\times B| = mn$, the number of subsets (relations) is $2^{mn}$."
         },
+        // 85
         {
             "type": "mcq",
             "text": "According to the Principle of Inclusion and Exclusion for three finite sets $A, B, C$, $|A \\cup B \\cup C|$ is equal to:",
@@ -1048,6 +1134,7 @@ window.testBank['test_495'] = {
             "correctAnswer": 0,
             "solution": "This is the standard formulation of the PIE for 3 sets: Add individuals, subtract pairs, add back triples."
         },
+        // 86
         {
             "type": "mcq",
             "text": "The number of onto (surjective) functions from a set $A$ with $n$ elements to a set $B$ with $r$ elements ($n \\ge r$) can be found using:",
