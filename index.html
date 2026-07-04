@@ -440,22 +440,41 @@
             categoriesMap[cat].push(enriched);
         });
 
-        // --- Store Recently Added Tests ---
+        // --- Store Recently Added Tests (SORT BY UPLOAD DATE) ---
         let recentTests = JSON.parse(localStorage.getItem('jee_simulator_recent_tests')) || [];
+        let existingIds = new Set(recentTests.map(t => t.id));
+
         loadedTests.forEach(test => {
-            if (!recentTests.some(t => t.id === test.id)) {
+            if (!existingIds.has(test.id)) {
                 let testData = window.testBank[test.id];
                 if (testData) {
+                    let idNum = parseInt(test.id.split('_')[1]);
+                    // Read the timestamp if it exists, otherwise use a default date (1970)
+                    let uploadedAt = testData.uploadedAt || '1970-01-01T00:00:00Z';
+                    
                     recentTests.push({
                         id: test.id,
+                        idNum: idNum,
                         name: testData.title || 'Unnamed Test',
-                        timestamp: Date.now()
+                        uploadedAt: uploadedAt // Store the timestamp
                     });
                 }
             }
         });
-        recentTests.sort((a, b) => b.timestamp - a.timestamp);
+
+        // Sort: First by uploadedAt (newest first). If same date, fallback to idNum.
+        recentTests.sort((a, b) => {
+            let dateA = new Date(a.uploadedAt);
+            let dateB = new Date(b.uploadedAt);
+            if (dateB.getTime() !== dateA.getTime()) {
+                return dateB.getTime() - dateA.getTime(); // Newest first
+            }
+            return b.idNum - a.idNum; // Fallback to highest file ID
+        });
+
+        // Keep only the top 10
         if (recentTests.length > 10) recentTests = recentTests.slice(0, 10);
+        
         localStorage.setItem('jee_simulator_recent_tests', JSON.stringify(recentTests));
         // --- End Recently Added Logic ---
     }
