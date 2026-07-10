@@ -2,7 +2,7 @@ window.testBank = window.testBank || {};
 window.testBank['test_498'] = {
     title: "Quadratic Equations",
     category: "Theory and Formulae Tests - Maths",
-    uploadedAt: "2026-07-07T18:55:00Z",
+    uploadedAt: "2026-07-08T12:15:00Z",
     timeLimitMins: 10,
     randomizePoolSize: 30,
     questions: [
