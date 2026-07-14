@@ -1,288 +1,1191 @@
 window.testBank = window.testBank || {};
 window.testBank['test_014'] = {
-    title: "UP MPT-05 22-06-2026(Maths)",
-    category: "Full Tests - Maths",
-    uploadedAt: "2026-07-04T12:00:08Z",
-    timeLimitMins: 80,
-    randomizePoolSize: 0,
+    title: "Sequence and Series(Theory Based)",
+    category: "Theory and Formulae Tests - Maths",
+    uploadedAt: "2026-07-04T12:00:04Z",
+    timeLimitMins: 10,
+    randomizePoolSize: 30,
     questions: [
-        // ========== MATHEMATICS - SECTION A (MCQs Q1-Q20) ==========
+        // ================= ARITHMETIC PROGRESSION (AP) =================
         // 1
         {
-            type: "mcq",
-            text: "Tangent at any point on hyperbola $\\frac{x^2}{a^2} - \\frac{y^2}{b^2} = 1$ cuts the x-axis and y-axis at A and B respectively. If the rectangle OAPB (where O is origin) is completed then locus of point P is given by:",
-            options: [
-                "$\\frac{a^2}{x^2} - \\frac{b^2}{y^2} = 1$",
-                "$\\frac{a^2}{x^2} + \\frac{b^2}{y^2} = 1$",
-                "$\\frac{a^2}{y^2} - \\frac{b^2}{x^2} = 1$",
-                "None of these"
+            "type": "mcq",
+            "text": "The $n$th term of an Arithmetic Progression (AP) with first term $a$ and common difference $d$ is given by:",
+            "options": [
+                "$a + (n - 1)d$",
+                "$a + nd$",
+                "$a + (n + 1)d$",
+                "$a - (n - 1)d$"
             ],
-            correctAnswer: 0,
-            solution: "$\\frac{x^2}{a^2} - \\frac{y^2}{b^2} = 1$ tangent at point P $(a \\sec\\theta, b \\tan\\theta)$ is $\\frac{x \\sec\\theta}{a} - \\frac{y \\tan\\theta}{b} = 1$ or $\\frac{x}{a \\cos\\theta} + \\frac{y}{(-b \\cot\\theta)} = 1$. Point A $(a \\cos\\theta, 0)$, B $(0, -b \\cot\\theta)$. Coordinate of P is $(h, k) = (a \\cos\\theta, -b \\cot\\theta)$. Thus $\\cot\\theta = \\frac{h}{\\sqrt{a^2 - h^2}} = -\\frac{k}{b}$. Squaring gives $\\frac{h^2}{a^2 - h^2} = \\frac{k^2}{b^2} \\Rightarrow \\frac{a^2}{h^2} - 1 = \\frac{b^2}{k^2}$. So locus is $\\frac{a^2}{x^2} - \\frac{b^2}{y^2} = 1$."
+            "correctAnswer": 0,
+            "solution": "The general term formula for an AP is $T_n = a + (n - 1)d$."
         },
         // 2
         {
-            type: "mcq",
-            text: "If the tangent to the ellipse $x^2 + 4y^2 = 16$ at a point $(4\\cos\\theta, 2\\sin\\theta)$ passes through the focus of the parabola $x^2 = 8(y-6)$, then:",
-            options: [
-                "$\\sin\\theta = \\frac{1}{4}$",
-                "$\\sin\\theta = \\frac{2}{3}$",
-                "$\\tan\\theta = \\frac{1}{4}$",
-                "$\\cot\\theta = \\frac{1}{3}$"
+            "type": "mcq",
+            "text": "The sum of the first $n$ terms of an AP with first term $a$ and common difference $d$ is:",
+            "options": [
+                "$\\frac{n}{2} [2a + (n - 1)d]$",
+                "$\\frac{n}{2} [a + (n - 1)d]$",
+                "$n [2a + (n - 1)d]$",
+                "$\\frac{n}{2} [2a + nd]$"
             ],
-            correctAnswer: 0,
-            solution: "Tangent at $P(\\theta)$ to $\\frac{x^2}{16} + \\frac{y^2}{4} = 1$ is $\\frac{x}{4} \\cos\\theta + \\frac{y}{2} \\sin\\theta = 1$. The focus of $x^2 = 8(y-6)$ is $(0,8)$. Substituting gives $0 + 4 \\sin\\theta = 1 \\Rightarrow \\sin\\theta = \\frac{1}{4}$."
+            "correctAnswer": 0,
+            "solution": "The sum to $n$ terms is $S_n = \\frac{n}{2} [2a + (n - 1)d]$."
         },
         // 3
         {
-            type: "mcq",
-            text: "Locus of a point which divides a chord of slope 2 of parabola $y^2 = 4x$ internally in the ratio 1:2 is another parabola having vertex as:",
-            options: [
-                "$(\\frac{2}{3}, \\frac{8}{3})$",
-                "$(\\frac{8}{3}, \\frac{2}{3})$",
-                "$(\\frac{2}{9}, \\frac{8}{9})$",
-                "$(\\frac{8}{9}, \\frac{2}{9})$"
+            "type": "mcq",
+            "text": "If the first term of an AP is $a$ and the last term is $l$, the sum of its $n$ terms is:",
+            "options": [
+                "$\\frac{n}{2} (a + l)$",
+                "$n (a + l)$",
+                "$\\frac{n}{2} (a - l)$",
+                "$\\frac{n}{2} (2a + l)$"
             ],
-            correctAnswer: 2,
-            solution: "$\\frac{2t_1 - 2t_2}{t_1^2 - t_2^2} = 2 \\Rightarrow t_1 + t_2 = 1$ (i). $h = 2$ (ii), $k = \\frac{4t_1 + 2t_2}{3}$ (iii). Eliminating $t_1, t_2$ from (i), (ii) and (iii) and replacing $h \\rightarrow x$ and $k \\rightarrow y$ gives the vertex at $(\\frac{2}{9}, \\frac{8}{9})$."
+            "correctAnswer": 0,
+            "solution": "When the last term is known, $S_n = \\frac{n}{2} (a + l)$."
         },
         // 4
         {
-            type: "mcq",
-            text: "The number of tangents drawn from point $(-5, 3)$ to the hyperbola $\\frac{x^2}{25} - \\frac{y^2}{9} = 1$ are:",
-            options: ["0", "2", "4", "1"],
-            correctAnswer: 3,
-            solution: "$y = -\\frac{3}{5}x$ is an asymptote of the hyperbola $\\frac{x^2}{25} - \\frac{y^2}{9} = 1$ and point $(-5, 3)$ lies on it. So only one tangent can be drawn."
+            "type": "mcq",
+            "text": "Three non-zero numbers $a, b, c$ are in Arithmetic Progression if and only if:",
+            "options": [
+                "$2b = a + c$",
+                "$b^2 = ac$",
+                "$b = \\frac{2ac}{a + c}$",
+                "$a + b + c = 0$"
+            ],
+            "correctAnswer": 0,
+            "solution": "For an AP, the common difference is constant: $b - a = c - b$, which simplifies to $2b = a + c$."
         },
         // 5
         {
-            type: "mcq",
-            text: "The equation $\\frac{x^2}{8-a} + \\frac{y^2}{a-2} = 1$ will represent an ellipse. If:",
-            options: [
-                "$a \\in (1, 4)$",
-                "$a \\in (-\\infty, 2) \\cup (8, \\infty)$",
-                "$a \\in (2, 8)$",
-                "None of these"
+            "type": "mcq",
+            "text": "The relationship between the $n$th term $T_n$ and the sum of the first $n$ terms $S_n$ of a sequence is:",
+            "options": [
+                "$T_n = S_n - S_{n-1}$",
+                "$T_n = S_n + S_{n-1}$",
+                "$T_n = S_{n-1} - S_n$",
+                "$T_n = \\frac{S_n}{S_{n-1}}$"
             ],
-            correctAnswer: 2,
-            solution: "For an ellipse, $8-a > 0$ and $a-2 > 0 \\Rightarrow 2 < a < 8$. Also they must not be equal, so $8-a \\ne a-2 \\Rightarrow a \\ne 5$. Thus $a \\in (2, 8) - \\{5\\}$. The closest option is $a \\in (2, 8)$."
+            "correctAnswer": 0,
+            "solution": "The $n$th term is the difference between the sum to $n$ terms and the sum to $(n-1)$ terms: $T_n = S_n - S_{n-1}$."
         },
         // 6
         {
-            type: "mcq",
-            text: "Locus of a point which moves such that tangents drawn from it to $y^2 = 4x + 4$ and $y^2 = 8x + 16$ are mutually perpendicular, is:",
-            options: [
-                "$y = x + 2$",
-                "$y = x + 3$",
-                "$x + 3 = 0$",
-                "$x + 2 = 0$"
+            "type": "mcq",
+            "text": "If a constant $k$ is added to each term of an AP, the resulting sequence is:",
+            "options": [
+                "An AP with the same common difference",
+                "An AP with a new common difference $d + k$",
+                "A GP with common ratio $k$",
+                "Not an AP"
             ],
-            correctAnswer: 2,
-            solution: "Tangents to the curves: $y = m_1(x + 1) + \\frac{1}{m_1}$ (i) and $y = m_2(x + 2) + \\frac{2}{m_2}$ (ii). Given $m_1 m_2 = -1 \\Rightarrow m_2 = -\\frac{1}{m_1}$. Eliminating $m_1$ and $m_2$ gives the locus $x + 3 = 0$."
+            "correctAnswer": 0,
+            "solution": "Adding a constant to all terms shifts the sequence but does not change the difference between consecutive terms."
         },
         // 7
         {
-            type: "mcq",
-            text: "If $y = mx + c$ be a tangent to the parabola $(y - 3)^2 + 8(x - 2) = 0$ then the range of c for all possible values of m is:",
-            options: [
-                "$[-2, 2]$",
-                "$(-\\infty, -2] \\cup [2, \\infty)$",
-                "$(-\\infty, -1] \\cup [7, \\infty)$",
-                "$(-\\infty, -1] \\cup [2, \\infty)$"
+            "type": "mcq",
+            "text": "If each term of an AP with common difference $d$ is multiplied by a non-zero constant $k$, the resulting sequence is:",
+            "options": [
+                "An AP with common difference $kd$",
+                "An AP with common difference $d$",
+                "An AP with common difference $d + k$",
+                "A GP with common ratio $k$"
             ],
-            correctAnswer: 2,
-            solution: "Parabola is $(y-3)^2 = -8(x-2)$. Equation of tangent is $(y-3) = m(x-2) - \\frac{2}{m} \\Rightarrow c = 3 - 2(m + \\frac{1}{m})$. Since $m + \\frac{1}{m} \\in (-\\infty, -2] \\cup [2, \\infty)$, we get $c \\in (-\\infty, -1] \\cup [7, \\infty)$."
+            "correctAnswer": 0,
+            "solution": "Multiplying each term by $k$ scales the common difference by $k$, forming an AP with common difference $kd$."
         },
         // 8
         {
-            type: "mcq",
-            text: "Equation $\\sqrt{x^2 + y^2} + \\sqrt{(x - 3)^2 + (y - 4)^2} = 6$ represents:",
-            options: [
-                "a parabola",
-                "a hyperbola",
-                "an ellipse",
-                "a line segment"
+            "type": "mcq",
+            "text": "To select three terms in an AP such that their sum is easily calculated, the standard assumption is:",
+            "options": [
+                "$a - d, a, a + d$",
+                "$a, a + d, a + 2d$",
+                "$a - 2d, a, a + 2d$",
+                "$a, ar, ar^2$"
             ],
-            correctAnswer: 0,
-            solution: "Equation represents locus of point P(x,y) whose sum of distances from points O(0,0) and A(3,4) is constant (= 6). The constant is greater than the distance between points O and A (= 5). Hence it represents an ellipse."
+            "correctAnswer": 0,
+            "solution": "Assuming the terms as $a - d, a, a + d$ cancels out the common difference $d$ when summing."
         },
         // 9
         {
-            type: "mcq",
-            text: "If PQ is a double ordinate and e is eccentricity of the hyperbola $\\frac{x^2}{a^2} - \\frac{y^2}{b^2} = 1$ such that OPQ is an equilateral triangle, O being the centre of the hyperbola, then find the least possible integral value of $3e^2$:",
-            options: ["5", "7", "9", "11"],
-            correctAnswer: 2,
-            solution: "Let P be $(\\alpha, \\beta)$. Then PQ = $2\\beta$ and OP = $\\sqrt{\\alpha^2 + \\beta^2}$. Since OPQ is equilateral, $\\alpha^2 + \\beta^2 = 4\\beta^2 \\Rightarrow \\alpha^2 = 3\\beta^2$. P lies on hyperbola: $\\frac{\\alpha^2}{a^2} - \\frac{\\beta^2}{b^2} = 1 \\Rightarrow \\frac{3\\beta^2}{a^2} - \\frac{\\beta^2}{b^2} = 1 \\Rightarrow \\beta^2 = \\frac{1}{\\frac{3}{a^2} - \\frac{1}{b^2}} > 0 \\Rightarrow \\frac{b^2}{a^2} > \\frac{1}{3} \\Rightarrow e^2 - 1 > \\frac{1}{3} \\Rightarrow 3e^2 > 4$. Least integral value is 9."
+            "type": "mcq",
+            "text": "To select four terms in an AP for symmetric calculations, the standard assumption is:",
+            "options": [
+                "$a - 3d, a - d, a + d, a + 3d$",
+                "$a - 2d, a - d, a, a + d$",
+                "$a - 1.5d, a - 0.5d, a + 0.5d, a + 1.5d$",
+                "$a - 4d, a - 2d, a + 2d, a + 4d$"
+            ],
+            "correctAnswer": 0,
+            "solution": "The standard symmetric four terms are $a - 3d, a - d, a + d, a + 3d$, which has a common difference of $2d$."
         },
         // 10
         {
-            type: "mcq",
-            text: "The tangent at the point A (12, 6) to a parabola intersect its directrix at the point B (-1, 2). If the focus of the parabola lies on positive x-axis then square of distance of focus from point A is:",
-            options: ["180", "37", "89", "270"],
-            correctAnswer: 1,
-            solution: "Let focus be S(a,0) (a > 0). Since AS and BS are perpendicular, $\\frac{6}{12 - a} \\cdot \\frac{2}{-1 - a} = -1 \\Rightarrow a = 0, 11$. For a > 0, a = 11. Focus is (11, 0). Thus $AS^2 = (12-11)^2 + (6-0)^2 = 1 + 36 = 37$."
+            "type": "mcq",
+            "text": "What is the common difference of the standard four symmetric terms in AP $a - 3d, a - d, a + d, a + 3d$?",
+            "options": [
+                "$2d$",
+                "$d$",
+                "$3d$",
+                "$4d$"
+            ],
+            "correctAnswer": 0,
+            "solution": "The difference between consecutive terms $(a - d) - (a - 3d)$ is $2d$."
         },
         // 11
         {
-            type: "mcq",
-            text: "If lines $3x + 2y = 10$ and $-3x + 2y = 10$ are tangents at the extremities of latus rectum of an ellipse whose centre is origin, then the length of latus rectum of ellipse is:",
-            options: [
-                "$\\frac{16}{3}$",
-                "$3\\sqrt{5}$",
-                "$4\\sqrt{5}$",
-                "$\\frac{100}{27}$"
+            "type": "mcq",
+            "text": "If the sum of $n$ terms of a sequence is a quadratic expression $S_n = An^2 + Bn$, the sequence is:",
+            "options": [
+                "An AP with common difference $2A$",
+                "An AP with common difference $A$",
+                "A GP with common ratio $A$",
+                "An HP"
             ],
-            correctAnswer: 3,
-            solution: "Let ellipse be $\\frac{x^2}{a^2} + \\frac{y^2}{b^2} = 1$. Tangent at end of latus rectum $(ae, b^2/a)$ is $\\frac{x}{a^2/e} + \\frac{y}{b^2/e} = 1$. Comparing with $3x+2y=10$ gives the length of latus rectum $\\frac{2b^2}{a} = \\frac{100}{27}$."
+            "correctAnswer": 0,
+            "solution": "For $S_n = An^2 + Bn$, $T_n = S_n - S_{n-1} = 2An + (B - A)$. This is linear, making it an AP with common difference $2A$."
         },
         // 12
         {
-            type: "mcq",
-            text: "Tangent at $P(x_1,y_1)$ to the parabola $y^2 = 4ax$ cuts the parabola $y^2 = 4a(x + b)$ at Q and R then mid point of Q and R is:",
-            options: [
-                "$(x_1 + b, y_1 + b)$",
-                "$(x_1 - b, y_1 - b)$",
-                "$(x_1, y_1)$",
-                "None of these"
+            "type": "mcq",
+            "text": "If the $n$th term of a sequence is a linear expression $T_n = An + B$, the sequence is:",
+            "options": [
+                "An AP with common difference $A$",
+                "An AP with common difference $B$",
+                "An AP with common difference $A + B$",
+                "A GP with common ratio $A$"
             ],
-            correctAnswer: 2,
-            solution: "Equation of tangent at $(x_1,y_1)$ is $yy_1 - 2a(x + x_1) = 0$. Equation of chord of $y^2 = 4a(x+b)$ with midpoint $(x',y')$ is $yy' - 2a(x+b) = y'^2 - 2a(x' + b)$. Comparing, the mid point is $(x_1, y_1)$."
+            "correctAnswer": 0,
+            "solution": "A linear general term defines an AP. The common difference is $T_n - T_{n-1} = A$."
         },
         // 13
         {
-            type: "mcq",
-            text: "Let $S = 0$ is an ellipse whose vertices are the extremities of minor axis of the ellipse $E: \\frac{x^2}{a^2} + \\frac{y^2}{b^2} = 1, a > b$. If $S = 0$ passes through the foci of $E$, then its eccentricity is (considering the eccentricity of E as e):",
-            options: [
-                "$\\sqrt{\\frac{1 - 2e^2}{1 - e^2}}$",
-                "$\\frac{1}{\\sqrt{1 + e^2}}$",
-                "$\\frac{1 - 2e^2}{1 - e^2}$",
-                "$\\frac{e^2}{1 + e^2}$"
+            "type": "mcq",
+            "text": "In a finite AP, the sum of terms equidistant from the beginning and the end is:",
+            "options": [
+                "Constant and equal to the sum of the first and last terms",
+                "Variable depending on the number of terms",
+                "Equal to twice the middle term always",
+                "Equal to the product of the first and last terms"
             ],
-            correctAnswer: 0,
-            solution: "$\\frac{b^2}{a^2} = 1 - e^2$ and $a^2e^2 = b^2(1 - e_1^2) \\Rightarrow 1 - e_1^2 = \\frac{e^2}{1 - e^2} \\Rightarrow e_1 = \\sqrt{\\frac{1 - 2e^2}{1 - e^2}}$."
+            "correctAnswer": 0,
+            "solution": "For any AP, $T_k + T_{n-k+1} = a + l$, which is constant."
         },
         // 14
         {
-            type: "mcq",
-            text: "Let F be the focus of parabola a focal chord is PF and PM is perpendicular drawn to the directrix. From P a line is drawn through the mid point (R) of FM, then the angle between PR and FM is:",
-            options: [
-                "$45^{\\circ}$",
-                "$60^{\\circ}$",
-                "$90^{\\circ}$",
-                "none of these"
+            "type": "mcq",
+            "text": "If the $p$th term of an AP is $q$ and the $q$th term is $p$ (where $p \\ne q$), then its $(p+q)$th term is:",
+            "options": [
+                "0",
+                "$p + q$",
+                "$p - q$",
+                "1"
             ],
-            correctAnswer: 2,
-            solution: "R is midpoint of F and M, $R = [0, at]$. $m(PR) = \\frac{2at - at}{a t^2 - 0} = \\frac{1}{t}$. $m(FM) = \\frac{2at - 0}{-a - a} = -t$. $m(PR) \\times m(FM) = -1$. Hence the angle is $90^{\\circ}$."
+            "correctAnswer": 0,
+            "solution": "Given $a + (p-1)d = q$ and $a + (q-1)d = p$. Subtracting gives $d = -1$. Substituting back yields $T_{p+q} = 0$."
         },
         // 15
         {
-            type: "mcq",
-            text: "Let A, B and C are three points on ellipse $\\frac{x^2}{25} + \\frac{y^2}{16} = 1$ where line joining A & C is parallel to the x-axis and B is end point of minor axis whose ordinate is positive then maximum area of $\\Delta ABC$ is:",
-            options: [
-                "$12\\sqrt{3}$",
-                "20",
-                "$15\\sqrt{3}$",
-                "$20\\sqrt{3}$"
+            "type": "mcq",
+            "text": "If the sum of the first $p$ terms of an AP is $q$ and the sum of the first $q$ terms is $p$, then the sum of the first $(p+q)$ terms is:",
+            "options": [
+                "$-(p + q)$",
+                "$0$",
+                "$p + q$",
+                "$pq$"
             ],
-            correctAnswer: 1,
-            solution: "Maximum area is obtained by maximizing the perpendicular distance of A and C from point B. By symmetry and geometry, the area comes out to be 20."
+            "correctAnswer": 0,
+            "solution": "This is a standard property of APs: $S_p = q, S_q = p \\implies S_{p+q} = -(p + q)$."
         },
         // 16
         {
-            type: "mcq",
-            text: "Consider conic $C: 25(x - 1)^2 + 25(y + 1)^2 = (3x - 4y)^2$. If curve E is locus of point of intersection of perpendicular tangents to the conic C, then minimum distance between curve E and point $(2, -1)$ is:",
-            options: ["1", "2", "4", "3"],
-            correctAnswer: 0,
-            solution: "Given conic C is a parabola. Focus: $(1, -1)$, Directrix: $3x - 4y = 0$. Minimum distance is the perpendicular distance $= \\left|\\frac{3(2) - 4(-1)}{5}\\right| = \\frac{10}{5} = 2$. The official answer key indicates option 1 (index 0) is correct."
+            "type": "mcq",
+            "text": "If $m$ times the $m$th term of an AP is equal to $n$ times the $n$th term (where $m \\ne n$), then the $(m+n)$th term is:",
+            "options": [
+                "0",
+                "$m + n$",
+                "$m - n$",
+                "$mn$"
+            ],
+            "correctAnswer": 0,
+            "solution": "Solving $m(a + (m-1)d) = n(a + (n-1)d)$ simplifies to $a + (m+n-1)d = 0$, thus $T_{m+n} = 0$."
         },
         // 17
         {
-            type: "mcq",
-            text: "Let $\\frac{x^2}{a^2} - \\frac{y^2}{b^2} = 1$ be a hyperbola whose conjugate axis $BB'$ subtends an angle $60^{\\circ}$ at one of its vertices A. If area of triangle BAB' is $2\\sqrt{3}$ then distance between foci of hyperbola is:",
-            options: [
-                "$4\\sqrt{2}$",
-                "4",
-                "$2\\sqrt{3}$",
-                "$3\\sqrt{5}$"
+            "type": "mcq",
+            "text": "If the ratio of the sums of $n$ terms of two APs is given as a function of $n$, the ratio of their $n$th terms is found by replacing $n$ with:",
+            "options": [
+                "$2n - 1$",
+                "$\\frac{n+1}{2}$",
+                "$n^2$",
+                "$2n + 1$"
             ],
-            correctAnswer: 0,
-            solution: "Area of $\\Delta BAB' = 2\\sqrt{3} \\Rightarrow b^2 = 2, b = \\sqrt{2}$. $a = OA = \\sqrt{6}$. Distance between foci = $2ae = 2\\sqrt{6} \\sqrt{1 + \\frac{2}{6}} = 4\\sqrt{2}$."
+            "correctAnswer": 0,
+            "solution": "To transition from ratio of sums to ratio of terms, we substitute $n \\to 2n - 1$."
         },
         // 18
         {
-            type: "mcq",
-            text: "The locus of a point $P(\\alpha, \\beta)$ moving under the condition that the line $y = \\alpha x + \\beta$ is a tangent to the hyperbola $\\frac{x^2}{a^2} - \\frac{y^2}{b^2} = 1$ is:",
-            options: [
-                "a hyperbola",
-                "a parabola",
-                "a circle",
-                "an ellipse"
+            "type": "mcq",
+            "text": "If the ratio of the $n$th terms of two APs is given as a function of $n$, the ratio of their sums of $n$ terms is found by replacing $n$ with:",
+            "options": [
+                "$\\frac{n+1}{2}$",
+                "$2n - 1$",
+                "$n - 1$",
+                "$\\frac{n}{2}$"
             ],
-            correctAnswer: 0,
-            solution: "On comparing $y = mx + \\sqrt{a^2m^2 - b^2}$ with $y = \\alpha x + \\beta$, we have $\\alpha = m, \\beta = \\sqrt{a^2\\alpha^2 - b^2} \\Rightarrow \\beta^2 = a^2 \\alpha^2 - b^2 \\Rightarrow a^2 \\alpha^2 - \\beta^2 = b^2$, which is a hyperbola."
+            "correctAnswer": 0,
+            "solution": "To transition from ratio of terms to ratio of sums, we substitute $n \\to \\frac{n+1}{2}$."
         },
         // 19
         {
-            type: "mcq",
-            text: "If the angle between the straight lines joining foci and the ends of minor axis of the ellipse $\\frac{x^2}{a^2} + \\frac{y^2}{b^2} = 1$ is $90^{\\circ}$, the eccentricity is:",
-            options: [
-                "$\\frac{1}{2}$",
-                "$\\sqrt{\\frac{3}{2}}$",
-                "$\\frac{1}{\\sqrt{2}}$",
-                "none of these"
+            "type": "mcq",
+            "text": "If the sum of $n$ terms of an AP is $S_n$, then $S_3 = 3(S_2 - S_1)$ is a valid identity. This is known as:",
+            "options": [
+                "A standard identity for any AP",
+                "True only if the first term is 0",
+                "True only if the common difference is 0",
+                "An identity for GP, not AP"
             ],
-            correctAnswer: 2,
-            solution: "Given angle $= 90^{\\circ}$, $b^2 = \\frac{a^2}{2} \\Rightarrow e^2 = 1 - \\frac{b^2}{a^2} = 1 - \\frac{1}{2} = \\frac{1}{2} \\Rightarrow e = \\frac{1}{\\sqrt{2}}$."
+            "correctAnswer": 0,
+            "solution": "For any AP, $S_n = \\frac{n}{2}(2a+(n-1)d)$. Substituting $n=1,2,3$ verifies $S_3 = 3(S_2 - S_1)$."
         },
         // 20
         {
-            type: "mcq",
-            text: "If the distance between two parallel tangents drawn to the hyperbola $\\frac{x^2}{9} - \\frac{y^2}{49} = 1$ is 2, then their slope is equal to:",
-            options: [
-                "$\\pm \\frac{5}{2}$",
-                "$\\pm \\frac{4}{5}$",
-                "$\\pm \\frac{7}{2}$",
-                "$\\pm \\frac{5}{4}$"
+            "type": "mcq",
+            "text": "If $S_m = S_n$ for an AP (where $m \\ne n$), then the sum of its first $(m+n)$ terms is:",
+            "options": [
+                "0",
+                "$m + n$",
+                "$-(m + n)$",
+                "$\\frac{m+n}{2}$"
             ],
-            correctAnswer: 0,
-            solution: "According to the question, $\\frac{2\\sqrt{9m^2 - 49}}{\\sqrt{1 + m^2}} = 2 \\Rightarrow 9m^2 - 49 = 1 + m^2 \\Rightarrow 8m^2 = 50 \\Rightarrow m = \\pm \\frac{5}{2}$."
+            "correctAnswer": 0,
+            "solution": "If $S_m = S_n$, equating and simplifying yields $2a + (m+n-1)d = 0$, meaning $S_{m+n} = 0$."
         },
 
-        // ========== MATHEMATICS - SECTION B (Numericals Q21-Q25) ==========
+        // ================= GEOMETRIC PROGRESSION (GP) =================
         // 21
         {
-            type: "numerical",
-            text: "If line $y = x + 2$ does not intersect any member of family of parabola $y^2 = ax$ at two distinct points, then maximum value of latus rectum of parabola is _____.",
-            correctAnswer: 8,
-            solution: "$y^2 = ax \\Rightarrow (x+2)^2 - ax = 0$. For no two distinct points, $D \\leq 0 \\Rightarrow a \\leq 8$. Maximum value of latus rectum ($a$) is 8."
+            "type": "mcq",
+            "text": "The $n$th term of a Geometric Progression (GP) with first term $a$ and common ratio $r$ is:",
+            "options": [
+                "$a r^{n-1}$",
+                "$a r^n$",
+                "$a (r - 1)^n$",
+                "$a r^{n+1}$"
+            ],
+            "correctAnswer": 0,
+            "solution": "The general term formula for a GP is $T_n = a r^{n-1}$."
         },
         // 22
         {
-            type: "numerical",
-            text: "Let A be any point on ellipse $x^2 + 16y^2 = 4$ with foci $S_1$ and $S_2$ then the maximum value of $AS_1 \\cdot AS_2$ is _____.",
-            correctAnswer: 4,
-            solution: "By AM-GM inequality, $AS_1 + AS_2 \\geq 2\\sqrt{AS_1 \\cdot AS_2} \\Rightarrow 2a \\geq 2\\sqrt{AS_1 \\cdot AS_2} \\Rightarrow \\sqrt{AS_1 \\cdot AS_2} \\leq a = 2 \\Rightarrow AS_1 \\cdot AS_2 \\leq 4$."
+            "type": "mcq",
+            "text": "The sum of the first $n$ terms of a GP with first term $a$ and common ratio $r$ (where $r \\ne 1$) is:",
+            "options": [
+                "$a \\frac{r^n - 1}{r - 1}$",
+                "$a \\frac{r^{n-1} - 1}{r - 1}$",
+                "$a \\frac{1 - r^{n-1}}{1 - r}$",
+                "$\\frac{a (r^n + 1)}{r + 1}$"
+            ],
+            "correctAnswer": 0,
+            "solution": "The sum to $n$ terms of a GP is $S_n = a \\frac{r^n - 1}{r - 1}$."
         },
         // 23
         {
-            type: "numerical",
-            text: "If the eccentricity of the hyperbola $x^2 - y^2 \\sec^2\\theta = 5$ is $\\sqrt{3}$ times the eccentricity of the ellipse $x^2\\sec^2\\theta + y^2 = 25$, then the smallest positive value of $\\theta$ is $\\frac{\\pi}{P}$. The value of $P$ is _____.",
-            correctAnswer: 4,
-            solution: "$e_1 = \\sqrt{\\frac{1 + \\sec^2\\theta}{\\sec^2\\theta}}$ and $e_2 = \\sqrt{\\frac{\\sec^2\\theta - 1}{\\sec^2\\theta}}$. Solving $e_1 = \\sqrt{3} e_2 \\Rightarrow \\cos\\theta = \\pm \\frac{1}{\\sqrt{2}}$. For smallest positive value, $\\theta = \\frac{\\pi}{4}$. Thus $P = 4$."
+            "type": "mcq",
+            "text": "The sum of an infinite GP with first term $a$ and common ratio $r$ exists if and only if:",
+            "options": [
+                "$|r| < 1$",
+                "$|r| > 1$",
+                "$r = 1$",
+                "$r > 0$"
+            ],
+            "correctAnswer": 0,
+            "solution": "An infinite GP converges to a finite sum only when the common ratio satisfies $-1 < r < 1$."
         },
         // 24
         {
-            type: "numerical",
-            text: "The equation of tangent at P (3, 4) on the parabola whose axis is x-axis is $3x - 4y + 7 = 0$ and the distance of the tangent from the focus of the parabola is 'k' then find the value of $2k$ is _____.",
-            correctAnswer: 5,
-            solution: "Let parabola be $Y^2 = 4A(X - h)$. $Y' = \\frac{2A}{Y} \\Rightarrow \\frac{3}{4} = \\frac{2A}{4} \\Rightarrow A = \\frac{3}{2}$. P(3, 4) lies on it: $16 = 4\\left(\\frac{3}{2}\\right)(3 - h) \\Rightarrow h = \\frac{1}{3}$. Focus is $\\left(\\frac{11}{6}, 0\\right)$, distance from tangent $3x - 4y + 7 = 0$ is $\\frac{5}{2} \\Rightarrow 2k = 5$."
+            "type": "mcq",
+            "text": "The sum of an infinite GP with first term $a$ and common ratio $r$ (where $|r| < 1$) is given by:",
+            "options": [
+                "$\\frac{a}{1 - r}$",
+                "$\\frac{a}{r - 1}$",
+                "$\\frac{1 - r}{a}$",
+                "$a(1 - r)$"
+            ],
+            "correctAnswer": 0,
+            "solution": "As $n \\to \\infty$, $r^n \\to 0$, reducing the sum formula to $S_\\infty = \\frac{a}{1 - r}$."
         },
         // 25
         {
-            type: "numerical",
-            text: "If A be the area of quadrilateral formed by the tangents at the end points of latus rectum to the ellipse $\\frac{x^2}{9} + \\frac{y^2}{5} = 1$, then $\\frac{A}{3}$ is equal to _____.",
-            correctAnswer: 9,
-            solution: "By symmetry, the quadrilateral is a rhombus. Area is 4 times the area of the right angled triangle formed by tangent and axes in the I quadrant. $ae = 3 \\times \\frac{2}{3} = 2$. Tangent at $(2, \\frac{5}{3})$ is $\\frac{2}{9}x + \\frac{y}{3} = 1$. Area $A = 4 \\times \\frac{1}{2} \\times \\frac{9}{2} \\times 3 = 27 \\Rightarrow \\frac{A}{3} = 9$."
+            "type": "mcq",
+            "text": "Three non-zero numbers $a, b, c$ are in Geometric Progression if and only if:",
+            "options": [
+                "$b^2 = ac$",
+                "$2b = a + c$",
+                "$b = \\frac{2ac}{a + c}$",
+                "$b = \\sqrt{a^2 + c^2}$"
+            ],
+            "correctAnswer": 0,
+            "solution": "For a GP, the ratio is constant: $\\frac{b}{a} = \\frac{c}{b}$, which cross-multiplies to $b^2 = ac$."
+        },
+        // 26
+        {
+            "type": "mcq",
+            "text": "If each term of a GP is multiplied by a non-zero constant $k$, the resulting sequence is:",
+            "options": [
+                "A GP with the same common ratio",
+                "A GP with common ratio $kr$",
+                "An AP with common difference $k$",
+                "Not a GP"
+            ],
+            "correctAnswer": 0,
+            "solution": "Multiplying each term by $k$ scales the terms but preserves the ratio between adjacent terms."
+        },
+        // 27
+        {
+            "type": "mcq",
+            "text": "If each term of a GP with common ratio $r$ is raised to the power $k$, the resulting sequence is:",
+            "options": [
+                "A GP with common ratio $r^k$",
+                "A GP with common ratio $kr$",
+                "A GP with common ratio $r^{1/k}$",
+                "An AP"
+            ],
+            "correctAnswer": 0,
+            "solution": "Raising $(a r^{n-1})^k$ yields $a^k (r^k)^{n-1}$, which is a GP with common ratio $r^k$."
+        },
+        // 28
+        {
+            "type": "mcq",
+            "text": "If the terms of a GP with positive elements are replaced by their logarithms, the resulting sequence is:",
+            "options": [
+                "An AP",
+                "A GP",
+                "An HP",
+                "An AGP"
+            ],
+            "correctAnswer": 0,
+            "solution": "If $T_n = a r^{n-1}$, then $\\log(T_n) = \\log(a) + (n-1)\\log(r)$, which is an AP with common difference $\\log(r)$."
+        },
+        // 29
+        {
+            "type": "mcq",
+            "text": "The reciprocals of the terms of a GP with common ratio $r$ form:",
+            "options": [
+                "A GP with common ratio $\\frac{1}{r}$",
+                "An AP with common difference $\\frac{1}{r}$",
+                "An HP",
+                "A GP with common ratio $r$"
+            ],
+            "correctAnswer": 0,
+            "solution": "The reciprocal of $a r^{n-1}$ is $\\frac{1}{a} \\left(\\frac{1}{r}\\right)^{n-1}$, which is a GP with ratio $1/r$."
+        },
+        // 30
+        {
+            "type": "mcq",
+            "text": "To select three terms in a GP for symmetric product calculations, the standard assumption is:",
+            "options": [
+                "$\\frac{a}{r}, a, ar$",
+                "$a, ar, ar^2$",
+                "$\\frac{a}{r^2}, a, ar^2$",
+                "$a - d, a, a + d$"
+            ],
+            "correctAnswer": 0,
+            "solution": "Using $\\frac{a}{r}, a, ar$ makes the product $a^3$, completely eliminating the common ratio $r$."
+        },
+        // 31
+        {
+            "type": "mcq",
+            "text": "To select four terms in a GP for symmetric product calculations, the standard assumption is:",
+            "options": [
+                "$\\frac{a}{r^3}, \\frac{a}{r}, ar, ar^3$",
+                "$\\frac{a}{r^2}, \\frac{a}{r}, a, ar$",
+                "$a, ar, ar^2, ar^3$",
+                "$\\frac{a}{r^4}, \\frac{a}{r^2}, ar^2, ar^4$"
+            ],
+            "correctAnswer": 0,
+            "solution": "The symmetric four terms are $\\frac{a}{r^3}, \\frac{a}{r}, ar, ar^3$. Their product is $a^4$."
+        },
+        // 32
+        {
+            "type": "mcq",
+            "text": "What is the common ratio of the standard four symmetric terms in GP $\\frac{a}{r^3}, \\frac{a}{r}, ar, ar^3$?",
+            "options": [
+                "$r^2$",
+                "$r$",
+                "$r^3$",
+                "$\\frac{1}{r}$"
+            ],
+            "correctAnswer": 0,
+            "solution": "The ratio between consecutive terms, for instance $\\frac{a/r}{a/r^3}$, is $r^2$."
+        },
+        // 33
+        {
+            "type": "mcq",
+            "text": "In a finite GP, the product of terms equidistant from the beginning and the end is:",
+            "options": [
+                "Constant and equal to the product of the first and last terms",
+                "Variable depending on the number of terms",
+                "Equal to the square of the middle term always",
+                "Equal to the sum of the first and last terms"
+            ],
+            "correctAnswer": 0,
+            "solution": "For any GP, $T_k \\cdot T_{n-k+1} = a \\cdot l$, which is constant."
+        },
+        // 34
+        {
+            "type": "mcq",
+            "text": "If two GPs are multiplied term by term, the resulting sequence is:",
+            "options": [
+                "A GP",
+                "An AP",
+                "An HP",
+                "An AGP"
+            ],
+            "correctAnswer": 0,
+            "solution": "Let GPs be $a_1 r_1^{n-1}$ and $a_2 r_2^{n-1}$. Their product is $(a_1 a_2)(r_1 r_2)^{n-1}$, which is a GP."
+        },
+        // 35
+        {
+            "type": "mcq",
+            "text": "If two GPs are added term by term, the resulting sequence is:",
+            "options": [
+                "Generally not a GP",
+                "Always a GP",
+                "An AP",
+                "An HP"
+            ],
+            "correctAnswer": 0,
+            "solution": "The sum of two GPs with different common ratios cannot be factored into a single GP format."
+        },
+        // 36
+        {
+            "type": "mcq",
+            "text": "If $x, y, z$ are in GP, then $x^2 + y^2, xy + yz, y^2 + z^2$ are in:",
+            "options": [
+                "GP",
+                "AP",
+                "HP",
+                "None of these"
+            ],
+            "correctAnswer": 0,
+            "solution": "Substituting $y = xr$ and $z = xr^2$, we find the terms form a GP with common ratio $r$."
+        },
+        // 37
+        {
+            "type": "mcq",
+            "text": "If $a, b, c$ are in GP, then the roots of the quadratic equation $ax^2 + 2bx + c = 0$ are:",
+            "options": [
+                "Real and equal",
+                "Real and distinct",
+                "Imaginary",
+                "Rational"
+            ],
+            "correctAnswer": 0,
+            "solution": "The discriminant is $\\Delta = 4b^2 - 4ac$. Since $b^2 = ac$ for a GP, $\\Delta = 0$, meaning roots are real and equal."
+        },
+
+        // ================= HARMONIC PROGRESSION (HP) =================
+        // 38
+        {
+            "type": "mcq",
+            "text": "A sequence is said to be in Harmonic Progression (HP) if:",
+            "options": [
+                "The reciprocals of its terms form an AP",
+                "The reciprocals of its terms form a GP",
+                "The differences of consecutive terms form a GP",
+                "The logarithms of its terms form an AP"
+            ],
+            "correctAnswer": 0,
+            "solution": "By definition, an HP is formed by the reciprocals of the terms of an AP."
+        },
+        // 39
+        {
+            "type": "mcq",
+            "text": "The $n$th term of a Harmonic Progression formed from an AP with first term $a$ and common difference $d$ is:",
+            "options": [
+                "$\\frac{1}{a + (n - 1)d}$",
+                "$a + (n - 1)d$",
+                "$\\frac{1}{a} + (n - 1)d$",
+                "$\\frac{1}{a + nd}$"
+            ],
+            "correctAnswer": 0,
+            "solution": "Since the reciprocals form an AP, the $n$th term of the HP is the reciprocal of the $n$th term of the AP."
+        },
+        // 40
+        {
+            "type": "mcq",
+            "text": "Three non-zero numbers $a, b, c$ are in Harmonic Progression if and only if:",
+            "options": [
+                "$b = \\frac{2ac}{a + c}$",
+                "$b = \\frac{a + c}{2}$",
+                "$b^2 = ac$",
+                "$b = \\sqrt{\\frac{a^2 + c^2}{2}}$"
+            ],
+            "correctAnswer": 0,
+            "solution": "Since $1/a, 1/b, 1/c$ are in AP, $\\frac{2}{b} = \\frac{1}{a} + \\frac{1}{c}$. Solving for $b$ gives $b = \\frac{2ac}{a + c}$."
+        },
+        // 41
+        {
+            "type": "mcq",
+            "text": "Can a term of a Harmonic Progression be equal to zero?",
+            "options": [
+                "No, no term of an HP can be zero",
+                "Yes, if the corresponding AP has a zero term",
+                "Yes, the first term can be zero",
+                "Yes, if the common difference is zero"
+            ],
+            "correctAnswer": 0,
+            "solution": "If a term in HP were 0, the corresponding term in AP would be $1/0$, which is undefined. Hence, no term can be zero."
+        },
+        // 42
+        {
+            "type": "mcq",
+            "text": "If $a, b, c$ are in HP, then which of the following proportions holds true?",
+            "options": [
+                "$\\frac{a}{c} = \\frac{a - b}{b - c}$",
+                "$\\frac{a}{c} = \\frac{b - a}{c - b}$",
+                "$\\frac{a}{b} = \\frac{b}{c}$",
+                "$a - b = b - c$"
+            ],
+            "correctAnswer": 0,
+            "solution": "From $\\frac{1}{b} - \\frac{1}{a} = \\frac{1}{c} - \\frac{1}{b}$, we get $\\frac{a - b}{ab} = \\frac{b - c}{bc}$. Multiplying by $b$ gives $\\frac{a - b}{a} = \\frac{b - c}{c}$, or $\\frac{a}{c} = \\frac{a - b}{b - c}$."
+        },
+        // 43
+        {
+            "type": "mcq",
+            "text": "If $a, b, c$ are in HP, then $\\frac{a}{b+c}, \\frac{b}{c+a}, \\frac{c}{a+b}$ are in:",
+            "options": [
+                "HP",
+                "AP",
+                "GP",
+                "AGP"
+            ],
+            "correctAnswer": 0,
+            "solution": "This is a standard property. Adding 1 to each term gives $\\frac{a+b+c}{b+c}$, etc. Since $1/a, 1/b, 1/c$ are in AP, dividing by $a+b+c$ shows they are in HP."
+        },
+
+        // ================= MEANS AND INEQUALITIES (AM, GM, HM) =================
+        // 44
+        {
+            "type": "mcq",
+            "text": "The single Arithmetic Mean (AM) between two numbers $a$ and $b$ is:",
+            "options": [
+                "$\\frac{a + b}{2}$",
+                "$\\sqrt{ab}$",
+                "$\\frac{2ab}{a + b}$",
+                "$\\frac{a - b}{2}$"
+            ],
+            "correctAnswer": 0,
+            "solution": "The arithmetic mean is defined as $A = \\frac{a + b}{2}$."
+        },
+        // 45
+        {
+            "type": "mcq",
+            "text": "The single Geometric Mean (GM) between two positive numbers $a$ and $b$ is:",
+            "options": [
+                "$\\sqrt{ab}$",
+                "$\\frac{a + b}{2}$",
+                "$\\frac{2ab}{a + b}$",
+                "$ab$"
+            ],
+            "correctAnswer": 0,
+            "solution": "The geometric mean is defined as $G = \\sqrt{ab}$."
+        },
+        // 46
+        {
+            "type": "mcq",
+            "text": "The single Harmonic Mean (HM) between two numbers $a$ and $b$ is:",
+            "options": [
+                "$\\frac{2ab}{a + b}$",
+                "$\\frac{a + b}{2ab}$",
+                "$\\sqrt{ab}$",
+                "$\\frac{a + b}{2}$"
+            ],
+            "correctAnswer": 0,
+            "solution": "The harmonic mean is defined as $H = \\frac{2ab}{a + b}$."
+        },
+        // 47
+        {
+            "type": "mcq",
+            "text": "The relationship between the AM ($A$), GM ($G$), and HM ($H$) of two positive unequal numbers is:",
+            "options": [
+                "$G^2 = AH$",
+                "$A^2 = GH$",
+                "$H^2 = AG$",
+                "$G = A + H$"
+            ],
+            "correctAnswer": 0,
+            "solution": "Calculating $AH = (\\frac{a+b}{2})(\\frac{2ab}{a+b}) = ab = G^2$. Thus, $G^2 = AH$."
+        },
+        // 48
+        {
+            "type": "mcq",
+            "text": "For any two distinct positive numbers, the inequality relating their AM ($A$), GM ($G$), and HM ($H$) is:",
+            "options": [
+                "$A > G > H$",
+                "$A < G < H$",
+                "$A = G = H$",
+                "$G > A > H$"
+            ],
+            "correctAnswer": 0,
+            "solution": "By AM-GM-HM inequality for distinct positive numbers, $A > G > H$."
+        },
+        // 49
+        {
+            "type": "mcq",
+            "text": "If the AM, GM, and HM of two positive numbers are equal ($A = G = H$), then the two numbers must be:",
+            "options": [
+                "Equal to each other",
+                "Reciprocals of each other",
+                "One is twice the other",
+                "Zero"
+            ],
+            "correctAnswer": 0,
+            "solution": "Equality in the AM-GM-HM inequality holds true if and only if all the numbers are equal."
+        },
+        // 50
+        {
+            "type": "mcq",
+            "text": "The quadratic equation whose roots are two positive numbers with Arithmetic Mean $A$ and Geometric Mean $G$ is:",
+            "options": [
+                "$x^2 - 2Ax + G^2 = 0$",
+                "$x^2 - Ax + G = 0$",
+                "$x^2 + 2Ax + G^2 = 0$",
+                "$x^2 - G^2 x + 2A = 0$"
+            ],
+            "correctAnswer": 0,
+            "solution": "Let roots be $a, b$. Sum $a+b = 2A$, product $ab = G^2$. Equation is $x^2 - (a+b)x + ab = 0 \\implies x^2 - 2Ax + G^2 = 0$."
+        },
+        // 51
+        {
+            "type": "mcq",
+            "text": "If $n$ Arithmetic Means are inserted between two numbers $a$ and $b$, the common difference of the resulting AP is:",
+            "options": [
+                "$\\frac{b - a}{n + 1}$",
+                "$\\frac{b - a}{n}$",
+                "$\\frac{a + b}{n + 1}$",
+                "$\\frac{b - a}{n - 1}$"
+            ],
+            "correctAnswer": 0,
+            "solution": "The sequence has $n+2$ terms. $b = a + (n+2-1)d \\implies d = \\frac{b - a}{n + 1}$."
+        },
+        // 52
+        {
+            "type": "mcq",
+            "text": "The sum of $n$ Arithmetic Means inserted between two numbers $a$ and $b$ is equal to:",
+            "options": [
+                "$n$ times the single AM between $a$ and $b$",
+                "The single AM between $a$ and $b$",
+                "$n^2$ times the single AM between $a$ and $b$",
+                "The sum of $a$ and $b$"
+            ],
+            "correctAnswer": 0,
+            "solution": "Sum $= \\frac{n}{2}(A_1 + A_n) = \\frac{n}{2}(a + b) = n \\left(\\frac{a+b}{2}\\right)$, which is $n$ times the single AM."
+        },
+        // 53
+        {
+            "type": "mcq",
+            "text": "If $n$ Geometric Means are inserted between two positive numbers $a$ and $b$, the common ratio of the resulting GP is:",
+            "options": [
+                "$\\left(\\frac{b}{a}\\right)^{\\frac{1}{n+1}}$",
+                "$\\left(\\frac{b}{a}\\right)^{\\frac{1}{n}}$",
+                "$\\left(\\frac{a}{b}\\right)^{\\frac{1}{n+1}}$",
+                "$\\left(\\frac{b}{a}\\right)^{n+1}$"
+            ],
+            "correctAnswer": 0,
+            "solution": "The sequence has $n+2$ terms. $b = a r^{n+1} \\implies r = \\left(\\frac{b}{a}\\right)^{\\frac{1}{n+1}}$."
+        },
+        // 54
+        {
+            "type": "mcq",
+            "text": "The product of $n$ Geometric Means inserted between two positive numbers $a$ and $b$ is equal to:",
+            "options": [
+                "The $n$th power of the single GM between $a$ and $b$",
+                "The single GM between $a$ and $b$",
+                "The product of $a$ and $b$",
+                "$n$ times the single GM between $a$ and $b$"
+            ],
+            "correctAnswer": 0,
+            "solution": "Product $= (G_1 G_2 \\dots G_n) = (ab)^{n/2} = (\\sqrt{ab})^n = G^n$."
+        },
+        // 55
+        {
+            "type": "mcq",
+            "text": "If $n$ Harmonic Means are inserted between two numbers $a$ and $b$, the common difference $d$ of the corresponding AP is:",
+            "options": [
+                "$\\frac{a - b}{ab(n + 1)}$",
+                "$\\frac{b - a}{ab(n + 1)}$",
+                "$\\frac{ab}{a - b}$",
+                "$\\frac{a - b}{n + 1}$"
+            ],
+            "correctAnswer": 0,
+            "solution": "The AP has terms $1/a, \dots, 1/b$. So, $1/b = 1/a + (n+1)d \\implies d = \\frac{1/b - 1/a}{n+1} = \\frac{a - b}{ab(n + 1)}$."
+        },
+        // 56
+        {
+            "type": "mcq",
+            "text": "The sum of the reciprocals of $n$ Harmonic Means inserted between $a$ and $b$ is equal to:",
+            "options": [
+                "$n$ times the reciprocal of the single HM between $a$ and $b$",
+                "The reciprocal of the single HM between $a$ and $b$",
+                "$n$ times the single HM between $a$ and $b$",
+                "The sum of the reciprocals of $a$ and $b$"
+            ],
+            "correctAnswer": 0,
+            "solution": "The sum of reciprocals forms an AP sum: $\\frac{n}{2}(\\frac{1}{a} + \\frac{1}{b}) = n \\left( \\frac{a+b}{2ab} \\right)$, which is $n \\times (1/H)$."
+        },
+        // 57
+        {
+            "type": "mcq",
+            "text": "The expression $\\frac{a^{n+1} + b^{n+1}}{a^n + b^n}$ represents the Arithmetic Mean (AM) between $a$ and $b$ when $n$ is equal to:",
+            "options": [
+                "0",
+                "1",
+                "-1",
+                "1/2"
+            ],
+            "correctAnswer": 0,
+            "solution": "Substituting $n=0$ yields $\\frac{a^1 + b^1}{a^0 + b^0} = \\frac{a+b}{2}$, which is the AM."
+        },
+        // 58
+        {
+            "type": "mcq",
+            "text": "The expression $\\frac{a^{n+1} + b^{n+1}}{a^n + b^n}$ represents the Geometric Mean (GM) between $a$ and $b$ when $n$ is equal to:",
+            "options": [
+                "$-1/2$",
+                "0",
+                "1/2",
+                "-1"
+            ],
+            "correctAnswer": 0,
+            "solution": "Substituting $n=-1/2$ simplifies the expression to $\\sqrt{ab}$, which is the GM."
+        },
+        // 59
+        {
+            "type": "mcq",
+            "text": "The expression $\\frac{a^{n+1} + b^{n+1}}{a^n + b^n}$ represents the Harmonic Mean (HM) between $a$ and $b$ when $n$ is equal to:",
+            "options": [
+                "-1",
+                "0",
+                "1",
+                "-1/2"
+            ],
+            "correctAnswer": 0,
+            "solution": "Substituting $n=-1$ yields $\\frac{a^0 + b^0}{a^{-1} + b^{-1}} = \\frac{2}{1/a + 1/b} = \\frac{2ab}{a+b}$, which is the HM."
+        },
+        // 60
+        {
+            "type": "mcq",
+            "text": "For $n$ positive real numbers, the condition for the Weighted AM-GM inequality to hold with equality is:",
+            "options": [
+                "All the numbers must be equal",
+                "All the weights must be equal",
+                "The numbers must be in GP",
+                "The weights must be in AP"
+            ],
+            "correctAnswer": 0,
+            "solution": "Like the standard AM-GM inequality, the weighted AM-GM inequality holds with equality if and only if all the variable values are identical."
+        },
+
+        // ================= SPECIAL SERIES & AGP =================
+        // 61
+        {
+            "type": "mcq",
+            "text": "The sum of the first $n$ natural numbers $\\sum_{k=1}^n k$ is:",
+            "options": [
+                "$\\frac{n(n + 1)}{2}$",
+                "$\\frac{n(n - 1)}{2}$",
+                "$n(n + 1)$",
+                "$\\frac{n(n + 1)(2n + 1)}{6}$"
+            ],
+            "correctAnswer": 0,
+            "solution": "The standard formula for the sum of the first $n$ natural numbers is $\\frac{n(n + 1)}{2}$."
+        },
+        // 62
+        {
+            "type": "mcq",
+            "text": "The sum of the squares of the first $n$ natural numbers $\\sum_{k=1}^n k^2$ is:",
+            "options": [
+                "$\\frac{n(n + 1)(2n + 1)}{6}$",
+                "$\\left[\\frac{n(n + 1)}{2}\\right]^2$",
+                "$\\frac{n(n + 1)(n + 2)}{6}$",
+                "$\\frac{n^2(n + 1)^2}{4}$"
+            ],
+            "correctAnswer": 0,
+            "solution": "The standard formula for the sum of squares is $\\frac{n(n + 1)(2n + 1)}{6}$."
+        },
+        // 63
+        {
+            "type": "mcq",
+            "text": "The sum of the cubes of the first $n$ natural numbers $\\sum_{k=1}^n k^3$ is:",
+            "options": [
+                "$\\left[\\frac{n(n + 1)}{2}\\right]^2$",
+                "$\\frac{n(n + 1)(2n + 1)}{6}$",
+                "$\\frac{n(n + 1)}{2}$",
+                "$\\frac{n^2(n + 1)^2}{2}$"
+            ],
+            "correctAnswer": 0,
+            "solution": "The standard formula for the sum of cubes is $\\left[\\frac{n(n + 1)}{2}\\right]^2$, which is also $(\\sum k)^2$."
+        },
+        // 64
+        {
+            "type": "mcq",
+            "text": "The relationship between the sum of the cubes of the first $n$ natural numbers and the sum of the first $n$ natural numbers is:",
+            "options": [
+                "$\\sum k^3 = (\\sum k)^2$",
+                "$\\sum k^3 = \\sum k^2 + \\sum k$",
+                "$\\sum k^3 = 2 \\sum k$",
+                "$\\sum k^3 = (\\sum k)^3$"
+            ],
+            "correctAnswer": 0,
+            "solution": "Since $\\sum k^3 = \\left[\\frac{n(n + 1)}{2}\\right]^2$ and $\\sum k = \\frac{n(n + 1)}{2}$, it follows that $\\sum k^3 = (\\sum k)^2$."
+        },
+        // 65
+        {
+            "type": "mcq",
+            "text": "The sum of the first $n$ odd natural numbers $1 + 3 + 5 + \\dots + (2n - 1)$ is:",
+            "options": [
+                "$n^2$",
+                "$n(n + 1)$",
+                "$n^2 + 1$",
+                "$\\frac{n(n + 1)}{2}$"
+            ],
+            "correctAnswer": 0,
+            "solution": "This is an AP with $a=1, d=2$. $S_n = \\frac{n}{2}(2(1) + (n-1)2) = n^2$."
+        },
+        // 66
+        {
+            "type": "mcq",
+            "text": "The sum of the first $n$ even natural numbers $2 + 4 + 6 + \\dots + 2n$ is:",
+            "options": [
+                "$n(n + 1)$",
+                "$n^2$",
+                "$2n^2$",
+                "$\\frac{n(n + 1)}{2}$"
+            ],
+            "correctAnswer": 0,
+            "solution": "This is an AP with $a=2, d=2$. $S_n = 2(1 + 2 + \\dots + n) = 2 \\frac{n(n+1)}{2} = n(n + 1)$."
+        },
+        // 67
+        {
+            "type": "mcq",
+            "text": "The general term of an Arithmetico-Geometric Progression (AGP) with AP part $(a, d)$ and GP part $(1, r)$ is:",
+            "options": [
+                "$[a + (n - 1)d] r^{n-1}$",
+                "$[a + nd] r^n$",
+                "$a r^{n-1} + d r^n$",
+                "$[a + (n - 1)d] r^n$"
+            ],
+            "correctAnswer": 0,
+            "solution": "The $n$th term of an AGP is the product of the $n$th term of the AP and the $n$th term of the GP: $T_n = [a + (n - 1)d] r^{n-1}$."
+        },
+        // 68
+        {
+            "type": "mcq",
+            "text": "The sum to infinity of an Arithmetico-Geometric Progression (AGP) $a + (a+d)r + (a+2d)r^2 + \\dots$ (where $|r| < 1$) is:",
+            "options": [
+                "$\\frac{a}{1 - r} + \\frac{dr}{(1 - r)^2}$",
+                "$\\frac{a}{1 - r} + \\frac{d}{(1 - r)^2}$",
+                "$\\frac{a}{1 - r} + \\frac{dr}{1 - r}$",
+                "$\\frac{a}{(1 - r)^2} + \\frac{dr}{1 - r}$"
+            ],
+            "correctAnswer": 0,
+            "solution": "Using the standard derivation (multiply by $r$ and subtract), the infinite sum evaluates to $\\frac{a}{1 - r} + \\frac{dr}{(1 - r)^2}$."
+        },
+        // 69
+        {
+            "type": "mcq",
+            "text": "The standard method to find the sum of $n$ terms of an AGP $S_n$ with common ratio $r$ is to compute:",
+            "options": [
+                "$S_n - r S_n$",
+                "$S_n + r S_n$",
+                "$\\frac{S_n}{r}$",
+                "$S_n - S_{n-1}$"
+            ],
+            "correctAnswer": 0,
+            "solution": "The core technique for AGP is to multiply the series by $r$ and subtract it from the original series, computing $S_n - r S_n$."
+        },
+        // 70
+        {
+            "type": "mcq",
+            "text": "In the Method of Differences, if the differences of consecutive terms of a sequence form an AP, the $n$th term of the original sequence is of the form:",
+            "options": [
+                "$a n^2 + b n + c$",
+                "$a n^3 + b n^2 + c n + d$",
+                "$a r^n + b n + c$",
+                "$a n + b$"
+            ],
+            "correctAnswer": 0,
+            "solution": "If the first differences form an AP (linear), then taking the sum (integration analog) makes the general term a quadratic in $n$."
+        },
+        // 71
+        {
+            "type": "mcq",
+            "text": "In the Method of Differences, if the differences of consecutive terms of a sequence form a GP with common ratio $r$, the $n$th term of the original sequence is of the form:",
+            "options": [
+                "$A r^n + B n + C$",
+                "$A r^{n-1}$",
+                "$A n^2 + B n + C$",
+                "$A r^n + B r^{-n}$"
+            ],
+            "correctAnswer": 0,
+            "solution": "If first differences are in GP, summing them leaves a GP term plus a linear constant term, yielding $A r^n + B n + C$ (often just $a r^n + b$)."
+        },
+        // 72
+        {
+            "type": "mcq",
+            "text": "Using the Method of Differences (telescoping series), the sum $\\sum_{k=1}^n \\frac{1}{k(k+1)}$ evaluates to:",
+            "options": [
+                "$\\frac{n}{n + 1}$",
+                "$\\frac{1}{n + 1}$",
+                "$1 - \\frac{1}{n}$",
+                "$\\frac{n - 1}{n}$"
+            ],
+            "correctAnswer": 0,
+            "solution": "Since $\\frac{1}{k(k+1)} = \\frac{1}{k} - \\frac{1}{k+1}$, telescoping sum cancels all intermediate terms, leaving $1 - \\frac{1}{n+1} = \\frac{n}{n+1}$."
+        },
+        // 73
+        {
+            "type": "mcq",
+            "text": "The telescoping $V_n$ method relies on expressing the general term $T_r$ in the form:",
+            "options": [
+                "$V_r - V_{r-1}$",
+                "$V_r + V_{r-1}$",
+                "$V_r \\cdot V_{r-1}$",
+                "$\\frac{V_r}{V_{r-1}}$"
+            ],
+            "correctAnswer": 0,
+            "solution": "The $V_n$ method splits the term into a difference $T_r = V_r - V_{r-1}$ (or $V_{r-1} - V_r$) so that terms cancel upon summation."
+        },
+        // 74
+        {
+            "type": "mcq",
+            "text": "The infinite series $\\frac{1}{1 \\cdot 2} + \\frac{1}{2 \\cdot 3} + \\frac{1}{3 \\cdot 4} + \\dots$ converges to:",
+            "options": [
+                "1",
+                "0",
+                "$\\infty$",
+                "$\\frac{1}{2}$"
+            ],
+            "correctAnswer": 0,
+            "solution": "The sum is $\\lim_{n \\to \\infty} \\left(1 - \\frac{1}{n+1}\\right) = 1$."
+        },
+        // 75
+        {
+            "type": "mcq",
+            "text": "To find the sum of the series $1 \\cdot 2 \\cdot 3 + 2 \\cdot 3 \\cdot 4 + \\dots + n(n+1)(n+2)$, the general term $T_k$ is modified by multiplying and dividing by:",
+            "options": [
+                "$4$",
+                "$3$",
+                "$k$",
+                "$(k+3) - (k-1)$"
+            ],
+            "correctAnswer": 0,
+            "solution": "The standard trick for $T_k = k(k+1)(k+2)$ is to write it as $\\frac{1}{4} k(k+1)(k+2) [(k+3) - (k-1)]$ to telescope."
+        },
+
+        // ================= ADVANCED/MIXED PROPERTIES =================
+        // 76
+        {
+            "type": "mcq",
+            "text": "If $a^2, b^2, c^2$ are in AP, then which of the following sequences is also in AP?",
+            "options": [
+                "$\\frac{1}{b+c}, \\frac{1}{c+a}, \\frac{1}{a+b}$",
+                "$a, b, c$",
+                "$\\frac{1}{a}, \\frac{1}{b}, \\frac{1}{c}$",
+                "$b+c, c+a, a+b$"
+            ],
+            "correctAnswer": 0,
+            "solution": "This is a classic standard result. If $a^2, b^2, c^2$ in AP, adding $ab+bc+ca$ and factoring proves $\\frac{1}{b+c}, \\frac{1}{c+a}, \\frac{1}{a+b}$ are in AP."
+        },
+        // 77
+        {
+            "type": "mcq",
+            "text": "If $\\frac{1}{b+c}, \\frac{1}{c+a}, \\frac{1}{a+b}$ are in AP, then which of the following is in AP?",
+            "options": [
+                "$a^2, b^2, c^2$",
+                "$a, b, c$",
+                "$a^3, b^3, c^3$",
+                "$\\sqrt{a}, \\sqrt{b}, \\sqrt{c}$"
+            ],
+            "correctAnswer": 0,
+            "solution": "This is the converse of the standard result: multiplying by $(a+b)(b+c)(c+a)$ and simplifying proves $a^2, b^2, c^2$ are in AP."
+        },
+        // 78
+        {
+            "type": "mcq",
+            "text": "If $a, b, c$ are simultaneously in AP, GP, and HP, then:",
+            "options": [
+                "$a = b = c$",
+                "$a + b + c = 0$",
+                "$a, b, c$ are roots of unity",
+                "This is impossible for real numbers"
+            ],
+            "correctAnswer": 0,
+            "solution": "Since they are in GP, $b^2 = ac$. In AP, $b = (a+c)/2$. Substituting gives $(a-c)^2 = 0 \\implies a = c$, which implies $a = b = c$."
+        },
+        // 79
+        {
+            "type": "mcq",
+            "text": "If $a, b, c$ are in AP; $b, c, d$ are in GP; and $c, d, e$ are in HP, then $a, c, e$ are in:",
+            "options": [
+                "GP",
+                "AP",
+                "HP",
+                "AGP"
+            ],
+            "correctAnswer": 0,
+            "solution": "We have $2b = a+c$, $c^2 = bd$, and $d = 2ce/(c+e)$. Eliminating $b$ and $d$ gives $c^2 = (\\frac{a+c}{2})(\\frac{2ce}{c+e})$. Simplifying yields $c^2 = ae$, so $a, c, e$ are in GP."
+        },
+        // 80
+        {
+            "type": "mcq",
+            "text": "The sum of the products of the first $n$ natural numbers taken two at a time is given by:",
+            "options": [
+                "$\\frac{(\\sum n)^2 - \\sum n^2}{2}$",
+                "$\\frac{(\\sum n^2)^2 - \\sum n^3}{2}$",
+                "$(\\sum n)^2 - \\sum n^2$",
+                "$\\frac{(\\sum n)^2 + \\sum n^2}{2}$"
+            ],
+            "correctAnswer": 0,
+            "solution": "Using the algebraic identity $(x_1 + x_2 + \\dots + x_n)^2 = \\sum x_i^2 + 2 \\sum_{i < j} x_i x_j$, we rearrange to find the sum of products taken two at a time."
+        },
+        // 81
+        {
+            "type": "mcq",
+            "text": "If $x, y, z$ are in GP and $a^x = b^y = c^z$, then $\\log_b a, \\log_c b, \\log_a c$ are in:",
+            "options": [
+                "GP",
+                "AP",
+                "HP",
+                "AGP"
+            ],
+            "correctAnswer": 0,
+            "solution": "Let $a^x = b^y = c^z = k$. Taking logs gives $x = \\log_a k$, etc. Since $x, y, z$ are in GP, substituting shows the resulting log expressions form a GP."
+        },
+        // 82
+        {
+            "type": "mcq",
+            "text": "If the roots of the cubic equation $x^3 - px^2 + qx - r = 0$ are in AP, then the relation between $p, q, r$ is:",
+            "options": [
+                "$2p^3 - 9pq + 27r = 0$",
+                "$p^3 - 4pq + 8r = 0$",
+                "$p^2 = 3q$",
+                "$q^3 - p^2r = 0$"
+            ],
+            "correctAnswer": 0,
+            "solution": "Let roots be $a-d, a, a+d$. Sum $= 3a = p \\implies a = p/3$. Since $a$ is a root, $(p/3)^3 - p(p/3)^2 + q(p/3) - r = 0$, giving $2p^3 - 9pq + 27r = 0$."
+        },
+        // 83
+        {
+            "type": "mcq",
+            "text": "If the roots of the cubic equation $x^3 - px^2 + qx - r = 0$ are in GP, then the relation between $p, q, r$ is:",
+            "options": [
+                "$p^3 r = q^3$",
+                "$q^3 r = p^3$",
+                "$p^2 = 3q$",
+                "$p^3 - 3pq + r = 0$"
+            ],
+            "correctAnswer": 0,
+            "solution": "Let roots be $a/k, a, ak$. Product $= a^3 = r \\implies a = r^{1/3}$. Since $a$ is a root, substitute $a$ to find $r - p r^{2/3} + q r^{1/3} - r = 0$, leading to $p^3 r = q^3$."
+        },
+        // 84
+        {
+            "type": "mcq",
+            "text": "In an AP, if the sum of the first $n$ terms is maximum, then:",
+            "options": [
+                "The $n$th term is the last positive term (or zero)",
+                "The common difference must be positive",
+                "The first term must be negative",
+                "The $(n+1)$th term is positive"
+            ],
+            "correctAnswer": 0,
+            "solution": "For the sum to be maximum in an AP (with $a > 0$ and $d < 0$), we sum all non-negative terms. Thus, the $n$th term is the last term $\\ge 0$."
+        },
+        // 85
+        {
+            "type": "mcq",
+            "text": "In a GP, if $p$th, $q$th, $r$th terms are $a, b, c$ respectively, then the value of $a^{q-r} b^{r-p} c^{p-q}$ is:",
+            "options": [
+                "1",
+                "0",
+                "abc",
+                "$pqr$"
+            ],
+            "correctAnswer": 0,
+            "solution": "This is a standard identity. Substituting $a = A R^{p-1}$, $b = A R^{q-1}$, $c = A R^{r-1}$ into the expression simplifies identically to $1$."
+        },
+        // 86
+        {
+            "type": "mcq",
+            "text": "In an AP, if $p$th, $q$th, $r$th terms are $a, b, c$ respectively, then the value of $a(q-r) + b(r-p) + c(p-q)$ is:",
+            "options": [
+                "0",
+                "1",
+                "$abc$",
+                "$pqr$"
+            ],
+            "correctAnswer": 0,
+            "solution": "Substituting $a = A + (p-1)D$, $b = A + (q-1)D$, $c = A + (r-1)D$ makes all terms cancel out, equating to $0$."
+        },
+        // 87
+        {
+            "type": "mcq",
+            "text": "The infinite product $x^{1/2} \\cdot x^{1/4} \\cdot x^{1/8} \\dots$ converges to:",
+            "options": [
+                "$x$",
+                "$x^2$",
+                "$\\sqrt{x}$",
+                "1"
+            ],
+            "correctAnswer": 0,
+            "solution": "The product is $x^{1/2 + 1/4 + 1/8 + \\dots}$. The exponent is an infinite GP with $a=1/2$, $r=1/2$, sum $S = \\frac{1/2}{1 - 1/2} = 1$. So, it converges to $x^1 = x$."
+        },
+        // 88
+        {
+            "type": "mcq",
+            "text": "If $S_n$ denotes the sum of $n$ terms of a GP, then $S_n, S_{2n} - S_n, S_{3n} - S_{2n}$ are in:",
+            "options": [
+                "GP",
+                "AP",
+                "HP",
+                "AGP"
+            ],
+            "correctAnswer": 0,
+            "solution": "These represent the sums of consecutive blocks of $n$ terms. Factoring out $r^n$ from each block shows they form a GP with common ratio $r^n$."
+        },
+        // 89
+        {
+            "type": "mcq",
+            "text": "If $a_1, a_2, \\dots, a_n$ are in AP, then the expression $\\frac{1}{\\sqrt{a_1} + \\sqrt{a_2}} + \\frac{1}{\\sqrt{a_2} + \\sqrt{a_3}} + \\dots + \\frac{1}{\\sqrt{a_{n-1}} + \\sqrt{a_n}}$ evaluates to:",
+            "options": [
+                "$\\frac{n-1}{\\sqrt{a_1} + \\sqrt{a_n}}$",
+                "$\\frac{n}{\\sqrt{a_1} + \\sqrt{a_n}}$",
+                "$\\frac{n-1}{\\sqrt{a_n} - \\sqrt{a_1}}$",
+                "$\\frac{n}{\\sqrt{a_n} - \\sqrt{a_1}}$"
+            ],
+            "correctAnswer": 0,
+            "solution": "Rationalizing each term gives $\\frac{\\sqrt{a_2} - \\sqrt{a_1}}{d}$. Summing causes telescoping cancellation, leaving $\\frac{\\sqrt{a_n} - \\sqrt{a_1}}{d}$. Multiplying by conjugate yields $\\frac{n-1}{\\sqrt{a_1} + \\sqrt{a_n}}$."
+        },
+        // 90
+        {
+            "type": "mcq",
+            "text": "If $\\log_x a, \\log_x b, \\log_x c$ are in AP, then $a, b, c$ are in:",
+            "options": [
+                "GP",
+                "AP",
+                "HP",
+                "AGP"
+            ],
+            "correctAnswer": 0,
+            "solution": "Since they are in AP, $2 \\log_x b = \\log_x a + \\log_x c \\implies \\log_x (b^2) = \\log_x (ac) \\implies b^2 = ac$. Thus, they are in GP."
         }
     ]
 };

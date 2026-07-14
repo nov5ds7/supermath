@@ -308,7 +308,7 @@ th{background:var(--page-bg); font-family:'Space Grotesk',sans-serif; font-weigh
 </div>
 
 <script>
-const MAX_TESTS_TO_SCAN = 500;
+const MAX_TESTS_TO_SCAN = 2000;
 const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSeAVg0DY_6PA5vfZYnyiCzOOGbZcZmmkVXC_YZ5o9Cj_EWaFA/formResponse";
 const NUMERICAL_TOLERANCE = 0.001;
 
@@ -454,7 +454,7 @@ function tryLocalDiscover() {
     processTestData();
     renderFolders();
     renderRecentTests();
-  }, 4000);
+  }, 30000);
 
   for (let i = 1; i <= MAX_TESTS_TO_SCAN; i++) {
     let id = 'test_' + String(i).padStart(3, '0');

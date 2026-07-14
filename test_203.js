@@ -1,7 +1,7 @@
 window.testBank = window.testBank || {};
 window.testBank['test_203'] = {
-    title: "JEE Advanced Mock Test - Conic Sections",
-    category: "Full Tests - Advance",
+    title: "Conic Sections - JEE Advanced",
+    category: "Full Tests - Maths",
     uploadedAt: "2026-07-04T12:10:18Z",
     timeLimitMins: 80,
     examPattern: "advance",

@@ -1,308 +1,1440 @@
 window.testBank = window.testBank || {};
 window.testBank['test_015'] = {
-    title: "Conic Sections - JEE Main Pattern",
-    category: "Full Tests - Maths",
-    uploadedAt: "2026-07-04T12:00:07Z",
-    timeLimitMins: 80,
-    randomizePoolSize: 0,
-    questions: [
-        // ========== MCQ QUESTIONS (Q51 - Q70) ==========
+    "title": "Indefinite Integration(Theory Based)",
+    "category": "Theory and Formulae Tests - Maths",
+    uploadedAt: "2026-07-04T12:00:03Z",
+    "timeLimitMins": 10,
+    "randomizePoolSize": 30,
+    "questions": [
         // 1
         {
-            type: "mcq",
-            text: "If the tangents drawn at the points P and Q on the parabola $y^2 = 2x - 3$ intersect at the point R(0,1), then the orthocentre of the $\\triangle PQR$ is",
-            options: [
-                "$(0,1)$",
-                "$(2,-1)$",
-                "$(6,3)$",
-                "$(2,1)$"
+            "type": "mcq",
+            "text": "What is the general form of the indefinite integral of $x^n$ for n &ne; -1?",
+            "options": [
+                "$\\frac{x^{n+1}}{n+1} + C$",
+                "$\\frac{x^{n-1}}{n-1} + C$",
+                "$n x^{n-1} + C$",
+                "$\\frac{x^{n}}{n} + C$"
             ],
-            correctAnswer: 1,
-            solution: "Parabola $y^2 = 2(x - 3/2)$. Tangents at P and Q intersect at R(0,1) gives chord of contact PQ: $y = x-3$. Solving with parabola gives P(2,-1) and Q(6,3). Orthocentre lies at intersection of altitudes: from P to QR has slope -3 (line $y=-3x+5$), and from Q to PR has slope 1 (line $y=x-3$). Intersection gives (2,-1)."
+            "correctAnswer": 0,
+            "solution": "For n &ne; -1, $\\int x^n \\, dx = \\frac{x^{n+1}}{n+1} + C$."
         },
         // 2
         {
-            type: "mcq",
-            text: "Let P be a variable point on the parabola $y = 4x^2 + 1$. Then, the locus of the mid point of the point P and the foot of the perpendicular drawn from the point P to the line $y = x$ is",
-            options: [
-                "$(3x - y)^2 + (x - 3y) + 2 = 0$",
-                "$2(3x - y)^2 + (x - 3y) + 2 = 0$",
-                "$(3x - y)^2 + 2(x - 3y) + 2 = 0$",
-                "$2(x - 3y)^2 + (3x - y) + 2 = 0$"
+            "type": "mcq",
+            "text": "What is the integral of $\\frac{1}{x}$?",
+            "options": [
+                "$\\ln |x| + C$",
+                "$\\ln x + C$",
+                "$\\frac{1}{x^2} + C$",
+                "$e^x + C$"
             ],
-            correctAnswer: 1,
-            solution: "Let P be $(\\alpha, 4\\alpha^2+1)$. Foot of perpendicular to $y=x$ is $((\\alpha+4\\alpha^2+1)/2, (\\alpha+4\\alpha^2+1)/2)$. Midpoint $(x,y)$: $4x = 4\\alpha^2+3\\alpha+1, 4y = 12\\alpha^2+\\alpha+3$. Solving gives $\\alpha = (3x-y)/2$. Substituting yields $2(3x-y)^2 + x - 3y + 2 = 0$."
+            "correctAnswer": 0,
+            "solution": "$\\int \\frac{1}{x} \\, dx = \\ln |x| + C$."
         },
         // 3
         {
-            type: "mcq",
-            text: "A ray of light through (2,1) is reflected at a point P on the Y-axis and then passes through the point (5,3). If this reflected ray is the directrix of an ellipse with eccentricity $1/3$ and the distance of the nearer focus from this directrix is $8/\\sqrt{53}$, then the equation of the other directrix can be",
-            options: [
-                "$11x + 7y + 8 = 0$ or $11x + 7y - 15 = 0$",
-                "$11x - 7y - 8 = 0$ or $11x + 7y + 15 = 0$",
-                "$2x - 7y + 29 = 0$ or $2x - 7y - 7 = 0$",
-                "$2x - 7y - 39 = 0$ or $2x - 7y - 7 = 0$"
+            "type": "mcq",
+            "text": "What is the integral of $e^x$?",
+            "options": [
+                "$e^x + C$",
+                "$\\ln x + C$",
+                "$x e^x + C$",
+                "$e^{x^2} + C$"
             ],
-            correctAnswer: 2,
-            solution: "Reflecting (2,1) across Y-axis gives (-2,1). Line through (-2,1) and (5,3) has equation $2x - 7y + 11 = 0$. Distance between parallel directrices is $2a/e = 18/\\sqrt{53}$. Thus $|c - 11|/\\sqrt{53} = 18/\\sqrt{53} \\implies c = 29$ or $-7$. The other directrix is $2x - 7y + 29 = 0$ or $2x - 7y - 7 = 0$."
+            "correctAnswer": 0,
+            "solution": "$\\int e^x \\, dx = e^x + C$."
         },
         // 4
         {
-            type: "mcq",
-            text: "If the normal at an end of a latus rectum of an ellipse passes through an extremity of the minor axis, then the eccentricity e of the ellipse satisfies",
-            options: [
-                "$e^4 + 2e^2 - 1 = 0$",
-                "$e^2 + e^2 - 1 = 0$",
-                "$e^4 + e^2 - 1 = 0$",
-                "$e^2 + 2e - 1 = 0$"
+            "type": "mcq",
+            "text": "What is the integral of $a^x$ where a > 0, a &ne; 1?",
+            "options": [
+                "$\\frac{a^x}{\\ln a} + C$",
+                "$a^x \\ln a + C$",
+                "$\\frac{a^x}{x} + C$",
+                "$\\ln(a^x) + C$"
             ],
-            correctAnswer: 2,
-            solution: "End of latus rectum $(ae, b^2/a)$ and extremity of minor axis $(0,b)$. Normal at latus rectum end: $\\frac{a^2 x}{ae} - \\frac{b^2 y}{b^2/a} = a^2 - b^2 \\implies \\frac{a}{e}x - a y = a^2 e^2$. Substituting $(0,b)$ gives $-ab = a^2 e^2 \\implies b = -a e^2$. Squaring: $b^2 = a^2 e^4 \\implies 1 - e^2 = e^4 \\implies e^4 + e^2 - 1 = 0$."
+            "correctAnswer": 0,
+            "solution": "$\\int a^x \\, dx = \\frac{a^x}{\\ln a} + C$."
         },
         // 5
         {
-            type: "mcq",
-            text: "The tangent and normal to the ellipse $3x^2 + 5y^2 = 32$ at the point P(2,2) meets the X-axis at Q and R, respectively. Then, the area (in sq units) of the $\\triangle PQR$ is",
-            options: [
-                "$16/3$",
-                "$14/3$",
-                "$34/15$",
-                "$68/15$"
+            "type": "mcq",
+            "text": "What is the integral of $\\sin x$?",
+            "options": [
+                "$-\\cos x + C$",
+                "$\\cos x + C$",
+                "$\\sin x + C$",
+                "$-\\sin x + C$"
             ],
-            correctAnswer: 3,
-            solution: "Tangent at P: $3(2)x + 5(2)y = 32 \\implies 3x + 5y = 16$. Intersection with X-axis gives $Q(16/3,0)$. Normal at P: $5x - 3y = 4$. Intersection with X-axis gives $R(4/5,0)$. Base QR = $16/3 - 4/5 = 68/15$. Height = 2 (y-coordinate of P). Area = $\\frac{1}{2} \\times QR \\times 2 = 68/15$."
+            "correctAnswer": 0,
+            "solution": "$\\int \\sin x \\, dx = -\\cos x + C$."
         },
         // 6
         {
-            type: "mcq",
-            text: "Let the maximum area of the triangle that can be inscribed in the ellipse $\\frac{x^2}{a^2} + \\frac{y^2}{4} = 1, a > 2$, having one of its vertices at one end of the major axis of the ellipse and one of its sides parallel to the Y-axis, be $6\\sqrt{3}$. Then, the eccentricity of the ellipse is",
-            options: [
-                "$\\frac{\\sqrt{3}}{2}$",
-                "$1/2$",
-                "$\\frac{1}{\\sqrt{2}}$",
-                "$\\frac{\\sqrt{3}}{4}$"
+            "type": "mcq",
+            "text": "What is the integral of $\\cos x$?",
+            "options": [
+                "$\\sin x + C$",
+                "$-\\sin x + C$",
+                "$\\cos x + C$",
+                "$-\\cos x + C$"
             ],
-            correctAnswer: 0,
-            solution: "Let $x_0 = a\\cos\\theta$. Area = $2a(1 - \\cos\\theta)\\sin\\theta$. Max area occurs at $\\cos\\theta = -1/2$, giving $\\frac{3a\\sqrt{3}}{2}$. Given $\\frac{3a\\sqrt{3}}{2} = 6\\sqrt{3} \\implies a = 4$. Eccentricity $e = \\sqrt{1 - 4/16} = \\sqrt{3}/2$."
+            "correctAnswer": 0,
+            "solution": "$\\int \\cos x \\, dx = \\sin x + C$."
         },
         // 7
         {
-            type: "mcq",
-            text: "The point P $(-2\\sqrt{6}, \\sqrt{3})$ lies on the hyperbola $\\frac{x^2}{a^2} - \\frac{y^2}{b^2} = 1$ having eccentricity $\\sqrt{5}/2$. If the tangent and normal at P to the hyperbola intersect its conjugate axis at the point Q and R respectively, then QR is equal to",
-            options: [
-                "$4\\sqrt{3}$",
-                "6",
-                "$6\\sqrt{3}$",
-                "$3\\sqrt{6}$"
+            "type": "mcq",
+            "text": "What is the integral of $\\sec^2 x$?",
+            "options": [
+                "$\\tan x + C$",
+                "$\\sec x \\tan x + C$",
+                "$\\ln |\\sec x + \\tan x| + C$",
+                "$\\sec x + C$"
             ],
-            correctAnswer: 2,
-            solution: "For hyperbola $e^2 = 5/4 = 1 + b^2/a^2 \\implies a^2 = 4b^2$. P satisfies $24/a^2 - 3/b^2 = 1 \\implies b^2=3, a^2=12$. Tangent at P: $\\frac{-2\\sqrt{6}}{12}x - \\frac{\\sqrt{3}}{3}y = 1$. Conjugate axis (Y-axis): x=0 gives $Q(0,-\\sqrt{3})$. Normal at P: $-\\sqrt{6}x + \\sqrt{3}y = 15$. On Y-axis: $R(0, 5\\sqrt{3})$. QR = $|5\\sqrt{3} - (-\\sqrt{3})| = 6\\sqrt{3}$."
+            "correctAnswer": 0,
+            "solution": "$\\int \\sec^2 x \\, dx = \\tan x + C$."
         },
         // 8
         {
-            type: "mcq",
-            text: "The locus of the mid-points of the chords of the hyperbola $x^2 - y^2 = 4$, which touch the parabola $y^2 = 8x$, is",
-            options: [
-                "$y^3(x - 2) = x^2$",
-                "$x^3(x - 2) = y^2$",
-                "$y^2(x - 2) = x^3$",
-                "$x^2(x - 2) = y^3$"
+            "type": "mcq",
+            "text": "What is the integral of $\\csc^2 x$?",
+            "options": [
+                "$-\\cot x + C$",
+                "$\\cot x + C$",
+                "$\\csc x + C$",
+                "$\\ln |\\csc x - \\cot x| + C$"
             ],
-            correctAnswer: 2,
-            solution: "Let mid-point be $(h,k)$. Equation of chord of hyperbola is $h x - k y = h^2 - k^2$. This is tangent to parabola $y^2=8x$ with slope $m=h/k$ and intercept $- (h^2-k^2)/k = 2/m = 2k/h$. Thus $h^3 - hk^2 + 2k^2 = 0 \\implies y^2(x-2) = x^3$ after replacing $(h,k)$ with $(x,y)$."
+            "correctAnswer": 0,
+            "solution": "$\\int \\csc^2 x \\, dx = -\\cot x + C$."
         },
         // 9
         {
-            type: "mcq",
-            text: "If normals are drawn form a point P(h, k) to the parabola $y^2 = 4ax$ then the sum of the intercepts which the normals cut off from the axis of the parabola is :",
-            options: [
-                "$(h + a)$",
-                "$3(h + a)$",
-                "$2(h + a)$",
-                "none of these"
+            "type": "mcq",
+            "text": "What is the integral of $\\sec x \\tan x$?",
+            "options": [
+                "$\\sec x + C$",
+                "$\\tan x + C$",
+                "$\\sec x \\tan x + C$",
+                "$\\ln |\\sec x + \\tan x| + C$"
             ],
-            correctAnswer: 2,
-            solution: "Equation of normal with slope $m$ is $y = mx - 2am - am^3$. Since it passes through $(h,k)$, we have $am^3 + (2a-h)m + k = 0$. The x-intercept is $x = 2a + am^2$. Sum of intercepts = $6a + a\\sum m_i^2 = 6a + a[(\\sum m_i)^2 - 2\\sum m_i m_j] = 6a - 2(2a-h) = 2(h+a)$."
+            "correctAnswer": 0,
+            "solution": "$\\int \\sec x \\tan x \\, dx = \\sec x + C$."
         },
         // 10
         {
-            type: "mcq",
-            text: "Equation of the circle of minimum radius which touches both the parabolas $y = x^2 + 2x + 4$ and $x = y^2 + 2y + 4$ is :",
-            options: [
-                "$2x^2 + 2y^2 - 11x - 11y - 13 = 0$",
-                "$4x^2 + 4y^2 - 11x - 11y - 13 = 0$",
-                "$3x^2 + 3y^2 - 11x - 11y - 13 = 0$",
-                "$x^2 + y^2 - 11x - 11y - 13 = 0$"
+            "type": "mcq",
+            "text": "What is the integral of $\\csc x \\cot x$?",
+            "options": [
+                "$-\\csc x + C$",
+                "$\\csc x + C$",
+                "$\\cot x + C$",
+                "$\\ln |\\csc x - \\cot x| + C$"
             ],
-            correctAnswer: 1,
-            solution: "Parabolas are symmetric about $y=x$. Their vertices are $(-1,3)$ and $(3,-1)$. The minimum radius circle touching both will have center on $y=x$ and tangent to both at their closest symmetric points. The derived circle equation is $4x^2+4y^2-11x-11y-13=0$ which has center $(11/8, 11/8)$."
+            "correctAnswer": 0,
+            "solution": "$\\int \\csc x \\cot x \\, dx = -\\csc x + C$."
         },
         // 11
         {
-            type: "mcq",
-            text: "If $y = \\lambda x - 3, y = \\mu x + 1, y = x + 4$ are three normals drawn from a fixed point P to the parabola whose axis is along x-axis, then $2\\lambda - 3\\mu$ is equal to :",
-            options: [
-                "5",
-                "$5/2$",
-                "$-5/2$",
-                "none of these"
+            "type": "mcq",
+            "text": "What is the integral of $\\frac{1}{1+x^2}$?",
+            "options": [
+                "$\\tan^{-1} x + C$",
+                "$\\sin^{-1} x + C$",
+                "$\\sec^{-1} x + C$",
+                "$\\ln(1+x^2) + C$"
             ],
-            correctAnswer: 2,
-            solution: "Since the lines meet at P, intersection of $y = \\lambda x - 3$ and $y = x+4$ gives $P(7/(\\lambda-1), 7\\lambda/(\\lambda-1)-3)$. Similarly P lies on $y = \\mu x + 1 \\implies \\mu = (k-1)/h$. Using sum of slopes $\\lambda+\\mu+1=0$ and solving $2\\lambda - 3\\mu = 2(\\frac{k+3}{h}) - 3(\\frac{k-1}{h}) = \\frac{-k+9}{k-4}$. From $k=h+4, h=7/(\\lambda-1)$ and $\\mu=-1-\\lambda$ gives $\\lambda=-11/10, \\mu=1/10$. Result: $-5/2$."
+            "correctAnswer": 0,
+            "solution": "$\\int \\frac{1}{1+x^2} \\, dx = \\tan^{-1} x + C$."
         },
         // 12
         {
-            type: "mcq",
-            text: "If the normal at any given point P on the ellipse $\\frac{x^2}{a^2} + \\frac{y^2}{b^2} = 1$ meets its auxiliary circle at Q and R such that $\\angle QOR = 90^\\circ$, where O is the centre of ellipse, then :",
-            options: [
-                "$a^4 + 2b^4 \\ge 3a^2b^2$",
-                "$a^4 + 2b^4 \\ge 5a^2b^2 + 2a^3b$",
-                "$a^4 + 2b^4 \\ge 3a^2b^2 + ab$",
-                "none of these"
+            "type": "mcq",
+            "text": "What is the integral of $\\frac{1}{\\sqrt{1-x^2}}$?",
+            "options": [
+                "$\\sin^{-1} x + C$",
+                "$\\cos^{-1} x + C$",
+                "$\\tan^{-1} x + C$",
+                "$\\sec^{-1} x + C$"
             ],
-            correctAnswer: 1,
-            solution: "The chord QR (normal) of the auxiliary circle of radius $a$ subtends $90^\\circ$ at center, so its distance from center is $d = a/\\sqrt{2}$. This yields $\\frac{a^2}{\\cos^2\\theta} + \\frac{b^2}{\\sin^2\\theta} = \\frac{2(a^2-b^2)^2}{a^2}$. By Cauchy-Schwarz, LHS $\\ge (a+b)^2$. Hence $2(a^2-b^2)^2 \\ge a^2(a+b)^2 \\implies a^4 + 2b^4 \\ge 5a^2b^2 + 2a^3b$."
+            "correctAnswer": 0,
+            "solution": "$\\int \\frac{1}{\\sqrt{1-x^2}} \\, dx = \\sin^{-1} x + C$."
         },
         // 13
         {
-            type: "mcq",
-            text: "If 'd' be the length of perpendicular drawn from origin to any normal of the ellipse $\\frac{x^2}{25} + \\frac{y^2}{16} = 1$, then '6 d' cannot exceed",
-            options: [
-                "6",
-                "1",
-                "5",
-                "None of these"
+            "type": "mcq",
+            "text": "What is the integral of $\\frac{1}{x \\sqrt{x^2 - 1}}$?",
+            "options": [
+                "$\\sec^{-1} x + C$",
+                "$\\sin^{-1} x + C$",
+                "$\\tan^{-1} x + C$",
+                "$\\csc^{-1} x + C$"
             ],
-            correctAnswer: 0,
-            solution: "Normal at $(5\\cos\\theta, 4\\sin\\theta)$ is $5x\\sec\\theta - 4y\\csc\\theta = 9$. Distance from origin $d = \\frac{9}{\\sqrt{25\\sec^2\\theta + 16\\csc^2\\theta}}$. By AM-GM, denominator is minimized at $t = 4/5$, min value = 81. Max $d = 9/9 = 1 \\implies 6d \\le 6$."
+            "correctAnswer": 0,
+            "solution": "$\\int \\frac{1}{x \\sqrt{x^2 - 1}} \\, dx = \\sec^{-1} x + C$."
         },
         // 14
         {
-            type: "mcq",
-            text: "If the length of the asymptote of the hyperbola $\\frac{x^2}{36} - \\frac{y^2}{16} = 1$ cutoff by the ellipse $\\frac{x^2}{36} + \\frac{y^2}{16} = 1$, is K then find the integer nearest to K.",
-            options: [
-                "11",
-                "10",
-                "13",
-                "None of these"
+            "type": "mcq",
+            "text": "What is the integral of $\\frac{1}{a^2 + x^2}$?",
+            "options": [
+                "$\\frac{1}{a} \\tan^{-1} \\left(\\frac{x}{a}\\right) + C$",
+                "$\\tan^{-1} \\left(\\frac{x}{a}\\right) + C$",
+                "$\\frac{1}{a} \\sin^{-1} \\left(\\frac{x}{a}\\right) + C$",
+                "$\\ln \\left| x + \\sqrt{x^2 + a^2} \\right| + C$"
             ],
-            correctAnswer: 1,
-            solution: "Asymptote of the hyperbola is $y = 2x/3$. Intersection with ellipse $x^2/36 + (4x^2/9)/16 = 1 \\implies x^2/18 = 1 \\implies x = \\pm 3\\sqrt{2}$. So the chord length $K = \\sqrt{(6\\sqrt{2})^2 + (4\\sqrt{2})^2} = \\sqrt{72 + 32} = \\sqrt{104} \\approx 10.198$. Nearest integer is 10."
+            "correctAnswer": 0,
+            "solution": "$\\int \\frac{1}{a^2 + x^2} \\, dx = \\frac{1}{a} \\tan^{-1} \\left(\\frac{x}{a}\\right) + C$."
         },
         // 15
         {
-            type: "mcq",
-            text: "If $\\frac{x^2}{a^2} + \\frac{y^2}{b^2} = 1 (a > b)$ and $x^2 - y^2 = c^2$ cut at right angles, then :",
-            options: [
-                "$a^2 + b^2 = 2c^2$",
-                "$b^2 - a^2 = 2c^2$",
-                "$a^2 - b^2 = 2c^2$",
-                "$a^2b^2 = 2c^2$"
+            "type": "mcq",
+            "text": "What is the integral of $\\frac{1}{\\sqrt{a^2 - x^2}}$?",
+            "options": [
+                "$\\sin^{-1} \\left(\\frac{x}{a}\\right) + C$",
+                "$\\frac{1}{a} \\sin^{-1} \\left(\\frac{x}{a}\\right) + C$",
+                "$\\cos^{-1} \\left(\\frac{x}{a}\\right) + C$",
+                "$\\tan^{-1} \\left(\\frac{x}{a}\\right) + C$"
             ],
-            correctAnswer: 2,
-            solution: "At the intersection point, slopes of tangents are $m_1 = -b^2 x/(a^2 y)$ and $m_2 = x/y$. Since they are perpendicular, $m_1 m_2 = -1 \\implies b^2 x^2 = a^2 y^2 \\implies y^2 = b^2 x^2/a^2$. Substituting in hyperbola: $x^2 - b^2 x^2/a^2 = c^2 \\implies x^2(a^2-b^2)/a^2 = c^2$. Also in ellipse: $2x^2/a^2 = 1 \\implies x^2 = a^2/2$. Thus $a^2 - b^2 = 2c^2$."
+            "correctAnswer": 0,
+            "solution": "$\\int \\frac{1}{\\sqrt{a^2 - x^2}} \\, dx = \\sin^{-1} \\left(\\frac{x}{a}\\right) + C$."
         },
         // 16
         {
-            type: "mcq",
-            text: "The angle between the tangents drawn from a point $(-a, 2a)$ to $y^2 = 4ax$ is",
-            options: [
-                "$\\pi/4$",
-                "$\\pi/2$",
-                "$\\pi/3$",
-                "$\\pi/6$"
+            "type": "mcq",
+            "text": "What is the integral of $\\frac{1}{x^2 - a^2}$?",
+            "options": [
+                "$\\frac{1}{2a} \\ln \\left| \\frac{x-a}{x+a} \\right| + C$",
+                "$\\frac{1}{a} \\tan^{-1} \\left(\\frac{x}{a}\\right) + C$",
+                "$\\frac{1}{2a} \\ln \\left| \\frac{x+a}{x-a} \\right| + C$",
+                "$\\ln \\left| x^2 - a^2 \\right| + C$"
             ],
-            correctAnswer: 1,
-            solution: "Tangent to $y^2=4ax$ with slope $m$ is $y = mx + a/m$. It passes through $(-a, 2a)$ gives $2a = -am + a/m \\implies m^2 + 2m - 1 = 0$. Roots $m_1, m_2$ satisfy $m_1 m_2 = -1$. Thus the tangents are perpendicular, angle = $\\pi/2$."
+            "correctAnswer": 0,
+            "solution": "$\\int \\frac{1}{x^2 - a^2} \\, dx = \\frac{1}{2a} \\ln \\left| \\frac{x-a}{x+a} \\right| + C$."
         },
         // 17
         {
-            type: "mcq",
-            text: "AB is a chord of the parabola $y^2 = 4ax$ with vertex at A. BC is drawn perpendicular to AB meeting the axis of the parabola at C. The projection of BC on the axis of the parabola is",
-            options: [
-                "a",
-                "2a",
-                "4a",
-                "8a"
+            "type": "mcq",
+            "text": "What is the integral of $\\frac{1}{\\sqrt{x^2 - a^2}}$?",
+            "options": [
+                "$\\ln \\left| x + \\sqrt{x^2 - a^2} \\right| + C$",
+                "$\\sin^{-1} \\left(\\frac{x}{a}\\right) + C$",
+                "$\\frac{1}{a} \\sec^{-1} \\left(\\frac{x}{a}\\right) + C$",
+                "$\\ln \\left| x - \\sqrt{x^2 - a^2} \\right| + C$"
             ],
-            correctAnswer: 2,
-            solution: "Let B be $(at^2, 2at)$. Slope of AB = $2/t$. Slope of BC = $-t/2$. Equation of BC: $y - 2at = -\\frac{t}{2}(x - at^2)$. It meets x-axis ($y=0$) at $C(at^2+4a, 0)$. Projection of BC on axis = $x_C - x_B = (at^2+4a) - at^2 = 4a$."
+            "correctAnswer": 0,
+            "solution": "$\\int \\frac{1}{\\sqrt{x^2 - a^2}} \\, dx = \\ln \\left| x + \\sqrt{x^2 - a^2} \\right| + C$."
         },
         // 18
         {
-            type: "mcq",
-            text: "The locus of the foot of perpendicular drawn from the centre of the hyperbola $x^2 - y^2 = 25$ to its normal.",
-            options: [
-                "$100x^2y^2 = (x^2 + y^2)^2(y^2 - x^2)$",
-                "$10x^2y^2 = (x^2 + y^2)^2(y^2 - x^2)$",
-                "$200x^2y^2 = (x^2 - y^2)^2(y^2 + x^2)$",
-                "$100x^2y^2 = (x^2 - y^2)^2(y^2 + x^2)$"
+            "type": "mcq",
+            "text": "What is the integral of $\\frac{1}{\\sqrt{x^2 + a^2}}$?",
+            "options": [
+                "$\\ln \\left| x + \\sqrt{x^2 + a^2} \\right| + C$",
+                "$\\frac{1}{a} \\tan^{-1} \\left(\\frac{x}{a}\\right) + C$",
+                "$\\sin^{-1} \\left(\\frac{x}{a}\\right) + C$",
+                "$\\frac{1}{a} \\ln \\left| x + \\sqrt{x^2 + a^2} \\right| + C$"
             ],
-            correctAnswer: 0,
-            solution: "Normal at $(5\\sec\\theta, 5\\tan\\theta)$ is $x\\cos\\theta + y\\cot\\theta = 10$. Foot of perpendicular from origin to this line is $(h,k) = (\\frac{10\\sin^2\\theta\\cos\\theta}{\\cos^2\\theta(1+\\sin^2\\theta)}, \\frac{10\\sin\\theta\\cos\\theta}{\\cos^2\\theta(1+\\sin^2\\theta)})$. Eliminating $\\theta$ gives $100h^2k^2 = (h^2+k^2)^2(k^2-h^2)$, i.e., $100x^2y^2 = (x^2 + y^2)^2(y^2 - x^2)$."
+            "correctAnswer": 0,
+            "solution": "$\\int \\frac{1}{\\sqrt{x^2 + a^2}} \\, dx = \\ln \\left| x + \\sqrt{x^2 + a^2} \\right| + C$."
         },
         // 19
         {
-            type: "mcq",
-            text: "If $F_1 \\& F_2$ are the feet of the perpendiculars from the foci $S_1 \\& S_2$ of an ellipse $\\frac{x^2}{5} + \\frac{y^2}{3} = 1$ on the tangent at any point P on the ellipse, then $(S_1F_1) \\cdot (S_2F_2)$ is equal to:",
-            options: [
-                "2",
-                "3",
-                "4",
-                "5"
+            "type": "mcq",
+            "text": "What is the integral of $\\tan x$?",
+            "options": [
+                "$\\ln |\\sec x| + C$",
+                "$\\ln |\\sin x| + C$",
+                "$\\sec^2 x + C$",
+                "$-\\ln |\\cos x| + C$"
             ],
-            correctAnswer: 1,
-            solution: "By the geometric property of an ellipse, the product of the perpendicular distances from the foci to any tangent is equal to the square of the semi-minor axis. Here $b^2 = 3$. Thus $(S_1F_1) \\cdot (S_2F_2) = 3$."
+            "correctAnswer": 0,
+            "solution": "$\\int \\tan x \\, dx = \\ln |\\sec x| + C$ (or $-\\ln |\\cos x| + C$)."
         },
         // 20
         {
-            type: "mcq",
-            text: "P & Q are corresponding points on the ellipse $\\frac{x^2}{16} + \\frac{y^2}{9} = 1$, and the auxiliary circle respectively. The normal at P to the ellipse meets CQ in R where C is centre of the ellipse. Then $\\ell(CR)$ is",
-            options: [
-                "5 units",
-                "6 units",
-                "7 units",
-                "8 units"
+            "type": "mcq",
+            "text": "What is the integral of $\\cot x$?",
+            "options": [
+                "$\\ln |\\sin x| + C$",
+                "$\\ln |\\cos x| + C$",
+                "$-\\ln |\\sin x| + C$",
+                "$\\csc^2 x + C$"
             ],
-            correctAnswer: 2,
-            solution: "Let P be $(4\\cos\\theta, 3\\sin\\theta)$. Q on auxiliary circle is $(4\\cos\\theta, 4\\sin\\theta)$. Normal at P is $\\frac{4x}{\\cos\\theta} - \\frac{3y}{\\sin\\theta} = 7$. Line CQ is $y = x\\tan\\theta$. Substituting gives $x = 7\\cos\\theta, y = 7\\sin\\theta$. Thus $CR = 7$."
+            "correctAnswer": 0,
+            "solution": "$\\int \\cot x \\, dx = \\ln |\\sin x| + C$."
         },
-
-        // ========== NUMERICAL QUESTIONS (Q71 - Q75) ==========
         // 21
         {
-            type: "numerical",
-            text: "Let P(a,b) be a point on the parabola $y^2 = 8x$ such that the tangent at P passes through the centre of the circle $x^2 + y^2 - 10x - 14y + 65 = 0$. Let A be the product of all possible values of a and B be the product of all possible values of b. Then, the value of A + B is equal to ____.",
-            correctAnswer: 65,
-            solution: "Circle centre is $(5, 7)$. Tangent at $(2t^2, 4t)$ to $y^2=8x$ ($a=2$) is $yt = x + 2t^2$. Passing through $(5,7)$ gives $2t^2 - 7t + 5 = 0 \\implies t=1, 5/2$. Points are $(2,4)$ and $(25/2, 10)$. A = $2 \\times 25/2 = 25$, B = $4 \\times 10 = 40$. A + B = 65."
+            "type": "mcq",
+            "text": "What is the integral of $\\sec x$?",
+            "options": [
+                "$\\ln |\\sec x + \\tan x| + C$",
+                "$\\ln |\\sec x - \\tan x| + C$",
+                "$\\sec x \\tan x + C$",
+                "$\\tan x + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "$\\int \\sec x \\, dx = \\ln |\\sec x + \\tan x| + C$."
         },
         // 22
         {
-            type: "numerical",
-            text: "A circle of radius 2 units passes through the vertex and the focus of the parabola $y^2 = 2x$ and touches the parabola $y = (x - \\frac{1}{4})^2 + \\alpha$, where $\\alpha > 0$. Then, $(4\\alpha - 8)^2$ is equal to ____.",
-            correctAnswer: 63,
-            solution: "Parabola vertex (0,0), focus (1/2,0). Circle center at (1/4, k). $(1/4)^2 + k^2 = 4 \\implies k^2 = 63/16 \\implies k = 3\\sqrt{7}/4$. Tangency at $x=1/4$ gives $\\alpha = 3\\sqrt{7}/4 + 2$ (since $\\alpha > 0$). Then $4\\alpha - 8 = 4(3\\sqrt{7}/4 + 2 - 2) = 3\\sqrt{7}$. Square: $(3\\sqrt{7})^2 = 63$."
+            "type": "mcq",
+            "text": "What is the integral of $\\csc x$?",
+            "options": [
+                "$\\ln |\\csc x - \\cot x| + C$",
+                "$\\ln |\\csc x + \\cot x| + C$",
+                "$-\\ln |\\csc x + \\cot x| + C$",
+                "$\\csc x \\cot x + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "$\\int \\csc x \\, dx = \\ln |\\csc x - \\cot x| + C$."
         },
         // 23
         {
-            type: "numerical",
-            text: "The value of $OP \\cdot OQ$ ( O is the origin) where P and Q are the points from which two mutually perpendicular tangents can be drawn to the ellipse $\\frac{(x-2)^2}{16} + \\frac{(y-3)^2}{9} = 1$, is : ____.",
-            correctAnswer: 12,
-            solution: "The locus of intersection of perpendicular tangents to an ellipse is its director circle: $(x-2)^2 + (y-3)^2 = 16+9 = 25 \\implies x^2+y^2 -4x -6y -12 = 0$. Power of origin with respect to this circle is $0^2+0^2 - 4(0) - 6(0) - 12 = -12$. Thus $OP \\cdot OQ = 12$."
+            "type": "mcq",
+            "text": "What is the integral of $\\sin^2 x$?",
+            "options": [
+                "$\\frac{x}{2} - \\frac{\\sin 2x}{4} + C$",
+                "$\\frac{x}{2} + \\frac{\\sin 2x}{4} + C$",
+                "$\\frac{\\sin^3 x}{3} + C$",
+                "$-\\cos^2 x + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "$\\int \\sin^2 x \\, dx = \\frac{x}{2} - \\frac{\\sin 2x}{4} + C$."
         },
         // 24
         {
-            type: "numerical",
-            text: "Let the hyperbola H: $\\frac{x^2}{a^2} - y^2 = 1$ and the ellipse E : $3x^2 + 4y^2 = 12$ be such that the length of latus rectum of H is equal to the length of latus rectum of E. If $e_H$ and $e_E$ are the eccentricities of H and E respectively, then the value of $12(e_H^2 + e_E^2)$ is equal to ____.",
-            correctAnswer: 42,
-            solution: "Ellipse E: $x^2/4 + y^2/3 = 1$, $LR_E = 2b_E^2/a_E = 3$. Hyperbola H: $b_H^2 = 1$, $LR_H = 2b_H^2/a_H = 2/a$. Given $2/a = 3 \\implies a = 2/3 \\implies a_H^2 = 4/9$. $e_E^2 = 1 - 3/4 = 1/4$, $e_H^2 = 1 + 1/(4/9) = 13/4$. $12(e_H^2 + e_E^2) = 12(13/4 + 1/4) = 12(7/2) = 42$."
+            "type": "mcq",
+            "text": "What is the integral of $\\cos^2 x$?",
+            "options": [
+                "$\\frac{x}{2} + \\frac{\\sin 2x}{4} + C$",
+                "$\\frac{x}{2} - \\frac{\\sin 2x}{4} + C$",
+                "$\\frac{\\sin^3 x}{3} + C$",
+                "$\\sin^2 x + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "$\\int \\cos^2 x \\, dx = \\frac{x}{2} + \\frac{\\sin 2x}{4} + C$."
         },
         // 25
         {
-            type: "numerical",
-            text: "An ellipse E: $\\frac{x^2}{a^2} + \\frac{y^2}{b^2} = 1$ passes through the vertices of the hyperbola H: $\\frac{x^2}{49} - \\frac{y^2}{64} = -1$. Let the major and minor axes of the ellipse E coincide with the transverse and conjugate axes of the hyperbola H. Let the product of the eccentricities of E and H be $1/2$. If l is the length of the latus rectum of the ellipse E, then the value of $113l$ is equal to ____.",
-            correctAnswer: 1552,
-            solution: "H is $y^2/64 - x^2/49 = 1$, vertices $(0, \\pm 8) \\implies$ E has $b^2 = 64$. $e_H = \\sqrt{1 + 49/64} = \\sqrt{113}/8$. $e_E \\cdot e_H = 1/2 \\implies e_E = 4/\\sqrt{113} \\implies e_E^2 = 16/113$. For E, $e_E^2 = 1 - a^2/b^2 \\implies 16/113 = 1 - a^2/64 \\implies a^2 = 64 \\times 97/113$. $l = 2a^2/b = 2 \\times (64 \\times 97/113)/8 = 1552/113 \\implies 113l = 1552$."
+            "type": "mcq",
+            "text": "What is the integral of $\\tan^2 x$?",
+            "options": [
+                "$\\tan x - x + C$",
+                "$\\tan x + x + C$",
+                "$\\sec^2 x + C$",
+                "$\\ln |\\sec x| + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "Since $\\tan^2 x = \\sec^2 x - 1$, $\\int \\tan^2 x \\, dx = \\tan x - x + C$."
+        },
+        // 26
+        {
+            "type": "mcq",
+            "text": "What is the integral of $\\frac{1}{a^2 - x^2}$?",
+            "options": [
+                "$\\frac{1}{2a} \\ln \\left| \\frac{a+x}{a-x} \\right| + C$",
+                "$\\frac{1}{a} \\tan^{-1} \\left(\\frac{x}{a}\\right) + C$",
+                "$\\frac{1}{2a} \\ln \\left| \\frac{a-x}{a+x} \\right| + C$",
+                "$\\ln \\left| \\frac{a+x}{a-x} \\right| + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "$\\int \\frac{1}{a^2 - x^2} \\, dx = \\frac{1}{2a} \\ln \\left| \\frac{a+x}{a-x} \\right| + C$."
+        },
+        // 27
+        {
+            "type": "mcq",
+            "text": "What is the integral of $\\frac{1}{x^2 + x + 1}$?",
+            "options": [
+                "$\\frac{2}{\\sqrt{3}} \\tan^{-1} \\left(\\frac{2x+1}{\\sqrt{3}}\\right) + C$",
+                "$\\tan^{-1} \\left(\\frac{2x+1}{\\sqrt{3}}\\right) + C$",
+                "$\\frac{1}{\\sqrt{3}} \\tan^{-1} \\left(\\frac{2x+1}{\\sqrt{3}}\\right) + C$",
+                "$\\frac{2}{\\sqrt{3}} \\sin^{-1} \\left(\\frac{2x+1}{\\sqrt{3}}\\right) + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "Complete square: $x^2+x+1 = (x+1/2)^2 + 3/4$. Then $\\int \\frac{1}{(x+1/2)^2 + (\\sqrt{3}/2)^2} \\, dx = \\frac{1}{\\sqrt{3}/2} \\tan^{-1} \\left(\\frac{x+1/2}{\\sqrt{3}/2}\\right) + C = \\frac{2}{\\sqrt{3}} \\tan^{-1} \\left(\\frac{2x+1}{\\sqrt{3}}\\right) + C$."
+        },
+        // 28
+        {
+            "type": "mcq",
+            "text": "What does the constant $C$ represent in an indefinite integral?",
+            "options": [
+                "An arbitrary constant of integration",
+                "The value of the integral at $x=0$",
+                "The constant term from the original function",
+                "The derivative of the antiderivative"
+            ],
+            "correctAnswer": 0,
+            "solution": "$C$ is the arbitrary constant of integration because differentiation of a constant is zero, so any constant can be added to an antiderivative."
+        },
+        // 29
+        {
+            "type": "mcq",
+            "text": "Which of the following is the integration by parts formula?",
+            "options": [
+                "$\\int u \\, dv = uv - \\int v \\, du$",
+                "$\\int u \\, dv = uv + \\int v \\, du$",
+                "$\\int u \\, dv = u v - \\int u \\, dv$",
+                "$\\int u \\, dv = \\frac{1}{2} (uv - \\int v \\, du)$"
+            ],
+            "correctAnswer": 0,
+            "solution": "The integration by parts formula is $\\int u \\, dv = uv - \\int v \\, du$."
+        },
+        // 30
+        {
+            "type": "mcq",
+            "text": "According to the ILATE rule, which function is chosen as $u$ first?",
+            "options": [
+                "Inverse trigonometric",
+                "Logarithmic",
+                "Algebraic",
+                "Trigonometric"
+            ],
+            "correctAnswer": 0,
+            "solution": "The ILATE order: Inverse trigonometric, Logarithmic, Algebraic, Trigonometric, Exponential. So Inverse functions are chosen first as $u$."
+        },
+        // 31
+        {
+            "type": "mcq",
+            "text": "What is the integral of $\\ln x$?",
+            "options": [
+                "$x \\ln x - x + C$",
+                "$\\frac{1}{x} + C$",
+                "$x \\ln x + C$",
+                "$\\ln x - x + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "Using integration by parts with $u = \\ln x, dv = dx$, we get $\\int \\ln x \\, dx = x \\ln x - x + C$."
+        },
+        // 32
+        {
+            "type": "mcq",
+            "text": "What is the integral of $x e^x$?",
+            "options": [
+                "$(x-1)e^x + C$",
+                "$(x+1)e^x + C$",
+                "$x e^x + C$",
+                "$e^x(x+1) + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "By parts: $u=x, dv=e^x dx$ gives $\\int x e^x \\, dx = x e^x - e^x + C = (x-1)e^x + C$."
+        },
+        // 33
+        {
+            "type": "mcq",
+            "text": "What is the integral of $x \\sin x$?",
+            "options": [
+                "$-x \\cos x + \\sin x + C$",
+                "$x \\cos x - \\sin x + C$",
+                "$-x \\cos x - \\sin x + C$",
+                "$x \\sin x + \\cos x + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "By parts: $u=x, dv=\\sin x dx$ gives $\\int x \\sin x \\, dx = -x \\cos x + \\int \\cos x \\, dx = -x \\cos x + \\sin x + C$."
+        },
+        // 34
+        {
+            "type": "mcq",
+            "text": "What is the integral of $x \\cos x$?",
+            "options": [
+                "$x \\sin x + \\cos x + C$",
+                "$x \\sin x - \\cos x + C$",
+                "$-x \\sin x + \\cos x + C$",
+                "$x \\cos x + \\sin x + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "By parts: $u=x, dv=\\cos x dx$ gives $\\int x \\cos x \\, dx = x \\sin x - \\int \\sin x \\, dx = x \\sin x + \\cos x + C$."
+        },
+        // 35
+        {
+            "type": "mcq",
+            "text": "What is the integral of $e^x \\sin x$?",
+            "options": [
+                "$\\frac{e^x}{2}(\\sin x - \\cos x) + C$",
+                "$\\frac{e^x}{2}(\\sin x + \\cos x) + C$",
+                "$e^x \\sin x + C$",
+                "$e^x \\cos x + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "Using integration by parts twice: $\\int e^x \\sin x \\, dx = \\frac{e^x}{2}(\\sin x - \\cos x) + C$."
+        },
+        // 36
+        {
+            "type": "mcq",
+            "text": "What is the integral of $e^x \\cos x$?",
+            "options": [
+                "$\\frac{e^x}{2}(\\sin x + \\cos x) + C$",
+                "$\\frac{e^x}{2}(\\sin x - \\cos x) + C$",
+                "$e^x \\sin x + C$",
+                "$e^x \\cos x + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "Using integration by parts twice: $\\int e^x \\cos x \\, dx = \\frac{e^x}{2}(\\sin x + \\cos x) + C$."
+        },
+        // 37
+        {
+            "type": "mcq",
+            "text": "What is the integral of $\\sec^3 x$?",
+            "options": [
+                "$\\frac{1}{2} \\sec x \\tan x + \\frac{1}{2} \\ln |\\sec x + \\tan x| + C$",
+                "$\\sec x \\tan x + \\ln |\\sec x + \\tan x| + C$",
+                "$\\frac{1}{2} \\sec x \\tan x - \\frac{1}{2} \\ln |\\sec x + \\tan x| + C$",
+                "$\\sec^2 x \\tan x + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "By reduction formula, $\\int \\sec^3 x \\, dx = \\frac{1}{2} \\sec x \\tan x + \\frac{1}{2} \\ln |\\sec x + \\tan x| + C$."
+        },
+        // 38
+        {
+            "type": "mcq",
+            "text": "What is the integral of $\\sinh x$?",
+            "options": [
+                "$\\cosh x + C$",
+                "$\\sinh x + C$",
+                "$-\\cosh x + C$",
+                "$\\frac{e^x}{2} + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "$\\int \\sinh x \\, dx = \\cosh x + C$."
+        },
+        // 39
+        {
+            "type": "mcq",
+            "text": "What is the integral of $\\cosh x$?",
+            "options": [
+                "$\\sinh x + C$",
+                "$\\cosh x + C$",
+                "$-\\sinh x + C$",
+                "$\\frac{e^x}{2} + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "$\\int \\cosh x \\, dx = \\sinh x + C$."
+        },
+        // 40
+        {
+            "type": "mcq",
+            "text": "What is the integral of $\\frac{1}{\\sqrt{x^2+1}}$?",
+            "options": [
+                "$\\sinh^{-1} x + C$",
+                "$\\cosh^{-1} x + C$",
+                "$\\tan^{-1} x + C$",
+                "$\\frac{1}{2} \\ln(x^2+1) + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "$\\int \\frac{1}{\\sqrt{x^2+1}} \\, dx = \\sinh^{-1} x + C = \\ln(x + \\sqrt{x^2+1}) + C$."
+        },
+        // 41
+        {
+            "type": "mcq",
+            "text": "What is the integral of $\\frac{1}{\\sqrt{x^2-1}}$?",
+            "options": [
+                "$\\cosh^{-1} x + C$",
+                "$\\sinh^{-1} x + C$",
+                "$\\frac{1}{2} \\ln(x^2-1) + C$",
+                "$\\sec^{-1} x + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "$\\int \\frac{1}{\\sqrt{x^2-1}} \\, dx = \\cosh^{-1} x + C = \\ln(x + \\sqrt{x^2-1}) + C$."
+        },
+        // 42
+        {
+            "type": "mcq",
+            "text": "What is the integral of $\\frac{1}{\\sqrt{x^2+a^2}}$ for $a > 0$?",
+            "options": [
+                "$\\sinh^{-1} \\left(\\frac{x}{a}\\right) + C$",
+                "$\\frac{1}{a} \\tan^{-1} \\left(\\frac{x}{a}\\right) + C$",
+                "$\\frac{1}{a} \\cosh^{-1} \\left(\\frac{x}{a}\\right) + C$",
+                "$\\frac{1}{2a} \\ln |x^2+a^2| + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "$\\int \\frac{1}{\\sqrt{x^2+a^2}} \\, dx = \\sinh^{-1} \\left(\\frac{x}{a}\\right) + C = \\ln \\left| x + \\sqrt{x^2+a^2} \\right| + C$."
+        },
+        // 43
+        {
+            "type": "mcq",
+            "text": "What is the integral of $\\frac{1}{x \\sqrt{x^2 + 1}}$?",
+            "options": [
+                "$\\frac{1}{\\sqrt{x^2+1}} + C$",
+                "$-\\frac{1}{\\sqrt{x^2+1}} + C$",
+                "$\\tan^{-1} x + C$",
+                "$\\ln \\left| \\frac{\\sqrt{x^2+1}-1}{x} \\right| + C$"
+            ],
+            "correctAnswer": 3,
+            "solution": "$\\int \\frac{1}{x \\sqrt{x^2 + 1}} \\, dx = \\ln \\left| \\frac{\\sqrt{x^2+1}-1}{x} \\right| + C$."
+        },
+        // 44
+        {
+            "type": "mcq",
+            "text": "What is the integral of $\\frac{1}{x \\sqrt{x^2 - 1}}$ for $x > 1$?",
+            "options": [
+                "$\\sec^{-1} x + C$",
+                "$\\csc^{-1} x + C$",
+                "$\\cosh^{-1} x + C$",
+                "$\\ln |\\frac{\\sqrt{x^2-1}}{x}| + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "$\\int \\frac{1}{x \\sqrt{x^2 - 1}} \\, dx = \\sec^{-1} x + C$."
+        },
+        // 45
+        {
+            "type": "mcq",
+            "text": "What is the integral of $\\frac{1}{x^2 + a^2}$ for $a > 0$?",
+            "options": [
+                "$\\frac{1}{a} \\tan^{-1} \\left(\\frac{x}{a}\\right) + C$",
+                "$\\tan^{-1} \\left(\\frac{x}{a}\\right) + C$",
+                "$\\frac{1}{2a} \\ln \\left| \\frac{x-a}{x+a} \\right| + C$",
+                "$\\frac{1}{a} \\sin^{-1} \\left(\\frac{x}{a}\\right) + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "$\\int \\frac{1}{x^2 + a^2} \\, dx = \\frac{1}{a} \\tan^{-1} \\left(\\frac{x}{a}\\right) + C$."
+        },
+        // 46
+        {
+            "type": "mcq",
+            "text": "What is the integral of $\\frac{1}{x^2 - a^2}$ for $a > 0$?",
+            "options": [
+                "$\\frac{1}{2a} \\ln \\left| \\frac{x-a}{x+a} \\right| + C$",
+                "$\\frac{1}{a} \\tan^{-1} \\left(\\frac{x}{a}\\right) + C$",
+                "$\\frac{1}{2a} \\ln \\left| \\frac{x+a}{x-a} \\right| + C$",
+                "$\\ln \\left| \\frac{x-a}{x+a} \\right| + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "$\\int \\frac{1}{x^2 - a^2} \\, dx = \\frac{1}{2a} \\ln \\left| \\frac{x-a}{x+a} \\right| + C$."
+        },
+        // 47
+        {
+            "type": "mcq",
+            "text": "What is the integral of $\\frac{1}{\\sqrt{a^2 - x^2}}$ for $a > 0$?",
+            "options": [
+                "$\\sin^{-1} \\left(\\frac{x}{a}\\right) + C$",
+                "$\\frac{1}{a} \\sin^{-1} \\left(\\frac{x}{a}\\right) + C$",
+                "$\\cos^{-1} \\left(\\frac{x}{a}\\right) + C$",
+                "$\\frac{1}{\\sqrt{a^2}} \\tan^{-1} \\left(\\frac{x}{a}\\right) + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "$\\int \\frac{1}{\\sqrt{a^2 - x^2}} \\, dx = \\sin^{-1} \\left(\\frac{x}{a}\\right) + C$."
+        },
+        // 48
+        {
+            "type": "mcq",
+            "text": "What is the integral of $\\frac{1}{\\sqrt{x^2 - a^2}}$ for $x > a > 0$?",
+            "options": [
+                "$\\cosh^{-1} \\left(\\frac{x}{a}\\right) + C$",
+                "$\\sinh^{-1} \\left(\\frac{x}{a}\\right) + C$",
+                "$\\frac{1}{a} \\sec^{-1} \\left(\\frac{x}{a}\\right) + C$",
+                "$\\ln \\left| x + \\sqrt{x^2 - a^2} \\right| + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "$\\int \\frac{1}{\\sqrt{x^2 - a^2}} \\, dx = \\cosh^{-1} \\left(\\frac{x}{a}\\right) + C = \\ln \\left| x + \\sqrt{x^2 - a^2} \\right| + C$."
+        },
+        // 49
+        {
+            "type": "mcq",
+            "text": "What is the integral of $\\frac{1}{\\sqrt{x^2 + a^2}}$ for $a > 0$?",
+            "options": [
+                "$\\sinh^{-1} \\left(\\frac{x}{a}\\right) + C$",
+                "$\\cosh^{-1} \\left(\\frac{x}{a}\\right) + C$",
+                "$\\frac{1}{a} \\tan^{-1} \\left(\\frac{x}{a}\\right) + C$",
+                "$\\ln \\left| x + \\sqrt{x^2 + a^2} \\right| + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "$\\int \\frac{1}{\\sqrt{x^2 + a^2}} \\, dx = \\sinh^{-1} \\left(\\frac{x}{a}\\right) + C = \\ln \\left| x + \\sqrt{x^2 + a^2} \\right| + C$."
+        },
+        // 50
+        {
+            "type": "mcq",
+            "text": "What is the integral of $\\frac{1}{a^2 - x^2}$ for $|x| < a$?",
+            "options": [
+                "$\\frac{1}{2a} \\ln \\left| \\frac{a+x}{a-x} \\right| + C$",
+                "$\\frac{1}{a} \\tan^{-1} \\left(\\frac{x}{a}\\right) + C$",
+                "$\\frac{1}{2a} \\ln \\left| \\frac{a-x}{a+x} \\right| + C$",
+                "$\\frac{1}{a} \\sin^{-1} \\left(\\frac{x}{a}\\right) + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "$\\int \\frac{1}{a^2 - x^2} \\, dx = \\frac{1}{2a} \\ln \\left| \\frac{a+x}{a-x} \\right| + C$."
+        },
+        // 51
+        {
+            "type": "mcq",
+            "text": "What is the integral of $\\frac{1}{x^2 + a^2}$ for a &ne; 0?",
+            "options": [
+                "$\\frac{1}{a} \\tan^{-1} \\left(\\frac{x}{a}\\right) + C$",
+                "$\\frac{1}{a} \\cot^{-1} \\left(\\frac{x}{a}\\right) + C$",
+                "$\\tan^{-1} \\left(\\frac{x}{a}\\right) + C$",
+                "$\\frac{1}{2a} \\ln \\left| \\frac{x-a}{x+a} \\right| + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "The standard integral is $\\frac{1}{a} \\tan^{-1} \\left(\\frac{x}{a}\\right) + C$."
+        },
+        // 52
+        {
+            "type": "mcq",
+            "text": "What is the integral of $\\frac{1}{x^2 + a^2}$ when $a = 1$?",
+            "options": [
+                "$\\tan^{-1} x + C$",
+                "$\\sin^{-1} x + C$",
+                "$\\sec^{-1} x + C$",
+                "$\\ln(x^2+1) + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "When $a=1$, $\\int \\frac{1}{1+x^2} \\, dx = \\tan^{-1} x + C$."
+        },
+        // 53
+        {
+            "type": "mcq",
+            "text": "What is the integral of $\\frac{1}{\\sqrt{1-x^2}}$ for $|x| < 1$?",
+            "options": [
+                "$\\sin^{-1} x + C$",
+                "$\\cos^{-1} x + C$",
+                "$\\tan^{-1} x + C$",
+                "$\\sec^{-1} x + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "The standard integral is $\\sin^{-1} x + C$."
+        },
+        // 54
+        {
+            "type": "mcq",
+            "text": "What is the integral of $\\frac{1}{\\sqrt{x^2 - 1}}$ for $x > 1$?",
+            "options": [
+                "$\\cosh^{-1} x + C$",
+                "$\\sinh^{-1} x + C$",
+                "$\\ln(x + \\sqrt{x^2-1}) + C$",
+                "$\\sec^{-1} x + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "$\\int \\frac{1}{\\sqrt{x^2-1}} \\, dx = \\cosh^{-1} x + C = \\ln(x + \\sqrt{x^2-1}) + C$."
+        },
+        // 55
+        {
+            "type": "mcq",
+            "text": "What is the integral of $\\frac{1}{\\sqrt{x^2+1}}$?",
+            "options": [
+                "$\\sinh^{-1} x + C$",
+                "$\\cosh^{-1} x + C$",
+                "$\\tan^{-1} x + C$",
+                "$\\ln(x + \\sqrt{x^2+1}) + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "$\\int \\frac{1}{\\sqrt{x^2+1}} \\, dx = \\sinh^{-1} x + C = \\ln(x + \\sqrt{x^2+1}) + C$."
+        },
+        // 56
+        {
+            "type": "mcq",
+            "text": "What is the integral of $\\frac{1}{x \\sqrt{x^2 - 1}}$ for $x > 1$?",
+            "options": [
+                "$\\sec^{-1} x + C$",
+                "$\\csc^{-1} x + C$",
+                "$\\cosh^{-1} x + C$",
+                "$\\ln\\left| \\frac{\\sqrt{x^2-1}}{x} \\right| + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "$\\int \\frac{1}{x \\sqrt{x^2 - 1}} \\, dx = \\sec^{-1} x + C$."
+        },
+        // 57
+        {
+            "type": "mcq",
+            "text": "What is the integral of $\\frac{1}{x \\sqrt{x^2 + 1}}$?",
+            "options": [
+                "$\\frac{1}{\\sqrt{x^2+1}} + C$",
+                "$-\\frac{1}{\\sqrt{x^2+1}} + C$",
+                "$\\tan^{-1} x + C$",
+                "$\\ln \\left| \\frac{\\sqrt{x^2+1}-1}{x} \\right| + C$"
+            ],
+            "correctAnswer": 3,
+            "solution": "$\\int \\frac{1}{x \\sqrt{x^2 + 1}} \\, dx = \\ln \\left| \\frac{\\sqrt{x^2+1}-1}{x} \\right| + C$."
+        },
+        // 58
+        {
+            "type": "mcq",
+            "text": "What is the integral of $\\frac{1}{x \\sqrt{x^2+a^2}}$ for $a > 0$?",
+            "options": [
+                "$\\frac{1}{a} \\ln \\left| \\frac{\\sqrt{x^2+a^2}-a}{x} \\right| + C$",
+                "$\\frac{1}{a} \\ln \\left| \\frac{\\sqrt{x^2+a^2}+a}{x} \\right| + C$",
+                "$\\frac{1}{2a} \\tan^{-1} \\left(\\frac{x}{a}\\right) + C$",
+                "$\\frac{1}{a} \\sin^{-1} \\left(\\frac{x}{a}\\right) + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "Substitute $x = a \\tan \\theta$, $dx = a \\sec^2 \\theta d\\theta$. $\\int \\frac{1}{x \\sqrt{x^2+a^2}} \\, dx = \\frac{1}{a} \\ln \\left| \\frac{\\sqrt{x^2+a^2}-a}{x} \\right| + C$."
+        },
+        // 59
+        {
+            "type": "mcq",
+            "text": "What is the integral of $\\frac{1}{\\sqrt{x^2 - a^2}}$ for $|x| > a > 0$?",
+            "options": [
+                "$\\ln \\left| x + \\sqrt{x^2 - a^2} \\right| + C$",
+                "$\\sin^{-1} \\left(\\frac{x}{a}\\right) + C$",
+                "$\\frac{1}{a} \\sec^{-1} \\left(\\frac{x}{a}\\right) + C$",
+                "$\\cosh^{-1} \\left(\\frac{x}{a}\\right) + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "$\\int \\frac{1}{\\sqrt{x^2 - a^2}} \\, dx = \\cosh^{-1} \\left(\\frac{x}{a}\\right) + C = \\ln \\left| x + \\sqrt{x^2 - a^2} \\right| + C$."
+        },
+        // 60
+        {
+            "type": "mcq",
+            "text": "What is the integral of $\\frac{1}{\\sqrt{x^2 + a^2}}$ for $a > 0$?",
+            "options": [
+                "$\\sinh^{-1} \\left(\\frac{x}{a}\\right) + C$",
+                "$\\cosh^{-1} \\left(\\frac{x}{a}\\right) + C$",
+                "$\\tan^{-1} \\left(\\frac{x}{a}\\right) + C$",
+                "$\\frac{1}{a} \\ln \\left| x + \\sqrt{x^2 + a^2} \\right| + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "$\\int \\frac{1}{\\sqrt{x^2 + a^2}} \\, dx = \\sinh^{-1} \\left(\\frac{x}{a}\\right) + C = \\ln \\left| x + \\sqrt{x^2 + a^2} \\right| + C$."
+        },
+        // 61
+        {
+            "type": "mcq",
+            "text": "What is the integral of $\\frac{1}{a^2 - x^2}$ for $|x| < a$?",
+            "options": [
+                "$\\frac{1}{2a} \\ln \\left| \\frac{a+x}{a-x} \\right| + C$",
+                "$\\frac{1}{a} \\tan^{-1} \\left(\\frac{x}{a}\\right) + C$",
+                "$\\frac{1}{2a} \\ln \\left| \\frac{a-x}{a+x} \\right| + C$",
+                "$\\ln \\left| \\frac{a+x}{a-x} \\right| + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "$\\int \\frac{1}{a^2 - x^2} \\, dx = \\frac{1}{2a} \\ln \\left| \\frac{a+x}{a-x} \\right| + C$."
+        },
+        // 62
+        {
+            "type": "mcq",
+            "text": "What is the integral of $\\frac{1}{x^2 - a^2}$ for $|x| > a$?",
+            "options": [
+                "$\\frac{1}{2a} \\ln \\left| \\frac{x-a}{x+a} \\right| + C$",
+                "$\\frac{1}{a} \\tan^{-1} \\left(\\frac{x}{a}\\right) + C$",
+                "$\\frac{1}{2a} \\ln \\left| \\frac{x+a}{x-a} \\right| + C$",
+                "$\\ln \\left| \\frac{x-a}{x+a} \\right| + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "$\\int \\frac{1}{x^2 - a^2} \\, dx = \\frac{1}{2a} \\ln \\left| \\frac{x-a}{x+a} \\right| + C$."
+        },
+        // 63
+        {
+            "type": "mcq",
+            "text": "What is the integral of $\\sec x \\tan x$?",
+            "options": [
+                "$\\sec x + C$",
+                "$\\tan x + C$",
+                "$\\ln |\\sec x + \\tan x| + C$",
+                "$\\sec^2 x + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "$\\int \\sec x \\tan x \\, dx = \\sec x + C$."
+        },
+        // 64
+        {
+            "type": "mcq",
+            "text": "What is the integral of $\\csc x \\cot x$?",
+            "options": [
+                "$-\\csc x + C$",
+                "$\\csc x + C$",
+                "$\\ln |\\csc x - \\cot x| + C$",
+                "$\\csc^2 x + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "$\\int \\csc x \\cot x \\, dx = -\\csc x + C$."
+        },
+        // 65
+        {
+            "type": "mcq",
+            "text": "What is the integral of $\\frac{1}{x \\ln x}$?",
+            "options": [
+                "$\\ln |\\ln x| + C$",
+                "$\\frac{1}{\\ln x} + C$",
+                "$\\ln x + C$",
+                "$\\frac{1}{x} + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "Substitute $u = \\ln x$, $du = \\frac{dx}{x}$, so $\\int \\frac{1}{x \\ln x} \\, dx = \\int \\frac{du}{u} = \\ln |u| + C = \\ln |\\ln x| + C$."
+        },
+        // 66
+        {
+            "type": "mcq",
+            "text": "What is the integral of $\\frac{1}{x \\ln x}$ for $x > 1$?",
+            "options": [
+                "$\\ln(\\ln x) + C$",
+                "$\\ln |\\ln x| + C$",
+                "$\\frac{1}{\\ln x} + C$",
+                "$\\ln x + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "For $x > 1$, $\\ln x > 0$, so $\\int \\frac{1}{x \\ln x} \\, dx = \\ln(\\ln x) + C$."
+        },
+        // 67
+        {
+            "type": "mcq",
+            "text": "What is the integral of $e^{ax}$ for a &ne; 0?",
+            "options": [
+                "$\\frac{e^{ax}}{a} + C$",
+                "$a e^{ax} + C$",
+                "$e^{ax} + C$",
+                "$\\frac{e^{ax}}{x} + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "$\\int e^{ax} \\, dx = \\frac{e^{ax}}{a} + C$."
+        },
+        // 68
+        {
+            "type": "mcq",
+            "text": "What is the integral of $a^{bx}$ for a > 0, a &ne; 1 and b &ne; 0?",
+            "options": [
+                "$\\frac{a^{bx}}{b \\ln a} + C$",
+                "$\\frac{a^{bx}}{\\ln a} + C$",
+                "$b a^{bx} \\ln a + C$",
+                "$\\frac{a^{bx}}{b} + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "$\\int a^{bx} \\, dx = \\frac{a^{bx}}{b \\ln a} + C$."
+        },
+        // 69
+        {
+            "type": "mcq",
+            "text": "What is the integral of $\\sin(ax+b)$?",
+            "options": [
+                "$-\\frac{1}{a} \\cos(ax+b) + C$",
+                "$\\frac{1}{a} \\cos(ax+b) + C$",
+                "$-\\cos(ax+b) + C$",
+                "$\\frac{1}{a} \\sin(ax+b) + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "$\\int \\sin(ax+b) \\, dx = -\\frac{1}{a} \\cos(ax+b) + C$."
+        },
+        // 70
+        {
+            "type": "mcq",
+            "text": "What is the integral of $\\cos(ax+b)$?",
+            "options": [
+                "$\\frac{1}{a} \\sin(ax+b) + C$",
+                "$-\\frac{1}{a} \\sin(ax+b) + C$",
+                "$\\sin(ax+b) + C$",
+                "$\\frac{1}{a} \\cos(ax+b) + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "$\\int \\cos(ax+b) \\, dx = \\frac{1}{a} \\sin(ax+b) + C$."
+        },
+        // 71
+        {
+            "type": "mcq",
+            "text": "What is the integral of $\\sec^2(ax+b)$?",
+            "options": [
+                "$\\frac{1}{a} \\tan(ax+b) + C$",
+                "$\\tan(ax+b) + C$",
+                "$\\frac{1}{a} \\sec(ax+b) + C$",
+                "$\\sec(ax+b) \\tan(ax+b) + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "$\\int \\sec^2(ax+b) \\, dx = \\frac{1}{a} \\tan(ax+b) + C$."
+        },
+        // 72
+        {
+            "type": "mcq",
+            "text": "What is the integral of $\\csc^2(ax+b)$?",
+            "options": [
+                "$-\\frac{1}{a} \\cot(ax+b) + C$",
+                "$\\frac{1}{a} \\cot(ax+b) + C$",
+                "$-\\cot(ax+b) + C$",
+                "$\\frac{1}{a} \\csc(ax+b) + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "$\\int \\csc^2(ax+b) \\, dx = -\\frac{1}{a} \\cot(ax+b) + C$."
+        },
+        // 73
+        {
+            "type": "mcq",
+            "text": "What is the integral of $\\sec(ax+b) \\tan(ax+b)$?",
+            "options": [
+                "$\\frac{1}{a} \\sec(ax+b) + C$",
+                "$\\sec(ax+b) + C$",
+                "$\\frac{1}{a} \\tan(ax+b) + C$",
+                "$\\frac{1}{a} \\ln |\\sec(ax+b) + \\tan(ax+b)| + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "$\\int \\sec(ax+b) \\tan(ax+b) \\, dx = \\frac{1}{a} \\sec(ax+b) + C$."
+        },
+        // 74
+        {
+            "type": "mcq",
+            "text": "What is the integral of $\\csc(ax+b) \\cot(ax+b)$?",
+            "options": [
+                "$-\\frac{1}{a} \\csc(ax+b) + C$",
+                "$\\frac{1}{a} \\csc(ax+b) + C$",
+                "$-\\csc(ax+b) + C$",
+                "$\\frac{1}{a} \\cot(ax+b) + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "$\\int \\csc(ax+b) \\cot(ax+b) \\, dx = -\\frac{1}{a} \\csc(ax+b) + C$."
+        },
+        // 75
+        {
+            "type": "mcq",
+            "text": "What is the integral of $\\tan(ax+b)$?",
+            "options": [
+                "$\\frac{1}{a} \\ln |\\sec(ax+b)| + C$",
+                "$\\ln |\\sec(ax+b)| + C$",
+                "$\\frac{1}{a} \\sec^2(ax+b) + C$",
+                "$-\\frac{1}{a} \\ln |\\cos(ax+b)| + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "$\\int \\tan(ax+b) \\, dx = \\frac{1}{a} \\ln |\\sec(ax+b)| + C = -\\frac{1}{a} \\ln |\\cos(ax+b)| + C$."
+        },
+        // 76
+        {
+            "type": "mcq",
+            "text": "What is the integral of $\\cot(ax+b)$?",
+            "options": [
+                "$\\frac{1}{a} \\ln |\\sin(ax+b)| + C$",
+                "$\\ln |\\sin(ax+b)| + C$",
+                "$-\\frac{1}{a} \\ln |\\cos(ax+b)| + C$",
+                "$\\frac{1}{a} \\csc^2(ax+b) + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "$\\int \\cot(ax+b) \\, dx = \\frac{1}{a} \\ln |\\sin(ax+b)| + C$."
+        },
+        // 77
+        {
+            "type": "mcq",
+            "text": "What is the integral of $\\sec(ax+b)$?",
+            "options": [
+                "$\\frac{1}{a} \\ln |\\sec(ax+b) + \\tan(ax+b)| + C$",
+                "$\\ln |\\sec(ax+b) + \\tan(ax+b)| + C$",
+                "$\\frac{1}{a} \\sec(ax+b) \\tan(ax+b) + C$",
+                "$\\frac{1}{a} \\tan(ax+b) + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "$\\int \\sec(ax+b) \\, dx = \\frac{1}{a} \\ln |\\sec(ax+b) + \\tan(ax+b)| + C$."
+        },
+        // 78
+        {
+            "type": "mcq",
+            "text": "What is the integral of $\\csc(ax+b)$?",
+            "options": [
+                "$\\frac{1}{a} \\ln |\\csc(ax+b) - \\cot(ax+b)| + C$",
+                "$\\ln |\\csc(ax+b) - \\cot(ax+b)| + C$",
+                "$-\\frac{1}{a} \\ln |\\csc(ax+b) + \\cot(ax+b)| + C$",
+                "$\\frac{1}{a} \\csc(ax+b) \\cot(ax+b) + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "$\\int \\csc(ax+b) \\, dx = \\frac{1}{a} \\ln |\\csc(ax+b) - \\cot(ax+b)| + C$."
+        },
+        // 79
+        {
+            "type": "mcq",
+            "text": "What is the integral of $\\frac{1}{x^2 + a^2}$ when $a = 0$?",
+            "options": [
+                "It is undefined (division by zero)",
+                "$-\\frac{1}{x} + C$",
+                "$\\ln |x| + C$",
+                "$\\frac{1}{x} + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "When $a=0$, the integrand becomes $1/x^2$, whose integral is $-1/x + C$."
+        },
+        // 80
+        {
+            "type": "mcq",
+            "text": "What is the integral of $\\frac{1}{x^2 - 1}$?",
+            "options": [
+                "$\\frac{1}{2} \\ln \\left| \\frac{x-1}{x+1} \\right| + C$",
+                "$\\frac{1}{2} \\ln \\left| \\frac{x+1}{x-1} \\right| + C$",
+                "$\\tan^{-1} x + C$",
+                "$\\ln |x^2 - 1| + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "With $a=1$, $\\int \\frac{1}{x^2 - 1} \\, dx = \\frac{1}{2} \\ln \\left| \\frac{x-1}{x+1} \\right| + C$."
+        },
+        // 81
+        {
+            "type": "mcq",
+            "text": "What is the integral of $\\frac{1}{\\sqrt{x^2 - 1}}$?",
+            "options": [
+                "$\\ln |x + \\sqrt{x^2 - 1}| + C$",
+                "$\\sin^{-1} x + C$",
+                "$\\sec^{-1} x + C$",
+                "$\\cosh^{-1} x + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "$\\int \\frac{1}{\\sqrt{x^2 - 1}} \\, dx = \\ln |x + \\sqrt{x^2 - 1}| + C$."
+        },
+        // 82
+        {
+            "type": "mcq",
+            "text": "What is the integral of $\\frac{1}{\\sqrt{x^2 + 1}}$?",
+            "options": [
+                "$\\ln |x + \\sqrt{x^2 + 1}| + C$",
+                "$\\sin^{-1} x + C$",
+                "$\\tan^{-1} x + C$",
+                "$\\sinh^{-1} x + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "$\\int \\frac{1}{\\sqrt{x^2 + 1}} \\, dx = \\ln |x + \\sqrt{x^2 + 1}| + C$."
+        },
+        // 83
+        {
+            "type": "mcq",
+            "text": "What is the integral of $\\frac{1}{1 - x^2}$?",
+            "options": [
+                "$\\frac{1}{2} \\ln \\left| \\frac{1+x}{1-x} \\right| + C$",
+                "$\\tan^{-1} x + C$",
+                "$\\sin^{-1} x + C$",
+                "$\\frac{1}{2} \\ln \\left| \\frac{1-x}{1+x} \\right| + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "With $a=1$, $\\int \\frac{1}{1 - x^2} \\, dx = \\frac{1}{2} \\ln \\left| \\frac{1+x}{1-x} \\right| + C$."
+        },
+        // 84
+        {
+            "type": "mcq",
+            "text": "What is the integral of $\\frac{1}{\\sqrt{1 - x^2}}$?",
+            "options": [
+                "$\\sin^{-1} x + C$",
+                "$\\cos^{-1} x + C$",
+                "$\\tan^{-1} x + C$",
+                "$\\frac{1}{2} \\ln \\left| \\frac{1+x}{1-x} \\right| + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "$\\int \\frac{1}{\\sqrt{1 - x^2}} \\, dx = \\sin^{-1} x + C$."
+        },
+        // 85
+        {
+            "type": "mcq",
+            "text": "What is the integral of $\\frac{1}{x^2 + x + 1}$?",
+            "options": [
+                "$\\frac{2}{\\sqrt{3}} \\tan^{-1} \\left(\\frac{2x+1}{\\sqrt{3}}\\right) + C$",
+                "$\\tan^{-1} (2x+1) + C$",
+                "$\\frac{1}{\\sqrt{3}} \\tan^{-1} \\left(\\frac{2x+1}{\\sqrt{3}}\\right) + C$",
+                "$\\frac{1}{2} \\ln \\left| \\frac{x+1/2 - \\sqrt{3}/2}{x+1/2 + \\sqrt{3}/2} \\right| + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "Complete square: $(x+1/2)^2 + 3/4$, so integral = $\\frac{1}{\\sqrt{3}/2} \\tan^{-1} \\left(\\frac{x+1/2}{\\sqrt{3}/2}\\right) + C = \\frac{2}{\\sqrt{3}} \\tan^{-1} \\left(\\frac{2x+1}{\\sqrt{3}}\\right) + C$."
+        },
+        // 86
+        {
+            "type": "mcq",
+            "text": "What is the integral of $\\frac{1}{x^2 - x + 1}$?",
+            "options": [
+                "$\\frac{2}{\\sqrt{3}} \\tan^{-1} \\left(\\frac{2x-1}{\\sqrt{3}}\\right) + C$",
+                "$\\frac{1}{\\sqrt{3}} \\tan^{-1} \\left(\\frac{2x-1}{\\sqrt{3}}\\right) + C$",
+                "$\\frac{2}{\\sqrt{3}} \\tan^{-1} \\left(\\frac{2x+1}{\\sqrt{3}}\\right) + C$",
+                "$\\ln |x^2 - x + 1| + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "Complete square: $(x-1/2)^2 + 3/4$, so integral = $\\frac{1}{\\sqrt{3}/2} \\tan^{-1} \\left(\\frac{x-1/2}{\\sqrt{3}/2}\\right) + C = \\frac{2}{\\sqrt{3}} \\tan^{-1} \\left(\\frac{2x-1}{\\sqrt{3}}\\right) + C$."
+        },
+        // 87
+        {
+            "type": "mcq",
+            "text": "What is the integral of $\\frac{1}{x^2 + 2x + 2}$?",
+            "options": [
+                "$\\tan^{-1} (x+1) + C$",
+                "$\\frac{1}{2} \\tan^{-1} (x+1) + C$",
+                "$\\sin^{-1} (x+1) + C$",
+                "$\\ln |x^2 + 2x + 2| + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "Complete square: $x^2+2x+2 = (x+1)^2 + 1$, so $\\int \\frac{1}{(x+1)^2+1} \\, dx = \\tan^{-1}(x+1) + C$."
+        },
+        // 88
+        {
+            "type": "mcq",
+            "text": "What is the integral of $\\frac{1}{\\sqrt{x^2 + 2x + 2}}$?",
+            "options": [
+                "$\\ln |x+1 + \\sqrt{x^2+2x+2}| + C$",
+                "$\\sin^{-1} (x+1) + C$",
+                "$\\tan^{-1} (x+1) + C$",
+                "$\\frac{1}{\\sqrt{2}} \\ln |x+1 + \\sqrt{x^2+2x+2}| + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "Complete square: $x^2+2x+2 = (x+1)^2 + 1$, so $\\int \\frac{1}{\\sqrt{(x+1)^2+1}} \\, dx = \\ln |x+1 + \\sqrt{(x+1)^2+1}| + C = \\ln |x+1 + \\sqrt{x^2+2x+2}| + C$."
+        },
+        // 89
+        {
+            "type": "mcq",
+            "text": "What is the integral of $\\frac{1}{\\sqrt{x^2 - 2x + 2}}$?",
+            "options": [
+                "$\\ln |x-1 + \\sqrt{x^2 - 2x + 2}| + C$",
+                "$\\sin^{-1} (x-1) + C$",
+                "$\\tan^{-1} (x-1) + C$",
+                "$\\cosh^{-1} (x-1) + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "Complete square: $x^2 - 2x + 2 = (x-1)^2 + 1$, so $\\int \\frac{1}{\\sqrt{(x-1)^2+1}} \\, dx = \\ln |x-1 + \\sqrt{(x-1)^2+1}| + C = \\ln |x-1 + \\sqrt{x^2 - 2x + 2}| + C$."
+        },
+        // 90
+        {
+            "type": "mcq",
+            "text": "What is the integral of $\\frac{1}{\\sqrt{x^2 - 2x - 3}}$ for $x > 3$?",
+            "options": [
+                "$\\cosh^{-1} \\left(\\frac{x-1}{2}\\right) + C$",
+                "$\\sinh^{-1} \\left(\\frac{x-1}{2}\\right) + C$",
+                "$\\ln |x-1 + \\sqrt{x^2 - 2x - 3}| + C$",
+                "$\\frac{1}{2} \\ln \\left| \\frac{x-3}{x+1} \\right| + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "Complete square: $x^2 - 2x - 3 = (x-1)^2 - 4$. For $x>3$, $x-1>2$, so $\\int \\frac{1}{\\sqrt{(x-1)^2 - 2^2}} \\, dx = \\cosh^{-1} \\left(\\frac{x-1}{2}\\right) + C = \\ln |x-1 + \\sqrt{x^2 - 2x - 3}| + C$."
+        },
+        // 91
+        {
+            "type": "mcq",
+            "text": "What is the integral of $\\frac{1}{\\sqrt{4 - x^2}}$?",
+            "options": [
+                "$\\sin^{-1} \\left(\\frac{x}{2}\\right) + C$",
+                "$\\frac{1}{2} \\sin^{-1} \\left(\\frac{x}{2}\\right) + C$",
+                "$\\tan^{-1} \\left(\\frac{x}{2}\\right) + C$",
+                "$\\frac{1}{\\sqrt{4}} \\sin^{-1} x + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "With $a=2$, $\\int \\frac{1}{\\sqrt{4 - x^2}} \\, dx = \\sin^{-1} \\left(\\frac{x}{2}\\right) + C$."
+        },
+        // 92
+        {
+            "type": "mcq",
+            "text": "What is the integral of $\\frac{1}{\\sqrt{9 - x^2}}$?",
+            "options": [
+                "$\\sin^{-1} \\left(\\frac{x}{3}\\right) + C$",
+                "$\\frac{1}{3} \\sin^{-1} \\left(\\frac{x}{3}\\right) + C$",
+                "$\\tan^{-1} \\left(\\frac{x}{3}\\right) + C$",
+                "$\\frac{1}{\\sqrt{9}} \\sin^{-1} x + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "With $a=3$, $\\int \\frac{1}{\\sqrt{9 - x^2}} \\, dx = \\sin^{-1} \\left(\\frac{x}{3}\\right) + C$."
+        },
+        // 93
+        {
+            "type": "mcq",
+            "text": "What is the integral of $\\frac{1}{x^2 + 4}$?",
+            "options": [
+                "$\\frac{1}{2} \\tan^{-1} \\left(\\frac{x}{2}\\right) + C$",
+                "$\\tan^{-1} \\left(\\frac{x}{2}\\right) + C$",
+                "$\\frac{1}{4} \\tan^{-1} \\left(\\frac{x}{2}\\right) + C$",
+                "$\\frac{1}{2} \\sin^{-1} \\left(\\frac{x}{2}\\right) + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "With $a=2$, $\\int \\frac{1}{x^2 + 4} \\, dx = \\frac{1}{2} \\tan^{-1} \\left(\\frac{x}{2}\\right) + C$."
+        },
+        // 94
+        {
+            "type": "mcq",
+            "text": "What is the integral of $\\frac{1}{x^2 - 4}$?",
+            "options": [
+                "$\\frac{1}{4} \\ln \\left| \\frac{x-2}{x+2} \\right| + C$",
+                "$\\frac{1}{2} \\ln \\left| \\frac{x-2}{x+2} \\right| + C$",
+                "$\\frac{1}{4} \\tan^{-1} \\left(\\frac{x}{2}\\right) + C$",
+                "$\\ln |x^2 - 4| + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "With $a=2$, $\\int \\frac{1}{x^2 - 4} \\, dx = \\frac{1}{4} \\ln \\left| \\frac{x-2}{x+2} \\right| + C$."
+        },
+        // 95
+        {
+            "type": "mcq",
+            "text": "What is the integral of $\\frac{1}{\\sqrt{x^2 + 4}}$?",
+            "options": [
+                "$\\ln \\left| x + \\sqrt{x^2 + 4} \\right| + C$",
+                "$\\sinh^{-1} \\left(\\frac{x}{2}\\right) + C$",
+                "$\\frac{1}{2} \\ln \\left| x + \\sqrt{x^2 + 4} \\right| + C$",
+                "$\\tan^{-1} \\left(\\frac{x}{2}\\right) + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "With $a=2$, $\\int \\frac{1}{\\sqrt{x^2 + 4}} \\, dx = \\ln \\left| x + \\sqrt{x^2 + 4} \\right| + C = \\sinh^{-1} \\left(\\frac{x}{2}\\right) + C$."
+        },
+        // 96
+        {
+            "type": "mcq",
+            "text": "What is the integral of $\\frac{1}{\\sqrt{x^2 - 4}}$ for $x > 2$?",
+            "options": [
+                "$\\ln \\left| x + \\sqrt{x^2 - 4} \\right| + C$",
+                "$\\cosh^{-1} \\left(\\frac{x}{2}\\right) + C$",
+                "$\\frac{1}{2} \\ln \\left| x + \\sqrt{x^2 - 4} \\right| + C$",
+                "$\\sec^{-1} \\left(\\frac{x}{2}\\right) + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "With $a=2$, $\\int \\frac{1}{\\sqrt{x^2 - 4}} \\, dx = \\ln \\left| x + \\sqrt{x^2 - 4} \\right| + C = \\cosh^{-1} \\left(\\frac{x}{2}\\right) + C$."
+        },
+        // 97
+        {
+            "type": "mcq",
+            "text": "What is the integral of $\\frac{1}{x \\sqrt{x^2 - 4}}$ for $x > 2$?",
+            "options": [
+                "$\\frac{1}{2} \\sec^{-1} \\left(\\frac{x}{2}\\right) + C$",
+                "$\\sec^{-1} \\left(\\frac{x}{2}\\right) + C$",
+                "$\\frac{1}{2} \\cosh^{-1} \\left(\\frac{x}{2}\\right) + C$",
+                "$\\ln \\left| \\frac{x}{2} + \\sqrt{\\frac{x^2}{4} - 1} \\right| + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "With $a=2$, $\\int \\frac{1}{x \\sqrt{x^2 - 4}} \\, dx = \\frac{1}{2} \\sec^{-1} \\left(\\frac{x}{2}\\right) + C$."
+        },
+        // 98
+        {
+            "type": "mcq",
+            "text": "What is the integral of $\\frac{1}{x \\sqrt{4 - x^2}}$ for $0 < x < 2$?",
+            "options": [
+                "$-\\frac{1}{2} \\ln \\left| \\frac{2 + \\sqrt{4 - x^2}}{x} \\right| + C$",
+                "$\\frac{1}{2} \\sec^{-1} \\left(\\frac{x}{2}\\right) + C$",
+                "$\\frac{1}{2} \\sin^{-1} \\left(\\frac{x}{2}\\right) + C$",
+                "$-\\frac{1}{2} \\ln \\left| \\frac{2 - \\sqrt{4 - x^2}}{x} \\right| + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "Using substitution $x = 2 \\sin \\theta$, the integral simplifies to $-\\frac{1}{2} \\ln \\left| \\frac{2 + \\sqrt{4 - x^2}}{x} \\right| + C$."
+        },
+        // 99
+        {
+            "type": "mcq",
+            "text": "What is the integral of $\\frac{1}{x^2 + 2x + 5}$?",
+            "options": [
+                "$\\frac{1}{2} \\tan^{-1} \\left(\\frac{x+1}{2}\\right) + C$",
+                "$\\tan^{-1} \\left(\\frac{x+1}{2}\\right) + C$",
+                "$\\frac{1}{2} \\sin^{-1} \\left(\\frac{x+1}{2}\\right) + C$",
+                "$\\frac{1}{2} \\ln \\left| \\frac{x+1-2}{x+1+2} \\right| + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "Complete square: $x^2+2x+5 = (x+1)^2 + 4$. So $\\int \\frac{1}{(x+1)^2 + 2^2} \\, dx = \\frac{1}{2} \\tan^{-1} \\left(\\frac{x+1}{2}\\right) + C$."
+        },
+        // 100
+        {
+            "type": "mcq",
+            "text": "What is the integral of $\\frac{1}{\\sqrt{x^2 + 2x + 5}}$?",
+            "options": [
+                "$\\ln \\left| x+1 + \\sqrt{x^2+2x+5} \\right| + C$",
+                "$\\sin^{-1} \\left(\\frac{x+1}{2}\\right) + C$",
+                "$\\frac{1}{2} \\ln \\left| x+1 + \\sqrt{x^2+2x+5} \\right| + C$",
+                "$\\tan^{-1} \\left(\\frac{x+1}{2}\\right) + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "Complete square: $x^2+2x+5 = (x+1)^2 + 4 = (x+1)^2 + 2^2$. So $\\int \\frac{1}{\\sqrt{(x+1)^2 + 2^2}} \\, dx = \\ln \\left| x+1 + \\sqrt{(x+1)^2 + 4} \\right| + C = \\ln \\left| x+1 + \\sqrt{x^2+2x+5} \\right| + C$."
+        },
+        // 101
+        {
+            "type": "mcq",
+            "text": "What is the integral of $\\frac{1}{\\sqrt{x^2 - 2x + 5}}$?",
+            "options": [
+                "$\\ln \\left| x-1 + \\sqrt{x^2-2x+5} \\right| + C$",
+                "$\\sinh^{-1} \\left(\\frac{x-1}{2}\\right) + C$",
+                "$\\frac{1}{2} \\ln \\left| x-1 + \\sqrt{x^2-2x+5} \\right| + C$",
+                "$\\tan^{-1} \\left(\\frac{x-1}{2}\\right) + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "Complete square: $x^2-2x+5 = (x-1)^2 + 4$. So $\\int \\frac{1}{\\sqrt{(x-1)^2 + 2^2}} \\, dx = \\ln \\left| x-1 + \\sqrt{x^2-2x+5} \\right| + C$."
+        },
+        // 102
+        {
+            "type": "mcq",
+            "text": "What is the integral of $\\frac{1}{\\sqrt{4x^2 + 1}}$?",
+            "options": [
+                "$\\frac{1}{2} \\ln \\left| 2x + \\sqrt{4x^2+1} \\right| + C$",
+                "$\\sinh^{-1} (2x) + C$",
+                "$\\frac{1}{2} \\sinh^{-1} (2x) + C$",
+                "$\\ln \\left| x + \\sqrt{x^2 + 1/4} \\right| + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "Rewrite $4x^2+1 = (2x)^2 + 1^2$. So $\\int \\frac{1}{\\sqrt{(2x)^2 + 1}} \\, dx = \\frac{1}{2} \\ln \\left| 2x + \\sqrt{4x^2+1} \\right| + C$."
+        },
+        // 103
+        {
+            "type": "mcq",
+            "text": "What is the integral of $\\frac{1}{\\sqrt{1 - 4x^2}}$?",
+            "options": [
+                "$\\frac{1}{2} \\sin^{-1} (2x) + C$",
+                "$\\sin^{-1} (2x) + C$",
+                "$\\frac{1}{2} \\cos^{-1} (2x) + C$",
+                "$\\tan^{-1} (2x) + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "Rewrite $1-4x^2 = 1 - (2x)^2$. So $\\int \\frac{1}{\\sqrt{1 - (2x)^2}} \\, dx = \\frac{1}{2} \\sin^{-1} (2x) + C$."
+        },
+        // 104
+        {
+            "type": "mcq",
+            "text": "What is the integral of $\\frac{1}{x^2 + 2x + 10}$?",
+            "options": [
+                "$\\frac{1}{3} \\tan^{-1} \\left(\\frac{x+1}{3}\\right) + C$",
+                "$\\tan^{-1} \\left(\\frac{x+1}{3}\\right) + C$",
+                "$\\frac{1}{3} \\sin^{-1} \\left(\\frac{x+1}{3}\\right) + C$",
+                "$\\frac{1}{3} \\ln \\left| \\frac{x+1-3}{x+1+3} \\right| + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "Complete square: $x^2+2x+10 = (x+1)^2 + 9 = (x+1)^2 + 3^2$. So $\\int \\frac{1}{(x+1)^2 + 3^2} \\, dx = \\frac{1}{3} \\tan^{-1} \\left(\\frac{x+1}{3}\\right) + C$."
+        },
+        // 105
+        {
+            "type": "mcq",
+            "text": "What is the integral of $\\frac{1}{\\sqrt{x^2+2x+10}}$?",
+            "options": [
+                "$\\ln \\left| x+1 + \\sqrt{x^2+2x+10} \\right| + C$",
+                "$\\sinh^{-1} \\left(\\frac{x+1}{3}\\right) + C$",
+                "$\\frac{1}{3} \\ln \\left| x+1 + \\sqrt{x^2+2x+10} \\right| + C$",
+                "$\\tan^{-1} \\left(\\frac{x+1}{3}\\right) + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "Complete square: $x^2+2x+10 = (x+1)^2 + 9$. So $\\int \\frac{1}{\\sqrt{(x+1)^2 + 3^2}} \\, dx = \\ln \\left| x+1 + \\sqrt{x^2+2x+10} \\right| + C$."
+        },
+        // 106
+        {
+            "type": "mcq",
+            "text": "What is the integral of $\\frac{1}{x^2 - 2x - 3}$?",
+            "options": [
+                "$\\frac{1}{4} \\ln \\left| \\frac{x-3}{x+1} \\right| + C$",
+                "$\\frac{1}{2} \\ln \\left| \\frac{x-3}{x+1} \\right| + C$",
+                "$\\frac{1}{4} \\tan^{-1} \\left(\\frac{x-1}{2}\\right) + C$",
+                "$\\ln \\left| \\frac{x-3}{x+1} \\right| + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "Factor: $x^2 - 2x - 3 = (x-3)(x+1)$. So $\\int \\frac{1}{(x-3)(x+1)} \\, dx = \\frac{1}{4} \\ln \\left| \\frac{x-3}{x+1} \\right| + C$."
+        },
+        // 107
+        {
+            "type": "mcq",
+            "text": "What is the integral of $\\frac{1}{x^2 + 4x + 5}$?",
+            "options": [
+                "$\\tan^{-1} (x+2) + C$",
+                "$\\frac{1}{2} \\tan^{-1} (x+2) + C$",
+                "$\\sin^{-1} (x+2) + C$",
+                "$\\frac{1}{2} \\ln \\left| \\frac{x+2-1}{x+2+1} \\right| + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "Complete square: $x^2+4x+5 = (x+2)^2 + 1$. So $\\int \\frac{1}{(x+2)^2 + 1} \\, dx = \\tan^{-1}(x+2) + C$."
+        },
+        // 108
+        {
+            "type": "mcq",
+            "text": "What is the integral of $\\frac{1}{\\sqrt{x^2+4x+5}}$?",
+            "options": [
+                "$\\ln \\left| x+2 + \\sqrt{x^2+4x+5} \\right| + C$",
+                "$\\sinh^{-1} (x+2) + C$",
+                "$\\tan^{-1} (x+2) + C$",
+                "$\\frac{1}{2} \\ln \\left| x+2 + \\sqrt{x^2+4x+5} \\right| + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "Complete square: $x^2+4x+5 = (x+2)^2 + 1$. So $\\int \\frac{1}{\\sqrt{(x+2)^2 + 1}} \\, dx = \\ln \\left| x+2 + \\sqrt{x^2+4x+5} \\right| + C$."
+        },
+        // 109
+        {
+            "type": "mcq",
+            "text": "What is the integral of $\\frac{1}{x^2 - 4x + 5}$?",
+            "options": [
+                "$\\tan^{-1} (x-2) + C$",
+                "$\\frac{1}{2} \\tan^{-1} (x-2) + C$",
+                "$\\sin^{-1} (x-2) + C$",
+                "$\\ln \\left| x-2 + \\sqrt{x^2-4x+5} \\right| + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "Complete square: $x^2-4x+5 = (x-2)^2 + 1$. So $\\int \\frac{1}{(x-2)^2 + 1} \\, dx = \\tan^{-1}(x-2) + C$."
+        },
+        // 110
+        {
+            "type": "mcq",
+            "text": "What is the integral of $\\frac{1}{\\sqrt{x^2-4x+5}}$?",
+            "options": [
+                "$\\ln \\left| x-2 + \\sqrt{x^2-4x+5} \\right| + C$",
+                "$\\sinh^{-1} (x-2) + C$",
+                "$\\tan^{-1} (x-2) + C$",
+                "$\\frac{1}{2} \\ln \\left| x-2 + \\sqrt{x^2-4x+5} \\right| + C$"
+            ],
+            "correctAnswer": 0,
+            "solution": "Complete square: $x^2-4x+5 = (x-2)^2 + 1$. So $\\int \\frac{1}{\\sqrt{(x-2)^2 + 1}} \\, dx = \\ln \\left| x-2 + \\sqrt{x^2-4x+5} \\right| + C$."
         }
     ]
 };
