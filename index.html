@@ -33,7 +33,9 @@ h1,h2,h3,.display{font-family:'Space Grotesk',sans-serif; font-weight:600;}
 .nav-btn:hover{background:var(--page-bg); color:var(--ink);}
 
 .header{background:var(--ink); color:#fff; padding:14px 22px; display:flex; justify-content:space-between; align-items:center;}
-.header h1{margin:0; font-size:1.05rem; font-weight:600;}
+.header h1{margin:0; font-size:1.05rem; font-weight:600; display:flex; align-items:center;}
+.header h1 span{font-weight:400;font-size:0.8rem;opacity:0.7;margin-left:12px;}
+
 .timer-box{font-family:'JetBrains Mono',monospace; font-size:1.05rem; font-weight:600; background:#22252c; color:#e8e9eb; padding:7px 16px; border-radius:8px; border:1px solid #34373f; display:none; letter-spacing:0.5px;}
 .timer-box.urgent{background:var(--danger-bg); color:var(--danger); border-color:#f3d2ca; animation:pulseTimer 1s ease-in-out infinite;}
 @keyframes pulseTimer{0%,100%{opacity:1;}50%{opacity:.55;}}
@@ -62,7 +64,7 @@ h1,h2,h3,.display{font-family:'Space Grotesk',sans-serif; font-weight:600;}
 .folder-grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(160px, 1fr)); gap:12px;}
 .folder-card{background:transparent; border:1px solid var(--border); padding:16px 12px; text-align:center; cursor:pointer; transition:.15s; border-radius:12px;}
 .folder-card:hover{border-color:var(--accent); transform:translateY(-2px);}
-.folder-icon{width:38px; height:38px; margin:0 auto 10px; border-radius:9px; background:var(--accent-bg); color:var(--accent-dark); display:flex; align-items:center; justify-content:center; font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:0.85rem;}
+.folder-icon{width:38px; height:38px; margin:0 auto 10px; border-radius:9px; display:flex; align-items:center; justify-content:center; font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:0.85rem;}
 .folder-name{font-weight:500; color:var(--ink); font-size:0.9rem;}
 .folder-count{color:var(--faint); font-size:0.78rem; margin-top:4px;}
 
@@ -124,6 +126,9 @@ th{background:var(--page-bg); font-family:'Space Grotesk',sans-serif; font-weigh
 .correct{color:var(--success); font-weight:600;}
 .incorrect{color:var(--danger); font-weight:600;}
 
+#result-screen{max-width:1000px; margin:0 auto;}
+#result-review-content{margin-top:30px; padding-top:20px; border-top:2px solid var(--border);}
+
 #review-screen{background:var(--card); max-width:880px; margin:20px auto; border-radius:14px; border:1px solid var(--border); padding:28px;}
 .review-card{border:1px solid var(--border); border-radius:12px; padding:20px; margin-bottom:20px; background:var(--page-bg);}
 .review-card h4{margin-top:0; color:var(--ink); font-size:0.98rem; font-family:'JetBrains Mono',monospace; display:inline-block; margin-right:12px;}
@@ -145,7 +150,23 @@ th{background:var(--page-bg); font-family:'Space Grotesk',sans-serif; font-weigh
 .section-instruction ul{padding-left:20px; line-height:1.6;}
 .section-instruction .marking-box{background:#fff; padding:9px 12px; border:1px solid var(--border); border-radius:7px; margin-top:8px; font-family:'JetBrains Mono',monospace; font-size:0.82rem;}
 
-#recent-tests-container h3{padding:10px; margin:0 0 10px; border-radius:8px; text-align:center; font-size:0.85rem; background:var(--ink); color:#fff;}
+/* ------- RESTORED BLINKING HEADER ------- */
+#recent-tests-container h3{
+    padding:10px;
+    margin:0 0 10px;
+    border-radius:8px;
+    text-align:center;
+    font-size:0.85rem;
+    /* Blinking Animation */
+    animation: blink-red-black 1s infinite;
+}
+@keyframes blink-red-black {
+    0%   { background-color: #d32f2f; color: #ffffff; }
+    50%  { background-color: var(--ink); color: #ffffff; }
+    100% { background-color: #d32f2f; color: #ffffff; }
+}
+/* ---------------------------------------- */
+
 #recent-tests-list a{color:var(--accent) !important; text-decoration:none; display:block; padding:8px 10px; font-size:0.88rem;}
 #recent-tests-list a:hover{background:var(--page-bg); border-radius:7px;}
 #recent-tests-list ul{list-style:none; padding:0; margin:0;}
@@ -186,7 +207,7 @@ th{background:var(--page-bg); font-family:'Space Grotesk',sans-serif; font-weigh
 </div>
 
 <div class="header">
-  <h1>JEE CBT Simulator</h1>
+  <h1>JEE CBT Simulator <span id="current-test-title"></span></h1>
   <div class="timer-box mono" id="timer-display">30:00</div>
 </div>
 <div class="progress-track" id="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
@@ -275,6 +296,7 @@ th{background:var(--page-bg); font-family:'Space Grotesk',sans-serif; font-weigh
     <button class="btn-secondary" onclick="generatePDF()">Download report as PDF</button>
   </div>
   <div id="analysis-table"></div>
+  <div id="result-review-content" class="no-print"></div>
 </div>
 
 <div id="review-screen">
@@ -358,6 +380,7 @@ function goHome() {
   document.getElementById('result-screen').style.display = 'none';
   document.getElementById('timer-display').style.display = 'none';
   document.getElementById('progress-track').style.display = 'none';
+  document.getElementById('current-test-title').textContent = '';
   document.getElementById('dashboard-screen').style.display = 'block';
   if (timerInterval) clearInterval(timerInterval);
   currentFolder = null;
@@ -373,36 +396,31 @@ window.onload = function() {
   autoDiscoverTests();
 };
 
-/* ================= TEST DISCOVERY (fixed) =================
-   Old approach: brute-force inject 500 <script> tags and race a fixed
-   4s timeout against onload/onerror callbacks — slow, left dead tags
-   in the DOM, and could silently drop tests that loaded late.
-
-   New approach: try a single manifest.json first (instant, zero guessing).
-   If it's not present, fall back to a parallel fetch-based scan that
-   resolves deterministically via Promise.allSettled — no timers, no
-   dropped results, and only real files ever get executed. */
+/* ================= TEST DISCOVERY (Robust Fetch + Local Fallback) ================= */
 async function autoDiscoverTests() {
   const container = document.getElementById('library-container');
   container.innerHTML = '<p class="loading-text">Looking for tests…</p>';
 
   const manifestIds = await tryLoadManifest();
-  const ids = manifestIds || Array.from({length: MAX_TESTS_TO_SCAN}, (_, i) => 'test_' + String(i + 1).padStart(3, '0'));
 
-  const results = await Promise.allSettled(ids.map(fetchTestFile));
-  results.forEach(r => {
-    if (r.status === 'fulfilled' && r.value) {
-      const id = r.value;
-      if (window.testBank && window.testBank[id]) {
-        loadedTests.push({ id: id, name: window.testBank[id].title || ('Unnamed Test ' + id) });
+  if (manifestIds && manifestIds.length > 0) {
+    const results = await Promise.allSettled(manifestIds.map(fetchTestFile));
+    results.forEach(r => {
+      if (r.status === 'fulfilled' && r.value) {
+        const id = r.value;
+        if (window.testBank && window.testBank[id]) {
+          loadedTests.push({ id: id, name: window.testBank[id].title || ('Unnamed Test ' + id) });
+        }
       }
-    }
-  });
-
-  loadedTests.sort((a, b) => a.id.localeCompare(b.id));
-  processTestData();
-  renderFolders();
-  renderRecentTests();
+    });
+    loadedTests.sort((a, b) => a.id.localeCompare(b.id));
+    processTestData();
+    renderFolders();
+    renderRecentTests();
+  } else {
+    console.log("Falling back to local script injection scan...");
+    tryLocalDiscover();
+  }
 }
 
 async function tryLoadManifest() {
@@ -424,6 +442,44 @@ async function fetchTestFile(id) {
     document.head.appendChild(script);
     return id;
   } catch (e) { return null; }
+}
+
+function tryLocalDiscover() {
+  let testsChecked = 0;
+  let timeoutTriggered = false;
+
+  const fallbackTimer = setTimeout(() => {
+    timeoutTriggered = true;
+    loadedTests.sort((a, b) => a.id.localeCompare(b.id));
+    processTestData();
+    renderFolders();
+    renderRecentTests();
+  }, 4000);
+
+  for (let i = 1; i <= MAX_TESTS_TO_SCAN; i++) {
+    let id = 'test_' + String(i).padStart(3, '0');
+    let script = document.createElement('script');
+    script.src = id + '.js';
+    script.onload = () => {
+      if (window.testBank && window.testBank[id]) {
+        loadedTests.push({ id: id, name: window.testBank[id].title || 'Unnamed Test ' + i });
+      }
+      checkIfScanComplete();
+    };
+    script.onerror = () => { checkIfScanComplete(); };
+    document.head.appendChild(script);
+  }
+
+  function checkIfScanComplete() {
+    testsChecked++;
+    if (testsChecked === MAX_TESTS_TO_SCAN && !timeoutTriggered) {
+      clearTimeout(fallbackTimer);
+      loadedTests.sort((a, b) => a.id.localeCompare(b.id));
+      processTestData();
+      renderFolders();
+      renderRecentTests();
+    }
+  }
 }
 
 function processTestData() {
@@ -519,11 +575,37 @@ function renderFolders() {
     return;
   }
 
+  const folderColors = {
+    'Assignments': '#1a73e8',
+    'Theory and Formulae Tests': '#f39c12',
+    'Full Tests': '#27ae60',
+    'Speed Tests': '#9b59b6',
+    'Chocolate Problems': '#e74c3c',
+    'Pre-Tests': '#2980b9',
+    'Full Tests - Advance': '#8e44ad',
+    'Full Tests - PCM': '#d35400'
+  };
+
+  const fallbackColors = [
+    '#3498db', '#e67e22', '#1abc9c', '#9b59b6',
+    '#e74c3c', '#f39c12', '#2ecc71', '#34495e',
+    '#d35400', '#8e44ad'
+  ];
+
   let html = '<div class="folder-grid">';
   for (let cat in categoriesMap) {
     if (categoriesMap[cat].length > 0) {
+      let color = folderColors[cat];
+      if (!color) {
+        let hash = 0;
+        for (let i = 0; i < cat.length; i++) {
+          hash = cat.charCodeAt(i) + ((hash << 5) - hash);
+        }
+        const index = Math.abs(hash) % fallbackColors.length;
+        color = fallbackColors[index];
+      }
       html += `<div class="folder-card" onclick="openFolder('${cat}')">
-                  <div class="folder-icon">${folderAbbrev(cat)}</div>
+                  <div class="folder-icon" style="background-color:${color}; color:#fff;">${folderAbbrev(cat)}</div>
                   <div class="folder-name">${cat}</div>
                   <div class="folder-count">${categoriesMap[cat].length} test${categoriesMap[cat].length !== 1 ? 's' : ''}</div>
                </div>`;
@@ -653,6 +735,8 @@ function confirmStartTest() {
     return;
   }
 
+  document.getElementById('current-test-title').textContent = testData.title || '';
+
   currentExamPattern = testData.examPattern || 'main';
   let finalQuestions = [];
 
@@ -694,11 +778,7 @@ function confirmStartTest() {
   startTimer((testData.timeLimitMins || 30) * 60);
 }
 
-/* ================= TIMER (fixed) =================
-   Old approach decremented a counter once per setInterval tick, which
-   drifts against real elapsed time on long tests. New approach stores
-   a fixed end timestamp and always computes remaining time from
-   Date.now() — self-correcting, immune to tick drift or tab throttling. */
+/* ================= TIMER ================= */
 function startTimer(durationSec) {
   testEndTimestamp = Date.now() + durationSec * 1000;
   if (timerInterval) clearInterval(timerInterval);
@@ -884,16 +964,7 @@ function loadCurrentQuestion() {
   applyMath();
 }
 
-/* ================= SCORING (fixed) =================
-   Old approach reimplemented the same correctness/points logic three
-   separate times (submit, past-attempt review, detailed review) and
-   they had already drifted apart — e.g. past-attempt review scored
-   multi_mcq/matrix_match as strict all-or-nothing while live submission
-   awarded partial credit for the same answers. This single function is
-   now the only place that decides whether an answer is correct and how
-   many points it earns; every screen calls it. It also now honors a
-   question's own `marks` / `negativeMarks` fields when present, instead
-   of silently ignoring them in favor of hardcoded +4/-1 or +4/-2. */
+/* ================= SCORING ENGINE ================= */
 function getMarks(q) {
   const full = (typeof q.marks === 'number') ? q.marks : 4;
   const neg = (typeof q.negativeMarks === 'number') ? q.negativeMarks : ((q.type === 'mcq' || q.type === 'numerical') ? -1 : -2);
@@ -1017,13 +1088,6 @@ function autoSubmit() {
   let testObj = loadedTests.find(t => t.id === currentTestId);
   let finalTestName = testObj ? testObj.name : ((window.testBank[currentTestId] || {}).title || 'Unknown Test');
 
-  /* ---- lightweight history (fixed) ----
-     Old approach stored a full deep copy of every question object per
-     attempt, multiplying storage use and risking the localStorage cap.
-     We now store only which index each shown question occupies in the
-     source test's master question list, and reconstruct from
-     window.testBank on review — the full content lives in exactly one
-     place. */
   let history = safeGetJSON('jee_simulator_history', []);
   history.push({
     testId: currentTestId,
@@ -1090,9 +1154,10 @@ function loadPastReview(historyIndex) {
   if (!recon) {
     document.getElementById('result-summary-stats').innerHTML =
       `<div class="stat-chip" style="color:var(--danger);border-color:#f3d2ca;">Detailed review unavailable — the source file for "${entry.testId}" could not be found. Recorded score: ${entry.score} / ${entry.total}</div>`;
-    document.getElementById('review-content').innerHTML = '';
+    document.getElementById('analysis-table').innerHTML = '';
+    document.getElementById('result-review-content').innerHTML = '';
     document.getElementById('dashboard-screen').style.display = 'none';
-    document.getElementById('review-screen').style.display = 'block';
+    document.getElementById('result-screen').style.display = 'block';
     window.scrollTo(0, 0);
     return;
   }
@@ -1101,20 +1166,35 @@ function loadPastReview(historyIndex) {
   testState = entry.savedState;
   if (questions.length > testState.length) questions = questions.slice(0, testState.length);
 
-  let correctCount = 0, attemptCount = 0;
+  let score = 0, correctCount = 0, attemptCount = 0;
+  let html = '<table><tr><th>Q.No</th><th>Status</th><th>Time (s)</th><th>Your answer</th><th>Correct answer</th><th>Points</th></tr>';
+
   questions.forEach((q, i) => {
-    const st = testState[i];
-    if (st && st.answer !== null) {
-      const r = evaluateAnswer(q, st.answer, currentExamPattern);
-      attemptCount++;
-      if (r.isCorrect) correctCount++;
-    }
+    const state = testState[i];
+    const r = evaluateAnswer(q, state.answer, currentExamPattern);
+    if (r.isAnswered) attemptCount++;
+    if (r.isCorrect) correctCount++;
+    score += r.points;
+    const rowClass = !r.isAnswered ? '' : (r.isCorrect ? 'correct' : 'incorrect');
+    html += `<tr>
+        <td>${i + 1}</td><td class="${rowClass}">${r.statusText}</td><td>${state.timeSpent}s</td>
+        <td>${r.displayAns}</td><td>${r.correctDisplay}</td><td>${r.points > 0 ? '+' + r.points : r.points}</td>
+    </tr>`;
   });
+  html += '</table>';
+
+  document.getElementById('final-score').innerText = score;
+  document.getElementById('max-score').innerText = questions.reduce((acc, q) => acc + getMarks(q).full, 0);
+  document.getElementById('analysis-table').innerHTML = html;
+
   renderSummaryStats(questions.length, attemptCount, correctCount);
-  generateReviewContent();
+
+  document.getElementById('result-review-content').innerHTML = '';
+  generateReviewContent('result-review-content');
 
   document.getElementById('dashboard-screen').style.display = 'none';
-  document.getElementById('review-screen').style.display = 'block';
+  document.getElementById('review-screen').style.display = 'none';
+  document.getElementById('result-screen').style.display = 'block';
   window.scrollTo(0, 0);
 }
 
@@ -1128,8 +1208,9 @@ function toggleSolution(index) {
   document.getElementById(`sol-${index}`).classList.toggle('active');
 }
 
-function generateReviewContent() {
-  const reviewContainer = document.getElementById('review-content');
+function generateReviewContent(containerId = 'review-content') {
+  const reviewContainer = document.getElementById(containerId);
+  if (!reviewContainer) return;
   const labels = ['A', 'B', 'C', 'D', 'E', 'F'];
   let html = '';
 
