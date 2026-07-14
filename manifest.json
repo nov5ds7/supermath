@@ -1,8 +1,25 @@
 {
   "_comment": "Optional. If this file exists, the app loads exactly these test IDs instantly instead of scanning. Delete this file (or leave it out) and the app will fall back to auto-scanning for test_XXX.js files on its own — nothing breaks either way. Keep this list updated as you add or remove test files for the fastest load.",
   "tests": [
+    "test_004",
+    "test_011",
+    "test_012",
+    "test_014",
     "test_015",
+    "test_016",
+    "test_051",
     "test_102",
-    "test_203"
+    "test_111",
+    "test_202",
+    "test_203",
+    "test_204",
+    "test_493",
+    "test_494",
+    "test_495",
+    "test_496",
+    "test_497",
+    "test_498",
+    "test_499",
+    "test_500",
   ]
 }
