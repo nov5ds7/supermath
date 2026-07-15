@@ -4,7 +4,7 @@ window.testBank['test_1403'] = {
     title: "Quadratic Equations - JEE Main PYQs",
     category: "Chapter-wise PYQs Maths",
     uploadedAt: "2026-07-15T12:33:00Z",
-    timeLimitMins: 60,
+    timeLimitMins: 600,
     randomizePoolSize: 0,
     shuffleQuestions: false,
     questions: [
