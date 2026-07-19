@@ -14,7 +14,7 @@ window.testBank['test_1401'] = {
             negativeMarks: -1,
             text: "[JEE MAIN 2012] If the integral $$\\int \\frac{5\\tan x}{\\tan x - 2} dx = x + a\\ln |\\sin x - 2\\cos x| + k,$$ then a is equal to:",
             options: ["-2", "1", "2", "-1"],
-            correctAnswer: 0,
+            correctAnswer: 2,
             solution: "Let $u = \\sin x - 2\\cos x \\implies du = (\\cos x + 2\\sin x) dx$. Rewriting the integral as $\\int \\frac{5\\sin x}{\\sin x - 2\\cos x} dx$. Let $5\\sin x = A(\\cos x + 2\\sin x) + B(\\sin x - 2\\cos x)$. Solving for coefficients yields $A=2, B=1$. Integration gives $x + 2\\ln|\\sin x - 2\\cos x| + k$. Thus $a=2$."
         },
         // 2
@@ -74,7 +74,7 @@ window.testBank['test_1401'] = {
                 "$-\\frac{x^{10}}{2(x^{5} + x^{3} + 1)^{2}} + C$",
                 "$-\\frac{x^{5}}{(x^{5} + x^{3} + 1)^{2}} + C$"
             ],
-            correctAnswer: 2,
+            correctAnswer: 0,
             solution: "Divide the numerator and denominator by $x^{15}$. The integral becomes $\\int \\frac{2/x^3 + 5/x^6}{(1 + 1/x^2 + 1/x^5)^3} dx$. Let $t = 1 + \\frac{1}{x^2} + \\frac{1}{x^5} \\implies dt = \\left(-\\frac{2}{x^3} - \\frac{5}{x^6}\\right) dx$. The integral simplifies to $-\\int \\frac{dt}{t^3} = \\frac{1}{2t^2} + C = \\frac{1}{2(1 + 1/x^2 + 1/x^5)^2} + C = \\frac{x^{10}}{2(x^5 + x^3 + 1)^2} + C$."
         },
         // 6
@@ -119,8 +119,8 @@ window.testBank['test_1401'] = {
                 "$\\log_{e} \\left|\\cos \\left(\\frac{x^{2} - 1}{2}\\right)\\right| + c$",
                 "$\\log_{e} \\left|\\frac{1}{2} \\sec^{2}\\left(x^{2} - 1\\right)\\right| + c$"
             ],
-            correctAnswer: 2,
-            solution: "Let $t = x^2 - 1 \\implies dt = 2x dx$. The integral becomes $\\frac{1}{2} \\int \\sqrt{\\frac{1-\\cos t}{1+\\cos t}} dt = \\frac{1}{2} \\int \\tan(t/2) dt$. This evaluates to $-\\ln|\\cos(t/2)| + c = \\log_e |\\cos((x^2-1)/2)| + c$."
+            correctAnswer: 1,
+            solution: "Let $t = x^2 - 1 \\implies dt = 2x dx$. The integral becomes $\\frac{1}{2} \\int \\sqrt{\\frac{1-\\cos t}{1+\\cos t}} dt = \\frac{1}{2} \\int \\tan(t/2) dt$. This evaluates to $-\\ln|\\cos(t/2)| + c = \\log_e |\\sec((x^2-1)/2)| + c$, which is $\\frac{1}{2}\\log_e|\\sec^2((x^2-1)/2)| + c$."
         },
         // 9
         {
@@ -753,7 +753,7 @@ window.testBank['test_1401'] = {
             negativeMarks: 0,
             text: "[JEE MAIN 2023] For $\\alpha, \\beta, \\gamma, \\delta \\in \\mathbb{N}$, if $\\displaystyle \\int \\left(\\left(\\frac{x}{e}\\right)^{2x} + \\left(\\frac{e}{x}\\right)^{2x}\\right) \\log_e x dx = \\frac{1}{\\alpha}\\left(\\frac{x}{e}\\right)^{\\beta x} - \\frac{1}{\\gamma}\\left(\\frac{e}{x}\\right)^{\\delta x} + C,$ where $e = \\sum_{n=0}^{\\infty} \\frac{1}{n!}$ and $C$ is a constant of integration, then $\\alpha + 2\\beta + 3\\gamma - 4\\delta$ is equal to:",
             correctAnswer: 4,
-            solution: "Solving the constants from the integral yields $\\alpha = 2, \\beta = 1, \\gamma = 2, \\delta = 1$. Substituting into $\\alpha + 2\\beta + 3\\gamma - 4\\delta$ gives $2 + 2 + 6 - 4 = 6$."
+            solution: "Let $u = \\left(\\frac{x}{e}\\right)^x$ and $v = \\left(\\frac{e}{x}\\right)^x$. Differentiating yields $\\frac{du}{u} = \\log_e x \\, dx$ and $\\frac{dv}{v} = -\\log_e x \\, dx$. Substituting into the integral gives $\\int u \\, du - \\int v \\, dv = \\frac{1}{2} u^2 - \\frac{1}{2} v^2 = \\frac{1}{2}\\left(\\frac{x}{e}\\right)^{2x} - \\frac{1}{2}\\left(\\frac{e}{x}\\right)^{2x} + C$. Comparing coefficients yields $\\alpha=2, \\beta=2, \\gamma=2, \\delta=2$. Hence $\\alpha + 2\\beta + 3\\gamma - 4\\delta = 2 + 4 + 6 - 8 = 4$."
         },
         // 54
         {
@@ -790,15 +790,15 @@ window.testBank['test_1401'] = {
             type: "mcq",
             marks: 4,
             negativeMarks: -1,
-            text: "[JEE MAIN 2024] If $$\\int \\frac{\\sin^2 x + \\cos^2 x}{\\sqrt{\\sin^3 x \\cos^3 x}} \\sin(x-\\theta) dx = A\\sqrt{\\cot x \\tan x} - \\sin\\theta + B\\sqrt{\\cos\\theta \\sin\\theta} \\cot x + C,$$ where $C$ is the integration constant, then $AB$ is equal to:",
+            text: "[JEE MAIN 2024] If $$\\int \\frac{\\sin^2 x + \\cos^2 x}{\\sqrt{\\sin^3 x \\cos^3 x} \\sin(x-\\theta)} dx = A\\sqrt{\\cos \\theta \\tan x - \\sin \\theta} + B\\sqrt{\\cos \\theta - \\sin \\theta} \\cot x + C,$$ where $C$ is the integration constant, then $AB$ is equal to:",
             options: [
-                "$4\\csc(2\\theta)$",
-                "$2\\sec\\theta$",
-                "$4\\sec\\theta$",
-                "$8\\csc(2\\theta)$"
+                "$4\\mathrm{cosec}(2\\theta)$",
+                "$2\\sec \\theta$",
+                "$4\\sec \\theta$",
+                "$8\\mathrm{cosec}(2\\theta)$"
             ],
             correctAnswer: 0,
-            solution: "From the comparison of the solution, $A = 4\\csc 2\\theta$ and $B = 1$. Thus $AB = 4\\csc 2\\theta$."
+            solution: "Using the substitution and trigonometric reduction, $\\sin(x-\\theta) = \\sin x\\cos\\theta - \\cos x\\sin\\theta$. The final integration reveals that $A = 4\\mathrm{cosec}(2\\theta)$ and $B = 1$. Therefore, the product $AB = 4\\mathrm{cosec}(2\\theta)$."
         },
         // 57
         {

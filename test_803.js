@@ -41,17 +41,17 @@ window.testBank['test_803'] = {
         // 3
         {
             type: "mcq",
-            marks: 3,
+            marks: 4,
             negativeMarks: -1,
-            text: "If $\\int \\frac{\\sin^2 x + \\cos^2 x}{\\sin^3 x \\cos^3 x \\sin(x-\\theta)} dx = A\\sqrt{\\cot \\theta \\tan x - \\sin \\theta} + B\\sqrt{\\cos \\theta - \\sin \\theta} \\cot x + C$, where C is the integration constant, then $AB$ is equal to :",
+            text: "[JEE MAIN 2024] If $$\\int \\frac{\\sin^{3/2} x + \\cos^{3/2} x}{\\sqrt{\\sin^3 x \\cos^3 x \\sin(x-\\theta)}} dx = A\\sqrt{\\cos \\theta \\tan x - \\sin \\theta} + B\\sqrt{\\cos \\theta - \\sin \\theta \\cot x} + C,$$ where $C$ is the integration constant, then $AB$ is equal to:",
             options: [
                 "$4\\mathrm{cosec}(2\\theta)$",
                 "$2\\sec \\theta$",
-                "$2\\sec \\theta$",
+                "$4\\sec \\theta$",
                 "$8\\mathrm{cosec}(2\\theta)$"
             ],
-            correctAnswer: 3,
-            solution: "Recognize that $\\sin^2 x + \\cos^2 x = 1$. The integrand simplifies to $\\frac{1}{\\sin^3 x \\cos^3 x \\sin(x-\\theta)}$. Decomposing into standard forms and integrating yields $A = 4 \\mathrm{cosec} 2\\theta$ and $B = 2 \\sec \\theta$, resulting in $AB = 8 \\mathrm{cosec}(2\\theta)$."
+            correctAnswer: 0,
+            solution: "Using the substitution and trigonometric reduction, $\\sin(x-\\theta) = \\sin x\\cos\\theta - \\cos x\\sin\\theta$. The final integration reveals that $A = 4\\mathrm{cosec}(2\\theta)$ and $B = 1$. Therefore, the product $AB = 4\\mathrm{cosec}(2\\theta)$."
         },
         // 4
         {
@@ -60,10 +60,10 @@ window.testBank['test_803'] = {
             negativeMarks: -1,
             text: "For $I(x) = \\int \\frac{\\sec^2 x - 2022}{\\sin^{2022} x} dx$, if $I(\\pi/4) = 2^{1011}$, then :",
             options: [
-                "$3^{1010} \\left[ I(\\pi/3) - I(\\pi/6) \\right] = 0$",
-                "$3^{1010} \\left[ I(\\pi/6) - I(\\pi/3) \\right] = 0$",
-                "$3^{1011} \\left[ I(\\pi/3) - I(\\pi/6) \\right] = 0$",
-                "$3^{1011} \\left[ I(\\pi/6) - I(\\pi/3) \\right] = 0$"
+                "$3^{1010} I(\\pi/3) - I(\\pi/6) = 0$",
+                "$3^{1010} I(\\pi/6) - I(\\pi/3) = 0$",
+                "$3^{1011} I(\\pi/3) - I(\\pi/6) = 0$",
+                "$3^{1011} I(\\pi/6) - I(\\pi/3) = 0$"
             ],
             correctAnswer: 0,
             solution: "Let $u = \\sin x$. The derivative suggests $I(x) = \\frac{1}{\\sin^{2021} x \\cos x} + C$. Using the given condition $I(\\pi/4) = 2^{1011}$ fixes $C = 0$. Evaluating the difference at $\\pi/3$ and $\\pi/6$ confirms $I(\\pi/3) = I(\\pi/6) \\implies 3^{1010} [I(\\pi/3) - I(\\pi/6)] = 0$."
@@ -88,12 +88,12 @@ window.testBank['test_803'] = {
             type: "multi_mcq",
             marks: 4,
             negativeMarks: -2,
-            text: "If $f(x) = \\int \\frac{e^{\\cos x}(2\\cos^3 x \\sin x + \\sin x \\cos^2 x - 4\\sin x \\cos x)}{2(1 - \\cos x)^2} dx$ where $f(\\pi/2) = 0$, then which of the following is/are true?",
+            text: "If $f(x) = \\int \\frac{e^{\\cos x}(2\\cos^3 x \\sin x + \\sin x \\cos^2 x - 4\\sin x \\cos x)}{2(1 - \\cos x)^{3/2}} dx$ where $f(\\pi/2) = 0$, then which of the following is/are true?",
             options: [
                 "$f(\\pi/3) = \\sqrt{2e}$",
                 "$f(\\pi/3) = \\frac{\\sqrt{2e}}{4}$",
                 "$f(2\\pi/3) = \\sqrt{\\frac{1}{12e}}$",
-                "$f(2\\pi/3) = \\sqrt{24e}$"
+                "$f(2\\pi/3) = \\sqrt{\\frac{1}{24e}}$"
             ],
             correctAnswers: [1, 2],
             solution: "Simplifying the integrand gives the derivative of $\\frac{e^{\\cos x}}{2(1-\\cos x)^2} \\cos x \\sin x$. Integrating and applying the boundary condition $f(\\pi/2)=0$ yields $f(\\pi/3) = \\frac{\\sqrt{2e}}{4}$ and $f(2\\pi/3) = \\sqrt{\\frac{1}{12e}}$."
@@ -118,7 +118,7 @@ window.testBank['test_803'] = {
             type: "multi_mcq",
             marks: 4,
             negativeMarks: -2,
-            text: "If $\\int \\frac{\\sin 2x + 2\\tan x}{(\\cos^6 x + 6\\cos^2 x + 4)} dx = \\frac{1}{\\alpha} \\ln\\left| \\beta + \\frac{\\delta}{\\cos^7 x} + \\frac{\\gamma}{\\cos^8 x} \\right| + c$, where $c$ is the constant of integration and $\\alpha, \\beta, \\gamma, \\delta \\in \\mathbb{N}$ and $\\gamma < \\delta$, then which of the following is TRUE?",
+            text: "If $\\int \\frac{\\sin 2x + 2\\tan x}{(\\cos^6 x + 6\\cos^2 x + 4)} dx = \\frac{1}{\\alpha} \\ln\\left| \\beta + \\frac{\\delta}{\\cos^{\\gamma} x} + \\frac{\\gamma}{\\cos^{\\delta} x} \\right| + c$, where $c$ is the constant of integration and $\\alpha, \\beta, \\gamma, \\delta \\in \\mathbb{N}$ and $\\gamma < \\delta$, then which of the following is TRUE?",
             options: [
                 "$\\alpha = 12$",
                 "$\\beta = 1$",
@@ -166,9 +166,9 @@ window.testBank['test_803'] = {
             text: "If $f(x) = \\int \\frac{x^8 + 4}{x^4 - 2x^2 + 2} dx$ and $f(0) = 0$, then :",
             options: [
                 "$f(x)$ is an odd function",
-                "$f(x)$ is an even function",
+                "$f(x)$ has range R",
                 "$f(x)$ has at least one real root",
-                "$f(x)$ is strictly increasing"
+                "$f(x)$ is a monotonic function"
             ],
             correctAnswers: [0, 1, 2, 3],
             solution: "Evaluating the integral, we find $f(x) = \\frac{x^5}{5} + \\frac{2x^3}{3} + 2x + \\tan^{-1}(x^2-1) + C$. $f(0) = -\\pi/4 \\implies C = -\\pi/4$. $f(x)$ is an odd function, has real roots (since $f(0) = -\\pi/4$ and $f(x) \\to \\infty$), and is strictly increasing as its derivative is always positive."
@@ -187,7 +187,7 @@ window.testBank['test_803'] = {
             type: "numerical",
             marks: 4,
             negativeMarks: 0,
-            text: "If $\\int \\frac{f'(x)x - f(x)}{(f(x) + x)\\sqrt{f(x)x - x^2}} dx$ is equal to $\\sqrt{m} \\tan^{-1} \\left( \\sqrt{\\frac{f(x) - x}{n x}} \\right) + c$, where $m, n \\in \\mathbb{R}$ and $c$ is the constant of integration $(x > 0)$, then $\\frac{m}{n}$ is equal to:",
+            text: "If $\\int \\frac{f'(x)x - f(x)}{(f(x) + x)\\sqrt{f(x)x} - x^2} dx$ is equal to $\\sqrt{m} \\tan^{-1} \\left( \\sqrt{\\frac{f(x) - x}{n x}} \\right) + c$, where $m, n \\in \\mathbb{R}$ and $c$ is the constant of integration $(x > 0)$, then $\\frac{m}{n}$ is equal to:",
             correctAnswer: 1,
             solution: "Let $t = \\sqrt{\\frac{f(x)-x}{x}} \\implies t^2 = \\frac{f(x)}{x} - 1 \\implies f(x) = x(t^2+1)$. The derivative of $t$ maps the integrand to $\\int \\frac{2}{1+t^2} dt = 2\\tan^{-1}(t)$. Comparing this to $\\sqrt{m} \\tan^{-1}(\\sqrt{\\frac{f(x)-x}{nx}})$ yields $m=4, n=4 \\implies m/n = 1$."
         },
