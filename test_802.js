@@ -240,10 +240,10 @@ window.testBank['test_802'] = {
             "negativeMarks": -1,
             "text": "A golf ball is dropped from a height of $80\\text{m}$. Each time the ball hits the ground, it rebounds to $\\frac{1}{3}$ of the height through which it has fallen. Then total distance travelled by the ball is :",
             "options": [
-                "240\\text{m}",
-                "160\\text{m}",
-                "120\\text{m}",
-                "320\\text{m}"
+                "$240\\text{m}$",
+                "$160\\text{m}$",
+                "$120\\text{m}$",
+                "$320\\text{m}$"
             ],
             "correctAnswer": 1,
             "solution": "Total distance $= 80 + 2 \\times 80/3 + 2 \\times 80/9 + \\ldots = 80 + 2 \\times \\frac{80/3}{1 - 1/3} = 80 + 2 \\times 40 = 160\\text{m}$."
