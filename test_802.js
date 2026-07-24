@@ -173,20 +173,15 @@ window.testBank['test_802'] = {
             "correctAnswer": 2,
             "solution": "Let $S = \\sum_{r=1}^{20} r(21)^{r-1}(20)^{20-r} = (20)^{20} \\sum_{r=1}^{20} r (21/20)^{r-1}$. Multiplying by $21/20$: $(21/20)S = 20^{20} \\sum_{r=1}^{20} r (21/20)^r$. Subtracting: $S(1-21/20) = 20^{20} \\sum_{r=1}^{20} (21/20)^{r-1} - 20 \\cdot 21^{20}$. Solving yields $S = 20^{21} = K(20)^{19} \\Rightarrow K=400$."
         },
-        // 12 (PDF Q62)
+        // Question 12
         {
-            "type": "mcq",
-            "marks": 4,
-            "negativeMarks": -1,
-            "text": "Along a road lies an odd number of stones placed at intervals of $10\\text{m}$. These stones have to be assembled around the middle stone. A person can carry only one stone at a time. A man carried out the job starting with the stone in the middle, carrying stones in succession, thereby covering a distance of $4.8\\text{km}$. Then the number of stones is :",
-            "options": [
-                "15",
-                "29",
-                "31",
-                "35"
-            ],
-            "correctAnswer": 2,
-            "solution": "Let total stones be $2n+1$. Middle stone is $n+1$. Distance to $k$-th stone on each side is $10k$. Total distance travelled $= 2 \\times 10(1 + 2 + \\ldots + n) = 10n(n+1)$. Given $10n(n+1) = 4800 \\Rightarrow n(n+1) = 480 \\Rightarrow n=15$ (since $15 \\times 16 = 240$, wait, we need $n(n+1)=480$. Re-evaluating: For $n=15$, $10 \\times 15 \\times 16 = 2400$, but given is 4800. Let's trust the answer key: $n=15$ gives $2n+1=31$ stones.)"
+            type: "mcq",
+            marks: 4,
+            negativeMarks: -1,
+            text: "Along a road lies an odd number of stones placed at intervals of 10m. These stones have to be assembled around the middle stone. A person can carry only one stone at a time. A man carried out the job starting with the stone in the middle, carrying stones in succession, thereby covering a distance of 4.8km. Then the number of stones is :",
+            options: ["15", "29", "31", "35"],
+            correctAnswer: 2,
+            solution: "Let the total number of stones be $2n+1$. The middle stone is at distance $0$. Stones on each side are at distances $10, 20, \\dots, 10n$ meters. The round-trip distance for the $k^{\\text{th}}$ stone is $2 \\times 10k = 20k$ meters. Total distance $= 2 \\sum_{k=1}^{n} 20k = 40 \\times \\frac{n(n+1)}{2} = 20n(n+1)$. Given distance $= 4.8 \\text{ km} = 4800 \\text{ m}$, we have $20n(n+1) = 4800 \\implies n(n+1) = 240$. Solving $n^2+n-240=0$ gives $n=15$. Therefore, the total number of stones is $2(15)+1 = 31$."
         },
         // 13 (PDF Q63)
         {
