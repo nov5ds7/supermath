@@ -165,7 +165,7 @@ window.testBank['test_1502'] = {
         {
             "type": "numerical",
             "marks": 4,
-            "negativeMarks": 0,
+            "negativeMarks": -1,
             "text": "Number of 9 digits numbers divisible by nine using the digits from 0 to 9 if each digit is used at most once is $K \\times 8!$, then the value of $K$ is",
             "correctAnswer": 17,
             "solution": "The sum of all digits 0-9 is 45, which is divisible by 9. To form a 9-digit number, we must exclude one digit. To maintain divisibility by 9, the excluded digit must be 0 or 9. If 0 is excluded, the remaining digits {1,2,3,4,5,6,7,8,9} form $9!$ numbers. If 9 is excluded, the remaining digits {0,1,2,3,4,5,6,7,8} can form $8 \\times 8!$ numbers. Total $= 9! + 8 \\times 8! = 17 \\times 8!$. Hence, $K = 17$."
@@ -174,7 +174,7 @@ window.testBank['test_1502'] = {
         {
             "type": "numerical",
             "marks": 4,
-            "negativeMarks": 0,
+            "negativeMarks": -1,
             "text": "Number of natural numbers less than 1000 and divisible by 5 can be formed with the ten digits, each digit not occurring more than once in each number is",
             "correctAnswer": 154,
             "solution": "1-digit numbers: Only 5 (1 number). 2-digit numbers: Ending in 0 (9 ways), ending in 5 (8 ways). Total $9+8=17$. 3-digit numbers: Ending in 0 ($9\\times8=72$), ending in 5 ($8\\times8=64$). Total $72+64=136$. Total numbers $= 1 + 17 + 136 = 154$."
@@ -357,6 +357,21 @@ window.testBank['test_1502'] = {
             ],
             "correctAnswer": 1,
             "solution": "The pattern must be AAB or BAA. Case AAB: 1st digit (1-9): 9 ways. 2nd digit same: 1 way. 3rd digit (0-9 except A): 9 ways. Total $9 \\times 9 = 81$. Case BAA: 1st digit (1-9): 9 ways. 2nd digit (0-9 except B): 9 ways. 3rd digit same: 1 way. Total $9 \\times 9 = 81$. Total numbers = $81 + 81 = 162$."
-        }        
+        },
+        // 50
+        {
+            "type": "mcq",
+            "marks": 4,
+            "negativeMarks": -1,
+            "text": "A telegraph has x arms & each arm is capable of $(x - 1)$ distinct positions, including the position of rest. The total number of signals that can be made is",
+            "options": [
+                "$(x-1)^x - 1$",
+                "$x^x - 1$",
+                "$(x)^{x-1} - 1$",
+                "None of these"
+            ],
+            "correctAnswer": 0,
+            "solution": "Each of the $x$ arms has $(x-1)$ positions. Total signals $= (x-1)^x$. Excluding the 'all at rest' signal, the total is $(x-1)^x - 1$."
+        }                
     ]
 };

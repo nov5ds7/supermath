@@ -10,22 +10,6 @@ window.testBank['test_1503'] = {
         // ================================================================
         // DPP-4 (Q50 to Q61)
         // ================================================================
-
-        // 50
-        {
-            "type": "mcq",
-            "marks": 4,
-            "negativeMarks": -1,
-            "text": "A telegraph has x arms & each arm is capable of $(x - 1)$ distinct positions, including the position of rest. The total number of signals that can be made is",
-            "options": [
-                "$(x-1)^x - 1$",
-                "$x^x - 1$",
-                "$(x)^{x-1} - 1$",
-                "None of these"
-            ],
-            "correctAnswer": 0,
-            "solution": "Each of the $x$ arms has $(x-1)$ positions. Total signals $= (x-1)^x$. Excluding the 'all at rest' signal, the total is $(x-1)^x - 1$."
-        },
         // 51
         {
             "type": "mcq",
@@ -90,7 +74,7 @@ window.testBank['test_1503'] = {
         {
             "type": "numerical",
             "marks": 4,
-            "negativeMarks": 0,
+            "negativeMarks": -1,
             "text": "Number of six digit numbers which have 3 digits even & 3 digits odd, if each digit is to be used at most once is",
             "correctAnswer": 64800,
             "solution": "Total valid arrangements = $(^5C_3 \\times ^5C_3) \\times 6! - (^4C_2 \\times ^5C_3) \\times 5! = 10 \\times 10 \\times 720 - 6 \\times 10 \\times 120 = 72000 - 7200 = 64800$."
@@ -99,7 +83,7 @@ window.testBank['test_1503'] = {
         {
             "type": "numerical",
             "marks": 4,
-            "negativeMarks": 0,
+            "negativeMarks": -1,
             "text": "The tamer of wild animals has to bring one by one 5 lions & 4 tigers to the circus arena. The number of ways this can be done if no two tigers immediately follow each other is",
             "correctAnswer": 43200,
             "solution": "Arrange 5 lions first: $5! = 120$ ways. There are 6 gaps. Choose 4 gaps for the 4 tigers: $^6C_4 = 15$ ways. Arrange the 4 tigers in the gaps: $4! = 24$ ways. Total $= 120 \\times 15 \\times 24 = 43200$."
@@ -218,7 +202,7 @@ window.testBank['test_1503'] = {
         {
             "type": "numerical",
             "marks": 4,
-            "negativeMarks": 0,
+            "negativeMarks": -1,
             "text": "In a certain algebraical exercise book there are 4 examples on arithmetical progressions, 5 examples on permutation - combination and 6 examples on binomial theorem. Number of ways a teacher can select for his pupils atleast one but not more than 2 examples from each of these sets, is",
             "correctAnswer": 3150,
             "solution": "From AP: choose 1 or 2 out of 4 = $^4C_1 + ^4C_2 = 4+6=10$. From PC: $^5C_1 + ^5C_2 = 5+10=15$. From BT: $^6C_1 + ^6C_2 = 6+15=21$. Total ways $= 10 \\times 15 \\times 21 = 3150$."
@@ -372,6 +356,15 @@ window.testBank['test_1503'] = {
             ],
             "correctAnswer": 3,
             "solution": "Choose 4 pairs out of the 5 available: $^5C_4 = 5$ ways. From each of these 4 chosen pairs, choose exactly 1 shoe: $2^4 = 16$ ways. Total ways $= 5 \\times 16 = 80$."
-        }      
+        },
+        // 75
+        {
+            "type": "numerical",
+            "marks": 4,
+            "negativeMarks": -1,
+            "text": "Number of different ways in which 8 different books can be distributed among 3 students, if each student receives atleast 2 books is",
+            "correctAnswer": 2940,
+            "solution": "The students must receive (2, 2, 4) or (2, 3, 3) books. Selecting the groups: for (2, 2, 4): $\\frac{8!}{2!2!4!} \\times \\frac{3!}{2!} = 420 \\times 3 = 1260$. For (2, 3, 3): $\\frac{8!}{2!3!3!} \\times \\frac{3!}{2!} = 560 \\times 3 = 1680$. Total ways = $1260 + 1680 = 2940$."
+        }              
     ]
 };

@@ -10,21 +10,11 @@ window.testBank['test_1504'] = {
         // ================================================================
         // DPP-6 (Q75 to Q89)
         // ================================================================
-
-        // 75
-        {
-            "type": "numerical",
-            "marks": 4,
-            "negativeMarks": 0,
-            "text": "Number of different ways in which 8 different books can be distributed among 3 students, if each student receives atleast 2 books is",
-            "correctAnswer": 2940,
-            "solution": "The students must receive (2, 2, 4) or (2, 3, 3) books. Selecting the groups: for (2, 2, 4): $\\frac{8!}{2!2!4!} \\times \\frac{3!}{2!} = 420 \\times 3 = 1260$. For (2, 3, 3): $\\frac{8!}{2!3!3!} \\times \\frac{3!}{2!} = 560 \\times 3 = 1680$. Total ways = $1260 + 1680 = 2940$."
-        },
         // 76
         {
             "type": "numerical",
             "marks": 4,
-            "negativeMarks": 0,
+            "negativeMarks": -1,
             "text": "In how many different ways a grandfather along with two of his grandsons and four granddaughters can be seated in a line for a photograph so that he is always in the middle and the two grandsons are never adjacent to each other.",
             "correctAnswer": 528,
             "solution": "Consider sons as S1, S2, daughters as D1, D2, D3, D4 and grandfather as F. Arrange the 6 remaining people in 6 seats around the fixed grandfather. Total arrangements $= 6! = 720$. Ways where grandsons are adjacent: treat them as a block then arrange will be like SSDFDDD or DSSFDDD or DDDFSSD or DDDFDSS ($4 \\times 2! \\times 4! = 192$). Required ways $= 720 - 192 = 528$."
@@ -33,7 +23,7 @@ window.testBank['test_1504'] = {
         {
             "type": "numerical",
             "marks": 4,
-            "negativeMarks": 0,
+            "negativeMarks": -1,
             "text": "There are 10 seats in a double decker bus, 6 in the lower deck and 4 on the upper deck. Ten passengers board the bus, of them 3 refuse to go to the upper deck and 2 insist on going up. The number of ways in which the passengers can be accommodated is ______. (Assume all seats to be duly numbered)",
             "correctAnswer": 172800,
             "solution": "The 3 passengers must go to the lower deck. The 2 passengers must go to the upper deck. The remaining 5 passengers can be distributed anywhere. Choose 3 of the remaining 5 for lower deck: $^5C_3 = 10$. The remaining 2 go to upper deck. Arrange in lower deck: $6!$, upper deck: $4!$. Total = $^5C_3 \\times 6! \\times 4! = 10 \\times 720 \\times 24 = 172800$."
@@ -42,7 +32,7 @@ window.testBank['test_1504'] = {
         {
             "type": "numerical",
             "marks": 4,
-            "negativeMarks": 0,
+            "negativeMarks": -1,
             "text": "Find the number of permutations of the word \"AUROBIND\" in which vowels appear in an alphabetical order.",
             "correctAnswer": 1680,
             "solution": "There are 8 letters in total, with 4 vowels (A, O, U, I) and 4 consonants (R, B, N, D). Total arrangements = $8! = 40320$. Since the vowels must be in alphabetical order (A, I, O, U), we divide by the number of vowel arrangements. Required ways = $\\frac{8!}{4!} = 1680$."
@@ -81,7 +71,7 @@ window.testBank['test_1504'] = {
         {
             "type": "numerical",
             "marks": 4,
-            "negativeMarks": 0,
+            "negativeMarks": -1,
             "text": "If as many more words as possible be formed out of the letters of the word \"DOGMATIC\" then the number of words in which the relative order of vowels and consonants remain unchanged is ______.",
             "correctAnswer": 719,
             "solution": "DOGMATIC has 8 letters (3 vowels: O, A, I; 5 consonants: D, G, M, T, C). Arrangements preserving relative order of vowels and consonants: $5! \\times 3! = 720$."
@@ -150,7 +140,7 @@ window.testBank['test_1504'] = {
         {
             "type": "numerical",
             "marks": 4,
-            "negativeMarks": 0,
+            "negativeMarks": -1,
             "text": "A cricket team consisting of eleven players is to be selected from two sets consisting of six and eight players respectively. In how many ways can the selection be made, on the supposition that the first set of six shall contribute not fewer than four players.",
             "correctAnswer": 344,
             "solution": "Total players = 14. Set 1 contributes 4, 5, or 6 players. Set 2 contributes the rest. Case 1: 4 from Set 1, 7 from Set 2: $^6C_4 \\times ^8C_7 = 15 \\times 8 = 120$. Case 2: 5 from Set 1, 6 from Set 2: $^6C_5 \\times ^8C_6 = 6 \\times 28 = 168$. Case 3: 6 from Set 1, 5 from Set 2: $^6C_6 \\times ^8C_5 = 1 \\times 56 = 56$. Total = $120 + 168 + 56 = 344$."
@@ -159,7 +149,7 @@ window.testBank['test_1504'] = {
         {
             "type": "numerical",
             "marks": 4,
-            "negativeMarks": 0,
+            "negativeMarks": -1,
             "text": "An organisation has 25 members, 4 of whom are doctors. In how many ways can a committee of 3 members be selected so as to include at least 1 doctor.",
             "correctAnswer": 970,
             "solution": "Total ways to select 3 from 25 = $^{25}C_3 = 2300$. Ways to select 3 with no doctors = $^{21}C_3 = 1330$. Required ways = $2300 - 1330 = 970$."
@@ -168,7 +158,7 @@ window.testBank['test_1504'] = {
         {
             "type": "numerical",
             "marks": 4,
-            "negativeMarks": 0,
+            "negativeMarks": -1,
             "text": "A has 3 maps and B has 9 maps. Determine the number of ways in which they can exchange their maps if each keeps his initial number of maps.",
             "correctAnswer": 219,
             "solution": "They exchange the same number $k$ of maps. $k$ can be 1, 2, or 3. Sum $\\sum_{k=1}^3 $$^3C_k \\times ^9C_k = (3\\times9) + (3\\times36) + (1\\times84) = 27 + 108 + 84 = 219$."
@@ -197,7 +187,7 @@ window.testBank['test_1504'] = {
         {
             "type": "numerical",
             "marks": 4,
-            "negativeMarks": 0,
+            "negativeMarks": -1,
             "text": "Total number of ways in which 6 '+' & 4 '$-$' signs can be arranged in a line such that no 2 '$-$' signs occur together is",
             "correctAnswer": 35,
             "solution": "Arrange the 6 '+' signs first (1 way). This creates 7 gaps. Choose 4 gaps for the 4 '$-$' signs: $^7C_4 = 35$."
@@ -221,7 +211,7 @@ window.testBank['test_1504'] = {
         {
             "type": "numerical",
             "marks": 4,
-            "negativeMarks": 0,
+            "negativeMarks": -1,
             "text": "Number of ways in which 11 distinct objects can be kept into two identical boxes so that no box remains empty, is",
             "correctAnswer": 1023,
             "solution": "As boxes are identical, we just have to make two groups i.e. $^{11}C_1 + ^{11}C_2 + ^{11}C_3 + ^{11}C_4 + ^{11}C_5 = \\frac{2^{11}-2}{2} = 1023$"
@@ -290,7 +280,7 @@ window.testBank['test_1504'] = {
         {
             "type": "numerical",
             "marks": 4,
-            "negativeMarks": 0,
+            "negativeMarks": -1,
             "text": "The number of combination of 16 things, 8 of which are alike and the rest different, taken 8 at a time is",
             "correctAnswer": 256,
             "solution": "Choose k from the 8 alike (k=0, 1, 2,..., 8), and 8-k from the 8 distinct. Required number of ways <br>$ = \\sum_{k=0}^8$$ ^8C_k = 2^8 = 256$."
@@ -314,10 +304,19 @@ window.testBank['test_1504'] = {
         {
             "type": "numerical",
             "marks": 4,
-            "negativeMarks": 0,
+            "negativeMarks": -1,
             "text": "In a certain college at the B.Sc. examination, 3 candidates obtained first class honours in each of the following subjects: Physics, Chemistry and Maths, no candidates obtaining honours in more than one subject; Number of ways in which 9 scholarships of different value be awarded to the 9 candidates if due regard is to be paid only to the places obtained by candidates in any one subject is",
             "correctAnswer": 1680,
             "solution": "Arrange the 3 Physics candidates in 3 places: $3! = 6$. Arrange the 3 Chemistry candidates in 3 places: $3! = 6$. Arrange the 3 Maths candidates in 3 places: $3! = 6$. Wait, this yields $6^3 = 216$. The provided answer key is 1680. The total ways are $\\frac{9!}{(3!)^3} = 1680$."
-        }
+        },
+        // 100
+        {
+            "type": "numerical",
+            "marks": 4,
+            "negativeMarks": -1,
+            "text": "How many different arrangements are possible with the factor of the term $a^{2}b^{4}c^{5}$ written at full length.",
+            "correctAnswer": 6930,
+            "solution": "The term written at full length is $a a b b b b c c c c c$. Total letters = 11. The number of distinct arrangements is $\\frac{11!}{2! \\cdot 4! \\cdot 5!} = 6930$."
+        }        
     ]
 };
