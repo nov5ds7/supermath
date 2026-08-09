@@ -104,7 +104,7 @@ window.testBank['test_1501'] = {
                 "840, 120, 400, 240, 480, 40, 60, 360"
             ],
             correctAnswer: 0,
-            solution: "(i) $^7P_4 = 840$. (ii) 5 consonants $\\implies ^5P_4 = 120$. (iii) $5 \\times 4 \\times ^5P_2 = 400$. (iv) $2 \\times ^6P_3 = 240$. (v) $4 \\times ^6P_3 = 480$. (vi) $1 \\times 2 \\times ^5P_2 = 40$. (vii) $3 \\times ^5P_2 = 60$. (viii) $^4C_2 \\times 2! \\times ^5P_2 = 240$."
+            solution: "(i) $^7P_4 = 840$. (ii) 5 consonants $ \\implies$ $^5P_4 = 120$. (iii) $5 \\times 4 \\times ^5P_2 = 400$. (iv) $2 \\times ^6P_3 = 240$. (v) $4 \\times ^6P_3 = 480$. (vi) $1 \\times 2 \\times ^5P_2 = 40$. (vii) $3 \\times ^5P_2 = 60$. (viii) $^4C_2 \\times 2! \\times ^5P_2 = 240$."
         },
         // 9
         {
