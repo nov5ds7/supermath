@@ -1,7 +1,7 @@
 window.testBank = window.testBank || {};
 window.testBank['test_806'] = {
     "id": "test_806",
-    "title": "ECT-1 Pre-Test Maths",
+    "title": "ECT-1(JB & UB) Pre-Test Maths",
     "category": "Pre-Tests Maths",
     "uploadedAt": "2026-08-10T12:30:00Z",
     "timeLimitMins": 100,
