@@ -88,7 +88,9 @@ h1,h2,h3,.display{font-family:'Space Grotesk',sans-serif; font-weight:600;}
 .matrix-container{display:flex; justify-content:space-between; gap:18px; padding:8px; flex-wrap:wrap;}
 .matrix-column{flex:1; min-width:120px; display:flex; flex-direction:column; gap:12px;}
 .matrix-row-item{padding:8px; border-bottom:1px solid var(--border); min-height:30px; display:flex; align-items:center; font-size:0.9rem;}
-.matrix-select{width:100%; padding:6px; border-radius:7px; border:1px solid var(--border-strong); text-align:center; font-size:0.9rem; min-width:40px;}
+.matrix-checkbox-group{display:flex; flex-wrap:wrap; gap:8px; margin-left:10px;}
+.matrix-checkbox-group label{display:flex; align-items:center; gap:4px; cursor:pointer; font-size:0.9rem;}
+.matrix-checkbox-group input[type="checkbox"]{transform:scale(1.2); margin-right:4px;}
 .matrix-number{display:inline-block; min-width:25px; font-weight:600;}
 
 .passage-box{background:var(--page-bg); padding:15px; border-left:4px solid var(--accent); border-radius:0 8px 8px 0; margin-bottom:18px; font-size:0.95rem; color:var(--ink); line-height:1.6;}
@@ -500,7 +502,21 @@ function processTestData() {
     if (testData.randomizePoolSize && testData.randomizePoolSize > 0 && testData.randomizePoolSize < qCount) {
       qCount = testData.randomizePoolSize;
     }
-    let maxScore = (testData.questions || []).slice(0, qCount).reduce((acc, q) => acc + getMarks(q).full, 0);
+    
+    // Calculate maxScore using the dynamic marking scheme
+    let maxScore = 0;
+    const questionsSlice = (testData.questions || []).slice(0, qCount);
+    questionsSlice.forEach(q => {
+      if (q.type === 'passage' && q.questions) {
+        q.questions.forEach(subQ => {
+          const marks = getMarks(subQ, testData.markingSchemes);
+          maxScore += marks.full;
+        });
+      } else {
+        const marks = getMarks(q, testData.markingSchemes);
+        maxScore += marks.full;
+      }
+    });
 
     let enriched = Object.assign({}, test, { category: cat, attempted: attempted, bestScore: bestScore, maxScore: maxScore });
     enrichedTests.push(enriched);
@@ -840,8 +856,15 @@ function captureCurrentAnswer() {
     if (val.length === 0) val = null;
   } else if (q.type === 'matrix_match') {
     val = {};
-    document.querySelectorAll('.matrix-select').forEach(sel => {
-      if (sel.value !== '-1') val[parseInt(sel.dataset.list1)] = parseInt(sel.value);
+    const rows = document.querySelectorAll('.matrix-row-item');
+    rows.forEach(row => {
+      const rowIdx = parseInt(row.dataset.rowIndex);
+      const checkboxes = row.querySelectorAll('input[type="checkbox"]:checked');
+      if (checkboxes.length > 0) {
+        const selected = [];
+        checkboxes.forEach(cb => selected.push(parseInt(cb.value)));
+        val[rowIdx] = selected;
+      }
     });
     if (Object.keys(val).length === 0) val = null;
   } else {
@@ -920,31 +943,46 @@ function loadCurrentQuestion() {
     const container = document.createElement('div');
     container.className = 'matrix-container';
 
-    const col1 = document.createElement('div'); col1.className = 'matrix-column';
+    const col1 = document.createElement('div');
+    col1.className = 'matrix-column';
     list1.forEach(item => {
-      const row = document.createElement('div'); row.className = 'matrix-row-item';
+      const row = document.createElement('div');
+      row.className = 'matrix-row-item';
       row.innerHTML = `<span style="font-weight:600;">${item}</span>`;
       col1.appendChild(row);
     });
     container.appendChild(col1);
 
-    const col2 = document.createElement('div'); col2.className = 'matrix-column';
+    const col2 = document.createElement('div');
+    col2.className = 'matrix-column';
     list1.forEach((item, idx) => {
-      const row = document.createElement('div'); row.className = 'matrix-row-item';
-      let selHtml = `<select class="matrix-select" data-list1="${idx}"><option value="-1">---</option>`;
+      const row = document.createElement('div');
+      row.className = 'matrix-row-item';
+      row.dataset.rowIndex = idx;
+      const group = document.createElement('div');
+      group.className = 'matrix-checkbox-group';
       list2.forEach((opt, optIdx) => {
-        const sel = (state.answer && state.answer[idx] === optIdx) ? 'selected' : '';
-        selHtml += `<option value="${optIdx}" ${sel}>${optIdx + 1}</option>`;
+        const lbl = document.createElement('label');
+        const cb = document.createElement('input');
+        cb.type = 'checkbox';
+        cb.value = optIdx;
+        if (state.answer && state.answer[idx] && state.answer[idx].includes(optIdx)) {
+          cb.checked = true;
+        }
+        lbl.appendChild(cb);
+        lbl.appendChild(document.createTextNode(optIdx + 1));
+        group.appendChild(lbl);
       });
-      selHtml += `</select>`;
-      row.innerHTML = selHtml;
+      row.appendChild(group);
       col2.appendChild(row);
     });
     container.appendChild(col2);
 
-    const col3 = document.createElement('div'); col3.className = 'matrix-column';
+    const col3 = document.createElement('div');
+    col3.className = 'matrix-column';
     list2.forEach((item, idx) => {
-      const row = document.createElement('div'); row.className = 'matrix-row-item';
+      const row = document.createElement('div');
+      row.className = 'matrix-row-item';
       row.innerHTML = `<span class="matrix-number">${idx + 1}.</span> ${item}`;
       col3.appendChild(row);
     });
@@ -964,16 +1002,42 @@ function loadCurrentQuestion() {
   applyMath();
 }
 
-/* ================= SCORING ENGINE ================= */
-function getMarks(q) {
-  const full = (typeof q.marks === 'number') ? q.marks : 4;
-  const neg = (typeof q.negativeMarks === 'number') ? q.negativeMarks : ((q.type === 'mcq' || q.type === 'numerical') ? -1 : -2);
-  return { full, neg };
+/* ================= DYNAMIC SCORING ENGINE ================= */
+function getMarks(q, markingSchemes) {
+  let type = q.type;
+  // Default fallback values
+  let full = 4, partial = null, neg = -1, unattempted = 0;
+
+  if (type === 'numerical') { neg = 0; }
+  else if (type === 'multi_mcq' || type === 'matrix_match') {
+    partial = 1; neg = -2; // default for advance
+    if (markingSchemes && markingSchemes[type]) {
+      let scheme = markingSchemes[type];
+      full = scheme[0] !== undefined ? scheme[0] : full;
+      partial = scheme[1] !== undefined ? scheme[1] : partial;
+      neg = scheme[2] !== undefined ? scheme[2] : neg;
+      unattempted = scheme[3] !== undefined ? scheme[3] : unattempted;
+    }
+    // Override full and neg if question has them (but keep partial from markingSchemes)
+    if (typeof q.marks === 'number') full = q.marks;
+    if (typeof q.negativeMarks === 'number') neg = q.negativeMarks;
+  } else {
+    // mcq or numerical
+    if (markingSchemes && markingSchemes[type]) {
+      let scheme = markingSchemes[type];
+      full = scheme[0] !== undefined ? scheme[0] : full;
+      neg = scheme[1] !== undefined ? scheme[1] : neg;
+      unattempted = scheme[2] !== undefined ? scheme[2] : unattempted;
+    }
+    if (typeof q.marks === 'number') full = q.marks;
+    if (typeof q.negativeMarks === 'number') neg = q.negativeMarks;
+  }
+  return { full, partial, neg, unattempted };
 }
 
-function evaluateAnswer(q, userAnswer, examPattern) {
+function evaluateAnswer(q, userAnswer, examPattern, markingSchemes) {
   const labels = ['A', 'B', 'C', 'D', 'E', 'F'];
-  const { full, neg } = getMarks(q);
+  const { full, partial, neg, unattempted } = getMarks(q, markingSchemes);
   const isAns = userAnswer !== null && userAnswer !== undefined && !(Array.isArray(userAnswer) && userAnswer.length === 0);
   const result = { isAnswered: isAns, isCorrect: false, points: 0, statusText: 'Unattempted', displayAns: '-', correctDisplay: '' };
 
@@ -1013,11 +1077,9 @@ function evaluateAnswer(q, userAnswer, examPattern) {
       } else if (hasWrong) {
         result.points = neg; result.statusText = `Incorrect (${neg})`;
       } else if (userAns.length > 0) {
-        const len = userAns.length, total = corrAns.length;
-        let pts = 0;
-        if (total === 4 && len === 3) pts = 3;
-        else if (total >= 3 && len === 2) pts = 2;
-        else if (total >= 2 && len === 1) pts = 1;
+        // Partial marks are calculated per correct choice chosen
+        let correctChoices = userAns.filter(a => corrAns.includes(a)).length;
+        let pts = correctChoices * partial;
         result.points = pts;
         result.isCorrect = pts > 0;
         result.statusText = pts > 0 ? `Partial (+${pts})` : 'Unattempted';
@@ -1031,8 +1093,17 @@ function evaluateAnswer(q, userAnswer, examPattern) {
     const userAns = userAnswer || {}, corrAns = q.correctMatches || {};
     let correctCount = 0, hasWrong = false;
     for (let key in corrAns) {
-      if (userAns[key] !== undefined) {
-        if (userAns[key] === corrAns[key]) correctCount++; else hasWrong = true;
+      const correctSet = Array.isArray(corrAns[key]) ? corrAns[key] : [corrAns[key]];
+      const userSet = Array.isArray(userAns[key]) ? userAns[key] : (userAns[key] !== undefined ? [userAns[key]] : []);
+      let wrong = false;
+      for (let i = 0; i < userSet.length; i++) {
+        if (!correctSet.includes(userSet[i])) {
+          wrong = true; break;
+        }
+      }
+      if (wrong) { hasWrong = true; break; }
+      if (userSet.length === correctSet.length) {
+        correctCount++;
       }
     }
     result.displayAns = JSON.stringify(userAns);
@@ -1042,7 +1113,9 @@ function evaluateAnswer(q, userAnswer, examPattern) {
     } else if (hasWrong) {
       result.points = neg; result.statusText = `Incorrect (${neg})`;
     } else if (correctCount > 0) {
-      result.isCorrect = true; result.points = correctCount; result.statusText = `Partial (+${correctCount})`;
+      // Partial marks are calculated per correctly matched row
+      let pts = correctCount * partial;
+      result.isCorrect = true; result.points = pts; result.statusText = `Partial (+${pts})`;
     }
   }
   return result;
@@ -1062,12 +1135,15 @@ function autoSubmit() {
   document.getElementById('test-app').style.display = 'none';
   document.getElementById('result-screen').style.display = 'block';
 
+  const testData = window.testBank[currentTestId];
+  const markingSchemes = testData ? testData.markingSchemes : null;
+  
   let score = 0, correctCount = 0, attemptCount = 0;
   let html = '<table><tr><th>Q.No</th><th>Status</th><th>Time (s)</th><th>Your answer</th><th>Correct answer</th><th>Points</th></tr>';
 
   questions.forEach((q, i) => {
     const state = testState[i];
-    const r = evaluateAnswer(q, state.answer, currentExamPattern);
+    const r = evaluateAnswer(q, state.answer, currentExamPattern, markingSchemes);
     if (r.isAnswered) attemptCount++;
     if (r.isCorrect) correctCount++;
     score += r.points;
@@ -1079,7 +1155,13 @@ function autoSubmit() {
   });
   html += '</table>';
 
-  let maxScore = questions.reduce((acc, q) => acc + getMarks(q).full, 0);
+  let maxScore = questions.reduce((acc, q) => {
+    if (q.type === 'passage' && q.questions) {
+        return acc + q.questions.reduce((subAcc, subQ) => subAcc + getMarks(subQ, markingSchemes).full, 0);
+    }
+    return acc + getMarks(q, markingSchemes).full;
+  }, 0);
+
   document.getElementById('final-score').innerText = score;
   document.getElementById('max-score').innerText = maxScore;
   document.getElementById('analysis-table').innerHTML = html;
@@ -1166,12 +1248,15 @@ function loadPastReview(historyIndex) {
   testState = entry.savedState;
   if (questions.length > testState.length) questions = questions.slice(0, testState.length);
 
+  const testData = window.testBank[currentTestId];
+  const markingSchemes = testData ? testData.markingSchemes : null;
+
   let score = 0, correctCount = 0, attemptCount = 0;
   let html = '<table><tr><th>Q.No</th><th>Status</th><th>Time (s)</th><th>Your answer</th><th>Correct answer</th><th>Points</th></tr>';
 
   questions.forEach((q, i) => {
     const state = testState[i];
-    const r = evaluateAnswer(q, state.answer, currentExamPattern);
+    const r = evaluateAnswer(q, state.answer, currentExamPattern, markingSchemes);
     if (r.isAnswered) attemptCount++;
     if (r.isCorrect) correctCount++;
     score += r.points;
@@ -1184,7 +1269,12 @@ function loadPastReview(historyIndex) {
   html += '</table>';
 
   document.getElementById('final-score').innerText = score;
-  document.getElementById('max-score').innerText = questions.reduce((acc, q) => acc + getMarks(q).full, 0);
+  document.getElementById('max-score').innerText = questions.reduce((acc, q) => {
+    if (q.type === 'passage' && q.questions) {
+        return acc + q.questions.reduce((subAcc, subQ) => subAcc + getMarks(subQ, markingSchemes).full, 0);
+    }
+    return acc + getMarks(q, markingSchemes).full;
+  }, 0);
   document.getElementById('analysis-table').innerHTML = html;
 
   renderSummaryStats(questions.length, attemptCount, correctCount);
@@ -1214,9 +1304,13 @@ function generateReviewContent(containerId = 'review-content') {
   const labels = ['A', 'B', 'C', 'D', 'E', 'F'];
   let html = '';
 
+  // Retrieve markingSchemes for accurate display of partial marks in review
+  const testData = window.testBank[currentTestId];
+  const markingSchemes = testData ? testData.markingSchemes : null;
+
   questions.forEach((q, i) => {
     const state = testState[i];
-    const r = evaluateAnswer(q, state ? state.answer : null, currentExamPattern);
+    const r = evaluateAnswer(q, state ? state.answer : null, currentExamPattern, markingSchemes);
 
     let badgeHtml = '';
     if (!r.isAnswered) badgeHtml = `<div class="status-badge" style="background:#95a5a6;">Not attempted</div>`;
@@ -1246,9 +1340,16 @@ function generateReviewContent(containerId = 'review-content') {
       list1.forEach((item, idx) => {
         const userMatch = r.isAnswered ? state.answer[idx] : undefined;
         const corrMatch = q.correctMatches ? q.correctMatches[idx] : undefined;
-        let matchStatus = (userMatch === undefined) ? ' (Not answered)' : (userMatch === corrMatch ? ' &#10004; (Correct match)' : ' &#10008; (Your match)');
-        const selectedOpt = (userMatch !== undefined) ? list2[userMatch] : 'None';
-        html += `<div class="review-opt"><strong>${item}</strong> matched with <b>${selectedOpt}</b>${matchStatus}</div>`;
+        const userArray = Array.isArray(userMatch) ? userMatch : (userMatch !== undefined ? [userMatch] : []);
+        const corrArray = Array.isArray(corrMatch) ? corrMatch : (corrMatch !== undefined ? [corrMatch] : []);
+        const selectedLabels = userArray.map(i => i + 1).join(', ');
+        let matchStatus = '';
+        if (!r.isAnswered) matchStatus = ' (Not answered)';
+        else {
+          const isCorrectMatch = userArray.length === corrArray.length && userArray.every(v => corrArray.includes(v));
+          matchStatus = isCorrectMatch ? ' &#10004; (Correct match)' : ' &#10008; (Your match)';
+        }
+        html += `<div class="review-opt"><strong>${item}</strong> matched with <b>${selectedLabels || 'None'}</b>${matchStatus}</div>`;
       });
     } else {
       html += `<div class="review-opt ${r.isCorrect && r.isAnswered ? 'is-correct' : 'is-wrong'}">Your answer: <b>${r.isAnswered ? state.answer : 'None'}</b></div>
