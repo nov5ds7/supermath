@@ -5,6 +5,13 @@ window.testBank['test_812'] = {
     uploadedAt: "2026-09-10T12:00:00Z",
     timeLimitMins: 80,
     examPattern: "advance",
+    markingSchemes: {
+    mcq: [3, -1, 0],              // [Full, Incorrect, Unattempted]
+    numerical: [4, 0, 0],         // [Full, Incorrect, Unattempted]
+    multi_mcq: [4, 1, -2, 0],     // [Full, Partial, Incorrect, Unattempted]
+    matrix_match: [8, 2, 0, 0]    // [Full, Partial, Incorrect, Unattempted]
+    },    
+
     shuffleQuestions: false,
     randomizePoolSize: 0,
     questions: [
