@@ -67,7 +67,7 @@ window.testBank['test_816'] = {
             "type": "mcq",
             "marks": 3,
             "negativeMarks": -1,
-            "correctAnswer": 1,
+            "correctAnswer": 2,
             "text": "The number of ways in which 3 children can distribute 10 tickets out of 15 consecutively numbered tickets among themselves such that they get consecutive blocks of 5, 3 and 2 tickets is",
             "options": [
                 "$^{8}C_{5}$",
@@ -75,7 +75,7 @@ window.testBank['test_816'] = {
                 "$^{8}C_{5}(3!)^2$",
                 "none of these"
             ],
-            "solution": "Problem is same as arranging 8 things out of which 5 identical i.e. $\\frac{8!}{5!}$ which gives total number of ways of selecting block and distributing them away 3 children i.e. $\\frac{8!}{5!} \\cdot 3! = {}^8C_5 \\cdot 3! = {}^5C_3 \\cdot 3!$."
+            "solution": "Problem is same as arranging 8 things out of which 5 identical i.e. $\\frac{8!}{5!}$ which gives total number of ways of selecting block and distributing them away 3 children i.e. $\\frac{8!}{5!} \\cdot 3! = {}^8C_5 \\cdot {(3!)}^2$."
         },
         // 5
         {
