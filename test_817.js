@@ -149,7 +149,7 @@ window.testBank['test_817'] = {
             "marks": 4,
             "negativeMarks": -1,
             "correctAnswer": 1,
-            "text": "A and B are two events such that $P(A) = 0.3$ and $P(B) = 0.25$ and $P(A \\cap B) = 0.2$ then $6P\\left(\\frac{\\bar{A}}{\\bar{B}}\\right)$ is equal to",
+            "text": "A and B are two events such that $P(A) = 0.3$ and $P(B) = 0.25$ and $P(A \\cap B) = 0.2$ then $P\\left(\\frac{\\bar{A}}{\\bar{B}}\\right)$ is equal to",
             "options": [
                 "$\\frac{12}{15}$",
                 "$\\frac{13}{15}$",
