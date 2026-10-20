@@ -180,6 +180,74 @@ th{background:var(--page-bg); font-family:'Space Grotesk',sans-serif; font-weigh
 .loading-text{color:var(--muted); font-size:0.9rem;}
 .stat-chip{background:var(--page-bg); padding:10px 16px; border-radius:8px; border:1px solid var(--border); font-size:0.9rem; display:inline-block;}
 
+
+/* ===== v2: CBT-style additions ===== */
+#test-app{-webkit-user-select:none; user-select:none;}
+.cand-info{font-size:0.8rem; opacity:0.85; margin-right:18px; display:none; text-align:right; line-height:1.3;}
+.header-right{display:flex; align-items:center;}
+.section-tabs{display:none; gap:6px; padding:10px 14px 0; background:var(--card); border-bottom:1px solid var(--border); overflow-x:auto; flex-wrap:nowrap;}
+.sec-tab{border:1px solid var(--border-strong); border-bottom:none; background:var(--page-bg); color:var(--muted); padding:8px 14px; font-size:0.8rem; font-weight:600; border-radius:8px 8px 0 0; cursor:pointer; white-space:nowrap; font-family:'Inter',sans-serif;}
+.sec-tab.active{background:var(--accent); color:#fff; border-color:var(--accent);}
+.q-header{display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap;}
+.marks-chip{font-family:'Inter',sans-serif; font-size:0.78rem; font-weight:600; color:var(--muted);}
+.marks-chip .pos{color:var(--success);} .marks-chip .neg{color:var(--danger);}
+.pal-sec{grid-column:1 / -1; font-size:0.72rem; font-weight:600; color:var(--faint); text-transform:uppercase; letter-spacing:0.04em; margin-top:6px;}
+.btn-prev{background:#fff; color:var(--ink); border-color:var(--border-strong);}
+.keypad{display:grid; grid-template-columns:repeat(3, 62px); gap:8px; margin-top:14px;}
+.keypad button{padding:12px 0; font-size:1.05rem; border:1px solid var(--border-strong); background:#fff; border-radius:8px; cursor:pointer; font-family:'JetBrains Mono',monospace; font-weight:600;}
+.keypad button:active{background:var(--accent-bg);}
+.keypad .wide{grid-column:span 3; font-family:'Inter',sans-serif; font-size:0.85rem; font-weight:500;}
+.numerical-input[readonly]{background:#fafaf8; cursor:default; letter-spacing:1px; font-family:'JetBrains Mono',monospace;}
+#instr-modal{display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(20,22,26,0.6); z-index:110; justify-content:center; align-items:center;}
+#instr-modal .modal-content{max-width:640px; max-height:88vh; overflow-y:auto; font-size:0.9rem; line-height:1.55;}
+.btn-primary:disabled{opacity:.4; cursor:not-allowed;}
+.legend-row{display:flex; align-items:center; margin:5px 0;}
+.sec-table td, .sec-table th{font-size:0.82rem;}
+
+/* ===== v3: smoother interface ===== */
+.p-btn{transition:transform .12s, box-shadow .12s; position:relative;}
+.p-btn:hover{transform:translateY(-1px); box-shadow:0 2px 6px rgba(0,0,0,.12);}
+/* NTA-style palette shapes: red = not answered, green = answered, purple circle = marked for review */
+.p-btn.s-not-answered, .badge.s-not-answered{border-radius:9px 9px 50% 50% / 9px 9px 55% 55%;}
+.p-btn.s-answered, .badge.s-answered{border-radius:50% 50% 9px 9px / 55% 55% 9px 9px;}
+.p-btn.s-review, .p-btn.s-review-ans, .badge.s-review, .badge.s-review-ans{border-radius:50%;}
+.p-btn.s-review-ans::after{content:''; position:absolute; bottom:2px; right:2px; width:8px; height:8px; background:var(--success); border-radius:50%; border:1px solid #fff;}
+.p-btn.active{box-shadow:0 0 0 3px var(--accent-bg);}
+.option-lbl{transition:background .12s, border-color .12s; display:flex; align-items:baseline; gap:8px;}
+.option-lbl:has(input:checked){border-color:var(--accent); background:var(--accent-bg);}
+.option-lbl input{flex:none; align-self:center;}
+.q-body{font-size:var(--qfs, 1.02rem);}
+.fs-ctl{display:inline-flex; gap:4px; margin-left:8px;}
+.fs-ctl button{border:1px solid var(--border-strong); background:#fff; border-radius:6px; padding:3px 8px; cursor:pointer; font-size:0.78rem; font-weight:600; color:var(--muted);}
+.timer-box.warn{background:#fff4dc; color:#9a6200; border-color:#f1d9a3;}
+.hdr-btn{background:#22252c; color:#e8e9eb; border:1px solid #34373f; border-radius:8px; padding:6px 11px; font-size:0.78rem; cursor:pointer; margin-right:8px; display:none; font-family:'Inter',sans-serif;}
+.hdr-btn:hover{background:#2c3038;}
+#toast-wrap{position:fixed; top:70px; left:50%; transform:translateX(-50%); z-index:200; display:flex; flex-direction:column; gap:8px; align-items:center; pointer-events:none;}
+.toast{background:var(--ink); color:#fff; padding:10px 18px; border-radius:10px; font-size:0.88rem; box-shadow:0 6px 20px rgba(0,0,0,.25); animation:toastIn .25s ease-out;}
+.toast.bad{background:var(--danger);}
+@keyframes toastIn{from{opacity:0; transform:translateY(-8px);} to{opacity:1; transform:none;}}
+#timeup{display:none; position:fixed; inset:0; background:rgba(20,22,26,.8); z-index:300; justify-content:center; align-items:center; color:#fff; font-family:'Space Grotesk',sans-serif; font-size:1.6rem; text-align:center;}
+#info-modal, #submit-modal{display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(20,22,26,0.6); z-index:120; justify-content:center; align-items:center;}
+#info-modal .modal-content{max-width:820px; max-height:90vh; overflow-y:auto; font-size:0.95rem; line-height:1.6;}
+#submit-modal .modal-content{max-width:560px;}
+.qp-item{border-bottom:1px solid var(--border); padding:14px 0;}
+.qp-opt{margin:4px 0 0 18px; font-size:0.92rem;}
+.sub-table td, .sub-table th{padding:7px; font-size:0.82rem;}
+.test-meta{color:var(--muted); font-size:0.78rem; margin-top:5px;}
+.new-badge{display:inline-block; background:var(--danger); color:#fff; font-size:0.62rem; font-weight:700; padding:2px 6px; border-radius:5px; margin-left:8px; vertical-align:middle; letter-spacing:.04em;}
+.rv-filter{display:flex; gap:8px; flex-wrap:wrap; justify-content:center; margin-bottom:18px;}
+.rv-filter button{border:1px solid var(--border-strong); background:#fff; border-radius:20px; padding:6px 14px; font-size:0.82rem; cursor:pointer; font-weight:500;}
+.rv-filter button.on{background:var(--ink); color:#fff; border-color:var(--ink);}
+#pal-toggle{display:none;}
+@media (max-width:850px){
+  .btn-bar{position:sticky; bottom:0; z-index:20; box-shadow:0 -4px 12px rgba(0,0,0,.06);}
+  .btn{padding:11px 8px; font-size:0.78rem;}
+  #pal-toggle{display:flex; position:fixed; right:14px; bottom:84px; z-index:60; background:var(--accent); color:#fff; border:none; border-radius:24px; padding:11px 16px; font-weight:600; font-size:0.82rem; box-shadow:0 6px 16px rgba(52,84,209,.4);}
+  .right-panel{display:none;}
+  .right-panel.pal-open{display:flex; position:fixed; top:56px; left:0; right:0; bottom:0; margin:0; border-radius:0; z-index:50; overflow-y:auto;}
+  .hdr-btn{padding:5px 8px;}
+  .cand-info{display:none !important;}
+}
 @media (max-width:850px){
   .main-layout{flex-direction:column;}
   .dashboard-header{flex-direction:column; align-items:flex-start;}
@@ -210,7 +278,7 @@ th{background:var(--page-bg); font-family:'Space Grotesk',sans-serif; font-weigh
 
 <div class="header">
   <h1>JEE CBT Simulator <span id="current-test-title"></span></h1>
-  <div class="timer-box mono" id="timer-display">30:00</div>
+  <div class="header-right"><button class="hdr-btn" id="btn-qp" onclick="showQuestionPaper()">Question paper</button><button class="hdr-btn" id="btn-instr" onclick="viewInstructions()">Instructions</button><button class="hdr-btn" id="btn-fs" onclick="toggleFullscreen()">&#x26F6;</button><div class="cand-info" id="cand-info"></div><div class="timer-box mono" id="timer-display">00:30:00</div></div>
 </div>
 <div class="progress-track" id="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
 
@@ -224,6 +292,43 @@ th{background:var(--page-bg); font-family:'Space Grotesk',sans-serif; font-weigh
     <div style="display:flex;justify-content:flex-end;gap:10px;">
       <button class="btn-secondary" onclick="document.getElementById('start-modal').style.display='none'">Cancel</button>
       <button class="btn-primary" onclick="confirmStartTest()">Begin test</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast-wrap"></div>
+<div id="timeup"><div>Time is up!<br><span style="font-size:1rem;opacity:.8;">Submitting your test&hellip;</span></div></div>
+<div id="info-modal">
+  <div class="modal-content">
+    <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border);padding-bottom:10px;margin-bottom:12px;">
+      <h3 id="info-title" style="border:none;margin:0;padding:0;">Info</h3>
+      <button class="btn-secondary" style="padding:6px 14px;" onclick="closeInfo()">Close</button>
+    </div>
+    <div id="info-body"></div>
+  </div>
+</div>
+<div id="submit-modal">
+  <div class="modal-content">
+    <h3>Submit test?</h3>
+    <div id="submit-body"></div>
+    <p style="font-size:0.85rem;color:var(--muted);">You cannot change your answers after submitting.</p>
+    <div style="display:flex;justify-content:flex-end;gap:10px;">
+      <button class="btn-secondary" onclick="document.getElementById('submit-modal').style.display='none'">Go back to test</button>
+      <button class="btn-primary" onclick="document.getElementById('submit-modal').style.display='none'; autoSubmit();">Yes, submit</button>
+    </div>
+  </div>
+</div>
+<div id="instr-modal">
+  <div class="modal-content">
+    <h3 id="instr-title">Instructions</h3>
+    <div id="instr-body"></div>
+    <label style="display:flex;gap:8px;align-items:flex-start;margin:16px 0;font-size:0.88rem;cursor:pointer;">
+      <input type="checkbox" id="instr-agree" onchange="document.getElementById('instr-start').disabled=!this.checked" style="margin-top:3px;">
+      <span>I have read and understood the instructions. I will not use any unfair means during the test.</span>
+    </label>
+    <div style="display:flex;justify-content:flex-end;gap:10px;">
+      <button class="btn-secondary" onclick="cancelInstructions()">Cancel</button>
+      <button class="btn-primary" id="instr-start" disabled onclick="beginTest()">I am ready to begin</button>
     </div>
   </div>
 </div>
@@ -256,21 +361,24 @@ th{background:var(--page-bg); font-family:'Space Grotesk',sans-serif; font-weigh
   </div>
 </div>
 
+<button id="pal-toggle" onclick="togglePalette()">&#9776; Palette</button>
 <div id="test-app">
   <div class="container">
     <div class="left-panel">
-      <div class="q-header" id="q-header">Question 1</div>
+      <div class="section-tabs" id="section-tabs"></div>
+      <div class="q-header"><span id="q-header">Question 1</span><span><span class="marks-chip" id="marks-chip"></span><span class="fs-ctl"><button onclick="changeFont(-1)" title="Smaller text">A&minus;</button><button onclick="changeFont(1)" title="Larger text">A+</button></span></span></div>
       <div class="q-body">
         <div id="q-text"></div>
         <div id="q-input-area" class="options-container"></div>
       </div>
       <div class="btn-bar">
+        <button class="btn btn-prev" onclick="goPrev()">&#8592; Previous</button>
         <button class="btn btn-review" onclick="markReviewAndNext()">Mark for review & next</button>
         <button class="btn btn-clear" onclick="clearResponse()">Clear response</button>
         <button class="btn btn-next" onclick="saveAndNext()">Save & next</button>
       </div>
     </div>
-    <div class="right-panel">
+    <div class="right-panel" id="right-panel">
       <div class="summary-grid">
         <div class="summary-item"><span class="badge s-answered" id="cnt-ans">0</span> Answered</div>
         <div class="summary-item"><span class="badge s-not-answered" id="cnt-not-ans">0</span> Not answered</div>
@@ -332,6 +440,126 @@ let questionEnterTime = Date.now();
 let timerInterval = null;
 let testEndTimestamp = null;
 let searchDebounceTimer = null;
+let pendingTest = null;           // v2: test prepared but waiting on the instructions screen
+let tabSwitches = 0;
+let warned10 = false, warned5 = false, testActiveForSubmit = false;              // v2: number of times the student left the test tab
+let testActive = false;
+const NUMERIC_KEYPAD_ONLY = true; // v2: integer/numerical answers typed only through the on-screen keypad (as in the real CBT)
+const PROGRESS_KEY = 'jee_inprogress';
+
+/* ---------- v3: small UI helpers ---------- */
+function showToast(msg, bad) {
+  const wrap = document.getElementById('toast-wrap');
+  const t = document.createElement('div');
+  t.className = 'toast' + (bad ? ' bad' : ''); t.textContent = msg;
+  wrap.appendChild(t);
+  setTimeout(() => { t.style.transition = 'opacity .4s'; t.style.opacity = '0'; setTimeout(() => t.remove(), 450); }, 3200);
+}
+function toggleFullscreen() {
+  try {
+    if (!document.fullscreenElement) document.documentElement.requestFullscreen();
+    else document.exitFullscreen();
+  } catch (e) {}
+}
+let qFontScale = 0;
+try { qFontScale = parseInt(localStorage.getItem('jee_font_scale') || '0') || 0; } catch (e) {}
+function applyFont() {
+  document.documentElement.style.setProperty('--qfs', (1.02 + qFontScale * 0.1) + 'rem');
+}
+function changeFont(d) {
+  qFontScale = Math.max(-3, Math.min(6, qFontScale + d));
+  try { localStorage.setItem('jee_font_scale', String(qFontScale)); } catch (e) {}
+  applyFont();
+}
+applyFont();
+function togglePalette(force) {
+  const p = document.getElementById('right-panel');
+  const open = (force !== undefined) ? force : !p.classList.contains('pal-open');
+  p.classList.toggle('pal-open', open);
+  document.getElementById('pal-toggle').innerHTML = open ? '&#10005; Close' : '&#9776; Palette';
+}
+function openInfo(title, html) {
+  document.getElementById('info-title').textContent = title;
+  document.getElementById('info-body').innerHTML = html;
+  document.getElementById('info-modal').style.display = 'flex';
+  applyMath();
+}
+function closeInfo() { document.getElementById('info-modal').style.display = 'none'; }
+function showQuestionPaper() {
+  const labels = getLabels();
+  let html = '';
+  questions.forEach((q, i) => {
+    html += `<div class="qp-item"><b>Q${i + 1}.</b> ${q.text}`;
+    (q.options || []).forEach((o, j) => { html += `<div class="qp-opt"><b>${labels[j]})</b> ${o}</div>`; });
+    html += '</div>';
+  });
+  openInfo('Question paper', html);
+}
+function viewInstructions() {
+  const td = window.testBank[currentTestId];
+  openInfo('Instructions', buildInstructionsHtml(td, questions));
+}
+function sectionStatusCounts() {
+  const secs = deriveSections(questions);
+  const groups = secs.length ? secs : [{ label: 'All questions', start: 0, end: questions.length - 1 }];
+  return groups.map(g => {
+    const c = { label: g.label, total: g.end - g.start + 1, ans: 0, notAns: 0, rev: 0, notVis: 0, revAns: 0 };
+    for (let i = g.start; i <= g.end; i++) {
+      const st = testState[i].status;
+      if (st === 2) c.ans++; else if (st === 1) c.notAns++; else if (st === 3) c.rev++; else if (st === 4) c.revAns++; else c.notVis++;
+    }
+    return c;
+  });
+}
+document.addEventListener('keydown', function (e) {
+  if (!testActive) return;
+  if (document.getElementById('instr-modal').style.display === 'flex' ||
+      document.getElementById('submit-modal').style.display === 'flex' ||
+      document.getElementById('info-modal').style.display === 'flex') return;
+  if (e.ctrlKey || e.metaKey || e.altKey) return;
+  const q = questions[currentIndex]; if (!q) return;
+  if (e.key === 'Enter') { e.preventDefault(); saveAndNext(); return; }
+  if (e.key === 'ArrowRight') { if (currentIndex < questions.length - 1) jumpToQuestion(currentIndex + 1); return; }
+  if (e.key === 'ArrowLeft') { goPrev(); return; }
+  if (q.type === 'mcq' || q.type === 'multi_mcq') {
+    const n = parseInt(e.key);
+    let idx = (n >= 1 && n <= 6) ? n - 1 : 'abcdef'.indexOf(e.key.toLowerCase());
+    if (idx >= 0 && q.options && idx < q.options.length) {
+      const sel = document.querySelectorAll(q.type === 'mcq' ? 'input[name="opt"]' : 'input[name="opt_multi"]')[idx];
+      if (sel) { if (q.type === 'mcq') sel.checked = true; else sel.checked = !sel.checked; }
+    }
+  }
+});
+document.addEventListener('visibilitychange', function () {
+  if (testActive && !document.hidden) showToast('Tab switch recorded (' + tabSwitches + '). Please stay on the test.', true);
+});
+
+/* v2: option labels - JEE Main shows 1-4, Advanced-pattern tests keep A-D */
+function getLabels() {
+  return currentExamPattern === 'main' ? ['1', '2', '3', '4', '5', '6'] : ['A', 'B', 'C', 'D', 'E', 'F'];
+}
+function escAttr(str) {
+  return String(str).replace(/\\/g, '\\\\').replace(/'/g, "\\'").replace(/"/g, '&quot;');
+}
+/* v2: derive sections from the "SECTION - X" instruction box that sits in the first question of every section */
+function deriveSections(qs) {
+  const secs = [];
+  qs.forEach((q, i) => {
+    const m = /<h3>\s*(SECTION[^<]*?)\s*<\/h3>/i.exec(q.text || '');
+    if (m) {
+      let label = m[1].replace(/\(Maximum Marks[^)]*\)/i, '').replace(/\s+/g, ' ').trim();
+      secs.push({ label: label, start: i });
+    }
+  });
+  if (secs.length === 0) return [];
+  if (secs[0].start !== 0) secs.unshift({ label: 'Section 1', start: 0 });
+  secs.forEach((sec, k) => { sec.end = (k + 1 < secs.length) ? secs[k + 1].start - 1 : qs.length - 1; });
+  return secs;
+}
+function sectionIndexOf(secs, qi) {
+  for (let k = 0; k < secs.length; k++) if (qi >= secs[k].start && qi <= secs[k].end) return k;
+  return -1;
+}
 
 /* ---------- safe storage helpers ---------- */
 function safeGetJSON(key, fallback) {
@@ -364,6 +592,7 @@ function goBack() {
   if (document.getElementById('test-app').style.display === 'flex') {
     if (confirm("Are you sure you want to exit the test? Progress will be lost.")) {
       if (timerInterval) clearInterval(timerInterval);
+      testActive = false; clearProgress();
       goHome();
     }
   } else if (document.getElementById('review-screen').style.display === 'block') {
@@ -383,6 +612,9 @@ function goHome() {
   document.getElementById('timer-display').style.display = 'none';
   document.getElementById('progress-track').style.display = 'none';
   document.getElementById('current-test-title').textContent = '';
+  document.getElementById('cand-info').style.display = 'none';
+  ['btn-qp', 'btn-instr', 'btn-fs'].forEach(id => { document.getElementById(id).style.display = 'none'; });
+  togglePalette(false);
   document.getElementById('dashboard-screen').style.display = 'block';
   if (timerInterval) clearInterval(timerInterval);
   currentFolder = null;
@@ -419,6 +651,7 @@ async function autoDiscoverTests() {
     processTestData();
     renderFolders();
     renderRecentTests();
+    checkResume();
   } else {
     console.log("Falling back to local script injection scan...");
     tryLocalDiscover();
@@ -456,6 +689,7 @@ function tryLocalDiscover() {
     processTestData();
     renderFolders();
     renderRecentTests();
+    checkResume();
   }, 30000);
 
   for (let i = 1; i <= MAX_TESTS_TO_SCAN; i++) {
@@ -480,6 +714,7 @@ function tryLocalDiscover() {
       processTestData();
       renderFolders();
       renderRecentTests();
+      checkResume();
     }
   }
 }
@@ -642,6 +877,16 @@ function renderFolderView(cat) {
   renderTestCards(categoriesMap[cat]);
 }
 
+function testMeta(id) {
+  const t = window.testBank[id]; if (!t) return '';
+  let mx = 0; (t.questions || []).forEach(q => { mx += getMarks(q, t.markingSchemes).full; });
+  return `${t.timeLimitMins || 30} min &middot; ${(t.questions || []).length} questions &middot; ${mx} marks &middot; ${t.examPattern === 'advance' ? 'JEE Advanced pattern' : 'JEE Main pattern'}`;
+}
+function newBadge(id) {
+  const t = window.testBank[id]; if (!t || !t.uploadedAt) return '';
+  const age = Date.now() - new Date(t.uploadedAt).getTime();
+  return (age < 3 * 86400000 && age > -86400000) ? '<span class="new-badge">NEW</span>' : '';
+}
 function renderTestCards(tests) {
   const container = document.getElementById('library-container');
   if (tests.length === 0) {
@@ -655,7 +900,8 @@ function renderTestCards(tests) {
     let scoreText = test.attempted ? `<div class="score-badge">Highest score: ${test.bestScore} / ${test.maxScore}</div>` : '';
     html += `<div class="test-list-card ${bgClass}">
                 <div>
-                    <h4 onclick="confirmStartFromCard('${test.name}', '${test.id}')">${test.name}</h4>
+                    <h4 onclick="confirmStartFromCard('${escAttr(test.name)}', '${test.id}')">${test.name}${newBadge(test.id)}</h4>
+                    <div class="test-meta">${testMeta(test.id)}</div>
                     ${scoreText}
                 </div>
                 <button class="btn-primary" onclick="openStartModal('${test.id}')">${btnText}</button>
@@ -695,7 +941,7 @@ function renderRecentTests() {
       const testData = window.testBank[test.id];
       const title = testData ? testData.title : test.name;
       const category = testData ? testData.category : 'Unknown';
-      html += `<li><a href="#" onclick="confirmStartTestFromRecent('${title}', '${test.id}')">${title} <span style="font-size:0.78rem;opacity:0.6;">(${category})</span></a></li>`;
+      html += `<li><a href="#" onclick="confirmStartTestFromRecent('${escAttr(title)}', '${test.id}')">${title} <span style="font-size:0.78rem;opacity:0.6;">(${category})</span></a></li>`;
     });
     html += '</ul>';
     container.innerHTML = html;
@@ -781,18 +1027,140 @@ function confirmStartTest() {
     questions = finalQuestions;
   }
 
+  pendingTest = { testId: currentTestId, testData: testData, questions: questions };
+  showInstructions(testData);
+}
+
+function marksText(q, ms) {
+  const m = getMarks(q, ms);
+  let t = '+' + m.full + ' for a correct answer';
+  if (m.partial) t += ', +' + m.partial + ' per correct option if only some correct options are chosen (no wrong option)';
+  if (m.neg) t += ', ' + m.neg + ' for a wrong answer'; else t += ', no negative marking';
+  return t + ', 0 if unattempted';
+}
+
+function showInstructions(testData) {
+  document.getElementById('instr-title').textContent = 'Read the instructions carefully';
+  document.getElementById('instr-body').innerHTML = buildInstructionsHtml(testData, pendingTest.questions);
+  document.getElementById('instr-agree').checked = false;
+  document.getElementById('instr-start').disabled = true;
+  document.getElementById('instr-modal').style.display = 'flex';
+}
+
+function buildInstructionsHtml(testData, qs) {
+  const ms = testData.markingSchemes;
+  const secs = deriveSections(qs);
+  let maxScore = 0; qs.forEach(q => { maxScore += getMarks(q, ms).full; });
+  let html = `<p style="margin-top:0;"><b>${testData.title || ''}</b><br>
+    Duration: <b>${testData.timeLimitMins || 30} minutes</b> &nbsp;|&nbsp; Questions: <b>${qs.length}</b> &nbsp;|&nbsp; Maximum marks: <b>${maxScore}</b></p>`;
+  html += '<p style="margin:10px 0 4px;"><b>Marking scheme</b></p><ul style="margin:0 0 10px;padding-left:20px;">';
+  if (secs.length) {
+    secs.forEach(sec => { html += `<li><b>${sec.label}</b> (Q${sec.start + 1}&ndash;${sec.end + 1}): ${marksText(qs[sec.start], ms)}</li>`; });
+  } else {
+    html += `<li>${marksText(qs[0], ms)}</li>`;
+  }
+  html += '</ul>';
+  html += `<p style="margin:10px 0 4px;"><b>Question palette symbols</b></p>
+    <div class="legend-row"><span class="badge s-not-visited">1</span> You have not visited the question yet.</div>
+    <div class="legend-row"><span class="badge s-not-answered">2</span> You have not answered the question.</div>
+    <div class="legend-row"><span class="badge s-answered">3</span> You have answered the question.</div>
+    <div class="legend-row"><span class="badge s-review">4</span> You have NOT answered the question, but have marked it for review.</div>
+    <div class="legend-row"><span class="badge s-review-ans">5</span> You have answered the question and marked it for review (it will be evaluated).</div>
+    <p style="margin:10px 0 4px;"><b>Navigating</b></p>
+    <ul style="margin:0;padding-left:20px;">
+      <li>Click a question number in the palette to jump to it. <b>Your answer is saved only when you click &ldquo;Save &amp; next&rdquo; or &ldquo;Mark for review &amp; next&rdquo;.</b></li>
+      <li>&ldquo;Clear response&rdquo; removes your selected answer. The timer keeps running and the test is submitted automatically when time is up.</li>
+      <li>Numerical answers are entered with the on-screen keypad.</li>
+      <li>Keyboard shortcuts: <b>1&ndash;4</b> select an option, <b>Enter</b> = Save &amp; next, <b>&larr; &rarr;</b> move between questions (without saving).</li>
+      <li>Do not switch tabs or windows during the test; this is recorded.</li>
+    </ul>`;
+  return html;
+}
+
+function cancelInstructions() {
+  document.getElementById('instr-modal').style.display = 'none';
+  pendingTest = null;
+}
+
+function beginTest() {
+  if (!pendingTest) return;
+  document.getElementById('instr-modal').style.display = 'none';
+  const testData = pendingTest.testData;
+  currentTestId = pendingTest.testId;
+  questions = pendingTest.questions;
+  pendingTest = null;
+  tabSwitches = 0; warned10 = false; warned5 = false;
+  testActive = true;
+
   document.getElementById('dashboard-screen').style.display = 'none';
   document.getElementById('test-app').style.display = 'flex';
   document.getElementById('timer-display').style.display = 'block';
   document.getElementById('progress-track').style.display = 'block';
+  setCandidateInfo();
 
   testState = Array(questions.length).fill().map(() => ({ status: 0, answer: null, timeSpent: 0 }));
   currentIndex = 0;
+  questionEnterTime = Date.now();   // v2 fix: do not count dashboard time towards Q1
 
   renderPalette();
   jumpToQuestion(0);
   startTimer((testData.timeLimitMins || 30) * 60);
 }
+
+function setCandidateInfo() {
+  ['btn-qp', 'btn-instr', 'btn-fs'].forEach(id => { document.getElementById(id).style.display = 'inline-block'; });
+  const el = document.getElementById('cand-info');
+  el.innerHTML = `<b>${studentName}</b><br>${studentBatch}`;
+  el.style.display = 'block';
+}
+
+/* ---------- v2: keep an unfinished attempt safe across refresh / accidental close ---------- */
+function saveProgress() {
+  if (!testActive || !questions.length) return;
+  const refs = questions.map(q => testBankQuestionIndex(currentTestId, q));
+  safeSetJSON(PROGRESS_KEY, { testId: currentTestId, name: studentName, batch: studentBatch, endTs: testEndTimestamp,
+    refs: refs, state: testState, idx: currentIndex, tabSwitches: tabSwitches });
+}
+function clearProgress() { try { localStorage.removeItem(PROGRESS_KEY); } catch (e) {} }
+function checkResume() {
+  const p = safeGetJSON(PROGRESS_KEY, null);
+  if (!p || !window.testBank[p.testId]) return;
+  const testData = window.testBank[p.testId];
+  const master = testData.questions;
+  const qs = (p.refs || []).map(i => master[i]);
+  if (!qs.length || qs.some(q => q === undefined) || !p.state || p.state.length !== qs.length) { clearProgress(); return; }
+  const remaining = Math.round((p.endTs - Date.now()) / 1000);
+  if (remaining <= 0) {
+    clearProgress();
+    alert('Your previous attempt of "' + (testData.title || p.testId) + '" ended while the page was closed, so it was not submitted. Please contact your teacher if you need it reset.');
+    return;
+  }
+  if (!confirm('You have an unfinished attempt of "' + (testData.title || p.testId) + '" (' + Math.floor(remaining / 60) + ' min left).\n\nResume it now?')) { clearProgress(); return; }
+  currentTestId = p.testId; studentName = p.name; studentBatch = p.batch;
+  currentExamPattern = testData.examPattern || 'main';
+  questions = qs; testState = p.state; tabSwitches = p.tabSwitches || 0; testActive = true;
+  document.getElementById('current-test-title').textContent = testData.title || '';
+  document.getElementById('dashboard-screen').style.display = 'none';
+  document.getElementById('test-app').style.display = 'flex';
+  document.getElementById('timer-display').style.display = 'block';
+  document.getElementById('progress-track').style.display = 'block';
+  setCandidateInfo();
+  currentIndex = Math.min(p.idx || 0, questions.length - 1);
+  questionEnterTime = Date.now();
+  testEndTimestamp = p.endTs;
+  if (timerInterval) clearInterval(timerInterval);
+  updateTimerDisplay();
+  timerInterval = setInterval(updateTimerDisplay, 500);
+  loadCurrentQuestion();
+}
+window.addEventListener('beforeunload', function (e) {
+  if (testActive) { saveProgress(); e.preventDefault(); e.returnValue = ''; }
+});
+document.addEventListener('visibilitychange', function () {
+  if (testActive && document.hidden) { tabSwitches++; saveProgress(); }
+});
+document.addEventListener('contextmenu', function (e) { if (testActive) e.preventDefault(); });
+document.addEventListener('copy', function (e) { if (testActive) e.preventDefault(); });
 
 /* ================= TIMER ================= */
 function startTimer(durationSec) {
@@ -807,15 +1175,21 @@ function updateTimerDisplay() {
   const timerEl = document.getElementById('timer-display');
   if (remaining <= 0) {
     clearInterval(timerInterval);
-    timerEl.innerText = "00:00";
-    alert("Time is up! Submitting automatically.");
-    autoSubmit();
+    timerEl.innerText = "00:00:00";
+    if (!testActive) return;
+    document.getElementById('timeup').style.display = 'flex';
+    setTimeout(() => { document.getElementById('timeup').style.display = 'none'; autoSubmit(); }, 1600);
+    testActive = false;
     return;
   }
   timerEl.classList.toggle('urgent', remaining <= 300);
-  let m = Math.floor(remaining / 60).toString().padStart(2, '0');
+  timerEl.classList.toggle('warn', remaining > 300 && remaining <= 600);
+  if (remaining <= 600 && remaining > 595 && !warned10) { warned10 = true; showToast('10 minutes remaining', false); }
+  if (remaining <= 300 && remaining > 295 && !warned5) { warned5 = true; showToast('Only 5 minutes remaining!', true); }
+  let h = Math.floor(remaining / 3600).toString().padStart(2, '0');
+  let m = Math.floor((remaining % 3600) / 60).toString().padStart(2, '0');
   let s = (remaining % 60).toString().padStart(2, '0');
-  timerEl.innerText = `${m}:${s}`;
+  timerEl.innerText = `${h}:${m}:${s}`;
 }
 
 function renderPalette() {
@@ -823,13 +1197,22 @@ function renderPalette() {
   paletteGrid.innerHTML = '';
   let counts = [0, 0, 0, 0, 0];
 
+  const secs = deriveSections(questions);
   testState.forEach((state, i) => {
     counts[state.status]++;
+    if (secs.length) {
+      const sk = secs.findIndex(sec => sec.start === i);
+      if (sk >= 0) {
+        const h = document.createElement('div');
+        h.className = 'pal-sec'; h.textContent = secs[sk].label;
+        paletteGrid.appendChild(h);
+      }
+    }
     const btn = document.createElement('div');
     btn.className = `p-btn ${['s-not-visited', 's-not-answered', 's-answered', 's-review', 's-review-ans'][state.status]}`;
     if (i === currentIndex) btn.classList.add('active');
     btn.innerText = i + 1;
-    btn.onclick = () => jumpToQuestion(i);
+    btn.onclick = () => { jumpToQuestion(i); togglePalette(false); };
     paletteGrid.appendChild(btn);
   });
 
@@ -842,6 +1225,7 @@ function renderPalette() {
   const answered = counts[2] + counts[4];
   const pct = testState.length ? Math.round((answered / testState.length) * 100) : 0;
   document.getElementById('progress-fill').style.width = pct + '%';
+  saveProgress();
 }
 
 function captureCurrentAnswer() {
@@ -902,6 +1286,8 @@ function markReviewAndNext() {
   loadCurrentQuestion();
 }
 
+function goPrev() { if (currentIndex > 0) jumpToQuestion(currentIndex - 1); }
+
 function clearResponse() {
   testState[currentIndex].answer = null;
   testState[currentIndex].status = 1;
@@ -911,7 +1297,7 @@ function clearResponse() {
 function loadCurrentQuestion() {
   const q = questions[currentIndex];
   const state = testState[currentIndex];
-  const labels = ['A', 'B', 'C', 'D', 'E', 'F'];
+  const labels = getLabels();
   const qInputArea = document.getElementById('q-input-area');
   qInputArea.innerHTML = '';
 
@@ -921,6 +1307,28 @@ function loadCurrentQuestion() {
   }
   document.getElementById('q-text').innerHTML = displayHtml;
   document.getElementById('q-header').innerText = `Question ${currentIndex + 1} / ${questions.length}`;
+  const qb = document.querySelector('.q-body'); if (qb) qb.scrollTop = 0;
+  (function () {
+    const td = window.testBank[currentTestId];
+    const m = getMarks(q, td ? td.markingSchemes : null);
+    let chip = `Marks: <span class="pos">+${m.full}</span>`;
+    chip += m.neg ? ` &nbsp;|&nbsp; Negative: <span class="neg">${m.neg}</span>` : ` &nbsp;|&nbsp; Negative: 0`;
+    document.getElementById('marks-chip').innerHTML = chip;
+    const secs = deriveSections(questions);
+    const tabs = document.getElementById('section-tabs');
+    if (secs.length > 1) {
+      const active = sectionIndexOf(secs, currentIndex);
+      tabs.innerHTML = '';
+      secs.forEach((sec, k) => {
+        const b = document.createElement('button');
+        b.className = 'sec-tab' + (k === active ? ' active' : '');
+        b.textContent = sec.label;
+        b.onclick = () => jumpToQuestion(sec.start);
+        tabs.appendChild(b);
+      });
+      tabs.style.display = 'flex';
+    } else { tabs.style.display = 'none'; }
+  })();
 
   if (q.type === 'mcq') {
     q.options.forEach((opt, i) => {
@@ -992,9 +1400,29 @@ function loadCurrentQuestion() {
   } else {
     const inp = document.createElement('input');
     inp.type = 'text'; inp.id = 'num-input'; inp.className = 'numerical-input';
-    inp.placeholder = 'Enter numeric answer...';
+    inp.placeholder = NUMERIC_KEYPAD_ONLY ? 'Use the keypad below' : 'Enter numeric answer...';
+    inp.setAttribute('inputmode', 'decimal'); inp.setAttribute('autocomplete', 'off');
+    if (NUMERIC_KEYPAD_ONLY) inp.readOnly = true;
     if (state.answer !== null) inp.value = state.answer;
     qInputArea.appendChild(inp);
+    const pad = document.createElement('div');
+    pad.className = 'keypad';
+    ['7','8','9','4','5','6','1','2','3','0','.','-'].forEach(k => {
+      const b = document.createElement('button'); b.type = 'button'; b.textContent = k;
+      b.onclick = () => {
+        if (k === '-' ) { inp.value = inp.value.startsWith('-') ? inp.value.slice(1) : '-' + inp.value; return; }
+        if (k === '.' && inp.value.includes('.')) return;
+        if (inp.value.length >= 12) return;
+        inp.value += k;
+      };
+      pad.appendChild(b);
+    });
+    const bs = document.createElement('button'); bs.type = 'button'; bs.className = 'wide'; bs.textContent = '\u232B Backspace';
+    bs.onclick = () => { inp.value = inp.value.slice(0, -1); };
+    const ca = document.createElement('button'); ca.type = 'button'; ca.className = 'wide'; ca.textContent = 'Clear all';
+    ca.onclick = () => { inp.value = ''; };
+    pad.appendChild(bs); pad.appendChild(ca);
+    qInputArea.appendChild(pad);
   }
 
   questionEnterTime = Date.now();
@@ -1008,7 +1436,17 @@ function getMarks(q, markingSchemes) {
   // Default fallback values
   let full = 4, partial = null, neg = -1, unattempted = 0;
 
-  if (type === 'numerical') { neg = 0; }
+  if (type === 'numerical') {
+    neg = 0;
+    // Use the test's own numerical scheme [full, negative, unattempted] when it defines one.
+    // Tests without markingSchemes.numerical behave exactly as before (+4 / 0).
+    if (markingSchemes && markingSchemes.numerical) {
+      let scheme = markingSchemes.numerical;
+      full = scheme[0] !== undefined ? scheme[0] : full;
+      neg = scheme[1] !== undefined ? scheme[1] : neg;
+      unattempted = scheme[2] !== undefined ? scheme[2] : unattempted;
+    }
+  }
   else if (type === 'multi_mcq' || type === 'matrix_match') {
     partial = 1; neg = -2; // default for advance
     if (markingSchemes && markingSchemes[type]) {
@@ -1036,7 +1474,7 @@ function getMarks(q, markingSchemes) {
 }
 
 function evaluateAnswer(q, userAnswer, examPattern, markingSchemes) {
-  const labels = ['A', 'B', 'C', 'D', 'E', 'F'];
+  const labels = getLabels();
   const { full, partial, neg, unattempted } = getMarks(q, markingSchemes);
   const isAns = userAnswer !== null && userAnswer !== undefined && !(Array.isArray(userAnswer) && userAnswer.length === 0);
   const result = { isAnswered: isAns, isCorrect: false, points: 0, statusText: 'Unattempted', displayAns: '-', correctDisplay: '' };
@@ -1060,7 +1498,9 @@ function evaluateAnswer(q, userAnswer, examPattern, markingSchemes) {
     result.statusText = result.isCorrect ? `Correct (+${full})` : `Incorrect (${neg})`;
   } else if (q.type === 'numerical') {
     let tolerance = (q.tolerance !== undefined) ? q.tolerance : NUMERICAL_TOLERANCE;
-    let userNum = parseFloat(userAnswer), corrNum = parseFloat(q.correctAnswer);
+    const userStr = String(userAnswer).trim();
+    const validNum = /^[+-]?(\d+\.?\d*|\.\d+)$/.test(userStr);   // v2: reject things like "1/2" or "3abc" that parseFloat would half-read
+    let userNum = validNum ? parseFloat(userStr) : NaN, corrNum = parseFloat(q.correctAnswer);
     result.isCorrect = (!isNaN(userNum) && !isNaN(corrNum)) ? (Math.abs(userNum - corrNum) <= tolerance) : (userAnswer.toString() === q.correctAnswer.toString());
     result.displayAns = userAnswer;
     result.points = result.isCorrect ? full : neg;
@@ -1122,11 +1562,24 @@ function evaluateAnswer(q, userAnswer, examPattern, markingSchemes) {
 }
 
 function manualSubmit() {
-  if (confirm("Submit the test? No further changes allowed.")) autoSubmit();
+  captureCurrentAnswer();   // an option selected on screen counts, same as the final submission
+  let html = '<table class="sub-table"><tr><th>Section</th><th>Questions</th><th>Answered</th><th>Not answered</th><th>Marked for review</th><th>Not visited</th></tr>';
+  sectionStatusCounts().forEach(c => {
+    const answered = c.ans + c.revAns;
+    const notAnswered = testState.slice(0, 0).length + c.notAns;
+    html += `<tr><td style="text-align:left;font-weight:600;">${c.label}</td><td>${c.total}</td><td>${answered}</td><td>${notAnswered}</td><td>${c.rev + c.revAns}</td><td>${c.notVis}</td></tr>`;
+  });
+  html += '</table>';
+  document.getElementById('submit-body').innerHTML = html;
+  document.getElementById('submit-modal').style.display = 'flex';
 }
 
 function autoSubmit() {
   clearInterval(timerInterval);
+  testActive = false;
+  togglePalette(false);
+  ['btn-qp', 'btn-instr', 'btn-fs'].forEach(id => { document.getElementById(id).style.display = 'none'; });
+  clearProgress();
   document.getElementById('timer-display').style.display = 'none';
   document.getElementById('progress-track').style.display = 'none';
   trackTime();
@@ -1140,10 +1593,12 @@ function autoSubmit() {
   
   let score = 0, correctCount = 0, attemptCount = 0;
   let html = '<table><tr><th>Q.No</th><th>Status</th><th>Time (s)</th><th>Your answer</th><th>Correct answer</th><th>Points</th></tr>';
+  const results = [];
 
   questions.forEach((q, i) => {
     const state = testState[i];
     const r = evaluateAnswer(q, state.answer, currentExamPattern, markingSchemes);
+    results.push(r);
     if (r.isAnswered) attemptCount++;
     if (r.isCorrect) correctCount++;
     score += r.points;
@@ -1154,6 +1609,7 @@ function autoSubmit() {
     </tr>`;
   });
   html += '</table>';
+  html = sectionBreakdownHtml(results, markingSchemes) + html;
 
   let maxScore = questions.reduce((acc, q) => {
     if (q.type === 'passage' && q.questions) {
@@ -1166,6 +1622,7 @@ function autoSubmit() {
   document.getElementById('max-score').innerText = maxScore;
   document.getElementById('analysis-table').innerHTML = html;
   renderSummaryStats(questions.length, attemptCount, correctCount);
+  if (tabSwitches > 0) document.getElementById('result-summary-stats').innerHTML += `<div class="stat-chip" style="color:var(--danger);border-color:#f3d2ca;">Tab switches: <strong>${tabSwitches}</strong></div>`;
 
   let testObj = loadedTests.find(t => t.id === currentTestId);
   let finalTestName = testObj ? testObj.name : ((window.testBank[currentTestId] || {}).title || 'Unknown Test');
@@ -1180,7 +1637,8 @@ function autoSubmit() {
     accuracy: attemptCount > 0 ? Math.round((correctCount / attemptCount) * 100) : 0,
     examPattern: currentExamPattern,
     questionRefs: questions.map(q => testBankQuestionIndex(currentTestId, q)),
-    savedState: JSON.parse(JSON.stringify(testState))
+    savedState: JSON.parse(JSON.stringify(testState)),
+    tabSwitches: tabSwitches
   });
   safeSetJSON('jee_simulator_history', history);
 
@@ -1196,15 +1654,37 @@ function autoSubmit() {
   generateReviewContent();
 }
 
+/* v2: section-wise analysis shown above the question-wise table */
+function sectionBreakdownHtml(results, markingSchemes) {
+  const secs = deriveSections(questions);
+  if (secs.length < 2) return '';
+  let h = '<h3 style="text-align:center;margin:18px 0 6px;font-size:1rem;">Section-wise analysis</h3><table class="sec-table"><tr><th>Section</th><th>Questions</th><th>Attempted</th><th>Correct</th><th>Score</th><th>Max</th><th>Time</th></tr>';
+  secs.forEach(sec => {
+    let att = 0, cor = 0, sc = 0, mx = 0, t = 0;
+    for (let i = sec.start; i <= sec.end; i++) {
+      const r = results[i]; if (!r) continue;
+      if (r.isAnswered) att++;
+      if (r.isCorrect) cor++;
+      sc += r.points; mx += getMarks(questions[i], markingSchemes).full;
+      t += (testState[i] && testState[i].timeSpent) || 0;
+    }
+    h += `<tr><td style="text-align:left;font-weight:600;">${sec.label}</td><td>${sec.end - sec.start + 1}</td><td>${att}</td><td>${cor}</td><td><b>${sc}</b></td><td>${mx}</td><td>${Math.floor(t / 60)}m ${t % 60}s</td></tr>`;
+  });
+  return h + '</table><div style="height:14px;"></div>';
+}
+
 function renderSummaryStats(total, attempted, correct) {
   const unattempted = total - attempted;
   const incorrect = attempted - correct;
+  const totalTime = testState.reduce((a, st) => a + ((st && st.timeSpent) || 0), 0);
   document.getElementById('result-summary-stats').innerHTML = `
     <div class="stat-chip">Total questions: <strong>${total}</strong></div>
     <div class="stat-chip" style="color:var(--accent-dark);border-color:var(--accent-bg);">Attempted: <strong>${attempted}</strong></div>
     <div class="stat-chip" style="color:var(--success);border-color:#cfe9d9;">Correct: <strong>${correct}</strong></div>
     <div class="stat-chip" style="color:var(--danger);border-color:#f3d2ca;">Incorrect: <strong>${incorrect}</strong></div>
     <div class="stat-chip">Unattempted: <strong>${unattempted}</strong></div>
+    <div class="stat-chip">Accuracy: <strong>${attempted ? Math.round(correct / attempted * 100) : 0}%</strong></div>
+    <div class="stat-chip">Time used: <strong>${Math.floor(totalTime / 60)}m ${totalTime % 60}s</strong></div>
   `;
 }
 
@@ -1253,10 +1733,12 @@ function loadPastReview(historyIndex) {
 
   let score = 0, correctCount = 0, attemptCount = 0;
   let html = '<table><tr><th>Q.No</th><th>Status</th><th>Time (s)</th><th>Your answer</th><th>Correct answer</th><th>Points</th></tr>';
+  const results = [];
 
   questions.forEach((q, i) => {
     const state = testState[i];
     const r = evaluateAnswer(q, state.answer, currentExamPattern, markingSchemes);
+    results.push(r);
     if (r.isAnswered) attemptCount++;
     if (r.isCorrect) correctCount++;
     score += r.points;
@@ -1267,6 +1749,7 @@ function loadPastReview(historyIndex) {
     </tr>`;
   });
   html += '</table>';
+  html = sectionBreakdownHtml(results, markingSchemes) + html;
 
   document.getElementById('final-score').innerText = score;
   document.getElementById('max-score').innerText = questions.reduce((acc, q) => {
@@ -1294,6 +1777,11 @@ function showReviewScreen() {
   window.scrollTo(0, 0);
 }
 
+function filterReview(containerId, st, btn) {
+  const c = document.getElementById(containerId);
+  c.querySelectorAll('.rv-filter button').forEach(b => b.classList.toggle('on', b === btn));
+  c.querySelectorAll('.review-card').forEach(card => { card.style.display = (st === 'all' || card.dataset.st === st) ? '' : 'none'; });
+}
 function toggleSolution(index) {
   document.getElementById(`sol-${index}`).classList.toggle('active');
 }
@@ -1301,7 +1789,7 @@ function toggleSolution(index) {
 function generateReviewContent(containerId = 'review-content') {
   const reviewContainer = document.getElementById(containerId);
   if (!reviewContainer) return;
-  const labels = ['A', 'B', 'C', 'D', 'E', 'F'];
+  const labels = getLabels();
   let html = '';
 
   // Retrieve markingSchemes for accurate display of partial marks in review
@@ -1317,7 +1805,8 @@ function generateReviewContent(containerId = 'review-content') {
     else if (r.isCorrect) badgeHtml = `<div class="status-badge" style="background:var(--success);">Correct</div>`;
     else badgeHtml = `<div class="status-badge" style="background:var(--danger);">Incorrect</div>`;
 
-    html += `<div class="review-card"><h4>Question ${i + 1}</h4>${badgeHtml}
+    const stKey = !r.isAnswered ? 'un' : (r.isCorrect ? 'ok' : 'bad');
+    html += `<div class="review-card" data-st="${stKey}"><h4>Question ${i + 1}</h4>${badgeHtml}
              <div style="margin-bottom:15px;font-size:1rem;line-height:1.55;">${q.text}</div>`;
 
     if (q.type === 'mcq') {
@@ -1357,13 +1846,18 @@ function generateReviewContent(containerId = 'review-content') {
     }
 
     if (q.solution) {
-      html += `<button class="btn-secondary no-print" style="margin-top:10px;font-size:0.82rem;padding:7px 12px;" onclick="toggleSolution(${i})">Show/hide solution</button>
-                <div id="sol-${i}" class="solution-box"><strong>Step-by-step solution:</strong><br><br>${q.solution}</div>`;
+      html += `<button class="btn-secondary no-print" style="margin-top:10px;font-size:0.82rem;padding:7px 12px;" onclick="toggleSolution('${containerId}-${i}')">Show/hide solution</button>
+                <div id="sol-${containerId}-${i}" class="solution-box"><strong>Step-by-step solution:</strong><br><br>${q.solution}</div>`;
     }
     html += `</div>`;
   });
 
-  reviewContainer.innerHTML = html;
+  const filterBar = `<div class="rv-filter no-print" data-for="${containerId}">
+      <button class="on" onclick="filterReview('${containerId}','all',this)">All</button>
+      <button onclick="filterReview('${containerId}','ok',this)">Correct</button>
+      <button onclick="filterReview('${containerId}','bad',this)">Incorrect</button>
+      <button onclick="filterReview('${containerId}','un',this)">Unattempted</button></div>`;
+  reviewContainer.innerHTML = filterBar + html;
   applyMath();
 }
 
