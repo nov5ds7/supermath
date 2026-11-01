@@ -1494,6 +1494,8 @@ function getMarks(q, markingSchemes) {
       neg = scheme[1] !== undefined ? scheme[1] : neg;
       unattempted = scheme[2] !== undefined ? scheme[2] : unattempted;
     }
+    if (typeof q.marks === 'number') full = q.marks;
+    if (typeof q.negativeMarks === 'number') neg = q.negativeMarks;
   }
   else if (type === 'multi_mcq' || type === 'matrix_match') {
     partial = 1; neg = -2; // default for advance
