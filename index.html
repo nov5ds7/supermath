@@ -1701,6 +1701,21 @@ function autoSubmit() {
     accuracy: attemptCount > 0 ? Math.round((correctCount / attemptCount) * 100) : 0,
     timeUsed: timeUsed, tabSwitches: tabSwitches
   };
+  try {
+    const durSec = ((testData && testData.timeLimitMins) || 30) * 60;
+    const remSec = testEndTimestamp ? Math.max(0, Math.round((testEndTimestamp - Date.now()) / 1000)) : durSec;
+    resPayload.elapsed = durSec - remSec;                       // wall-clock seconds from start to submit
+    resPayload.startedAt = new Date((testEndTimestamp || Date.now()) - durSec * 1000).toISOString();
+    const secList = deriveSections(questions);
+    const secOf = i => { const s = secList.find(x => i >= x.start && i <= x.end); return s ? s.label : ''; };
+    resPayload.details = questions.map((q, i) => ({
+      n: i + 1, sec: secOf(i), type: q.type,
+      ans: String(results[i].displayAns == null ? '' : results[i].displayAns).replace(/<[^>]*>/g, '').replace(/^(\w+)\)\s.*$/s, '$1'),
+      key: String(results[i].correctDisplay == null ? '' : results[i].correctDisplay).replace(/<[^>]*>/g, '').replace(/^(\w+)\)\s.*$/s, '$1'),
+      res: !results[i].isAnswered ? 'Unattempted' : (results[i].isCorrect ? 'Correct' : (results[i].points > 0 ? 'Partial' : 'Wrong')),
+      pts: results[i].points, t: (testState[i] && testState[i].timeSpent) || 0
+    }));
+  } catch (e) {}
 
   generateReviewContent();
   const st = document.getElementById('result-summary-stats');
