@@ -419,7 +419,54 @@ th{background:var(--page-bg); font-family:'Space Grotesk',sans-serif; font-weigh
 
 <script>
 const MAX_TESTS_TO_SCAN = 2000;
-const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSeAVg0DY_6PA5vfZYnyiCzOOGbZcZmmkVXC_YZ5o9Cj_EWaFA/formResponse";
+/* Paste your Google Apps Script web-app URL here (see Code.gs). Leave "" to disable sending. */
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyJ0j1hCOOVLryCNUgxDXH0CSUeaGn_tRj9qy35O8LyghN-mUqQXyKKUap59h7kMop1ZA/exec";
+const OUTBOX_KEY = 'jee_outbox';
+function outboxGet() { try { return JSON.parse(localStorage.getItem(OUTBOX_KEY) || '[]'); } catch (e) { return []; } }
+function outboxSet(a) { try { localStorage.setItem(OUTBOX_KEY, JSON.stringify(a)); } catch (e) {} }
+/* Teacher-only diagnostics: open the site once with ?teacher=1 (remembered on that device).
+   Students never see anything about sending. */
+function isTeacherMode() {
+  try {
+    if (/[?&]teacher=0/.test(location.search)) { localStorage.removeItem('jee_teacher'); return false; }
+    if (/[?&]teacher=1/.test(location.search)) localStorage.setItem('jee_teacher', '1');
+    return localStorage.getItem('jee_teacher') === '1';
+  } catch (e) { return false; }
+}
+function setSendStatus(kind, text) {
+  if (!isTeacherMode()) return;
+  const el = document.getElementById('send-status'); if (!el) return;
+  const colors = { ok: 'var(--success)', warn: '#b7791f', bad: 'var(--danger)', wait: 'var(--muted)' };
+  el.style.color = colors[kind] || 'var(--muted)'; el.innerHTML = text;
+}
+/* queue + send; a result stays in the outbox until the server confirms it */
+function queueResult(payload) {
+  const box = outboxGet(); box.push(payload); outboxSet(box);
+  flushOutbox();
+}
+let flushing = false;
+async function flushOutbox() {
+  if (flushing) return;
+  const box = outboxGet();
+  if (!box.length) return;
+  if (!SCRIPT_URL) { setSendStatus('bad', 'Result NOT sent: server link not configured. Tell your teacher.'); return; }
+  setSendStatus('wait', 'Sending result to your teacher&hellip;');
+  flushing = true;
+  let failed = 0;
+  for (const item of box) {
+    try {
+      const ctl = new AbortController(); const tm = setTimeout(() => ctl.abort(), 20000);
+      const r = await fetch(SCRIPT_URL, { method: 'POST', body: JSON.stringify(item), signal: ctl.signal });
+      clearTimeout(tm);
+      const j = await r.json();
+      if (j && j.ok) { outboxSet(outboxGet().filter(x => x.id !== item.id)); } else failed++;
+    } catch (e) { failed++; }
+  }
+  flushing = false;
+  if (failed) setSendStatus('warn', 'Result saved on this device but NOT sent yet. It will retry when you are online. Do not clear browser data.');
+  else setSendStatus('ok', 'Result sent to your teacher &#10003;');
+}
+window.addEventListener('online', () => { flushOutbox(); });
 const NUMERICAL_TOLERANCE = 0.001;
 
 let loadedTests = [];
@@ -448,6 +495,7 @@ const NUMERIC_KEYPAD_ONLY = true; // v2: integer/numerical answers typed only th
 const PROGRESS_KEY = 'jee_inprogress';
 
 /* ---------- v3: small UI helpers ---------- */
+setTimeout(() => { if (typeof outboxGet === 'function' && outboxGet().length) flushOutbox(); }, 1500);
 function showToast(msg, bad) {
   const wrap = document.getElementById('toast-wrap');
   const t = document.createElement('div');
@@ -1642,16 +1690,20 @@ function autoSubmit() {
   });
   safeSetJSON('jee_simulator_history', history);
 
-  const formData = new URLSearchParams();
-  formData.append("entry.1036771923", studentName);
-  formData.append("entry.623544967", studentBatch);
-  formData.append("entry.617484123", finalTestName);
-  formData.append("entry.365254995", score);
-  formData.append("entry.2079580785", attemptCount);
-  formData.append("entry.1269654501", correctCount);
-  fetch(GOOGLE_FORM_URL, { method: "POST", mode: "no-cors", body: formData }).catch(() => {});
+  const timeUsed = testState.reduce((a, st) => a + ((st && st.timeSpent) || 0), 0);
+  const resPayload = {
+    type: 'result', id: 'r' + Date.now() + Math.random().toString(36).slice(2, 7),
+    submittedAt: new Date().toISOString(), name: studentName, batch: studentBatch,
+    testId: currentTestId, testName: finalTestName, score: score, total: maxScore,
+    attempted: attemptCount, correct: correctCount,
+    accuracy: attemptCount > 0 ? Math.round((correctCount / attemptCount) * 100) : 0,
+    timeUsed: timeUsed, tabSwitches: tabSwitches
+  };
 
   generateReviewContent();
+  const st = document.getElementById('result-summary-stats');
+  if (st && isTeacherMode() && !document.getElementById('send-status')) st.insertAdjacentHTML('afterend', '<div id="send-status" style="text-align:center;font-weight:600;font-size:0.88rem;margin:-10px 0 18px;"></div>');
+  queueResult(resPayload);
 }
 
 /* v2: section-wise analysis shown above the question-wise table */
