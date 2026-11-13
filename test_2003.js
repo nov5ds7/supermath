@@ -29,14 +29,14 @@ window.testBank['test_2003'] = {
           "marks": 4,
           "negativeMarks": -1,
           "correctAnswer": 2,
-          "text": "Let the arithmetic mean of $\\dfrac1a$ and $\\dfrac1b$ be $\\dfrac{5}{16}$, $a>2$. If $\\alpha$ is such that $a,4,\\alpha,b$ are in A.P., then the equation $\\alpha x^2-ax+2(\\alpha-2b)=0$ has :",
+          "text": "Let the arithmetic mean of $\\dfrac1a$ and $\\dfrac1b$ be $\\dfrac{5}{16}$, $a\\gt 2$. If $\\alpha$ is such that $a,4,\\alpha,b$ are in A.P., then the equation $\\alpha x^2-ax+2(\\alpha-2b)=0$ has :",
           "options": [
                 "complex roots of magnitude less than $2$",
                 "one root in $(0,2)$ and another in $(-4,-2)$",
                 "one root in $(1,4)$ and another in $(-2,0)$",
                 "both roots in the interval $(-2,0)$"
           ],
-          "solution": "Common difference $d=4-a$, so $\\alpha=8-a$ and $b=a+3d=12-2a$.<br>$\\tfrac1a+\\tfrac1b=\\tfrac58\\Rightarrow \\tfrac1a+\\tfrac1{12-2a}=\\tfrac58\\Rightarrow 5a^2-34a+48=0\\Rightarrow a=2$ or $a=\\tfrac{24}{5}$; since $a>2$, $a=\\tfrac{24}{5}$, $b=\\tfrac{12}{5}$, $\\alpha=\\tfrac{16}{5}$.<br>Equation: $\\tfrac{16}{5}x^2-\\tfrac{24}{5}x-\\tfrac{16}{5}=0\\Rightarrow 2x^2-3x-2=0\\Rightarrow x=2,\\,-\\tfrac12$.<br>So one root in $(1,4)$ and the other in $(-2,0)$."
+          "solution": "Common difference $d=4-a$, so $\\alpha=8-a$ and $b=a+3d=12-2a$.<br>$\\tfrac1a+\\tfrac1b=\\tfrac58\\Rightarrow \\tfrac1a+\\tfrac1{12-2a}=\\tfrac58\\Rightarrow 5a^2-34a+48=0\\Rightarrow a=2$ or $a=\\tfrac{24}{5}$; since $a\\gt 2$, $a=\\tfrac{24}{5}$, $b=\\tfrac{12}{5}$, $\\alpha=\\tfrac{16}{5}$.<br>Equation: $\\tfrac{16}{5}x^2-\\tfrac{24}{5}x-\\tfrac{16}{5}=0\\Rightarrow 2x^2-3x-2=0\\Rightarrow x=2,\\,-\\tfrac12$.<br>So one root in $(1,4)$ and the other in $(-2,0)$."
     },
     // Q3 | JEE Main 28-Jan-2026 S2 (Evening) Math Q3 | Inverse trigonometric functions
     {
@@ -89,14 +89,14 @@ window.testBank['test_2003'] = {
           "marks": 4,
           "negativeMarks": -1,
           "correctAnswer": 3,
-          "text": "The probability distribution of a random variable $X$ is given below :<div style='overflow-x:auto;margin:10px 0;'><table border='1' cellpadding='6' style='border-collapse:collapse;text-align:center;'><tr><td>$X$</td><td>$4k$</td><td>$\\frac{30}{7}k$</td><td>$\\frac{32}{7}k$</td><td>$\\frac{34}{7}k$</td><td>$\\frac{36}{7}k$</td><td>$\\frac{38}{7}k$</td><td>$\\frac{40}{7}k$</td><td>$6k$</td></tr><tr><td>$P(X)$</td><td>$\\frac{2}{15}$</td><td>$\\frac{1}{15}$</td><td>$\\frac{2}{15}$</td><td>$\\frac{1}{5}$</td><td>$\\frac{1}{15}$</td><td>$\\frac{2}{15}$</td><td>$\\frac{1}{5}$</td><td>$\\frac{1}{15}$</td></tr></table></div>If $E(X)=\\dfrac{263}{15}$, then $P(X<20)$ is equal to :",
+          "text": "The probability distribution of a random variable $X$ is given below :<div style='overflow-x:auto;margin:10px 0;'><table border='1' cellpadding='6' style='border-collapse:collapse;text-align:center;'><tr><td>$X$</td><td>$4k$</td><td>$\\frac{30}{7}k$</td><td>$\\frac{32}{7}k$</td><td>$\\frac{34}{7}k$</td><td>$\\frac{36}{7}k$</td><td>$\\frac{38}{7}k$</td><td>$\\frac{40}{7}k$</td><td>$6k$</td></tr><tr><td>$P(X)$</td><td>$\\frac{2}{15}$</td><td>$\\frac{1}{15}$</td><td>$\\frac{2}{15}$</td><td>$\\frac{1}{5}$</td><td>$\\frac{1}{15}$</td><td>$\\frac{2}{15}$</td><td>$\\frac{1}{5}$</td><td>$\\frac{1}{15}$</td></tr></table></div>If $E(X)=\\dfrac{263}{15}$, then $P(X\\lt 20)$ is equal to :",
           "options": [
                 "$\\dfrac35$",
                 "$\\dfrac{14}{15}$",
                 "$\\dfrac{8}{15}$",
                 "$\\dfrac{11}{15}$"
           ],
-          "solution": "$E(X)=k\\left[\\tfrac{8}{15}+\\tfrac{30}{105}+\\tfrac{64}{105}+\\tfrac{34}{35}+\\tfrac{36}{105}+\\tfrac{76}{105}+\\tfrac{40}{35}+\\tfrac{6}{15}\\right]=\\tfrac{526}{105}k$.<br>$\\tfrac{526}{105}k=\\tfrac{263}{15}\\Rightarrow k=\\tfrac72$.<br>Values of $X$: $14,15,16,17,18,19,20,21$ with probabilities $\\tfrac{2}{15},\\tfrac1{15},\\tfrac2{15},\\tfrac3{15},\\tfrac1{15},\\tfrac2{15},\\tfrac3{15},\\tfrac1{15}$.<br>$P(X<20)=\\tfrac{2+1+2+3+1+2}{15}=\\tfrac{11}{15}$."
+          "solution": "$E(X)=k\\left[\\tfrac{8}{15}+\\tfrac{30}{105}+\\tfrac{64}{105}+\\tfrac{34}{35}+\\tfrac{36}{105}+\\tfrac{76}{105}+\\tfrac{40}{35}+\\tfrac{6}{15}\\right]=\\tfrac{526}{105}k$.<br>$\\tfrac{526}{105}k=\\tfrac{263}{15}\\Rightarrow k=\\tfrac72$.<br>Values of $X$: $14,15,16,17,18,19,20,21$ with probabilities $\\tfrac{2}{15},\\tfrac1{15},\\tfrac2{15},\\tfrac3{15},\\tfrac1{15},\\tfrac2{15},\\tfrac3{15},\\tfrac1{15}$.<br>$P(X\\lt 20)=\\tfrac{2+1+2+3+1+2}{15}=\\tfrac{11}{15}$."
     },
     // Q7 | JEE Main 28-Jan-2026 S2 (Evening) Math Q7 | Locus of intersection of chords (circle)
     {
@@ -104,7 +104,7 @@ window.testBank['test_2003'] = {
           "marks": 4,
           "negativeMarks": -1,
           "correctAnswer": 1,
-          "text": "Let the circle $x^2+y^2=4$ intersect $x$-axis at the points $A(a,0),\\ a>0$ and $B(b,0)$. Let $P(2\\cos\\alpha,2\\sin\\alpha)$, $0<\\alpha<\\dfrac{\\pi}{2}$ and $Q(2\\cos\\beta,2\\sin\\beta)$ be two points such that $(\\alpha-\\beta)=\\dfrac{\\pi}{2}$. Then the point of intersection of $AQ$ and $BP$ lies on :",
+          "text": "Let the circle $x^2+y^2=4$ intersect $x$-axis at the points $A(a,0),\\ a\\gt 0$ and $B(b,0)$. Let $P(2\\cos\\alpha,2\\sin\\alpha)$, $0\\lt \\alpha\\lt \\dfrac{\\pi}{2}$ and $Q(2\\cos\\beta,2\\sin\\beta)$ be two points such that $(\\alpha-\\beta)=\\dfrac{\\pi}{2}$. Then the point of intersection of $AQ$ and $BP$ lies on :",
           "options": [
                 "$x^2+y^2-4x-4y=0$",
                 "$x^2+y^2-4y-4=0$",
@@ -119,7 +119,7 @@ window.testBank['test_2003'] = {
           "marks": 4,
           "negativeMarks": -1,
           "correctAnswer": 0,
-          "text": "The sum of all the elements in the range of $f(x)=\\mathrm{Sgn}(\\sin x)+\\mathrm{Sgn}(\\cos x)+\\mathrm{Sgn}(\\tan x)+\\mathrm{Sgn}(\\cot x)$, $x\\neq\\dfrac{n\\pi}{2},\\ n\\in\\mathbf Z$, where $\\mathrm{Sgn}(t)=\\begin{cases}1,&t>0\\\\-1,&t<0\\end{cases}$, is :",
+          "text": "The sum of all the elements in the range of $f(x)=\\mathrm{Sgn}(\\sin x)+\\mathrm{Sgn}(\\cos x)+\\mathrm{Sgn}(\\tan x)+\\mathrm{Sgn}(\\cot x)$, $x\\neq\\dfrac{n\\pi}{2},\\ n\\in\\mathbf Z$, where $\\mathrm{Sgn}(t)=\\begin{cases}1,&t\\gt 0\\\\-1,&t\\lt 0\\end{cases}$, is :",
           "options": [
                 "$2$",
                 "$4$",
@@ -171,7 +171,7 @@ window.testBank['test_2003'] = {
                 "Both (I) and (II) are True",
                 "Neither (I) nor (II) is True"
           ],
-          "solution": "For $|x|<1$: $x^{2/\\theta}\\to0$, so $f(x)=\\cos\\pi x$. For $|x|>1$: $x^{2/\\theta}\\to\\infty$, so $f(x)=-\\dfrac{\\sin(x-1)}{x-1}$.<br>At $x=1$: $f(1)=\\dfrac{\\cos\\pi}{1}=-1$, LHL $=\\cos\\pi=-1$, RHL $=-1$ → continuous, so (I) is false.<br>At $x=-1$: $x^{2/\\theta}$ is not defined (real) for $x=-1$, so $f(-1)$ does not exist; also LHL $=\\displaystyle\\lim_{x\\to-1^-}\\left(-\\dfrac{\\sin(x-1)}{x-1}\\right)=-\\dfrac{\\sin2}{2}\\ne-1=$ RHL $(=\\cos(-\\pi))$ → discontinuous, so (II) is false."
+          "solution": "For $|x|\\lt 1$: $x^{2/\\theta}\\to0$, so $f(x)=\\cos\\pi x$. For $|x|\\gt 1$: $x^{2/\\theta}\\to\\infty$, so $f(x)=-\\dfrac{\\sin(x-1)}{x-1}$.<br>At $x=1$: $f(1)=\\dfrac{\\cos\\pi}{1}=-1$, LHL $=\\cos\\pi=-1$, RHL $=-1$ → continuous, so (I) is false.<br>At $x=-1$: $x^{2/\\theta}$ is not defined (real) for $x=-1$, so $f(-1)$ does not exist; also LHL $=\\displaystyle\\lim_{x\\to-1^-}\\left(-\\dfrac{\\sin(x-1)}{x-1}\\right)=-\\dfrac{\\sin2}{2}\\ne-1=$ RHL $(=\\cos(-\\pi))$ → discontinuous, so (II) is false."
     },
     // Q12 | JEE Main 28-Jan-2026 S2 (Evening) Math Q12 | Area between parabolas
     {
@@ -179,7 +179,7 @@ window.testBank['test_2003'] = {
           "marks": 4,
           "negativeMarks": -1,
           "correctAnswer": 2,
-          "text": "Let $P_1:y=4x^2$ and $P_2:y=x^2+27$ be two parabolas. If the area of the bounded region enclosed between $P_1$ and $P_2$ is six times the area of the bounded region enclosed between the line $y=\\alpha x,\\ \\alpha>0$ and $P_1$, then $\\alpha$ is equal to :",
+          "text": "Let $P_1:y=4x^2$ and $P_2:y=x^2+27$ be two parabolas. If the area of the bounded region enclosed between $P_1$ and $P_2$ is six times the area of the bounded region enclosed between the line $y=\\alpha x,\\ \\alpha\\gt 0$ and $P_1$, then $\\alpha$ is equal to :",
           "options": [
                 "$6$",
                 "$15$",
@@ -246,7 +246,7 @@ window.testBank['test_2003'] = {
                 "Both Statement I and Statement II are true",
                 "Both Statement I and Statement II are false"
           ],
-          "solution": "I: $f'(x)=\\dfrac{1}{(1+|x|)^2}>0$, so $f$ is strictly increasing, hence one-one. True.<br>II: $f(0)=\\dfrac{-30}{18}=-\\dfrac53$ and $f\\left(\\tfrac72\\right)=\\dfrac{12.25+14-30}{12.25-28+18}=\\dfrac{-3.75}{2.25}=-\\dfrac53$. Two different inputs give the same value, so $f$ is many-one. True."
+          "solution": "I: $f'(x)=\\dfrac{1}{(1+|x|)^2}\\gt 0$, so $f$ is strictly increasing, hence one-one. True.<br>II: $f(0)=\\dfrac{-30}{18}=-\\dfrac53$ and $f\\left(\\tfrac72\\right)=\\dfrac{12.25+14-30}{12.25-28+18}=\\dfrac{-3.75}{2.25}=-\\dfrac53$. Two different inputs give the same value, so $f$ is many-one. True."
     },
     // Q17 | JEE Main 28-Jan-2026 S2 (Evening) Math Q17 | Complex numbers, maximum distance
     {
@@ -306,7 +306,7 @@ window.testBank['test_2003'] = {
                 "Statement I is true but Statement II is false",
                 "Both Statement I and Statement II are true"
           ],
-          "solution": "I: mod $7$: $25\\equiv4,\\ 20\\equiv6,\\ 8\\equiv1,\\ 3\\equiv3$. $4^{13}\\equiv4$ (as $4^3\\equiv1$), $6^{13}\\equiv6$, $1$, $3^{13}\\equiv3$ (as $3^6\\equiv1$). Sum $\\equiv4+6+1+3=14\\equiv0$. True.<br>II: Let $N=(7+4\\sqrt3)^{25}+(7-4\\sqrt3)^{25}$, an even integer (twice a sum of integer terms). Since $0<(7-4\\sqrt3)^{25}<1$, the integral part of $(7+4\\sqrt3)^{25}$ is $N-1$, which is odd. True."
+          "solution": "I: mod $7$: $25\\equiv4,\\ 20\\equiv6,\\ 8\\equiv1,\\ 3\\equiv3$. $4^{13}\\equiv4$ (as $4^3\\equiv1$), $6^{13}\\equiv6$, $1$, $3^{13}\\equiv3$ (as $3^6\\equiv1$). Sum $\\equiv4+6+1+3=14\\equiv0$. True.<br>II: Let $N=(7+4\\sqrt3)^{25}+(7-4\\sqrt3)^{25}$, an even integer (twice a sum of integer terms). Since $0\\lt (7-4\\sqrt3)^{25}\\lt 1$, the integral part of $(7+4\\sqrt3)^{25}$ is $N-1$, which is odd. True."
     },
     // Q21 | JEE Main 28-Jan-2026 S2 (Evening) Math Q21 | Permutations (lift)
     {
@@ -324,7 +324,7 @@ window.testBank['test_2003'] = {
           "negativeMarks": -1,
           "correctAnswer": 9,
           "text": "Let $f$ be a differentiable function satisfying $f(x)=1-2x+\\displaystyle\\int_0^x e^{(x-t)}f(t)\\,dt,\\ x\\in\\mathbf R$ and let $g(x)=\\displaystyle\\int_0^x(f(t)+2)^{15}(t-4)^6(t+12)^{17}\\,dt,\\ x\\in\\mathbf R$. If $p$ and $q$ are respectively the points of local minima and local maxima of $g$, then the value of $|p+q|$ is equal to ____ .",
-          "solution": "Write $f(x)=1-2x+e^x\\int_0^xe^{-t}f(t)dt$. Differentiating: $f'=2f+2x-3$, with $f(0)=1$. Solution: $f(x)=1-x$.<br>$g'(x)=(3-x)^{15}(x-4)^6(x+12)^{17}$. Sign: negative for $x<-12$, positive on $(-12,3)$, negative for $x>3$ (the factor $(x-4)^6$ does not change sign).<br>Local minimum at $p=-12$, local maximum at $q=3$. $|p+q|=|-12+3|=9$."
+          "solution": "Write $f(x)=1-2x+e^x\\int_0^xe^{-t}f(t)dt$. Differentiating: $f'=2f+2x-3$, with $f(0)=1$. Solution: $f(x)=1-x$.<br>$g'(x)=(3-x)^{15}(x-4)^6(x+12)^{17}$. Sign: negative for $x\\lt -12$, positive on $(-12,3)$, negative for $x\\gt 3$ (the factor $(x-4)^6$ does not change sign).<br>Local minimum at $p=-12$, local maximum at $q=3$. $|p+q|=|-12+3|=9$."
     },
     // Q23 | JEE Main 28-Jan-2026 S2 (Evening) Math Q23 | Matrix power
     {
@@ -341,8 +341,8 @@ window.testBank['test_2003'] = {
           "marks": 4,
           "negativeMarks": -1,
           "correctAnswer": 170,
-          "text": "If the distance of the point $P(43,\\alpha,\\beta),\\ \\beta<0$, from the line $\\vec r=4\\hat i-\\hat k+\\mu(2\\hat i+3\\hat k),\\ \\mu\\in\\mathbf R$ along a line with direction ratios $3,-1,0$ is $13\\sqrt{10}$, then $\\alpha^2+\\beta^2$ is equal to ____ .",
-          "solution": "Point on the given line: $(4+2\\mu,\\,0,\\,-1+3\\mu)$. Move from $P$ along $(3,-1,0)$ by parameter $s$ with $|s|\\sqrt{10}=13\\sqrt{10}$, so $s=\\pm13$: $(43+3s,\\ \\alpha-s,\\ \\beta)$.<br>$y=0\\Rightarrow\\alpha=s$. $s=13$: $x=82\\Rightarrow\\mu=39\\Rightarrow\\beta=116>0$ (rejected). $s=-13$: $x=4\\Rightarrow\\mu=0\\Rightarrow\\beta=-1$ (valid), $\\alpha=-13$.<br>$\\alpha^2+\\beta^2=169+1=170$."
+          "text": "If the distance of the point $P(43,\\alpha,\\beta),\\ \\beta\\lt 0$, from the line $\\vec r=4\\hat i-\\hat k+\\mu(2\\hat i+3\\hat k),\\ \\mu\\in\\mathbf R$ along a line with direction ratios $3,-1,0$ is $13\\sqrt{10}$, then $\\alpha^2+\\beta^2$ is equal to ____ .",
+          "solution": "Point on the given line: $(4+2\\mu,\\,0,\\,-1+3\\mu)$. Move from $P$ along $(3,-1,0)$ by parameter $s$ with $|s|\\sqrt{10}=13\\sqrt{10}$, so $s=\\pm13$: $(43+3s,\\ \\alpha-s,\\ \\beta)$.<br>$y=0\\Rightarrow\\alpha=s$. $s=13$: $x=82\\Rightarrow\\mu=39\\Rightarrow\\beta=116\\gt 0$ (rejected). $s=-13$: $x=4\\Rightarrow\\mu=0\\Rightarrow\\beta=-1$ (valid), $\\alpha=-13$.<br>$\\alpha^2+\\beta^2=169+1=170$."
     },
     // Q25 | JEE Main 28-Jan-2026 S2 (Evening) Math Q25 | Telescoping series
     {

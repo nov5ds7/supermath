@@ -166,12 +166,12 @@ window.testBank['test_2001'] = {
           "correctAnswer": 0,
           "text": "For a transparent prism, if the angle of minimum deviation is equal to its refracting angle, the refractive index $n$ of the prism satisfies.",
           "options": [
-                "$\\sqrt2<n<2$",
-                "$1<n<2$",
+                "$\\sqrt2\\lt n\\lt 2$",
+                "$1\\lt n\\lt 2$",
                 "$n\\ge2$",
-                "$\\sqrt2<n<2\\sqrt2$"
+                "$\\sqrt2\\lt n\\lt 2\\sqrt2$"
           ],
-          "solution": "$n=\\dfrac{\\sin\\frac{A+\\delta_m}{2}}{\\sin\\frac A2}$ with $\\delta_m=A$: $n=\\dfrac{\\sin A}{\\sin\\frac A2}=2\\cos\\dfrac A2$.<br>For a prism with $0<A<90^\\circ$: $\\cos\\dfrac A2$ lies between $\\cos45^\\circ=\\dfrac1{\\sqrt2}$ and $1$, so $\\sqrt2<n<2$ (NTA answer, option 1).<br>(Note: with no restriction on $A$ other than $n>1$, the range would be $1<n<2$, which is the alternative key given by some coaching institutes.)"
+          "solution": "$n=\\dfrac{\\sin\\frac{A+\\delta_m}{2}}{\\sin\\frac A2}$ with $\\delta_m=A$: $n=\\dfrac{\\sin A}{\\sin\\frac A2}=2\\cos\\dfrac A2$.<br>For a prism with $0\\lt A\\lt 90^\\circ$: $\\cos\\dfrac A2$ lies between $\\cos45^\\circ=\\dfrac1{\\sqrt2}$ and $1$, so $\\sqrt2\\lt n\\lt 2$ (NTA answer, option 1).<br>(Note: with no restriction on $A$ other than $n\\gt 1$, the range would be $1\\lt n\\lt 2$, which is the alternative key given by some coaching institutes.)"
     },
     // Q12 | JEE Main 28-Jan-2026 S2 (Evening) Phy Q37 | Magnetic field of cylindrical conductor
     {
@@ -201,7 +201,7 @@ window.testBank['test_2001'] = {
                 "C and D Only",
                 "A, B and C Only"
           ],
-          "solution": "A: $\\dfrac1{C_{eq}}=\\sum\\dfrac1{C_i}>\\dfrac1{C_{min}}$, so $C_{eq}<C_{min}$ (true). B: false, dielectrics get polarised (charges are displaced slightly). C: $C=\\dfrac{\\varepsilon A}{d}$ (true). D: potential $\\dfrac{kq}{r}$ is constant on a sphere centred on the charge (true)."
+          "solution": "A: $\\dfrac1{C_{eq}}=\\sum\\dfrac1{C_i}\\gt \\dfrac1{C_{min}}$, so $C_{eq}\\lt C_{min}$ (true). B: false, dielectrics get polarised (charges are displaced slightly). C: $C=\\dfrac{\\varepsilon A}{d}$ (true). D: potential $\\dfrac{kq}{r}$ is constant on a sphere centred on the charge (true)."
     },
     // Q14 | JEE Main 28-Jan-2026 S2 (Evening) Phy Q39 | Two blocks joined by a spring [diagram]
     {
@@ -315,7 +315,7 @@ window.testBank['test_2001'] = {
           "negativeMarks": -1,
           "correctAnswer": 384,
           "text": "<div class='section-instruction'><h3>SECTION - B (Maximum Marks: 20)</h3><ul><li>This section contains <b>5 numerical value type questions</b>. The answer to each question is a numerical value (enter the value only).</li></ul><div class='marking-box'>Correct answer: +4 &nbsp;|&nbsp; Incorrect answer: &minus;1 &nbsp;|&nbsp; Unattempted: 0</div></div>Two tuning forks A and B are sounded together giving rise to $8$ beats in $2\\ \\text{s}$. When fork A is loaded with wax, the beat frequency is reduced to $4$ beats in $2\\ \\text{s}$. If the original frequency of tuning fork B is $380\\ \\text{Hz}$ then original frequency of tuning fork A is ____ Hz.",
-          "solution": "Initial beat frequency $=\\tfrac82=4\\ \\text{Hz}$; after loading $=\\tfrac42=2\\ \\text{Hz}$.<br>Loading lowers $f_A$. If $f_A=376$, loading would increase the beat frequency, so $f_A>f_B$: $f_A=380+4=384\\ \\text{Hz}$ (after loading $382$, beats $=2$ Hz ✓)."
+          "solution": "Initial beat frequency $=\\tfrac82=4\\ \\text{Hz}$; after loading $=\\tfrac42=2\\ \\text{Hz}$.<br>Loading lowers $f_A$. If $f_A=376$, loading would increase the beat frequency, so $f_A\\gt f_B$: $f_A=380+4=384\\ \\text{Hz}$ (after loading $382$, beats $=2$ Hz ✓)."
     },
     // Q22 | JEE Main 28-Jan-2026 S2 (Evening) Phy Q47 | Work done in cyclic process [diagram]
     {
