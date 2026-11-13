@@ -1,5 +1,5 @@
 {
-  "_comment": "Optional. If this file exists, the app loads exactly these test IDs instantly instead of scanning. Delete this file (or leave it out) and the app will fall back to auto-scanning for test_XXX.js files on its own — nothing breaks either way. Keep this list updated as you add or remove test files for the fastest load.",
+  "_comment": "Optional. If this file exists, the app loads exactly these test IDs instantly instead of scanning. Delete this file (or leave it out) and the app will fall back to auto-scanning for test_XXX.js files on its own \u2014 nothing breaks either way. Keep this list updated as you add or remove test files for the fastest load.",
   "tests": [
     "test_011",
     "test_012",
@@ -59,6 +59,9 @@
     "test_1503",
     "test_1504",
     "test_1505",
-    "test_1506"
+    "test_1506",
+    "test_2001",
+    "test_2002",
+    "test_2003"
   ]
 }
