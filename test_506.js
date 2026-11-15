@@ -2,7 +2,7 @@ window.testBank = window.testBank || {};
 window.testBank['test_506'] = {
   title: "2025 29 JAN S-1(PCM)",
   category: "JEE MAIN Full Tests - PCM",
-  uploadedAt: "2026-11-14T15:12:45Z",
+  uploadedAt: "2026-11-15T11:33:25Z",
   timeLimitMins: 180,
   examPattern: "main",
   shuffleQuestions: false,
@@ -149,14 +149,14 @@ window.testBank['test_506'] = {
           "marks": 4,
           "negativeMarks": -1,
           "correctAnswer": 2,
-          "text": "At the interface between two materials having refractive indices $n_1$ and $n_2$, the critical angle for reflection of an em wave is $\\theta_{1C}$. The $n_2$ material is replaced by another material having refractive index $n_3$ such that the critical angle at the interface between $n_1$ and $n_3$ materials is $\\theta_{2C}$. If $n_3\\gt n_2\\gt n_1$; $\\frac{n_2}{n_3}=\\frac25$ and $\\sin\\theta_{2C}-\\sin\\theta_{1C}=\\frac12$, then $\\theta_{1C}$ is",
+          "text": "At the interface between two materials having refractive indices $n_1$ and $n_2$, the critical angle for reflection of an em wave is $\\theta_{1C}$. The $n_2$ material is replaced by another material having refractive index $n_3$ such that the critical angle at the interface between $n_1$ and $n_3$ materials is $\\theta_{2C}$. If $n_3\\gt n_2\\gt n_1$; $\\frac{n_2}{n_3}=\\frac25$ and $\\sin\\theta_{1C}-\\sin\\theta_{2C}=\\frac12$, then $\\theta_{1C}$ is",
           "options": [
                 "$\\sin^{-1}\\left(\\frac16\\right)$",
                 "$\\sin^{-1}\\left(\\frac13\\right)$",
-                "$\\sin^{-1}\\left(\\frac{-5}{6}\\right)$",
+                "$\\sin^{-1}\\left(\\frac56\\right)$",
                 "$\\sin^{-1}\\left(\\frac23\\right)$"
           ],
-          "solution": "$\\sin\\theta_{1C}=\\frac{n_1}{n_2}$, $\\sin\\theta_{2C}=\\frac{n_1}{n_3}$, so $\\sin\\theta_{2C}=\\frac{n_2}{n_3}\\sin\\theta_{1C}=\\frac25\\sin\\theta_{1C}$.<br>$\\sin\\theta_{2C}-\\sin\\theta_{1C}=\\left(\\frac25-1\\right)\\sin\\theta_{1C}=\\frac12\\Rightarrow\\sin\\theta_{1C}=-\\frac56$, i.e. $\\theta_{1C}=\\sin^{-1}\\left(\\frac{-5}{6}\\right)$, which is the NTA answer key (option 3).<br><i>Note:</i> this question is flawed as printed (a critical angle cannot have a negative sine, and with $n_3\\gt n_2$ the given difference should be negative). The official key follows the algebra above.<br><b>Answer: (3)</b>"
+          "solution": "$\\sin\\theta_{1C}=\\frac{n_1}{n_2}$, $\\sin\\theta_{2C}=\\frac{n_1}{n_3}$, so $\\sin\\theta_{2C}=\\frac{n_2}{n_3}\\sin\\theta_{1C}=\\frac25\\sin\\theta_{1C}$.<br>$\\sin\\theta_{1C}-\\sin\\theta_{2C}=\\left(1-\\frac25\\right)\\sin\\theta_{1C}=\\frac35\\sin\\theta_{1C}=\\frac12\\Rightarrow\\sin\\theta_{1C}=\\frac56$, so $\\theta_{1C}=\\sin^{-1}\\left(\\frac56\\right)$.<br><b>Answer: (3)</b>"
     },
     // Q11 | PHY | 2025 JAN 29 S-1 | Q36
     {
